@@ -1,6 +1,11 @@
 {
- "generated_at": "2026-09-09T19:44:05.444731+00:00",
+ "generated_at": "2026-09-09T19:50:13.416264+00:00",
  "org": "YEAHDOGS",
+ "site_status": {
+  "available": true,
+  "generated_at": "2026-09-09T19:42:13.799Z",
+  "url": "https://yeahdogs.github.io/watchtower/status.json"
+ },
  "repos": [
   {
    "name": "news",
@@ -20,7 +25,16 @@
     "url": "https://github.com/YEAHDOGS/news/actions/runs/31638398746",
     "updated_at": "2026-08-12T20:35:29Z"
    },
-   "pages": "http://news.wearedogs.net/"
+   "pages": "http://news.wearedogs.net/",
+   "site": {
+    "status": "down",
+    "lastCheck": "2026-09-09T19:42:13.799Z",
+    "since": "2026-09-09T19:39:36.427Z",
+    "responseMs": null,
+    "failing": [
+     "http: fetch failed after retry: fetch failed"
+    ]
+   }
   },
   {
    "name": "40",
@@ -34,7 +48,8 @@
    "url": "https://github.com/YEAHDOGS/40",
    "branch": "master",
    "workflow": null,
-   "pages": null
+   "pages": null,
+   "site": null
   },
   {
    "name": "castle",
@@ -48,21 +63,23 @@
    "url": "https://github.com/YEAHDOGS/castle",
    "branch": "master",
    "workflow": null,
-   "pages": null
+   "pages": null,
+   "site": null
   },
   {
    "name": "phoenix",
    "description": "A fresh start for windows/android devices",
    "language": "PowerShell",
    "stars": 0,
-   "pushed_at": "2026-09-09T19:04:40Z",
+   "pushed_at": "2026-09-09T19:43:24Z",
    "open_issues": 0,
    "open_prs": 1,
    "commits": 101,
    "url": "https://github.com/YEAHDOGS/phoenix",
    "branch": "master",
    "workflow": null,
-   "pages": null
+   "pages": null,
+   "site": null
   },
   {
    "name": "sdm",
@@ -76,7 +93,8 @@
    "url": "https://github.com/YEAHDOGS/sdm",
    "branch": "master",
    "workflow": null,
-   "pages": null
+   "pages": null,
+   "site": null
   },
   {
    "name": "proof",
@@ -96,7 +114,8 @@
     "url": "https://github.com/YEAHDOGS/proof/actions/runs/34357311815",
     "updated_at": "2026-09-09T13:29:04Z"
    },
-   "pages": null
+   "pages": null,
+   "site": null
   },
   {
    "name": "demo",
@@ -110,7 +129,8 @@
    "url": "https://github.com/YEAHDOGS/demo",
    "branch": "master",
    "workflow": null,
-   "pages": null
+   "pages": null,
+   "site": null
   },
   {
    "name": "playback",
@@ -124,7 +144,8 @@
    "url": "https://github.com/YEAHDOGS/playback",
    "branch": "master",
    "workflow": null,
-   "pages": null
+   "pages": null,
+   "site": null
   },
   {
    "name": "pay",
@@ -138,7 +159,8 @@
    "url": "https://github.com/YEAHDOGS/pay",
    "branch": "master",
    "workflow": null,
-   "pages": null
+   "pages": null,
+   "site": null
   },
   {
    "name": "help",
@@ -152,7 +174,8 @@
    "url": "https://github.com/YEAHDOGS/help",
    "branch": "master",
    "workflow": null,
-   "pages": null
+   "pages": null,
+   "site": null
   },
   {
    "name": "bakery",
@@ -166,7 +189,8 @@
    "url": "https://github.com/YEAHDOGS/bakery",
    "branch": "master",
    "workflow": null,
-   "pages": null
+   "pages": null,
+   "site": null
   },
   {
    "name": "divorce",
@@ -186,7 +210,14 @@
     "url": "https://github.com/YEAHDOGS/divorce/actions/runs/34339144656",
     "updated_at": "2026-09-09T10:21:56Z"
    },
-   "pages": "https://yeahdogs.github.io/divorce/"
+   "pages": "https://yeahdogs.github.io/divorce/",
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-09T19:42:13.799Z",
+    "since": "2026-09-09T19:39:36.427Z",
+    "responseMs": null,
+    "failing": []
+   }
   },
   {
    "name": "sampler",
@@ -206,7 +237,8 @@
     "url": "https://github.com/YEAHDOGS/sampler/actions/runs/32937021036",
     "updated_at": "2026-08-26T06:11:08Z"
    },
-   "pages": null
+   "pages": null,
+   "site": null
   },
   {
    "name": "icecream",
@@ -226,7 +258,14 @@
     "url": "https://github.com/YEAHDOGS/icecream/actions/runs/34337941453",
     "updated_at": "2026-09-09T10:02:13Z"
    },
-   "pages": "https://yeahdogs.github.io/icecream/"
+   "pages": "https://yeahdogs.github.io/icecream/",
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-09T19:42:13.799Z",
+    "since": "2026-09-09T19:39:36.427Z",
+    "responseMs": null,
+    "failing": []
+   }
   },
   {
    "name": "wax",
@@ -246,7 +285,14 @@
     "url": "https://github.com/YEAHDOGS/wax/actions/runs/34340167049",
     "updated_at": "2026-09-09T10:26:34Z"
    },
-   "pages": "https://yeahdogs.github.io/wax/"
+   "pages": "https://yeahdogs.github.io/wax/",
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-09T19:42:13.799Z",
+    "since": "2026-09-09T19:39:36.427Z",
+    "responseMs": null,
+    "failing": []
+   }
   },
   {
    "name": "remote",
@@ -266,41 +312,50 @@
     "url": "https://github.com/YEAHDOGS/remote/actions/runs/34354934284",
     "updated_at": "2026-09-09T13:10:06Z"
    },
-   "pages": null
+   "pages": null,
+   "site": null
   },
   {
    "name": "chains",
    "description": "Chains \u2014 git for video game save data: versioned, emulator-compatible cloud saves",
    "language": "PowerShell",
    "stars": 0,
-   "pushed_at": "2026-09-09T19:17:07Z",
+   "pushed_at": "2026-09-09T19:48:14Z",
    "open_issues": 0,
    "open_prs": 0,
    "commits": 2,
    "url": "https://github.com/YEAHDOGS/chains",
    "branch": "master",
    "workflow": null,
-   "pages": null
+   "pages": null,
+   "site": null
   },
   {
    "name": "dashboard",
    "description": "DOGS mission control \u2014 live build/repo status dashboard",
    "language": "HTML",
    "stars": 0,
-   "pushed_at": "2026-09-09T18:26:35Z",
+   "pushed_at": "2026-09-09T19:44:12Z",
    "open_issues": 0,
    "open_prs": 0,
-   "commits": 24,
+   "commits": 25,
    "url": "https://github.com/YEAHDOGS/dashboard",
    "branch": "master",
    "workflow": {
     "name": "pages build and deployment",
     "conclusion": "success",
     "status": "completed",
-    "url": "https://github.com/YEAHDOGS/dashboard/actions/runs/34389024206",
-    "updated_at": "2026-09-09T18:27:14Z"
+    "url": "https://github.com/YEAHDOGS/dashboard/actions/runs/34396821780",
+    "updated_at": "2026-09-09T19:45:35Z"
    },
-   "pages": "https://yeahdogs.github.io/dashboard/"
+   "pages": "https://yeahdogs.github.io/dashboard/",
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-09T19:42:13.799Z",
+    "since": "2026-09-09T19:39:36.427Z",
+    "responseMs": null,
+    "failing": []
+   }
   },
   {
    "name": "id",
@@ -314,7 +369,8 @@
    "url": "https://github.com/YEAHDOGS/id",
    "branch": "master",
    "workflow": null,
-   "pages": null
+   "pages": null,
+   "site": null
   },
   {
    "name": "paper",
@@ -334,7 +390,14 @@
     "url": "https://github.com/YEAHDOGS/paper/actions/runs/34396681088",
     "updated_at": "2026-09-09T19:43:29Z"
    },
-   "pages": "https://yeahdogs.github.io/paper/"
+   "pages": "https://yeahdogs.github.io/paper/",
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-09T19:42:13.799Z",
+    "since": "2026-09-09T19:39:36.427Z",
+    "responseMs": null,
+    "failing": []
+   }
   },
   {
    "name": "watchtower",
@@ -354,27 +417,43 @@
     "url": "https://github.com/YEAHDOGS/watchtower/actions/runs/34396658408",
     "updated_at": "2026-09-09T19:43:16Z"
    },
-   "pages": "https://yeahdogs.github.io/watchtower/"
+   "pages": "https://yeahdogs.github.io/watchtower/",
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-09T19:42:13.799Z",
+    "since": "2026-09-09T19:42:13.799Z",
+    "responseMs": null,
+    "failing": []
+   }
   },
   {
    "name": "mirror",
    "description": "Smart-mirror ambient dashboard: live tickers + paper trading stats. Pure black, huge type, wall-ready.",
    "language": "JavaScript",
    "stars": 0,
-   "pushed_at": "2026-09-09T19:42:01Z",
+   "pushed_at": "2026-09-09T19:45:54Z",
    "open_issues": 0,
    "open_prs": 0,
-   "commits": 1,
+   "commits": 2,
    "url": "https://github.com/YEAHDOGS/mirror",
    "branch": "master",
    "workflow": {
     "name": "pages build and deployment",
     "conclusion": "success",
     "status": "completed",
-    "url": "https://github.com/YEAHDOGS/mirror/actions/runs/34396616752",
-    "updated_at": "2026-09-09T19:42:52Z"
+    "url": "https://github.com/YEAHDOGS/mirror/actions/runs/34396991148",
+    "updated_at": "2026-09-09T19:46:41Z"
    },
-   "pages": "https://yeahdogs.github.io/mirror/"
+   "pages": "https://yeahdogs.github.io/mirror/",
+   "site": {
+    "status": "down",
+    "lastCheck": "2026-09-09T19:42:13.799Z",
+    "since": "2026-09-09T19:42:13.799Z",
+    "responseMs": null,
+    "failing": [
+     "http: HTTP 404, expected 200"
+    ]
+   }
   }
  ]
 }

@@ -29,6 +29,11 @@ API = "https://api.github.com"
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "data.json")
 
+# Public Watchtower feed: per-site up/down status, baked into data.json so the
+# dashboard cards show live site status. Fetched without auth; a failed fetch
+# means "unknown", never a fake green.
+WATCHTOWER_STATUS_URL = "https://yeahdogs.github.io/watchtower/status.json"
+
 # Allowlist: the ONLY repo-level fields that may appear in data.json.
 SAFE_FIELDS = {
     "name", "description", "language", "stargazers_count",
@@ -127,6 +132,41 @@ def build_repo(raw):
     }
 
 
+def fetch_site_status():
+    """Watchtower status.json -> (by_repo dict, generated_at) or (None, None).
+
+    by_repo maps repo name to {status, lastCheck, since, responseMs, failing}.
+    Any failure returns (None, None): the dashboard renders "unavailable",
+    never a green it didn't earn.
+    """
+    try:
+        req = urllib.request.Request(
+            WATCHTOWER_STATUS_URL,
+            headers={
+                "Accept": "application/json",
+                "User-Agent": "dogs-dashboard-builder",
+            },
+        )
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            data = json.load(resp)
+    except Exception as e:  # noqa: BLE001 - the status feed is optional
+        print("WARN: watchtower status.json unavailable: %s" % e, file=sys.stderr)
+        return None, None
+    by_repo = {}
+    for s in data.get("sites", []) or []:
+        repo = s.get("repo")
+        if not repo:
+            continue
+        by_repo[repo] = {
+            "status": s.get("status"),
+            "lastCheck": s.get("lastCheck"),
+            "since": s.get("since"),
+            "responseMs": s.get("responseMs"),
+            "failing": s.get("failing") or [],
+        }
+    return by_repo, data.get("generatedAt")
+
+
 def pii_guard(payload):
     blocklist = [t for t in os.environ.get("PII_BLOCKLIST", "").split(",") if t.strip()]
     if not blocklist:
@@ -142,19 +182,30 @@ def main():
     if not repos:
         sys.exit("No repos returned; aborting.")
 
+    site_by_repo, site_generated = fetch_site_status()
+
     out = []
     for raw in repos:
         # Guard clause: only keep allowlisted fields from the raw payload.
         if not all(k in raw for k in ("name", "html_url")):
             continue
         try:
-            out.append(build_repo(raw))
+            repo = build_repo(raw)
+            # Watchtower site status keyed by repo name; None when the feed is
+            # unavailable or the repo has no monitored site.
+            repo["site"] = site_by_repo.get(repo["name"]) if site_by_repo else None
+            out.append(repo)
         except Exception as e:  # noqa: BLE001 - one bad repo must not kill the build
             print("WARN: skipping %s: %s" % (raw.get("name"), e), file=sys.stderr)
 
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "org": ORG,
+        "site_status": {
+            "available": site_by_repo is not None,
+            "generated_at": site_generated,
+            "url": WATCHTOWER_STATUS_URL,
+        },
         "repos": out,
     }
     pii_guard(payload)
