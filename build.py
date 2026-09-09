@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""DOGS mission-control dashboard builder.
+"""Watchtower dashboard builder.
 
 Fetches public repo metadata for the YEAHDOGS org and bakes it into data.json.
 Only safe fields are kept (see SAFE_FIELDS below) — no owners, no emails,

@@ -1,7 +1,7 @@
-# DOGS Mission Control Dashboard
+# Watchtower Dashboard
 
 Public, zero-PII status board for the YEAHDOGS org. Live at
-https://yeahdogs.github.io/dashboard/
+https://yeahdogs.github.io/tower/
 
 ## What it shows
 
