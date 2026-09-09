@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOGS Mission Control</title>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131822;
+    --card-border: #232b3a;
+    --text: #e6e9f0;
+    --muted: #8b93a7;
+    --green: #3ddc84;
+    --red: #ff5c5c;
+    --yellow: #ffcf4d;
+    --gray: #5b6478;
+    --accent: #6ea8fe;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding: 24px 16px 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  header { margin-bottom: 8px; }
+  header h1 { font-size: 1.6rem; letter-spacing: 0.02em; }
+  header p { color: var(--muted); font-size: 0.9rem; margin-top: 6px; }
+  header p .dot-sep { margin: 0 6px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 14px;
+    margin-top: 20px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .card-top { display: flex; align-items: center; gap: 10px; }
+  .status {
+    width: 11px; height: 11px; border-radius: 50%;
+    flex-shrink: 0;
+    background: var(--gray);
+  }
+  .status.ok { background: var(--green); box-shadow: 0 0 8px rgba(61,220,132,.6); }
+  .status.bad { background: var(--red); box-shadow: 0 0 8px rgba(255,92,92,.6); }
+  .status.busy { background: var(--yellow); animation: pulse 1.4s infinite; }
+  @keyframes pulse { 50% { opacity: .35; } }
+  .repo-name { font-size: 1.05rem; font-weight: 650; }
+  .repo-name a { color: var(--text); text-decoration: none; }
+  .repo-name a:hover { color: var(--accent); }
+  .desc { color: var(--muted); font-size: 0.86rem; line-height: 1.45; min-height: 1.2em; }
+  .meta { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 0.8rem; color: var(--muted); }
+  .meta b { color: var(--text); font-weight: 600; }
+  .lang { display: inline-flex; align-items: center; gap: 6px; }
+  .lang i { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+  .wf {
+    font-size: 0.8rem; color: var(--muted);
+    border-top: 1px solid var(--card-border);
+    padding-top: 10px;
+    display: flex; justify-content: space-between; align-items: center; gap: 8px;
+  }
+  .wf a { color: var(--muted); text-decoration: none; }
+  .wf a:hover { color: var(--accent); }
+  .wf .conclusion { text-transform: capitalize; }
+  .links { display: flex; gap: 10px; font-size: 0.8rem; }
+  .links a {
+    color: var(--accent); text-decoration: none;
+    border: 1px solid var(--card-border); border-radius: 8px;
+    padding: 5px 10px;
+  }
+  .links a:hover { border-color: var(--accent); }
+  footer { margin-top: 32px; color: var(--muted); font-size: 0.78rem; text-align: center; }
+  footer a { color: var(--muted); }
+  .error {
+    background: #2a1414; border: 1px solid var(--red); color: #ffb3b3;
+    border-radius: 10px; padding: 14px; margin-top: 20px; font-size: 0.9rem;
+  }
+  @media (max-width: 480px) {
+    body { padding: 16px 12px 40px; }
+    header h1 { font-size: 1.3rem; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>DOGS Mission Control</h1>
+  <p><span id="repo-count">…</span><span class="dot-sep">·</span>Updated <span id="updated">…</span></p>
+</header>
+<div class="grid" id="grid"></div>
+<div id="err"></div>
+<footer>
+  Static snapshot baked at build time from public repo metadata. No personal data is collected or displayed.
+  <br><a href="https://github.com/YEAHDOGS/dashboard">YEAHDOGS/dashboard</a>
+</footer>
+<script>
+(function () {
+  "use strict";
+
+  var LANG_COLORS = {
+    "TypeScript": "#3178c6", "JavaScript": "#f1e05a", "Python": "#3572A5",
+    "Svelte": "#ff3e00", "HTML": "#e34c26", "CSS": "#563d7c",
+    "Shell": "#89e051", "PowerShell": "#012456", "Kotlin": "#A97BFF",
+    "Java": "#b07219", "C": "#555555", "C++": "#f34b7d", "Go": "#00ADD8",
+    "Rust": "#dea584", "Ruby": "#701516", "SCSS": "#c6538c"
+  };
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text !== undefined && text !== null) n.textContent = text;
+    return n;
+  }
+
+  function relTime(iso) {
+    if (!iso) return "unknown";
+    var then = new Date(iso).getTime();
+    if (isNaN(then)) return "unknown";
+    var s = Math.max(0, Math.floor((Date.now() - then) / 1000));
+    if (s < 60) return "just now";
+    var m = Math.floor(s / 60);
+    if (m < 60) return m + "m ago";
+    var h = Math.floor(m / 60);
+    if (h < 24) return h + "h ago";
+    var d = Math.floor(h / 24);
+    if (d < 30) return d + "d ago";
+    return new Date(iso).toISOString().slice(0, 10);
+  }
+
+  function esc(s) { return String(s === null || s === undefined ? "" : s); }
+
+  function statusClass(wf) {
+    if (!wf) return "";
+    if (wf.status === "in_progress" || wf.status === "queued") return "busy";
+    if (wf.conclusion === "success") return "ok";
+    if (wf.conclusion === "failure" || wf.conclusion === "timed_out" ||
+        wf.conclusion === "action_required") return "bad";
+    return "";
+  }
+
+  function wfLabel(wf) {
+    if (!wf) return "no runs";
+    if (wf.status === "in_progress" || wf.status === "queued") return "running";
+    return wf.conclusion ? wf.conclusion.replace(/_/g, " ") : wf.status;
+  }
+
+  function card(r) {
+    var c = el("div", "card");
+
+    var top = el("div", "card-top");
+    top.appendChild(el("span", "status " + statusClass(r.workflow)));
+    var name = el("span", "repo-name");
+    var a = el("a", null, r.name);
+    a.href = r.url; a.target = "_blank"; a.rel = "noopener";
+    name.appendChild(a);
+    top.appendChild(name);
+    c.appendChild(top);
+
+    if (r.description) c.appendChild(el("div", "desc", r.description));
+
+    var meta = el("div", "meta");
+    if (r.language) {
+      var lang = el("span", "lang");
+      var dot = el("i");
+      dot.style.background = LANG_COLORS[r.language] || "#8b93a7";
+      lang.appendChild(dot);
+      lang.appendChild(el("span", null, r.language));
+      meta.appendChild(lang);
+    }
+    meta.appendChild(el("span", null, "★ " + r.stars));
+    meta.appendChild(el("span", null, "pushed " + relTime(r.pushed_at)));
+    if (r.commits !== null && r.commits !== undefined)
+      meta.appendChild(el("span", null, r.commits + " commits"));
+    meta.appendChild(el("span", null, r.open_issues + " issues"));
+    meta.appendChild(el("span", null, r.open_prs + " PRs"));
+    c.appendChild(meta);
+
+    var wf = el("div", "wf");
+    wf.appendChild(el("span", "conclusion", esc(r.workflow ? r.workflow.name + ": " : "") + wfLabel(r.workflow)));
+    if (r.workflow && r.workflow.url) {
+      var wa = el("a", null, "run");
+      wa.href = r.workflow.url; wa.target = "_blank"; wa.rel = "noopener";
+      wf.appendChild(wa);
+    }
+    c.appendChild(wf);
+
+    if (r.pages) {
+      var links = el("div", "links");
+      var pa = el("a", null, "Open live site");
+      pa.href = r.pages; pa.target = "_blank"; pa.rel = "noopener";
+      links.appendChild(pa);
+      c.appendChild(links);
+    }
+
+    return c;
+  }
+
+  fetch("data.json", { cache: "no-store" })
+    .then(function (res) {
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      return res.json();
+    })
+    .then(function (data) {
+      if (!data || !Array.isArray(data.repos)) throw new Error("bad data");
+      document.getElementById("repo-count").textContent = data.repos.length + " repos";
+      document.getElementById("updated").textContent = relTime(data.generated_at) +
+        " (" + new Date(data.generated_at).toISOString().replace("T", " ").slice(0, 16) + " UTC)";
+      var grid = document.getElementById("grid");
+      var repos = data.repos.slice().sort(function (x, y) {
+        return new Date(y.pushed_at) - new Date(x.pushed_at);
+      });
+      repos.forEach(function (r) { grid.appendChild(card(r)); });
+    })
+    .catch(function (e) {
+      var d = document.getElementById("err");
+      d.className = "error";
+      d.textContent = "Could not load dashboard data: " + e.message;
+    });
+})();
+</script>
+</body>
+</html>
