@@ -1,15 +1,20 @@
-# Watchtower Dashboard
+# Watchtower — project portfolio + status board
 
-Public, zero-PII status board for the YEAHDOGS org. Live at
+Public, zero-PII portfolio of every YEAHDOGS project. Live at
 https://yeahdogs.github.io/tower/
 
 ## What it shows
 
-Per repo: name, description, primary language, stars, last-push time,
-commit count, open issues, open PRs, latest Actions workflow conclusion
-(green/red/yellow status dot), **live site status from Watchtower**
-(green/red "LIVE — checked Xm ago" line on each card, "not monitored" for
-repos with no site — never a fake green), and the GitHub Pages URL when one exists.
+A Metro-style tile grid: one square tile per repo with its name, one-line
+description, category, live-site + repo links, and a live site-status dot
+fed from the Watchtower engine's status.json feed (baked into data.json at
+build time — never a fake green). Search filters tiles by name/description;
+sort offers featured, name, status, recency, and category; category chips
+filter Apps / Trading / Infra / Docs.
+
+Header carries the Brandon Wellacruz / DOGS identity line so the URL works
+on a resume; semantic HTML (`<article>` tiles with real links), proper
+`<title>`, meta description, and Open Graph tags make it indexable.
 
 Data is baked into `data.json` at build time from public repo metadata.
 No personal data is collected, stored, or displayed — the builder only
