@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-09T11:37:05.226421+00:00",
+ "generated_at": "2026-09-09T11:48:17.324028+00:00",
  "org": "YEAHDOGS",
  "repos": [
   {
@@ -253,18 +253,18 @@
    "description": "DOGS Remote \u2014 native Android universal TV remote (IR blaster, Magic Mode venue profiles)",
    "language": "Kotlin",
    "stars": 0,
-   "pushed_at": "2026-09-09T11:12:22Z",
+   "pushed_at": "2026-09-09T11:37:32Z",
    "open_issues": 0,
    "open_prs": 0,
-   "commits": 15,
+   "commits": 17,
    "url": "https://github.com/YEAHDOGS/remote",
    "branch": "master",
    "workflow": {
     "name": "Build APK",
     "conclusion": "failure",
     "status": "completed",
-    "url": "https://github.com/YEAHDOGS/remote/actions/runs/34344318073",
-    "updated_at": "2026-09-09T11:16:14Z"
+    "url": "https://github.com/YEAHDOGS/remote/actions/runs/34346557816",
+    "updated_at": "2026-09-09T11:41:43Z"
    },
    "pages": null
   },
@@ -287,18 +287,18 @@
    "description": "DOGS mission control \u2014 live build/repo status dashboard",
    "language": "HTML",
    "stars": 0,
-   "pushed_at": "2026-09-09T10:47:31Z",
+   "pushed_at": "2026-09-09T11:37:12Z",
    "open_issues": 0,
    "open_prs": 0,
-   "commits": 3,
+   "commits": 4,
    "url": "https://github.com/YEAHDOGS/dashboard",
    "branch": "master",
    "workflow": {
     "name": "pages build and deployment",
     "conclusion": "success",
     "status": "completed",
-    "url": "https://github.com/YEAHDOGS/dashboard/actions/runs/34342111169",
-    "updated_at": "2026-09-09T10:48:13Z"
+    "url": "https://github.com/YEAHDOGS/dashboard/actions/runs/34346529085",
+    "updated_at": "2026-09-09T11:37:54Z"
    },
    "pages": "https://yeahdogs.github.io/dashboard/"
   }
