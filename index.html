@@ -265,6 +265,73 @@
   @media (max-width: 560px) {
     .demo-grid { grid-template-columns: 1fr; }
   }
+
+  /* ---- progress timeline ---- */
+  .tile-links button {
+    color: var(--accent);
+    text-decoration: none;
+    border: 1px solid var(--tile-border);
+    border-radius: 6px;
+    padding: 6px 12px;
+    background: rgba(11, 14, 20, 0.55);
+    font-size: inherit;
+    font-family: inherit;
+    cursor: pointer;
+  }
+  .tile-links button:hover { border-color: var(--accent); }
+  .prog-overlay {
+    position: fixed; inset: 0; z-index: 60;
+    background: rgba(4, 6, 10, 0.74);
+    display: flex; align-items: center; justify-content: center;
+    padding: 16px;
+  }
+  .prog-overlay[hidden] { display: none; }
+  .prog-panel {
+    background: var(--tile);
+    border: 1px solid var(--tile-border);
+    border-radius: 12px;
+    width: 100%; max-width: 680px; max-height: 86vh;
+    display: flex; flex-direction: column; overflow: hidden;
+  }
+  .prog-head {
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
+    padding: 18px 18px 12px; border-bottom: 1px solid var(--tile-border);
+  }
+  .prog-head h2 { font-size: 1.25rem; letter-spacing: 0.01em; }
+  .prog-sub { color: var(--muted); font-size: 0.8rem; margin-top: 4px; }
+  .prog-close {
+    background: transparent; border: 1px solid var(--tile-border); color: var(--muted);
+    border-radius: 8px; width: 36px; height: 36px; font-size: 1rem; cursor: pointer; flex-shrink: 0;
+  }
+  .prog-close:hover { color: var(--text); border-color: var(--gray); }
+  .prog-list { overflow-y: auto; padding: 4px 18px 22px; }
+  .prog-item { padding: 14px 0; border-bottom: 1px solid var(--tile-border); }
+  .prog-item:last-child { border-bottom: none; }
+  .prog-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 0.76rem; color: var(--muted); margin-bottom: 6px; }
+  .kind {
+    border: 1px solid var(--tile-border); border-radius: 999px;
+    padding: 2px 10px; font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+  }
+  .kind.video { color: var(--accent); border-color: var(--accent); }
+  .kind.deploy { color: var(--green); border-color: var(--green); }
+  .prog-when { font-variant-numeric: tabular-nums; }
+  .prog-title { font-size: 0.95rem; font-weight: 600; line-height: 1.4; margin-bottom: 4px; }
+  .prog-detail { color: var(--muted); font-size: 0.84rem; line-height: 1.5; }
+  .prog-ref { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.72rem; color: var(--gray); }
+  .prog-item video { width: 100%; aspect-ratio: 16 / 9; border-radius: 8px; background: #000; margin-top: 8px; display: block; }
+  .prog-item img { width: 100%; border-radius: 8px; border: 1px solid var(--tile-border); margin-top: 8px; display: block; }
+  .prog-open {
+    display: inline-block; margin-top: 8px; color: var(--accent); text-decoration: none;
+    border: 1px solid var(--tile-border); border-radius: 6px; padding: 6px 12px; font-size: 0.82rem;
+  }
+  .prog-open:hover { border-color: var(--accent); }
+  .prog-empty { color: var(--muted); padding: 28px 0; text-align: center; font-size: 0.9rem; line-height: 1.6; }
+  @media (max-width: 560px) {
+    .prog-head { padding: 14px 14px 10px; }
+    .prog-list { padding: 4px 14px 18px; }
+    .prog-head h2 { font-size: 1.1rem; }
+  }
 </style>
 </head>
 <body>
@@ -391,6 +458,19 @@
   <br><a href="https://github.com/YEAHDOGS">YEAHDOGS</a> · <a href="https://github.com/YEAHDOGS/tower">YEAHDOGS/tower</a>
 </footer>
 
+<div class="prog-overlay" id="prog-overlay" hidden>
+  <div class="prog-panel" role="dialog" aria-modal="true" aria-labelledby="prog-title">
+    <div class="prog-head">
+      <div>
+        <h2 id="prog-title">Progress</h2>
+        <p class="prog-sub" id="prog-sub"></p>
+      </div>
+      <button class="prog-close" id="prog-close" type="button" aria-label="Close progress view">✕</button>
+    </div>
+    <div class="prog-list" id="prog-list"></div>
+  </div>
+</div>
+
 <script>
 (function () {
   "use strict";
@@ -472,6 +552,13 @@
     var ga = el("a", null, "Repo");
     ga.href = r.url; ga.target = "_blank"; ga.rel = "noopener";
     links.appendChild(ga);
+    var pb = el("button", null, "Progress");
+    pb.type = "button";
+    pb.addEventListener("click", function (ev) {
+      ev.stopPropagation();
+      openProgress(r);
+    });
+    links.appendChild(pb);
     foot.appendChild(links);
 
     var st = el("div", "tile-status " + si.cls);
@@ -612,6 +699,95 @@
         });
       });
     });
+  });
+})();
+</script>
+<script>
+/* Progress timeline: per-project modal fed by repo.progress in data.json. */
+(function () {
+  "use strict";
+  var overlay = document.getElementById("prog-overlay");
+  var pTitle = document.getElementById("prog-title");
+  var pSub = document.getElementById("prog-sub");
+  var pList = document.getElementById("prog-list");
+
+  function el2(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text !== undefined && text !== null) n.textContent = text;
+    return n;
+  }
+
+  function fmtWhen(iso) {
+    var d = new Date(iso);
+    if (isNaN(d.getTime())) return iso;
+    return d.toLocaleString(undefined, {
+      month: "short", day: "numeric", year: "numeric",
+      hour: "numeric", minute: "2-digit"
+    });
+  }
+
+  function progItem(e) {
+    var it = el2("div", "prog-item");
+    var meta = el2("div", "prog-meta");
+    meta.appendChild(el2("span", "kind " + (e.kind || "note"), e.kind || "note"));
+    meta.appendChild(el2("span", "prog-when", fmtWhen(e.date)));
+    var refBits = [];
+    if (e.ref) refBits.push(e.ref);
+    if (e.branch) refBits.push(e.branch);
+    if (refBits.length) meta.appendChild(el2("span", "prog-ref", refBits.join(" · ")));
+    it.appendChild(meta);
+    it.appendChild(el2("div", "prog-title", e.title));
+    if (e.detail) it.appendChild(el2("div", "prog-detail", e.detail));
+    if (e.kind === "video" && e.url) {
+      var v = document.createElement("video");
+      v.controls = true; v.preload = "none"; v.playsInline = true;
+      v.setAttribute("playsinline", "");
+      v.src = e.url;
+      it.appendChild(v);
+    } else if (e.kind === "screenshot" && (e.thumb || e.url)) {
+      var a = el2("a");
+      a.href = e.url || e.thumb; a.target = "_blank"; a.rel = "noopener";
+      var img = document.createElement("img");
+      img.src = e.thumb || e.url; img.loading = "lazy"; img.alt = e.title;
+      a.appendChild(img);
+      it.appendChild(a);
+    } else if (e.url) {
+      var oa = el2("a", "prog-open", "Open ↗");
+      oa.href = e.url; oa.target = "_blank"; oa.rel = "noopener";
+      it.appendChild(oa);
+    }
+    return it;
+  }
+
+  function closeProgress() {
+    overlay.hidden = true;
+    document.body.style.overflow = "";
+  }
+
+  window.openProgress = function (r) {
+    var entries = (r && r.progress) || [];
+    pTitle.textContent = r.name + " — progress";
+    pSub.textContent = entries.length
+      ? entries.length + " entr" + (entries.length === 1 ? "y" : "ies") + ", newest first"
+      : "no entries yet";
+    pList.innerHTML = "";
+    if (!entries.length) {
+      pList.appendChild(el2("div", "prog-empty",
+        "No progress entries yet — the octopus loop appends them from real build activity."));
+    } else {
+      entries.forEach(function (e) { pList.appendChild(progItem(e)); });
+    }
+    overlay.hidden = false;
+    document.body.style.overflow = "hidden";
+  };
+
+  document.getElementById("prog-close").addEventListener("click", closeProgress);
+  overlay.addEventListener("click", function (ev) {
+    if (ev.target === overlay) closeProgress();
+  });
+  document.addEventListener("keydown", function (ev) {
+    if (ev.key === "Escape" && !overlay.hidden) closeProgress();
   });
 })();
 </script>

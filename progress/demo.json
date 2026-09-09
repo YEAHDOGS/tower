@@ -1,0 +1,101 @@
+{
+ "project": "demo",
+ "entries": [
+  {
+   "date": "2026-09-09T20:26:22+00:00",
+   "title": "docs(stage): dist inventory + one-command gh-pages staging script; decisions #6 \u2014 ship dist/ as-is when Brando approves",
+   "kind": "commit",
+   "ref": "77f4e97",
+   "branch": "jack/demo-staging-prep",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:12:39+00:00",
+   "title": "fix(pages): webmanifest icon under /demo/ base \u2014 relative favicon.svg, not absolute /favicon.svg",
+   "kind": "commit",
+   "ref": "c2383be",
+   "branch": "jack/demo-shippable",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:54:53+00:00",
+   "title": "data: dashboard entry -> Watchtower at /tower/",
+   "kind": "commit",
+   "ref": "e23edcf",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:25:55+00:00",
+   "title": "content: point Divorce at its real staging URL (https://yeahdogs.github.io/divorce/) \u2014 gh-pages staging is live, site already renders a 'Sta",
+   "kind": "commit",
+   "ref": "05c615e",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:25:36+00:00",
+   "title": "test(build): regression gate for the 404-template bug \u2014 fail if public/404.html exists, and assert dist/404.html is the built copy (identica",
+   "kind": "commit",
+   "ref": "5e6f7c9",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:24:46+00:00",
+   "title": "fix(build): remove stale public/404.html template \u2014 postbuild generates dist/404.html from the built index.html; leaving the unprocessed tem",
+   "kind": "commit",
+   "ref": "e147f43",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:11:30+00:00",
+   "title": "fix(build): postbuild copies built index.html to 404.html \u2014 public/404.html was an unprocessed template shipped verbatim; docs: log source-r",
+   "kind": "commit",
+   "ref": "e3290f3",
+   "branch": "jack/demo-source-recovered",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:11:30+00:00",
+   "title": "recover: restore full source from jack/demo-nuke-rehearsal \u2014 the 'lost source' was never lost (24 src files, scaffold + bootmenu + nuke rehe",
+   "kind": "commit",
+   "ref": "d0b2d38",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T18:23:05+00:00",
+   "title": "docs: sync to reality \u2014 Phase 1 built on disk but source never committed; log recovery question",
+   "kind": "commit",
+   "ref": "6d0b203",
+   "branch": "jack/demo-docs-sync",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T18:23:05+00:00",
+   "title": "gitignore: cover vite /dist output for the svelte stack; add scripts/smoke-dist.sh deployability check",
+   "kind": "commit",
+   "ref": "784b89a",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T17:43:56+00:00",
+   "title": "feat(bootmenu): rehearsal transcript records the arming interlock gates",
+   "kind": "commit",
+   "ref": "42dcbc8",
+   "branch": "jack/demo-nuke-rehearsal",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T17:04:34+00:00",
+   "title": "feat(bootmenu): vault interlock \u2014 backup vault can never be a Nuke target",
+   "kind": "commit",
+   "ref": "e0de692",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  }
+ ]
+}
