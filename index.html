@@ -244,6 +244,27 @@
     .tile-status { font-size: 0.68rem; }
     .search { max-width: none; }
   }
+  /* ---- demos ---- */
+  .demos { margin-top: 46px; }
+  .demos h2 { font-size: 1.35rem; letter-spacing: 0.01em; margin-bottom: 6px; }
+  .demos .lede { color: var(--muted); font-size: 0.92rem; margin-bottom: 18px; max-width: 72ch; line-height: 1.55; }
+  .demo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .demo-card { background: var(--tile); border: 1px solid var(--tile-border); border-radius: 10px; padding: 16px; }
+  .demo-card h3 { font-size: 1rem; font-weight: 650; margin-bottom: 3px; }
+  .demo-card .meta { color: var(--muted); font-size: 0.78rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; margin-bottom: 4px; }
+  .demo-card .desc { color: var(--muted); font-size: 0.85rem; line-height: 1.5; margin-bottom: 10px; }
+  .demo-card video { width: 100%; aspect-ratio: 16 / 9; border-radius: 6px; background: #000; display: block; }
+  .speed { display: flex; gap: 6px; margin-top: 10px; align-items: center; flex-wrap: wrap; }
+  .speed .lbl { color: var(--muted); font-size: 0.78rem; margin-right: 2px; }
+  .speed button {
+    background: transparent; border: 1px solid var(--tile-border); color: var(--muted);
+    border-radius: 6px; padding: 4px 11px; font-size: 0.78rem; cursor: pointer; font-family: inherit;
+  }
+  .speed button:hover { color: var(--text); border-color: var(--gray); }
+  .speed button[aria-pressed="true"] { color: var(--text); border-color: var(--accent); background: rgba(110, 168, 254, 0.12); }
+  @media (max-width: 560px) {
+    .demo-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -282,6 +303,88 @@
     <p style="color:#8b93a7;margin-top:20px">Watchtower's project tiles need JavaScript to load live status data. The raw project list is available in <a href="data.json" style="color:#6ea8fe">data.json</a>.</p>
   </noscript>
 </main>
+
+<section class="demos" aria-label="Demo videos">
+  <h2>Demos</h2>
+  <p class="lede">Screen recordings of this week's builds — real tool output, no mockups. Adjustable playback speed on every video; the player scales from phone to desktop.</p>
+  <div class="demo-grid">
+    <article class="demo-card">
+      <h3>Crate Digger price check</h3>
+      <p class="meta">wax · jack/wax-price-verdict</p>
+      <p class="desc">The verdict engine grades a $150 VG+ Doggystyle '93 against market data: median, spread, and a Good&nbsp;deal / Fair / Overpriced call — plus the reissue guardrail.</p>
+      <video id="demo-verdict" controls preload="none" playsinline>
+        <source src="demos/01-wax-crate-digger.mp4" type="video/mp4">
+      </video>
+      <div class="speed" role="group" aria-label="Playback speed">
+        <span class="lbl">Speed</span>
+        <button data-speed="0.5" aria-pressed="false">0.5x</button>
+        <button data-speed="1" aria-pressed="true">1x</button>
+        <button data-speed="1.5" aria-pressed="false">1.5x</button>
+        <button data-speed="2" aria-pressed="false">2x</button>
+      </div>
+    </article>
+    <article class="demo-card">
+      <h3>NUKE guard: dual typed confirmation</h3>
+      <p class="meta">phoenix · jack/phoenix-nuke-guard</p>
+      <p class="desc">Dry-run disk enumeration with BOOT-disk refusal, then the full 59-case guard regression suite: exact-path + exact-phrase arming, hostile firmware as data.</p>
+      <video id="demo-nuke" controls preload="none" playsinline>
+        <source src="demos/02-phoenix-nuke-guard.mp4" type="video/mp4">
+      </video>
+      <div class="speed" role="group" aria-label="Playback speed">
+        <span class="lbl">Speed</span>
+        <button data-speed="0.5" aria-pressed="false">0.5x</button>
+        <button data-speed="1" aria-pressed="true">1x</button>
+        <button data-speed="1.5" aria-pressed="false">1.5x</button>
+        <button data-speed="2" aria-pressed="false">2x</button>
+      </div>
+    </article>
+    <article class="demo-card">
+      <h3>$30 test checkout → printable packet</h3>
+      <p class="meta">divorce · jack/divorce-webhook-hardening</p>
+      <p class="desc">The full staging flow with zero Stripe involvement: checkout session, signed webhook, idempotent dedupe, token-gated packet download.</p>
+      <video id="demo-divorce" controls preload="none" playsinline>
+        <source src="demos/03-divorce-test-checkout.mp4" type="video/mp4">
+      </video>
+      <div class="speed" role="group" aria-label="Playback speed">
+        <span class="lbl">Speed</span>
+        <button data-speed="0.5" aria-pressed="false">0.5x</button>
+        <button data-speed="1" aria-pressed="true">1x</button>
+        <button data-speed="1.5" aria-pressed="false">1.5x</button>
+        <button data-speed="2" aria-pressed="false">2x</button>
+      </div>
+    </article>
+    <article class="demo-card">
+      <h3>Sealed backup restore</h3>
+      <p class="meta">castle · jack/castle-restore</p>
+      <p class="desc">A vault is sealed into an encrypted .castle file, then restored to a fresh temp dir — hashes proved in memory first, bytes verified identical.</p>
+      <video id="demo-castle" controls preload="none" playsinline>
+        <source src="demos/04-castle-restore.mp4" type="video/mp4">
+      </video>
+      <div class="speed" role="group" aria-label="Playback speed">
+        <span class="lbl">Speed</span>
+        <button data-speed="0.5" aria-pressed="false">0.5x</button>
+        <button data-speed="1" aria-pressed="true">1x</button>
+        <button data-speed="1.5" aria-pressed="false">1.5x</button>
+        <button data-speed="2" aria-pressed="false">2x</button>
+      </div>
+    </article>
+    <article class="demo-card">
+      <h3>Alert drop-pass CLI</h3>
+      <p class="meta">wax · jack/wax-drop-pass</p>
+      <p class="desc">One tick of the per-minute drop cron in dry-run: board loaded, cooldowns checked, 2 price_drop alerts fired and recorded.</p>
+      <video id="demo-droppass" controls preload="none" playsinline>
+        <source src="demos/05-wax-drop-pass.mp4" type="video/mp4">
+      </video>
+      <div class="speed" role="group" aria-label="Playback speed">
+        <span class="lbl">Speed</span>
+        <button data-speed="0.5" aria-pressed="false">0.5x</button>
+        <button data-speed="1" aria-pressed="true">1x</button>
+        <button data-speed="1.5" aria-pressed="false">1.5x</button>
+        <button data-speed="2" aria-pressed="false">2x</button>
+      </div>
+    </article>
+  </div>
+</section>
 
 <footer>
   Live site status is checked every 30 minutes by the Watchtower engine and baked into this page's data feed — "live" is only shown when the monitor actually saw the site up. Alerts fire on UP→DOWN transitions. No personal data is collected or displayed.
@@ -491,6 +594,25 @@
       d.className = "error";
       d.textContent = "Could not load Watchtower data: " + e.message;
     });
+})();
+</script>
+<script>
+/* Demos: per-video playback speed selector. */
+(function () {
+  "use strict";
+  document.querySelectorAll(".demo-card").forEach(function (card) {
+    var v = card.querySelector("video");
+    if (!v) return;
+    var btns = card.querySelectorAll(".speed button");
+    btns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        v.playbackRate = parseFloat(b.getAttribute("data-speed")) || 1;
+        btns.forEach(function (x) {
+          x.setAttribute("aria-pressed", x === b ? "true" : "false");
+        });
+      });
+    });
+  });
 })();
 </script>
 </body>
