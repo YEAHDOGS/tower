@@ -1,0 +1,21 @@
+{
+ "project": "dashboard",
+ "entries": [
+  {
+   "date": "2026-09-09T16:06:24-05:00",
+   "title": "Demos section: responsive video embeds + per-video 0.5x/1x/1.5x/2x speed selector",
+   "kind": "commit",
+   "ref": "d841902",
+   "branch": "jack/tower-demos-20260909",
+   "url": "https://github.com/YEAHDOGS/dashboard/commit/d841902"
+  },
+  {
+   "date": "2026-09-09T16:06:24-05:00",
+   "title": "Media: 5 terminal-style demo MP4s (wax/phoenix/divorce/castle), real tool output",
+   "kind": "commit",
+   "ref": "18c0f95",
+   "branch": "jack/tower-demos-20260909",
+   "url": "https://github.com/YEAHDOGS/dashboard/commit/18c0f95"
+  }
+ ]
+}
