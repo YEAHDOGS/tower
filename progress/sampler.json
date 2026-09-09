@@ -1,0 +1,101 @@
+{
+ "project": "sampler",
+ "entries": [
+  {
+   "date": "2026-09-09T21:26:13+00:00",
+   "title": "test(sampler): i18n regression suite \u2014 20 zero-dep tests via node:test",
+   "kind": "commit",
+   "ref": "c8f0b0e",
+   "branch": "jack/sampler-tests-i18n",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T21:24:26+00:00",
+   "title": "feat(sampler): add zero-dep locale catalog helpers (src/lib/localeKeys.js)",
+   "kind": "commit",
+   "ref": "e4e2c45",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:26:34+00:00",
+   "title": "docs: BRANCH-CONSOLIDATION.md \u2014 unmerged-branch inventory, merge order, yes/no for Brandon",
+   "kind": "commit",
+   "ref": "a6c8060",
+   "branch": "jack/sampler-consolidation",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:13:30+00:00",
+   "title": "feat(suggest): timbre-aware suggest-next \u2014 slice-5 timbre nudge + similar-timbre chip (en/es)",
+   "kind": "commit",
+   "ref": "0044029",
+   "branch": "jack/sampler-suggest-next",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:02:37+00:00",
+   "title": "docs: roadmap marks lowlevel timbre ranking (slice 5) as landed",
+   "kind": "commit",
+   "ref": "0f8297c",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:02:37+00:00",
+   "title": "feat(lowlevel): Freesound lowlevel.* timbre ranking (slice 5)",
+   "kind": "commit",
+   "ref": "be4c6ff",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:25:54+00:00",
+   "title": "docs: roadmap marks suggest-next-sample (slice 4) as landed",
+   "kind": "commit",
+   "ref": "0432ed9",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:25:44+00:00",
+   "title": "feat(ui): 'Suggest next' button + top-3 suggestions panel on search cards",
+   "kind": "commit",
+   "ref": "9981499",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:23:49+00:00",
+   "title": "test(suggest): node:test suite pinning suggestNext ranking and reason codes",
+   "kind": "commit",
+   "ref": "2726db8",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:23:16+00:00",
+   "title": "feat(suggest): suggestNext lib \u2014 top-N next-sample picks with tempo/key reason codes",
+   "kind": "commit",
+   "ref": "1d2357b",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:12:06+00:00",
+   "title": "chore: single test:smoke runs both node:test suites (145 tests); drop shadowed duplicate key",
+   "kind": "commit",
+   "ref": "8b5596e",
+   "branch": "jack/sampler-consolidated",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:11:29+00:00",
+   "title": "refactor(svelte5): replace deprecated on: directives with onclick/onClose callback prop",
+   "kind": "commit",
+   "ref": "7d4084f",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  }
+ ]
+}

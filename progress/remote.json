@@ -1,0 +1,101 @@
+{
+ "project": "remote",
+ "entries": [
+  {
+   "date": "2026-09-09T21:25:36+00:00",
+   "title": "fix: guard emitter boundary \u2014 isValidTransmit() rejects malformed IR payloads pre-framework; 10/10 suites green",
+   "kind": "commit",
+   "ref": "975b673",
+   "branch": "jack/remote-emitter-guard",
+   "url": "https://github.com/YEAHDOGS/remote/commit/975b673a841ab5b32750325da920350f3b4eef9c"
+  },
+  {
+   "date": "2026-09-09T20:26:43+00:00",
+   "title": "fix: harden AttemptLog \u2014 sanitize on write and load, cap labels, clamp ts",
+   "kind": "commit",
+   "ref": "44162d6",
+   "branch": "jack/remote-attempt-sanitize",
+   "url": "https://github.com/YEAHDOGS/remote/commit/44162d6950df6f893c79a0bc9496c0ec1dd84a28"
+  },
+  {
+   "date": "2026-09-09T20:14:02+00:00",
+   "title": "test: regression tests for learned-order reset",
+   "kind": "commit",
+   "ref": "51e0422",
+   "branch": "jack/remote-magic-order",
+   "url": "https://github.com/YEAHDOGS/remote/commit/51e0422682624988f63f856cee255f8840d8e379"
+  },
+  {
+   "date": "2026-09-09T20:14:02+00:00",
+   "title": "feat: reset learned Magic order + honest Magic screen copy",
+   "kind": "commit",
+   "ref": "6a5b0d7",
+   "branch": "detached",
+   "url": "https://github.com/YEAHDOGS/remote/commit/6a5b0d749a3e56f84ee64e6c489ce9a375b92670"
+  },
+  {
+   "date": "2026-09-09T19:23:13+00:00",
+   "title": "docs: README notes learned Magic Mode sweep order",
+   "kind": "commit",
+   "ref": "1b8d9d5",
+   "branch": "detached",
+   "url": "https://github.com/YEAHDOGS/remote/commit/1b8d9d50bfdf86415ca28be4c70d7f4c05104095"
+  },
+  {
+   "date": "2026-09-09T19:23:03+00:00",
+   "title": "test: regression tests for learned Magic Mode sweep order",
+   "kind": "commit",
+   "ref": "0d22d37",
+   "branch": "detached",
+   "url": "https://github.com/YEAHDOGS/remote/commit/0d22d370dadc881fee967b6db7e5001205139c74"
+  },
+  {
+   "date": "2026-09-09T19:22:25+00:00",
+   "title": "feat: startMagic sweeps in learned order via magicSweepOrder",
+   "kind": "commit",
+   "ref": "4c4400e",
+   "branch": "detached",
+   "url": "https://github.com/YEAHDOGS/remote/commit/4c4400eb8b4be656bbce4c120eb34db201f6d474"
+  },
+  {
+   "date": "2026-09-09T19:22:10+00:00",
+   "title": "feat: learned Magic Mode sweep order \u2014 previously-worked variants first",
+   "kind": "commit",
+   "ref": "f6846c1",
+   "branch": "detached",
+   "url": "https://github.com/YEAHDOGS/remote/commit/f6846c1c5491bbf780e6f570e7147b3310983c35"
+  },
+  {
+   "date": "2026-09-09T19:15:20+00:00",
+   "title": "docs: README notes IR database read-path hardening",
+   "kind": "commit",
+   "ref": "df062d0",
+   "branch": "jack/remote-irdb-hardening",
+   "url": "https://github.com/YEAHDOGS/remote/commit/df062d0fc299fca973fa4a95fe3a3928edd727b3"
+  },
+  {
+   "date": "2026-09-09T19:15:20+00:00",
+   "title": "fix: harden IR database read path \u2014 tolerate missing/corrupt JSON, skip bad entries, validate buttons",
+   "kind": "commit",
+   "ref": "b5d6767",
+   "branch": "detached",
+   "url": "https://github.com/YEAHDOGS/remote/commit/b5d6767b93b8eb8c5a2d88e6454e1894e736df46"
+  },
+  {
+   "date": "2026-09-09T18:23:18+00:00",
+   "title": "docs: README notes profiles read-path hardening",
+   "kind": "commit",
+   "ref": "8724f3f",
+   "branch": "jack/remote-profile-hardening",
+   "url": "https://github.com/YEAHDOGS/remote/commit/8724f3f88c6387d5d050cf58218cf7f61e74d334"
+  },
+  {
+   "date": "2026-09-09T18:23:08+00:00",
+   "title": "test: profile store read-path hardening regression tests",
+   "kind": "commit",
+   "ref": "da663ae",
+   "branch": "detached",
+   "url": "https://github.com/YEAHDOGS/remote/commit/da663aeacfab9057d8c360b4b0c2e368347213ab"
+  }
+ ]
+}

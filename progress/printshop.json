@@ -1,0 +1,14 @@
+{
+ "project": "printshop",
+ "entries": [
+  {
+   "date": "2026-09-09T16:14:00-05:00",
+   "title": "Repo scaffolded: landing page, catalog, seat-gap-filler research + parametric OpenSCAD model",
+   "kind": "commit",
+   "ref": "8c7e543",
+   "branch": "jack/printshop-scaffold-20260909",
+   "url": "https://github.com/YEAHDOGS/printshop/commit/8c7e543",
+   "detail": "Research verdict: launch the parametric STL first (pure margin), not printed physicals. Open question: does Brandon own a 3D printer?"
+  }
+ ]
+}

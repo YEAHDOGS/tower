@@ -34,7 +34,105 @@
     "failing": [
      "http: fetch failed after retry: fetch failed"
     ]
-   }
+   },
+   "progress": [
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "check.py: validate Open Graph/Twitter Card completeness + feed item validity",
+     "date": "2026-09-09T21:25:52+00:00",
+     "ref": "4e874fd",
+     "branch": "jack/news-og-cards"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "check.py: validate canonical <link> is absolute, on-domain, and self-referential",
+     "date": "2026-09-09T20:26:25+00:00",
+     "ref": "a9c0d5c",
+     "branch": "jack/news-canonical-validation"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "check.py: verify same-domain URLs in meta content= resolve to real files",
+     "date": "2026-09-09T20:10:22+00:00",
+     "ref": "d37451f",
+     "branch": "jack/news-absolute-canonical-links"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feed freshness: visible 'last updated' line in footer + check.py sync",
+     "date": "2026-09-09T19:58:11+00:00",
+     "ref": "dc5fa1f",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "styles: mobile hardening for 390px viewports (mobile_check.py findings)",
+     "date": "2026-09-09T19:57:14+00:00",
+     "ref": "e6e8df7",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "gitignore: __pycache__ (stdlib test runs)",
+     "date": "2026-09-09T19:56:07+00:00",
+     "ref": "9c996b1",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "mobile_check.py: static 390px-viewport regression checks + tests + CI",
+     "date": "2026-09-09T19:56:03+00:00",
+     "ref": "2a31ad8",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "check.py: verify absolute same-domain links resolve to real files",
+     "date": "2026-09-09T19:22:21+00:00",
+     "ref": "e8203e2",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/news/commit/720d8fa2c88af3601f9ce613107f38dc153029a7",
+     "title": "tests: cover missing/malformed core files and non-UTF-8 pages",
+     "date": "2026-09-09T19:08:21+00:00",
+     "ref": "720d8fa",
+     "branch": "jack/news-checker-missing-files"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/news/commit/d7921daaedcb541ff258d8e5e5b5458abccff03e",
+     "title": "check.py: report missing/malformed core files as errors instead of crashing",
+     "date": "2026-09-09T19:07:59+00:00",
+     "ref": "d7921da",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/news/commit/26d0fa0a81e80d94ceef247970119f7155a48b5e",
+     "title": "ci: run checker regression tests on every push/PR alongside sanity checks",
+     "date": "2026-09-09T18:25:12+00:00",
+     "ref": "26d0fa0",
+     "branch": "jack/news-checker-hardening"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/news/commit/1f3a35b2564e59cfbc7251d43c0faac47ae48950",
+     "title": "scripts/test_check.py: stdlib regression suite (16 tests) for the sanity checker",
+     "date": "2026-09-09T18:25:07+00:00",
+     "ref": "1f3a35b",
+     "branch": "detached"
+    }
+   ]
   },
   {
    "name": "40",
@@ -49,7 +147,105 @@
    "branch": "master",
    "workflow": null,
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": [
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "security: startup self-check rejects weak JWT_SECRET in production (>=32 chars, never the dev fallback)",
+     "date": "2026-09-09T20:25:26+00:00",
+     "ref": "58c7b83",
+     "branch": "jack/40-blocklist-1000"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "security: reject common passwords at signup/change-password",
+     "date": "2026-09-09T20:10:45+00:00",
+     "ref": "2721d62",
+     "branch": "jack/40-password-auth"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "security: password change revokes all other sessions; unique token per login",
+     "date": "2026-09-09T19:59:30+00:00",
+     "ref": "30a1eb1",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "security: HttpOnly+Secure+SameSite session cookies alongside Bearer tokens",
+     "date": "2026-09-09T19:59:24+00:00",
+     "ref": "2faee9d",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "security: login rate limiting \u2014 per-IP + per-account sliding window, exponential lockout",
+     "date": "2026-09-09T19:55:51+00:00",
+     "ref": "1dc6fdb",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "security: passwords are actually verified at login",
+     "date": "2026-09-09T19:28:17+00:00",
+     "ref": "b26b84d",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/40/commit/7e86d306782dbf2270adef7d9d665401b32a2492",
+     "title": "docs: env contract \u2014 JWT_SECRET required in production, staging checklist",
+     "date": "2026-09-09T19:06:12+00:00",
+     "ref": "7e86d30",
+     "branch": "jack/40-sweep4"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/40/commit/5f7e8664c47eca583bf01ccee885ce3a04f11353",
+     "title": "feat(40): loud startup banner naming required env vars (JWT_SECRET fails fatal)",
+     "date": "2026-09-09T19:06:00+00:00",
+     "ref": "5f7e866",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/40/commit/1bd1902d06fc9b76687fe36b000c5845fc6e532a",
+     "title": "tests: api tests self-provision a throwaway sqlite DB",
+     "date": "2026-09-09T18:24:47+00:00",
+     "ref": "1bd1902",
+     "branch": "jack/40-jwt-failsafe"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/40/commit/efebe86ecacbd78d2ffe25b3c8fa6dfdc8ef5328",
+     "title": "security: fail closed when JWT_SECRET is missing in production",
+     "date": "2026-09-09T18:22:50+00:00",
+     "ref": "efebe86",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/40/commit/dec97d025c5fcf58ee9690bdd4d0b3209d87b1dc",
+     "title": "feat(audit): structured audit logging of all authz denials",
+     "date": "2026-09-09T18:17:22+00:00",
+     "ref": "dec97d0",
+     "branch": "jack/40-authz-validation"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/40/commit/1505b82973ec2b4ee73f35a14bd51f90c263038c",
+     "title": "docs: TRUST_PROXY proxy-header trust policy in README security posture + .env.example",
+     "date": "2026-09-09T17:44:26+00:00",
+     "ref": "1505b82",
+     "branch": "detached"
+    }
+   ]
   },
   {
    "name": "castle",
@@ -64,7 +260,112 @@
    "branch": "master",
    "workflow": null,
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": [
+    {
+     "detail": "A vault is sealed into an encrypted .castle file, then restored to a fresh temp dir \u2014 hashes proved in memory first, bytes verified identical.",
+     "kind": "video",
+     "url": "demos/04-castle-restore.mp4",
+     "title": "Demo: sealed backup restore",
+     "date": "2026-09-09T16:06:24-05:00"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat(backup): read-only backup-list inventory of sealed .castle backups",
+     "date": "2026-09-09T21:06:22+00:00",
+     "ref": "34bb9af",
+     "branch": "jack/castle-backup-list"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/castle/commit/36ae53fec8c074fb724985a371c9f7c1d73ef226",
+     "title": "docs(vault): mark step 8 restore lane done in FAMILY-DATA-VAULT.md",
+     "date": "2026-09-09T20:57:37+00:00",
+     "ref": "36ae53f",
+     "branch": "jack/castle-restore"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/castle/commit/67eae9ec9b88826d420390bfaf1fbe8a6e5cd0f4",
+     "title": "feat(vault): backup restore lane \u2014 restore .castle backups to disk (restore.py + CLI + 15 tests)",
+     "date": "2026-09-09T20:57:29+00:00",
+     "ref": "67eae9e",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/castle/commit/bd4a054aa3fa8393f2e66e109ea10ceccafa24dd",
+     "title": "feat(vault): API-token auth \u2014 wire DOGS Token Authority into the ingestion trust boundary (vault/apiauth.py)",
+     "date": "2026-09-09T20:28:39+00:00",
+     "ref": "bd4a054",
+     "branch": "jack/castle-apiauth"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/castle/commit/0cdc06a2b46ae2ad5672a9a5ab7ffc0993ef9fed",
+     "title": "feat(auth): DOGS Token Authority \u2014 encrypted bearer tokens (castle/tokens/)",
+     "date": "2026-09-09T20:13:05+00:00",
+     "ref": "0cdc06a",
+     "branch": "jack/castle-backups"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/castle/commit/69629d2eb6cf51a5c229ea8a751d47b872834764",
+     "title": "feat(clonewars): add bash twin of start.ps1 (executable)",
+     "date": "2026-09-09T19:53:41+00:00",
+     "ref": "69629d2",
+     "branch": "jack/castle-bash-conversion"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/castle/commit/9aaa81d3ab64a548e4fae4aaabecdbaf9bf166c1",
+     "title": "docs(vault): CRYPTO-NOTES.md \u2014 crypto choices, honest limitations, migration path",
+     "date": "2026-09-09T19:52:19+00:00",
+     "ref": "9aaa81d",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/castle/commit/015027e2db410a03d3099a323915eb1c6adf50bc",
+     "title": "feat(vault): wire chunked container into backup.py (+ --chunks CLI)",
+     "date": "2026-09-09T19:52:19+00:00",
+     "ref": "015027e",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/castle/commit/291ff1cbb08e77d577955427107fa218c4258980",
+     "title": "feat(clonewars): add bash twin of modules/verify.ps1",
+     "date": "2026-09-09T19:48:07+00:00",
+     "ref": "291ff1c",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/castle/commit/200ac7d9f82bbdaae6754e22a48cddbcd17a18a1",
+     "title": "feat(vault): pure-stdlib chunked encrypted backup container (chunkseal.py, castle-chunks/v1)",
+     "date": "2026-09-09T19:47:42+00:00",
+     "ref": "200ac7d",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/castle/commit/b5b3542eedb06c4c1ec82681f6297beb2ca9f220",
+     "title": "feat(clonewars): add bash twin of modules/resolvers.ps1",
+     "date": "2026-09-09T19:45:10+00:00",
+     "ref": "b5b3542",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/castle/commit/682d39b04a9db299efc189d243a713137bff6521",
+     "title": "feat(clonewars): add bash twin of modules/network.ps1",
+     "date": "2026-09-09T19:44:16+00:00",
+     "ref": "682d39b",
+     "branch": "detached"
+    }
+   ]
   },
   {
    "name": "phoenix",
@@ -79,7 +380,112 @@
    "branch": "master",
    "workflow": null,
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": [
+    {
+     "detail": "Dry-run disk enumeration with BOOT-disk refusal, then the 59-case guard regression suite: exact-path + exact-phrase arming, hostile firmware as data.",
+     "kind": "video",
+     "url": "demos/02-phoenix-nuke-guard.mp4",
+     "title": "Demo: NUKE guard dual typed confirmation",
+     "date": "2026-09-09T16:06:24-05:00"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "test: test-phoenix-nuke.sh -- 36 new cases for the image-proof gate (unit + integration + skip-gate); 132/132 green",
+     "date": "2026-09-09T21:05:59+00:00",
+     "ref": "f6da520",
+     "branch": "jack/phoenix-runbook-r1"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat: phoenix-nuke.sh -- image-proof gate (runbook invariant 1: verified image or no wipe)",
+     "date": "2026-09-09T21:05:59+00:00",
+     "ref": "054b5fc",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/phoenix/commit/53a6e1873cbe45f4c6682071c1ed351de072923d",
+     "title": "docs: NUKE-TEST-PLAN T6b -- document phoenix-nuke-guard.sh arming gate + its 59-case regression suite",
+     "date": "2026-09-09T20:50:42+00:00",
+     "ref": "53a6e18",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/phoenix/commit/e06af4401726aefeaddef33b495bc05aa17c3675",
+     "title": "test: tests/tools/test-phoenix-nuke-guard.sh -- 59 cases (hostile firmware as data, exact-dev resolution, exact-phrase aborts, boot/mounted ",
+     "date": "2026-09-09T20:50:29+00:00",
+     "ref": "e06af44",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/phoenix/commit/2904f03a0543dd447e4d2053b1a48b235ae5ab7e",
+     "title": "feat: tools/phoenix-nuke-guard.sh -- interactive NUKE arming guard (exact /dev path + exact 'NUKE <dev>' phrase, dry-run default, boot/syste",
+     "date": "2026-09-09T20:50:25+00:00",
+     "ref": "2904f03",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/phoenix/commit/19fad10ac6b13c1748817b8d6930cedde7ca75f3",
+     "title": "feat: tools/phoenix-quarantine-copy.sh -- scripted runbook Step 2.7 quarantine copy",
+     "date": "2026-09-09T20:24:26+00:00",
+     "ref": "19fad10",
+     "branch": "jack/phoenix-quarantine"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/phoenix/commit/41ffd55389ced862d25624f1bfd8579f79833ae2",
+     "title": "feat: New-PhoenixConfig writer pair (.sh + .ps1) + test-phoenix-config.sh",
+     "date": "2026-09-09T20:09:28+00:00",
+     "ref": "41ffd55",
+     "branch": "jack/phoenix-menu"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/phoenix/commit/a6c8e3f38af7d9d125e60a9024d6fb5835750b67",
+     "title": "test: test-phoenix-nuke.sh -- 8 new cases for the eval-free lsblk parser (benign parse, -P unescaping, hostile $() and quote-break-out paylo",
+     "date": "2026-09-09T19:49:11+00:00",
+     "ref": "a6c8e3f",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/phoenix/commit/621638b5cbdd886336f799c400b2064e1e0e16c2",
+     "title": "fix: phoenix-nuke.sh -- eval-free lsblk -P parser (parse_lsblk_pairs); firmware strings (MODEL/SERIAL) are untrusted input and must never ex",
+     "date": "2026-09-09T19:47:04+00:00",
+     "ref": "621638b",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/phoenix/commit/f9f13a68baaee7abcba49ff4388eb9b4a69bfb8d",
+     "title": "docs: record Windows-only script classification (do-not-convert list)",
+     "date": "2026-09-09T19:43:13+00:00",
+     "ref": "f9f13a6",
+     "branch": "jack/phoenix-bash-utils"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/phoenix/commit/19b5f3b42362182c42338e4322b0b89d8e6b6e0f",
+     "title": "fix(tools): make pre-existing file-compare.sh executable",
+     "date": "2026-09-09T19:43:02+00:00",
+     "ref": "19b5f3b",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/phoenix/commit/d2aea0e8c139217462e5bb6f1e585593547a0375",
+     "title": "feat(tools): add bash twin delete-node.sh for delete-node.ps1",
+     "date": "2026-09-09T19:42:56+00:00",
+     "ref": "d2aea0e",
+     "branch": "detached"
+    }
+   ]
   },
   {
    "name": "sdm",
@@ -94,7 +500,105 @@
    "branch": "master",
    "workflow": null,
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": [
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "docs: add BRAND-VOICE.md \u2014 jungle voice guide with 21 sample lines; mark TASKS P0#2 done",
+     "date": "2026-09-09T21:24:56+00:00",
+     "ref": "4468981",
+     "branch": "jack/sdm-voice-guide"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "docs: TASKS hygiene states the real production rule \u2014 main merges only via PR + Brando approval; jack/* branches are the free-push staging l",
+     "date": "2026-09-09T20:26:17+00:00",
+     "ref": "ce4ccce",
+     "branch": "jack/sdm-pr-conventions"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "docs: lock the public pitch in jungle voice \u2014 PITCH.md (paragraph + index-card + taglines); ROADMAP Phase 0 pitch item done",
+     "date": "2026-09-09T20:12:29+00:00",
+     "ref": "3c54027",
+     "branch": "jack/sdm-brand-voice"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "docs: ROADMAP Phase 0 brand-voice item done (BRAND-VOICE.md shipped, pitch still open)",
+     "date": "2026-09-09T20:00:55+00:00",
+     "ref": "9a19ef1",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "docs: README lists BRAND-VOICE.md; TASKS P0#2 marked done",
+     "date": "2026-09-09T19:22:15+00:00",
+     "ref": "26697c7",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "docs: add BRAND-VOICE.md \u2014 jungle voice guide with 20 sample lines (TASKS P0#2)",
+     "date": "2026-09-09T19:22:14+00:00",
+     "ref": "c012aac",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "checker: add waitlist-consistency guard to scripts/check-docs.sh",
+     "date": "2026-09-09T19:10:44+00:00",
+     "ref": "d87433c",
+     "branch": "jack/sdm-docs2"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "docs: remove stale standalone-waitlist language per WAITLIST.md hold",
+     "date": "2026-09-09T19:10:44+00:00",
+     "ref": "c443382",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "WAITLIST.md: document the honest stub on jack/sdm-sweep2 (202-not-persisting, not deployed)",
+     "date": "2026-09-09T18:23:15+00:00",
+     "ref": "d513b37",
+     "branch": "jack/sdm-waitlist-hold"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "Mark waitlist items ON HOLD in ROADMAP/TASKS/README; add scripts/check-docs.sh link check",
+     "date": "2026-09-09T18:22:27+00:00",
+     "ref": "8cfbef6",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "Add docs/WAITLIST.md: waitlist work is on hold pending shared Cloudflare design (founder confirmation required)",
+     "date": "2026-09-09T18:21:35+00:00",
+     "ref": "57ee250",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat(abuse): referral fraud guards \u2014 rate limiting + self-referral rejection on /api/waitlist (+17 tests)",
+     "date": "2026-09-09T18:15:34+00:00",
+     "ref": "ea07c8f",
+     "branch": "jack/sdm-referral-loop"
+    }
+   ]
   },
   {
    "name": "proof",
@@ -115,7 +619,105 @@
     "updated_at": "2026-09-09T13:29:04Z"
    },
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": [
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "data: catalog harms-study sources (Marconi, Di Forti, Asbridge, Meier, Rogeberg, NHTSA)",
+     "date": "2026-09-09T21:27:35+00:00",
+     "ref": "c203fb4",
+     "branch": "jack/proof-harms-v1"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat: expose Harms metric family on the Substances tree",
+     "date": "2026-09-09T21:27:18+00:00",
+     "ref": "e66781e",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "chore: ignore dist-site build output (untracked regenerable artifact)",
+     "date": "2026-09-09T21:26:55+00:00",
+     "ref": "8b9fd95",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "data: add .Testing family - oral-fluid vs urine THC detection windows + SAMHSA OFMG cutoffs",
+     "date": "2026-09-09T20:29:57+00:00",
+     "ref": "4fda44f",
+     "branch": "jack/proof-testing-windows"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "docs: research oral-fluid (cotton-swab) testing brief \u2014 DOT timeline, SAMHSA cutoffs, THC detection windows, honest employment-effects gap",
+     "date": "2026-09-09T20:11:18+00:00",
+     "ref": "0c32d76",
+     "branch": "jack/proof-market-sizes"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "fix: quote NEEDS-CITATION note scalars (js-yaml rejects bare ': ' in plain scalars)",
+     "date": "2026-09-09T19:57:34+00:00",
+     "ref": "f8313b5",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "docs: .Health honest-harms coverage + oral-fluid testing research stub",
+     "date": "2026-09-09T19:56:56+00:00",
+     "ref": "cb16558",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "data: adolescent persistent-use IQ decline (health, contested, seeded)",
+     "date": "2026-09-09T19:56:38+00:00",
+     "ref": "2dbe001",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "data: cannabis-impaired-driving collision risk (health, contested, seeded)",
+     "date": "2026-09-09T19:56:28+00:00",
+     "ref": "e2ac1df",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "data: cannabis-psychosis risk ratio (health, contested, seeded)",
+     "date": "2026-09-09T19:56:15+00:00",
+     "ref": "f34b2d4",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "data: cannabis use disorder prevalence (health, seeded)",
+     "date": "2026-09-09T19:56:02+00:00",
+     "ref": "d795152",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "data: source catalog entries for the cannabis-harms evidence base",
+     "date": "2026-09-09T19:55:50+00:00",
+     "ref": "161b050",
+     "branch": "detached"
+    }
+   ]
   },
   {
    "name": "demo",
@@ -130,7 +732,105 @@
    "branch": "master",
    "workflow": null,
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": [
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "docs(stage): dist inventory + one-command gh-pages staging script; decisions #6 \u2014 ship dist/ as-is when Brando approves",
+     "date": "2026-09-09T20:26:22+00:00",
+     "ref": "77f4e97",
+     "branch": "jack/demo-staging-prep"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "fix(pages): webmanifest icon under /demo/ base \u2014 relative favicon.svg, not absolute /favicon.svg",
+     "date": "2026-09-09T20:12:39+00:00",
+     "ref": "c2383be",
+     "branch": "jack/demo-shippable"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "data: dashboard entry -> Watchtower at /tower/",
+     "date": "2026-09-09T19:54:53+00:00",
+     "ref": "e23edcf",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "content: point Divorce at its real staging URL (https://yeahdogs.github.io/divorce/) \u2014 gh-pages staging is live, site already renders a 'Sta",
+     "date": "2026-09-09T19:25:55+00:00",
+     "ref": "05c615e",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "test(build): regression gate for the 404-template bug \u2014 fail if public/404.html exists, and assert dist/404.html is the built copy (identica",
+     "date": "2026-09-09T19:25:36+00:00",
+     "ref": "5e6f7c9",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "fix(build): remove stale public/404.html template \u2014 postbuild generates dist/404.html from the built index.html; leaving the unprocessed tem",
+     "date": "2026-09-09T19:24:46+00:00",
+     "ref": "e147f43",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "fix(build): postbuild copies built index.html to 404.html \u2014 public/404.html was an unprocessed template shipped verbatim; docs: log source-r",
+     "date": "2026-09-09T19:11:30+00:00",
+     "ref": "e3290f3",
+     "branch": "jack/demo-source-recovered"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "recover: restore full source from jack/demo-nuke-rehearsal \u2014 the 'lost source' was never lost (24 src files, scaffold + bootmenu + nuke rehe",
+     "date": "2026-09-09T19:11:30+00:00",
+     "ref": "d0b2d38",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "docs: sync to reality \u2014 Phase 1 built on disk but source never committed; log recovery question",
+     "date": "2026-09-09T18:23:05+00:00",
+     "ref": "6d0b203",
+     "branch": "jack/demo-docs-sync"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "gitignore: cover vite /dist output for the svelte stack; add scripts/smoke-dist.sh deployability check",
+     "date": "2026-09-09T18:23:05+00:00",
+     "ref": "784b89a",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat(bootmenu): rehearsal transcript records the arming interlock gates",
+     "date": "2026-09-09T17:43:56+00:00",
+     "ref": "42dcbc8",
+     "branch": "jack/demo-nuke-rehearsal"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat(bootmenu): vault interlock \u2014 backup vault can never be a Nuke target",
+     "date": "2026-09-09T17:04:34+00:00",
+     "ref": "e0de692",
+     "branch": "detached"
+    }
+   ]
   },
   {
    "name": "playback",
@@ -145,7 +845,105 @@
    "branch": "master",
    "workflow": null,
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": [
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "fix: silence post-destroy async races on AudioDeck",
+     "date": "2026-09-09T21:28:03+00:00",
+     "ref": "cd50122",
+     "branch": "jack/playback-post-destroy-silence"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "fix: surface audio element load errors as deck loadError state",
+     "date": "2026-09-09T20:25:58+00:00",
+     "ref": "e5166d2",
+     "branch": "jack/playback-race-sweep"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "fix: guard AudioDeck async waveform decode against stale-track race (decodeToken)",
+     "date": "2026-09-09T20:10:16+00:00",
+     "ref": "63f7291",
+     "branch": "jack/playback-object-url-leak"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "tests: add 20 keyboard shortcut regression tests (shortcuts.unit.test.js)",
+     "date": "2026-09-09T20:04:39+00:00",
+     "ref": "1ae5a4e",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat: global keyboard shortcuts (space/arrows/M/?) with help overlay",
+     "date": "2026-09-09T20:04:39+00:00",
+     "ref": "dcda076",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat: add AudioDeck.seekBy() (clamped) and DjEngine.toggleMute()",
+     "date": "2026-09-09T20:01:35+00:00",
+     "ref": "79a9818",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "fix: revoke AudioDeck blob object URLs on track reload and destroy",
+     "date": "2026-09-09T19:22:20+00:00",
+     "ref": "ce1d0a1",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/playback/commit/3fe7c4973257b4e91088108472bbad9bd7150e14",
+     "title": "tests: add 33 AudioDeck unit tests (mocked audio stack)",
+     "date": "2026-09-09T19:15:12+00:00",
+     "ref": "3fe7c49",
+     "branch": "jack/playback-deck-tests"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/playback/commit/5f196657c717c6b5228fa18a7e2c15df727f7391",
+     "title": "fix: clamp AudioDeck.scrub() position to track bounds [0, duration]",
+     "date": "2026-09-09T19:11:54+00:00",
+     "ref": "5f19665",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/playback/commit/ea979662ae0a8278d8f270c8aa77c8dee9daf98c",
+     "title": "tests: add real DjEngine unit tests with mocked Web Audio stack",
+     "date": "2026-09-09T18:22:01+00:00",
+     "ref": "ea97966",
+     "branch": "jack/playback-engine-tests"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/playback/commit/9b489d8bf7bc99c21cd3f5b1dfbf8b602d5c8ae0",
+     "title": "a11y: keyboard navigation for the queue panel \u2014 roving tabindex, arrows/Home/End, Enter to play",
+     "date": "2026-09-09T18:12:29+00:00",
+     "ref": "9b489d8",
+     "branch": "jack/playback-queue-ui"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/playback/commit/c9208e9418ad90a2bad09414dc9a7b8b542974a2",
+     "title": "a11y: queue list gets an accessible name + dropped-tracks notice becomes a live region",
+     "date": "2026-09-09T17:44:41+00:00",
+     "ref": "c9208e9",
+     "branch": "detached"
+    }
+   ]
   },
   {
    "name": "pay",
@@ -160,7 +958,105 @@
    "branch": "master",
    "workflow": null,
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": [
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat: webhook idempotency hardening \u2014 TTL-bound processed-event ledger, EVENT_BODY_CONFLICT on same-id/different-body replays, handleServerW",
+     "date": "2026-09-09T21:27:42+00:00",
+     "ref": "010f05d",
+     "branch": "jack/pay-idempotency-ttl"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat: server-side e2e staging drill \u2014 divorce 3000\u00a2 session \u2192 signed webhook \u2192 amount-guarded record_payment \u2192 packet unlock gate (9 regress",
+     "date": "2026-09-09T20:26:49+00:00",
+     "ref": "599c6d7",
+     "branch": "jack/pay-server-drill"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat: server-side amount expectation on webhook dispatch (AMOUNT_MISMATCH)",
+     "date": "2026-09-09T20:12:56+00:00",
+     "ref": "194b6b5",
+     "branch": "jack/pay-server-webhook-verify"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "tests: 18 regression tests for server-side webhook dispatch (synthetic signed payloads, replay, fail-closed)",
+     "date": "2026-09-09T19:55:09+00:00",
+     "ref": "8eb54b3",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat: server-side webhook dispatch \u2014 idempotency ledger + checkout.session.completed -> record_payment",
+     "date": "2026-09-09T19:55:09+00:00",
+     "ref": "c281aa8",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "docs: CHECKOUT.md + README cover the server-side webhook verifier",
+     "date": "2026-09-09T19:23:39+00:00",
+     "ref": "5923d10",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "tests: 21 regression tests for the server-side webhook verifier",
+     "date": "2026-09-09T19:23:06+00:00",
+     "ref": "427b2d8",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat: server-side webhook signature verifier (Stripe scheme) \u2014 lib/webhook-server.ts",
+     "date": "2026-09-09T19:22:01+00:00",
+     "ref": "ed6e63f",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "docs: README lib layout covers lib/rail again",
+     "date": "2026-09-09T19:08:07+00:00",
+     "ref": "b5e146b",
+     "branch": "jack/pay-sweep2"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat: ledger consistency + amount-tamper guard + e2e divorce checkout",
+     "date": "2026-09-09T19:07:53+00:00",
+     "ref": "aace02f",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat: idempotency keys on the settlement rail",
+     "date": "2026-09-09T19:06:42+00:00",
+     "ref": "fd89b9e",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "revert: restore lib/rail settlement rail (MockRail + RailAdapter)",
+     "date": "2026-09-09T19:06:00+00:00",
+     "ref": "ed222e4",
+     "branch": "detached"
+    }
+   ]
   },
   {
    "name": "help",
@@ -175,7 +1071,8 @@
    "branch": "master",
    "workflow": null,
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": []
   },
   {
    "name": "bakery",
@@ -190,7 +1087,105 @@
    "branch": "master",
    "workflow": null,
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": [
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat: bake report <run-id> merge mode \u2014 merged markdown from per-agent report files",
+     "date": "2026-09-09T21:27:23+00:00",
+     "ref": "480c416",
+     "branch": "jack/bakery-report-merge"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat: bake retry <run-id> \u2014 re-run only failed/timed-out agents as a new <run-id>-retryN run",
+     "date": "2026-09-09T20:27:54+00:00",
+     "ref": "48aa334",
+     "branch": "jack/bakery-retry"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat: JSON output mode for bake status and collect",
+     "date": "2026-09-09T20:13:44+00:00",
+     "ref": "e4308ff",
+     "branch": "jack/bakery-report"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "docs: README \u2014 bake init project layout and quickstart",
+     "date": "2026-09-09T20:01:59+00:00",
+     "ref": "9937523",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat: bake init \u2014 idempotent project scaffold with --dry-run",
+     "date": "2026-09-09T20:01:59+00:00",
+     "ref": "97848f2",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat: bake report command \u2014 fan out, wait, merge, deliver (+ README)",
+     "date": "2026-09-09T19:25:35+00:00",
+     "ref": "94aa772",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat: bakery.report \u2014 fan-out/wait/sanitized merge (injection-safe rendering)",
+     "date": "2026-09-09T19:24:35+00:00",
+     "ref": "f5dafa7",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat(security): guard.redact_secrets redacts secret-shaped values in free text",
+     "date": "2026-09-09T19:21:48+00:00",
+     "ref": "d04aa3f",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "test: regression suite for agent sandboxing (7 tests, incl. live leak e2e)",
+     "date": "2026-09-09T19:09:00+00:00",
+     "ref": "8aa2651",
+     "branch": "jack/bakery-sandbox-env"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat(security): sandboxed least-privilege agent environment",
+     "date": "2026-09-09T19:09:00+00:00",
+     "ref": "b1c1257",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "test: first regression suite for recipe loading (9 tests pin validation/defaults)",
+     "date": "2026-09-09T18:23:41+00:00",
+     "ref": "38edb3e",
+     "branch": "jack/bakery-secret-guard"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat(security): pre-flight secret guard refuses recipes that hand secrets to agents",
+     "date": "2026-09-09T18:23:21+00:00",
+     "ref": "e100fd6",
+     "branch": "detached"
+    }
+   ]
   },
   {
    "name": "divorce",
@@ -217,7 +1212,112 @@
     "since": "2026-09-09T19:39:36.427Z",
     "responseMs": null,
     "failing": []
-   }
+   },
+   "progress": [
+    {
+     "detail": "The full staging flow with zero Stripe involvement: checkout session, signed webhook, idempotent dedupe, token-gated packet download.",
+     "kind": "video",
+     "url": "demos/03-divorce-test-checkout.mp4",
+     "title": "Demo: $30 test checkout \u2192 printable packet",
+     "date": "2026-09-09T16:06:24-05:00"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "server: checkout sessions expire after 24h \u2014 a payment for a stale session can no longer unlock the packet; 346 green",
+     "date": "2026-09-09T21:05:06+00:00",
+     "ref": "cb4c64e",
+     "branch": "jack/divorce-webhook-hardening"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "server: payment-record idempotency \u2014 fulfillSucceededPayment keys on payment intent id; duplicate deliveries return the original fulfillment",
+     "date": "2026-09-09T20:50:34+00:00",
+     "ref": "8229577",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "server: fail fast at startup \u2014 startCheckoutServer resolves both signing secrets before listen; refuses boot on missing/weak/live-without-op",
+     "date": "2026-09-09T20:50:34+00:00",
+     "ref": "77aaf92",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "server: reject weak webhook secrets \u2014 loadWebhookSecret/loadDownloadSecret fail closed below 16 chars; strength fixtures updated; 333 green",
+     "date": "2026-09-09T20:50:34+00:00",
+     "ref": "9ce5b76",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "test: end-to-end checkout\u2192packet-unlock regression \u2014 runCheckout \u2192 provider-validated receipt \u2192 buildPacket \u2192 packetToPrintableHtml, with de",
+     "date": "2026-09-09T20:50:34+00:00",
+     "ref": "526f8f8",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "ui: staging 'Download printable packet (test mode)' \u2014 builds the paid packet from test receipt + demo answers via the real buildPacket pipel",
+     "date": "2026-09-09T20:50:34+00:00",
+     "ref": "f989317",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "fix: export STRIPE_MODULE_SPECIFIER from stripe-payment-server.mjs \u2014 sibling server modules share the exact runtime-only specifier (caught b",
+     "date": "2026-09-09T20:50:34+00:00",
+     "ref": "bd6f45b",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "ui: wire checkout success path to the receipt stub \u2014 'View / print receipt (test mode)' button shows the paid receipt; full suite 316 green",
+     "date": "2026-09-09T20:50:34+00:00",
+     "ref": "d4bec97",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "ui: PacketReceiptStub printable receipt component + 4 tests \u2014 payment ID, date, $30, placeholder packet sections, TEST-MODE banner, print CS",
+     "date": "2026-09-09T20:50:34+00:00",
+     "ref": "19b8dd8",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "server: wire POST /api/stripe-checkout-session into startCheckoutServer (rate-gated, injected Stripe boundary); all 139 server tests green",
+     "date": "2026-09-09T20:50:34+00:00",
+     "ref": "a156f37",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "server: POST /api/stripe-checkout-session handler \u2014 test-key-only Checkout Sessions, log-only stub when no key is set, injected HTTP boundar",
+     "date": "2026-09-09T20:50:34+00:00",
+     "ref": "8fd609d",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "test: end-to-end checkout\u2192packet-unlock regression \u2014 runCheckout \u2192 provider-validated receipt \u2192 buildPacket \u2192 packetToPrintableHtml, with de",
+     "date": "2026-09-09T20:23:39+00:00",
+     "ref": "eaf4132",
+     "branch": "jack/divorce-unlock-e2e"
+    }
+   ]
   },
   {
    "name": "sampler",
@@ -238,7 +1338,105 @@
     "updated_at": "2026-08-26T06:11:08Z"
    },
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": [
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "test(sampler): i18n regression suite \u2014 20 zero-dep tests via node:test",
+     "date": "2026-09-09T21:26:13+00:00",
+     "ref": "c8f0b0e",
+     "branch": "jack/sampler-tests-i18n"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat(sampler): add zero-dep locale catalog helpers (src/lib/localeKeys.js)",
+     "date": "2026-09-09T21:24:26+00:00",
+     "ref": "e4e2c45",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "docs: BRANCH-CONSOLIDATION.md \u2014 unmerged-branch inventory, merge order, yes/no for Brandon",
+     "date": "2026-09-09T20:26:34+00:00",
+     "ref": "a6c8060",
+     "branch": "jack/sampler-consolidation"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat(suggest): timbre-aware suggest-next \u2014 slice-5 timbre nudge + similar-timbre chip (en/es)",
+     "date": "2026-09-09T20:13:30+00:00",
+     "ref": "0044029",
+     "branch": "jack/sampler-suggest-next"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "docs: roadmap marks lowlevel timbre ranking (slice 5) as landed",
+     "date": "2026-09-09T20:02:37+00:00",
+     "ref": "0f8297c",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat(lowlevel): Freesound lowlevel.* timbre ranking (slice 5)",
+     "date": "2026-09-09T20:02:37+00:00",
+     "ref": "be4c6ff",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "docs: roadmap marks suggest-next-sample (slice 4) as landed",
+     "date": "2026-09-09T19:25:54+00:00",
+     "ref": "0432ed9",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat(ui): 'Suggest next' button + top-3 suggestions panel on search cards",
+     "date": "2026-09-09T19:25:44+00:00",
+     "ref": "9981499",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "test(suggest): node:test suite pinning suggestNext ranking and reason codes",
+     "date": "2026-09-09T19:23:49+00:00",
+     "ref": "2726db8",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat(suggest): suggestNext lib \u2014 top-N next-sample picks with tempo/key reason codes",
+     "date": "2026-09-09T19:23:16+00:00",
+     "ref": "1d2357b",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "chore: single test:smoke runs both node:test suites (145 tests); drop shadowed duplicate key",
+     "date": "2026-09-09T19:12:06+00:00",
+     "ref": "8b5596e",
+     "branch": "jack/sampler-consolidated"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "refactor(svelte5): replace deprecated on: directives with onclick/onClose callback prop",
+     "date": "2026-09-09T19:11:29+00:00",
+     "ref": "7d4084f",
+     "branch": "detached"
+    }
+   ]
   },
   {
    "name": "icecream",
@@ -265,7 +1463,8 @@
     "since": "2026-09-09T19:39:36.427Z",
     "responseMs": null,
     "failing": []
-   }
+   },
+   "progress": []
   },
   {
    "name": "wax",
@@ -292,7 +1491,119 @@
     "since": "2026-09-09T19:39:36.427Z",
     "responseMs": null,
     "failing": []
-   }
+   },
+   "progress": [
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "docs: mark collection-batch adapter BUILT in alert engine plan",
+     "date": "2026-09-09T21:07:17+00:00",
+     "ref": "a645752",
+     "branch": "jack/wax-collection-seed"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat: Discogs collection \u2192 alert-engine batch adapter (collection-batch.js)",
+     "date": "2026-09-09T21:07:05+00:00",
+     "ref": "beb9db6",
+     "branch": "detached"
+    },
+    {
+     "detail": "One tick of the per-minute drop cron in dry-run: board loaded, cooldowns checked, 2 price_drop alerts fired and recorded.",
+     "kind": "video",
+     "url": "demos/05-wax-drop-pass.mp4",
+     "title": "Demo: alert drop-pass CLI",
+     "date": "2026-09-09T16:06:24-05:00"
+    },
+    {
+     "detail": "The verdict engine grades a $150 VG+ Doggystyle '93 against market data: median, spread, and a Good deal / Fair / Overpriced call \u2014 plus the reissue guardrail.",
+     "kind": "video",
+     "url": "demos/01-wax-crate-digger.mp4",
+     "title": "Demo: Crate Digger price verdict engine",
+     "date": "2026-09-09T16:06:24-05:00"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "docs: export price-verdict from @wax/core, mark verdict engine + alert handoff BUILT",
+     "date": "2026-09-09T20:47:57+00:00",
+     "ref": "d22e4cb",
+     "branch": "jack/wax-price-verdict"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat: Crate Digger price-verdict engine \u2014 grade-segmented medians, \u00b115% verdict bands, teaching row, reissue guardrail, alert handoff",
+     "date": "2026-09-09T20:47:57+00:00",
+     "ref": "dabad4d",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "spec: Crate Digger is no-login, Discogs API for barcode lookup",
+     "date": "2026-09-09T15:27:23-05:00",
+     "ref": "a3427cd",
+     "branch": "jack/wax-doggystyle-market-note"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "docs: Crate Digger mode spec \u2014 in-store price check feeding the alert engine",
+     "date": "2026-09-09T20:26:39+00:00",
+     "ref": "4d2e1ca",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "docs: market snapshot \u2014 Doggystyle original 1993 pressing price dispersion (2026-09-09)",
+     "date": "2026-09-09T20:26:29+00:00",
+     "ref": "a849548",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat: wax alert drop-pass [--dry-run] [--live] \u2014 per-minute cron entry point for the board-path drop scheduler (ALERT-ENGINE-PLAN.md \u00a73 NEXT",
+     "date": "2026-09-09T20:24:37+00:00",
+     "ref": "e99b05f",
+     "branch": "jack/wax-drop-pass"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "docs: mark drop-cron board-path hookup BUILT in ALERT-ENGINE-PLAN.md",
+     "date": "2026-09-09T20:15:37+00:00",
+     "ref": "f4134bb",
+     "branch": "jack/wax-api-await"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat: drop-cron board-path hookup \u2014 boot() replays durable alerts rows into cooldown, loadBoard() hydrates releases/watches through artists,",
+     "date": "2026-09-09T20:15:37+00:00",
+     "ref": "d8640aa",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "docs: mark drop-alert scheduler BUILT in ALERT-ENGINE-PLAN.md",
+     "date": "2026-09-09T19:47:41+00:00",
+     "ref": "3c08cec",
+     "branch": "detached"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat: drop-alert scheduler + test-mode dispatch boundary (ALERT-ENGINE-PLAN.md \u00a73)",
+     "date": "2026-09-09T19:47:25+00:00",
+     "ref": "5175787",
+     "branch": "detached"
+    }
+   ]
   },
   {
    "name": "remote",
@@ -313,7 +1624,105 @@
     "updated_at": "2026-09-09T13:10:06Z"
    },
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": [
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/remote/commit/975b673a841ab5b32750325da920350f3b4eef9c",
+     "title": "fix: guard emitter boundary \u2014 isValidTransmit() rejects malformed IR payloads pre-framework; 10/10 suites green",
+     "date": "2026-09-09T21:25:36+00:00",
+     "ref": "975b673",
+     "branch": "jack/remote-emitter-guard"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/remote/commit/44162d6950df6f893c79a0bc9496c0ec1dd84a28",
+     "title": "fix: harden AttemptLog \u2014 sanitize on write and load, cap labels, clamp ts",
+     "date": "2026-09-09T20:26:43+00:00",
+     "ref": "44162d6",
+     "branch": "jack/remote-attempt-sanitize"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/remote/commit/51e0422682624988f63f856cee255f8840d8e379",
+     "title": "test: regression tests for learned-order reset",
+     "date": "2026-09-09T20:14:02+00:00",
+     "ref": "51e0422",
+     "branch": "jack/remote-magic-order"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/remote/commit/6a5b0d749a3e56f84ee64e6c489ce9a375b92670",
+     "title": "feat: reset learned Magic order + honest Magic screen copy",
+     "date": "2026-09-09T20:14:02+00:00",
+     "ref": "6a5b0d7",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/remote/commit/1b8d9d50bfdf86415ca28be4c70d7f4c05104095",
+     "title": "docs: README notes learned Magic Mode sweep order",
+     "date": "2026-09-09T19:23:13+00:00",
+     "ref": "1b8d9d5",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/remote/commit/0d22d370dadc881fee967b6db7e5001205139c74",
+     "title": "test: regression tests for learned Magic Mode sweep order",
+     "date": "2026-09-09T19:23:03+00:00",
+     "ref": "0d22d37",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/remote/commit/4c4400eb8b4be656bbce4c120eb34db201f6d474",
+     "title": "feat: startMagic sweeps in learned order via magicSweepOrder",
+     "date": "2026-09-09T19:22:25+00:00",
+     "ref": "4c4400e",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/remote/commit/f6846c1c5491bbf780e6f570e7147b3310983c35",
+     "title": "feat: learned Magic Mode sweep order \u2014 previously-worked variants first",
+     "date": "2026-09-09T19:22:10+00:00",
+     "ref": "f6846c1",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/remote/commit/df062d0fc299fca973fa4a95fe3a3928edd727b3",
+     "title": "docs: README notes IR database read-path hardening",
+     "date": "2026-09-09T19:15:20+00:00",
+     "ref": "df062d0",
+     "branch": "jack/remote-irdb-hardening"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/remote/commit/b5d6767b93b8eb8c5a2d88e6454e1894e736df46",
+     "title": "fix: harden IR database read path \u2014 tolerate missing/corrupt JSON, skip bad entries, validate buttons",
+     "date": "2026-09-09T19:15:20+00:00",
+     "ref": "b5d6767",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/remote/commit/8724f3f88c6387d5d050cf58218cf7f61e74d334",
+     "title": "docs: README notes profiles read-path hardening",
+     "date": "2026-09-09T18:23:18+00:00",
+     "ref": "8724f3f",
+     "branch": "jack/remote-profile-hardening"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/remote/commit/da663aeacfab9057d8c360b4b0c2e368347213ab",
+     "title": "test: profile store read-path hardening regression tests",
+     "date": "2026-09-09T18:23:08+00:00",
+     "ref": "da663ae",
+     "branch": "detached"
+    }
+   ]
   },
   {
    "name": "chains",
@@ -328,7 +1737,105 @@
    "branch": "master",
    "workflow": null,
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": [
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat: track PS2 memory cards (*.ps2) + docs/test regression guard",
+     "date": "2026-09-09T20:28:07+00:00",
+     "ref": "c0df8e1",
+     "branch": "jack/chains-gamecube-gci"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "test: N64 fixture regression (case-insensitive match + byte-identity round-trip)",
+     "date": "2026-09-09T20:13:16+00:00",
+     "ref": "4d87a7a",
+     "branch": "jack/chains-bizhawk-saveram"
+    },
+    {
+     "detail": "local branch, not yet pushed",
+     "kind": "commit",
+     "title": "feat: track N64 battery saves (*.sra / *.eep / *.fla)",
+     "date": "2026-09-09T20:13:16+00:00",
+     "ref": "c76cc38",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/chains/commit/97ae5fb26e3d17b1437180dc3c4a9118db3c2033",
+     "title": "docs: README notes chains.sh dispatcher twin + bash test suites",
+     "date": "2026-09-09T19:47:41+00:00",
+     "ref": "97ae5fb",
+     "branch": "jack/chains-bash-conversion"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/chains/commit/a79d25f422d61631afa8a02fe91d19311c5811e3",
+     "title": "docs: engine port decision -- vault.ps1 stays PowerShell",
+     "date": "2026-09-09T19:47:36+00:00",
+     "ref": "a79d25f",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/chains/commit/80fd4e33e0da7df336f6acf12551d9ba23eba587",
+     "title": "test: dispatcher regression suite for chains.sh (80 assertions)",
+     "date": "2026-09-09T19:47:30+00:00",
+     "ref": "80fd4e3",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/chains/commit/b80e8959ba2ee8d218ee03ddea8ff96b6a4dcecb",
+     "title": "feat: chains.sh bash dispatcher twin of chains.ps1",
+     "date": "2026-09-09T19:47:12+00:00",
+     "ref": "b80e895",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/chains/commit/20bd219eb48079da218d08f4542f3015bc15955d",
+     "title": "test: .SaveRAM fixture regression (case-insensitive match + byte-identity round-trip)",
+     "date": "2026-09-09T19:22:36+00:00",
+     "ref": "20bd219",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/chains/commit/06b34cf1bea9648cb45c7b1192ef968744b48ed1",
+     "title": "feat: track BizHawk SaveRAM files (*.SaveRAM)",
+     "date": "2026-09-09T19:22:18+00:00",
+     "ref": "06b34cf",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/chains/commit/1c7da966d5e723b262098a210a7b6275a69de364",
+     "title": "test: .dsv fixture regression (case-insensitive match + byte-identity round-trip)",
+     "date": "2026-09-09T19:15:10+00:00",
+     "ref": "1c7da96",
+     "branch": "jack/chains-nds-dsv"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/chains/commit/6c614e71c270d9dc76a9983de2c50d9b4e30691d",
+     "title": "feat: track DeSmuME NDS battery saves (*.dsv)",
+     "date": "2026-09-09T19:14:49+00:00",
+     "ref": "6c614e7",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/chains/commit/c3b5423af9420abf273b5709b7f850718f27cf72",
+     "title": "fix: PROJECTS-BOARD.md links to repo-root SYNC.md",
+     "date": "2026-09-09T18:23:27+00:00",
+     "ref": "c3b5423",
+     "branch": "jack/chains-psx-mcr"
+    }
+   ]
   },
   {
    "name": "tower",
@@ -349,7 +1856,8 @@
     "updated_at": "2026-09-09T20:11:14Z"
    },
    "pages": "https://yeahdogs.github.io/tower/",
-   "site": null
+   "site": null,
+   "progress": []
   },
   {
    "name": "id",
@@ -364,7 +1872,17 @@
    "branch": "master",
    "workflow": null,
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": [
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/id/commit/c1b1156aacad2f8b5511bf60b506132183ac2a79",
+     "title": "DOGS ID: age-verification gate for the ecosystem",
+     "date": "2026-09-09T14:17:12-05:00",
+     "ref": "c1b1156",
+     "branch": "master"
+    }
+   ]
   },
   {
    "name": "paper",
@@ -391,7 +1909,49 @@
     "since": "2026-09-09T19:39:36.427Z",
     "responseMs": null,
     "failing": []
-   }
+   },
+   "progress": [
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/paper/commit/190f882d628c0bd48dc75c9122094f02ef21d684",
+     "title": "PAPER: live stock quotes via BYO Finnhub/Twelve key \u2014 Stooq is dead, keyed feeds, 60s auto-refresh, feed status line",
+     "date": "2026-09-09T19:42:41+00:00",
+     "ref": "190f882",
+     "branch": "master"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/paper/commit/f5aa119087e0a0326f747f8f597d42bc0f8dc93b",
+     "title": "tests: commit P&L math suite (20/20 green)",
+     "date": "2026-09-09T19:41:54+00:00",
+     "ref": "f5aa119",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/paper/commit/99b23ccc23f43ccd1ec6e78a6f47382b456e1d9a",
+     "title": "PAPER: window.Paper API for trains (bots) \u2014 accounts/positions/trades/place/close/quote, README + example dip-buyer train, 24 api-test asser",
+     "date": "2026-09-09T19:41:17+00:00",
+     "ref": "99b23cc",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/paper/commit/e194e57729875544e972bbae4eed8f0562498fe7",
+     "title": "PAPER: quick-pick symbol chips per account (BTC/ETH/NVDA/TSLA/\u2026) + live-price fill on tap",
+     "date": "2026-09-09T19:38:18+00:00",
+     "ref": "e194e57",
+     "branch": "detached"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/paper/commit/fc816b585ed2b7cf49370fde4e91e5ec6b8771c9",
+     "title": "PAPER: paper-trading simulator for crypto, stocks, options, futures, prediction markets",
+     "date": "2026-09-09T19:28:38+00:00",
+     "ref": "fc816b5",
+     "branch": "detached"
+    }
+   ]
   },
   {
    "name": "watchtower",
@@ -418,7 +1978,8 @@
     "since": "2026-09-09T19:42:13.799Z",
     "responseMs": null,
     "failing": []
-   }
+   },
+   "progress": []
   },
   {
    "name": "mirror",
@@ -447,7 +2008,25 @@
     "failing": [
      "http: HTTP 404, expected 200"
     ]
-   }
+   },
+   "progress": [
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/mirror/commit/5e9b9e198bc95b5bc24e538b4f1852d60cbf8d75",
+     "title": "Fix stock quotes: Yahoo (no CORS) -> BYO-key Finnhub/Twelve Data feeds",
+     "date": "2026-09-09T19:45:50+00:00",
+     "ref": "5e9b9e1",
+     "branch": "master"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/mirror/commit/c95248f2d8002147b1d519184252db7f2b2b74c5",
+     "title": "Mirror: smart-mirror ticker + paper stats dashboard",
+     "date": "2026-09-09T19:41:57+00:00",
+     "ref": "c95248f",
+     "branch": "detached"
+    }
+   ]
   },
   {
    "name": "castle-os",
@@ -462,7 +2041,25 @@
    "branch": "master",
    "workflow": null,
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": [
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/castle-os/commit/0c923deaa2ea61dfbafe7520b05272f93b06ef7a",
+     "title": "Phase 1: scaffold archiso profile (rescue modes, build+verify, docs)",
+     "date": "2026-09-09T21:25:20+00:00",
+     "ref": "0c923de",
+     "branch": "jack/castle-os-phase1"
+    },
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/castle-os/commit/63e3689717f58692906eb9e625653884ea99e2f2",
+     "title": "Phase 1: Castle OS live ISO profile (cli + gui modes)",
+     "date": "2026-09-09T19:58:56+00:00",
+     "ref": "63e3689",
+     "branch": "detached"
+    }
+   ]
   },
   {
    "name": "forge",
@@ -483,7 +2080,17 @@
     "updated_at": "2026-09-09T19:58:39Z"
    },
    "pages": "https://yeahdogs.github.io/forge/",
-   "site": null
+   "site": null,
+   "progress": [
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/forge/commit/d5179c2a5dc14a3c8503aaed902cca34bc3557ba",
+     "title": "Forge v1: Oklahoma LLC formation wizard (files nothing, worksheet + instructions)",
+     "date": "2026-09-09T19:57:41+00:00",
+     "ref": "d5179c2",
+     "branch": "master"
+    }
+   ]
   },
   {
    "name": "yeahdogs.github.io",
@@ -504,7 +2111,8 @@
     "updated_at": "2026-09-09T19:57:10Z"
    },
    "pages": "https://yeahdogs.github.io/",
-   "site": null
+   "site": null,
+   "progress": []
   },
   {
    "name": "plans",
@@ -519,7 +2127,17 @@
    "branch": "master",
    "workflow": null,
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": [
+    {
+     "kind": "commit",
+     "url": "https://github.com/YEAHDOGS/plans/commit/2b424e9c55f4ae0f06b4755501232084ced8e55b",
+     "title": "plans: investor/bank package \u2014 business plan, 6 one-pagers, 3-yr projections (all labeled, pre-revenue stated)",
+     "date": "2026-09-09T19:58:24+00:00",
+     "ref": "2b424e9",
+     "branch": "master"
+    }
+   ]
   }
  ]
 }
