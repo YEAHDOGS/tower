@@ -61,6 +61,15 @@
   .desc { color: var(--muted); font-size: 0.86rem; line-height: 1.45; min-height: 1.2em; }
   .meta { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 0.8rem; color: var(--muted); }
   .meta b { color: var(--text); font-weight: 600; }
+  .site {
+    font-size: 0.8rem; display: flex; align-items: center; gap: 8px;
+    color: var(--muted);
+  }
+  .site i { width: 9px; height: 9px; border-radius: 50%; display: inline-block; flex-shrink: 0; background: var(--gray); }
+  .site.up { color: var(--green); }
+  .site.up i { background: var(--green); box-shadow: 0 0 6px rgba(61,220,132,.7); }
+  .site.down { color: var(--red); font-weight: 650; }
+  .site.down i { background: var(--red); box-shadow: 0 0 6px rgba(255,92,92,.7); }
   .lang { display: inline-flex; align-items: center; gap: 6px; }
   .lang i { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
   .wf {
@@ -94,12 +103,14 @@
 <body>
 <header>
   <h1>DOGS Mission Control</h1>
-  <p><span id="repo-count">…</span><span class="dot-sep">·</span>Updated <span id="updated">…</span></p>
+  <p><span id="repo-count">…</span><span class="dot-sep">·</span><span id="site-summary">…</span><span class="dot-sep">·</span>Updated <span id="updated">…</span></p>
 </header>
 <div class="grid" id="grid"></div>
 <div id="err"></div>
 <footer>
-  Static snapshot baked at build time from public repo metadata. No personal data is collected or displayed.
+  Static snapshot baked at build time from public repo metadata. Live site
+  status on each card comes from Watchtower (checks every 30 min; alerts fire
+  on UP→DOWN transitions via GitHub issues). No personal data is collected or displayed.
   <br><a href="https://github.com/YEAHDOGS/dashboard">YEAHDOGS/dashboard</a>
 </footer>
 <script>
@@ -153,7 +164,20 @@
     return wf.conclusion ? wf.conclusion.replace(/_/g, " ") : wf.status;
   }
 
-  function card(r) {
+  function siteInfo(r, available) {
+    // Watchtower live-site status. Never a fake green: unknown when the feed
+    // is unavailable or the repo has no monitored site.
+    if (!available) return { cls: "none", text: "site status unavailable", title: "" };
+    var s = r.site;
+    if (!s) return { cls: "none", text: "not monitored", title: "" };
+    var ago = "checked " + relTime(s.lastCheck);
+    var ms = (s.responseMs === null || s.responseMs === undefined) ? "" : " · " + s.responseMs + "ms";
+    if (s.status === "up") return { cls: "up", text: "LIVE — " + ago + ms, title: "" };
+    if (s.status === "down") return { cls: "down", text: "DOWN — " + ago, title: (s.failing || []).join(" | ") };
+    return { cls: "none", text: "status unknown", title: "" };
+  }
+
+  function card(r, siteAvailable) {
     var c = el("div", "card");
 
     var top = el("div", "card-top");
@@ -184,6 +208,13 @@
     meta.appendChild(el("span", null, r.open_prs + " PRs"));
     c.appendChild(meta);
 
+    var si = siteInfo(r, siteAvailable);
+    var site = el("div", "site " + si.cls);
+    site.appendChild(el("i"));
+    site.appendChild(el("span", null, si.text));
+    if (si.title) site.title = si.title;
+    c.appendChild(site);
+
     var wf = el("div", "wf");
     wf.appendChild(el("span", "conclusion", esc(r.workflow ? r.workflow.name + ": " : "") + wfLabel(r.workflow)));
     if (r.workflow && r.workflow.url) {
@@ -212,13 +243,22 @@
     .then(function (data) {
       if (!data || !Array.isArray(data.repos)) throw new Error("bad data");
       document.getElementById("repo-count").textContent = data.repos.length + " repos";
+      var siteAvail = !!(data.site_status && data.site_status.available);
+      var monitored = 0, down = 0;
+      data.repos.forEach(function (r) {
+        if (r.site) { monitored++; if (r.site.status === "down") down++; }
+      });
+      document.getElementById("site-summary").textContent = siteAvail
+        ? monitored + " site" + (monitored === 1 ? "" : "s") + " monitored · " +
+          (down ? down + " DOWN" : "all live")
+        : "site status unavailable";
       document.getElementById("updated").textContent = relTime(data.generated_at) +
         " (" + new Date(data.generated_at).toISOString().replace("T", " ").slice(0, 16) + " UTC)";
       var grid = document.getElementById("grid");
       var repos = data.repos.slice().sort(function (x, y) {
         return new Date(y.pushed_at) - new Date(x.pushed_at);
       });
-      repos.forEach(function (r) { grid.appendChild(card(r)); });
+      repos.forEach(function (r) { grid.appendChild(card(r, siteAvail)); });
     })
     .catch(function (e) {
       var d = document.getElementById("err");

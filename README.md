@@ -7,7 +7,9 @@ https://yeahdogs.github.io/dashboard/
 
 Per repo: name, description, primary language, stars, last-push time,
 commit count, open issues, open PRs, latest Actions workflow conclusion
-(green/red/yellow status dot), and the GitHub Pages URL when one exists.
+(green/red/yellow status dot), **live site status from Watchtower**
+(green/red "LIVE — checked Xm ago" line on each card, "not monitored" for
+repos with no site — never a fake green), and the GitHub Pages URL when one exists.
 
 Data is baked into `data.json` at build time from public repo metadata.
 No personal data is collected, stored, or displayed — the builder only
