@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-10T05:05:48.876023+00:00",
+ "generated_at": "2026-09-10T05:27:43.335705+00:00",
  "org": "YEAHDOGS",
  "site_status": {
   "available": true,
@@ -75,9 +75,9 @@
    "description": "A fresh start for windows/android devices",
    "language": "PowerShell",
    "stars": 0,
-   "pushed_at": "2026-09-10T04:43:17Z",
+   "pushed_at": "2026-09-10T05:24:57Z",
    "open_issues": 0,
-   "open_prs": 1,
+   "open_prs": 2,
    "commits": 106,
    "url": "https://github.com/YEAHDOGS/phoenix",
    "branch": "master",
@@ -351,18 +351,18 @@
    "description": "DOGS mission control \u2014 live build/repo status dashboard",
    "language": "HTML",
    "stars": 0,
-   "pushed_at": "2026-09-10T04:19:30Z",
+   "pushed_at": "2026-09-10T05:26:36Z",
    "open_issues": 0,
    "open_prs": 0,
-   "commits": 38,
+   "commits": 39,
    "url": "https://github.com/YEAHDOGS/tower",
    "branch": "master",
    "workflow": {
     "name": "pages build and deployment",
     "conclusion": "success",
     "status": "completed",
-    "url": "https://github.com/YEAHDOGS/tower/actions/runs/34436739743",
-    "updated_at": "2026-09-10T04:20:15Z"
+    "url": "https://github.com/YEAHDOGS/tower/actions/runs/34439733380",
+    "updated_at": "2026-09-10T05:07:02Z"
    },
    "pages": "https://yeahdogs.github.io/tower/",
    "site": {
