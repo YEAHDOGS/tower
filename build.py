@@ -168,7 +168,10 @@ def fetch_site_status():
 
 
 def pii_guard(payload):
-    blocklist = [t for t in os.environ.get("PII_BLOCKLIST", "").split(",") if t.strip()]
+    # Default blocklist: the founder's personal name must never appear on the
+    # public site. Extra tokens can be added via the PII_BLOCKLIST env var.
+    default_blocklist = ["Brandon Wellacruz", "Brandon Wellacruz", "wellacruz"]
+    blocklist = default_blocklist + [t for t in os.environ.get("PII_BLOCKLIST", "").split(",") if t.strip()]
     if not blocklist:
         return
     blob = json.dumps(payload).lower()
@@ -186,6 +189,10 @@ def main():
 
     out = []
     for raw in repos:
+        # Public site: never list private repos. The org keeps most work
+        # private; only publishable repos appear here.
+        if raw.get("private"):
+            continue
         # Guard clause: only keep allowlisted fields from the raw payload.
         if not all(k in raw for k in ("name", "html_url")):
             continue

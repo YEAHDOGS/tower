@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Watchtower — Brandon Wellacruz | DOGS Project Portfolio</title>
-<meta name="description" content="Watchtower: the live project portfolio of Brandon Wellacruz (DOGS). Paper trading, LLC formation tools, smart-mirror dashboards, Castle OS, and more — every project with a real-time uptime status.">
+<title>Watchtower — DOGS Project Portfolio</title>
+<meta name="description" content="Watchtower: the live DOGS project portfolio. Paper trading, LLC formation tools, smart-mirror dashboards, Castle OS, and more — every project with a real-time uptime status.">
 <link rel="canonical" href="https://yeahdogs.github.io/tower/">
-<meta property="og:title" content="Watchtower — Brandon Wellacruz | DOGS Project Portfolio">
-<meta property="og:description" content="Every DOGS project in one tile grid, each with live uptime status. Built and shipped by Brandon Wellacruz.">
+<meta property="og:title" content="Watchtower — DOGS Project Portfolio">
+<meta property="og:description" content="Every DOGS project in one tile grid, each with live uptime status.">
 <meta property="og:url" content="https://yeahdogs.github.io/tower/">
 <meta property="og:type" content="website">
 <style>
@@ -46,6 +46,13 @@
     margin-top: 8px;
   }
   .brand .who strong { font-weight: 700; }
+  .brand .made-by {
+    display: block;
+    max-width: 420px;
+    width: 100%;
+    height: auto;
+    margin: 4px 0;
+  }
   .brand .tagline {
     color: var(--muted);
     font-size: 0.92rem;
@@ -250,8 +257,8 @@
 
 <header class="brand">
   <h1>Watchtower</h1>
-  <p class="who"><strong>Brandon Wellacruz</strong> — founder, DOGS</p>
-  <p class="tagline">Every project I build and ship, in one grid. Paper trading, business formation, ambient dashboards, self-hosted infrastructure — each tile links to the live project and its code, with a real-time uptime status from the Watchtower monitor.</p>
+  <p class="who"><a href="https://wearedogs.net"><img src="assets/made-by-dogs.png" alt="This product was made by DOGS" class="made-by"></a></p>
+  <p class="tagline">Every project we build and ship, in one grid. Paper trading, business formation, ambient dashboards, self-hosted infrastructure — each tile links to the live project and its code, with a real-time uptime status from the Watchtower monitor.</p>
   <p class="statusline" id="statusline" aria-live="polite">
     <span id="proj-count">…</span>
     <span id="site-summary">…</span>
