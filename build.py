@@ -170,11 +170,17 @@ def fetch_site_status():
 def pii_guard(payload):
     # Default blocklist: the founder's personal name must never appear on the
     # public site. Extra tokens can be added via the PII_BLOCKLIST env var.
-    default_blocklist = ["the founder", "the founder", "the founder"]
+    default_blocklist = ["the founder", "the founder", "the founder", "the founder"]
     blocklist = default_blocklist + [t for t in os.environ.get("PII_BLOCKLIST", "").split(",") if t.strip()]
     if not blocklist:
         return
     blob = json.dumps(payload).lower()
+    # Also scan the hand-maintained page shell, not just generated data.
+    try:
+        with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "index.html")) as f:
+            blob += "\n" + f.read().lower()
+    except OSError:
+        pass
     for token in blocklist:
         if token.strip().lower() in blob:
             sys.exit("PII_GUARD: blocklisted string found in output; aborting.")
