@@ -161,7 +161,7 @@
 
     var h = el("h2");
     var ra = el("a", null, r.name);
-    ra.href = r.hub; // tile opens the project hub page, never GitHub directly
+    ra.href = r.hub || r.url; // tile opens the project hub page, never GitHub directly
     h.appendChild(ra);
     a.appendChild(h);
 
@@ -285,7 +285,7 @@
         var si = siteInfo(r, state.siteAvail);
         r.category = category(r.name);
         r.srank = si.rank;
-        r.hub = "projects/" + r.name + "/";
+        r.hub = r.hub || r.url; // hub page when one exists, else the repo
         entries.push(r);
       });
       state.repos = entries;
