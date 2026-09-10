@@ -29,6 +29,70 @@ API = "https://api.github.com"
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "data.json")
 
+# Progress timelines: per-project dated entries, read from progress/*.json.
+# See progress/README.md for the worker contract. Entries are public data.
+PROGRESS_DIR = os.path.join(HERE, "progress")
+PROGRESS_ENTRY_FIELDS = {
+    "date", "title", "kind", "url", "thumb", "detail", "ref", "branch",
+}
+PROGRESS_KINDS = {"screenshot", "video", "doc", "note", "deploy", "commit"}
+PROGRESS_MAX = 40  # newest entries kept per project
+
+
+def load_progress():
+    """progress/<repo>.json -> {repo: [entries, newest first]}. Never raises.
+
+    Malformed entries are dropped with a warning; one bad file never kills
+    the build.
+    """
+    out = {}
+    if not os.path.isdir(PROGRESS_DIR):
+        return out
+    for fn in sorted(os.listdir(PROGRESS_DIR)):
+        if not fn.endswith(".json"):
+            continue
+        repo = fn[: -len(".json")]
+        path = os.path.join(PROGRESS_DIR, fn)
+        try:
+            with open(path) as f:
+                raw = json.load(f)
+        except Exception as e:  # noqa: BLE001 - bad file, skip it
+            print("WARN: progress %s unreadable: %s" % (fn, e), file=sys.stderr)
+            continue
+        entries = raw.get("entries") if isinstance(raw, dict) else None
+        if not isinstance(entries, list):
+            print("WARN: progress %s has no entries list" % fn, file=sys.stderr)
+            continue
+        clean = []
+        for e in entries:
+            if not isinstance(e, dict):
+                continue
+            if not e.get("date") or not e.get("title") or e.get("kind") not in PROGRESS_KINDS:
+                print(
+                    "WARN: progress %s: dropping entry (needs date/title/valid kind)" % fn,
+                    file=sys.stderr,
+                )
+                continue
+            ce = {k: e[k] for k in PROGRESS_ENTRY_FIELDS if k in e}
+            try:
+                ts = datetime.fromisoformat(
+                    str(ce["date"]).replace("Z", "+00:00")
+                ).timestamp()
+            except (ValueError, TypeError):
+                print(
+                    "WARN: progress %s: dropping entry with bad date %r" % (fn, e.get("date")),
+                    file=sys.stderr,
+                )
+                continue
+            ce["_ts"] = ts
+            clean.append(ce)
+        clean.sort(key=lambda e: e["_ts"], reverse=True)
+        for e in clean:
+            e.pop("_ts", None)
+        out[repo] = clean[:PROGRESS_MAX]
+    return out
+
+
 # Public Watchtower feed: per-site up/down status, baked into data.json so the
 # dashboard cards show live site status. Fetched without auth; a failed fetch
 # means "unknown", never a fake green.
@@ -116,6 +180,7 @@ def build_repo(raw):
     branch = raw.get("default_branch") or "main"
     prs = open_pr_count(name)
     issues_including_prs = raw.get("open_issues_count") or 0
+    hub_path = os.path.join("projects", name, "index.html")
     return {
         "name": name,
         "description": raw.get("description") or "",
@@ -129,6 +194,9 @@ def build_repo(raw):
         "branch": branch,
         "workflow": latest_workflow(name),
         "pages": pages_url(name),
+        # tile links open the project hub page (projects/<name>/) when one
+        # exists; the redesign's index.html reads r.hub for this.
+        "hub": ("projects/" + name + "/") if os.path.isfile(hub_path) else None,
     }
 
 
@@ -170,7 +238,7 @@ def fetch_site_status():
 def pii_guard(payload):
     # Default blocklist: the founder's personal name must never appear on the
     # public site. Extra tokens can be added via the PII_BLOCKLIST env var.
-    default_blocklist = ["the founder", "the founder", "the founder", "the founder"]
+    default_blocklist = ["the founder", "the founder", "the founder", "the founder", "the founder", "the founder"]
     blocklist = default_blocklist + [t for t in os.environ.get("PII_BLOCKLIST", "").split(",") if t.strip()]
     if not blocklist:
         return
@@ -192,6 +260,7 @@ def main():
         sys.exit("No repos returned; aborting.")
 
     site_by_repo, site_generated = fetch_site_status()
+    progress_by_repo = load_progress()
 
     out = []
     for raw in repos:
@@ -207,6 +276,8 @@ def main():
             # Watchtower site status keyed by repo name; None when the feed is
             # unavailable or the repo has no monitored site.
             repo["site"] = site_by_repo.get(repo["name"]) if site_by_repo else None
+            # Dated progress timeline from progress/<repo>.json (may be empty).
+            repo["progress"] = progress_by_repo.get(repo["name"], [])
             out.append(repo)
         except Exception as e:  # noqa: BLE001 - one bad repo must not kill the build
             print("WARN: skipping %s: %s" % (raw.get("name"), e), file=sys.stderr)
