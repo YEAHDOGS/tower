@@ -180,6 +180,7 @@ def build_repo(raw):
     branch = raw.get("default_branch") or "main"
     prs = open_pr_count(name)
     issues_including_prs = raw.get("open_issues_count") or 0
+    hub_path = os.path.join("projects", name, "index.html")
     return {
         "name": name,
         "description": raw.get("description") or "",
@@ -193,6 +194,9 @@ def build_repo(raw):
         "branch": branch,
         "workflow": latest_workflow(name),
         "pages": pages_url(name),
+        # tile links open the project hub page (projects/<name>/) when one
+        # exists; the redesign's index.html reads r.hub for this.
+        "hub": ("projects/" + name + "/") if os.path.isfile(hub_path) else None,
     }
 
 
@@ -234,7 +238,7 @@ def fetch_site_status():
 def pii_guard(payload):
     # Default blocklist: the founder's personal name must never appear on the
     # public site. Extra tokens can be added via the PII_BLOCKLIST env var.
-default_blocklist = ["the founder", "the founder", "the founder", "the founder", "the founder", "the founder"]
+    default_blocklist = ["the founder", "the founder", "the founder", "the founder", "the founder", "the founder"]
     blocklist = default_blocklist + [t for t in os.environ.get("PII_BLOCKLIST", "").split(",") if t.strip()]
     if not blocklist:
         return
