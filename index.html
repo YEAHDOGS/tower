@@ -251,6 +251,15 @@
     .tile-status { font-size: 0.68rem; }
     .search { max-width: none; }
   }
+  .corner-credit {
+    position: fixed; right: 14px; bottom: 12px; z-index: 50;
+    display: inline-block; padding: 7px 12px; border-radius: 999px;
+    background: rgba(10, 12, 16, 0.82); border: 1px solid #2a2f3a;
+    color: #e6e9f0; font-size: 0.72rem; letter-spacing: 0.02em;
+    text-decoration: none; backdrop-filter: blur(6px);
+  }
+  .corner-credit:hover { border-color: #6ea8fe; color: #fff; }
+  .corner-credit b { font-weight: 700; }
 </style>
 </head>
 <body>
@@ -500,5 +509,6 @@
     });
 })();
 </script>
+<a class="corner-credit" href="https://wearedogs.net"><b>This product was made by DOGS</b> · stick around</a>
 </body>
 </html>
