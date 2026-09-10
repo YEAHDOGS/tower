@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-10T08:32:35.825524+00:00",
+ "generated_at": "2026-09-10T08:34:32.229922+00:00",
  "org": "YEAHDOGS",
  "site_status": {
   "available": true,
@@ -26,7 +26,8 @@
     "updated_at": "2026-09-10T04:41:11Z"
    },
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": []
   },
   {
    "name": "40",
@@ -47,7 +48,8 @@
     "updated_at": "2026-09-10T04:41:07Z"
    },
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": []
   },
   {
    "name": "castle",
@@ -68,7 +70,8 @@
     "updated_at": "2026-09-10T04:41:18Z"
    },
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": []
   },
   {
    "name": "phoenix",
@@ -89,7 +92,8 @@
     "updated_at": "2026-09-10T04:43:34Z"
    },
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": []
   },
   {
    "name": "sdm",
@@ -104,7 +108,8 @@
    "branch": "master",
    "workflow": null,
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": []
   },
   {
    "name": "proof",
@@ -125,7 +130,8 @@
     "updated_at": "2026-09-10T04:41:46Z"
    },
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": []
   },
   {
    "name": "demo",
@@ -146,7 +152,8 @@
     "updated_at": "2026-09-10T04:41:38Z"
    },
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": []
   },
   {
    "name": "playback",
@@ -167,7 +174,8 @@
     "updated_at": "2026-09-10T04:41:16Z"
    },
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": []
   },
   {
    "name": "pay",
@@ -188,7 +196,8 @@
     "updated_at": "2026-09-10T04:41:45Z"
    },
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": []
   },
   {
    "name": "help",
@@ -203,7 +212,8 @@
    "branch": "master",
    "workflow": null,
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": []
   },
   {
    "name": "bakery",
@@ -218,7 +228,8 @@
    "branch": "master",
    "workflow": null,
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": []
   },
   {
    "name": "divorce",
@@ -239,7 +250,8 @@
     "updated_at": "2026-09-09T10:21:56Z"
    },
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": []
   },
   {
    "name": "sampler",
@@ -260,7 +272,8 @@
     "updated_at": "2026-09-10T04:41:58Z"
    },
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": []
   },
   {
    "name": "icecream",
@@ -287,7 +300,18 @@
     "since": "2026-09-09T19:39:36.427Z",
     "responseMs": 172,
     "failing": []
-   }
+   },
+   "progress": [
+    {
+     "detail": "Real capture of the live Scoop campaign page with headless Chromium on 2026-09-10; Snoop x Deel x Dr. Bombay application window closes Sep 17.",
+     "date": "2026-09-10T03:30:23-05:00",
+     "thumb": "shots/icecream.png",
+     "title": "Live site screenshot, desktop 1440px",
+     "url": "https://yeahdogs.github.io/icecream/",
+     "branch": "jack/tower-pictures-2026-09-10",
+     "kind": "screenshot"
+    }
+   ]
   },
   {
    "name": "wax",
@@ -308,7 +332,8 @@
     "updated_at": "2026-09-09T10:26:34Z"
    },
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": []
   },
   {
    "name": "remote",
@@ -329,7 +354,8 @@
     "updated_at": "2026-09-09T13:10:06Z"
    },
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": []
   },
   {
    "name": "chains",
@@ -344,7 +370,8 @@
    "branch": "master",
    "workflow": null,
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": []
   },
   {
    "name": "tower",
@@ -371,7 +398,18 @@
     "since": "2026-09-09T22:09:18.265Z",
     "responseMs": 102,
     "failing": []
-   }
+   },
+   "progress": [
+    {
+     "detail": "Real capture of the live Watchtower dashboard with headless Chromium on 2026-09-10; 27 projects, 3 sites live, 1 down.",
+     "date": "2026-09-10T03:30:07-05:00",
+     "thumb": "shots/tower.png",
+     "title": "Live site screenshot, desktop 1440px",
+     "url": "https://yeahdogs.github.io/tower/",
+     "branch": "jack/tower-pictures-2026-09-10",
+     "kind": "screenshot"
+    }
+   ]
   },
   {
    "name": "id",
@@ -386,7 +424,8 @@
    "branch": "master",
    "workflow": null,
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": []
   },
   {
    "name": "paper",
@@ -407,7 +446,8 @@
     "updated_at": "2026-09-09T19:43:29Z"
    },
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": []
   },
   {
    "name": "watchtower",
@@ -436,7 +476,8 @@
     "failing": [
      "http: HTTP 404, expected 200"
     ]
-   }
+   },
+   "progress": []
   },
   {
    "name": "mirror",
@@ -457,7 +498,8 @@
     "updated_at": "2026-09-09T19:46:41Z"
    },
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": []
   },
   {
    "name": "castle-os",
@@ -472,7 +514,8 @@
    "branch": "master",
    "workflow": null,
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": []
   },
   {
    "name": "forge",
@@ -493,7 +536,8 @@
     "updated_at": "2026-09-09T19:58:39Z"
    },
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": []
   },
   {
    "name": "yeahdogs.github.io",
@@ -520,7 +564,8 @@
     "since": "2026-09-09T22:09:18.265Z",
     "responseMs": 81,
     "failing": []
-   }
+   },
+   "progress": []
   },
   {
    "name": "printshop",
@@ -535,7 +580,8 @@
    "branch": "jack/printshop-scaffold-20260909",
    "workflow": null,
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": []
   },
   {
    "name": "radio",
@@ -550,7 +596,8 @@
    "branch": "master",
    "workflow": null,
    "pages": null,
-   "site": null
+   "site": null,
+   "progress": []
   }
  ]
 }
