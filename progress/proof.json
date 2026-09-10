@@ -1,0 +1,101 @@
+{
+ "project": "proof",
+ "entries": [
+  {
+   "date": "2026-09-09T21:27:35+00:00",
+   "title": "data: catalog harms-study sources (Marconi, Di Forti, Asbridge, Meier, Rogeberg, NHTSA)",
+   "kind": "commit",
+   "ref": "c203fb4",
+   "branch": "jack/proof-harms-v1",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T21:27:18+00:00",
+   "title": "feat: expose Harms metric family on the Substances tree",
+   "kind": "commit",
+   "ref": "e66781e",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T21:26:55+00:00",
+   "title": "chore: ignore dist-site build output (untracked regenerable artifact)",
+   "kind": "commit",
+   "ref": "8b9fd95",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:29:57+00:00",
+   "title": "data: add .Testing family - oral-fluid vs urine THC detection windows + SAMHSA OFMG cutoffs",
+   "kind": "commit",
+   "ref": "4fda44f",
+   "branch": "jack/proof-testing-windows",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:11:18+00:00",
+   "title": "docs: research oral-fluid (cotton-swab) testing brief \u2014 DOT timeline, SAMHSA cutoffs, THC detection windows, honest employment-effects gap",
+   "kind": "commit",
+   "ref": "0c32d76",
+   "branch": "jack/proof-market-sizes",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:57:34+00:00",
+   "title": "fix: quote NEEDS-CITATION note scalars (js-yaml rejects bare ': ' in plain scalars)",
+   "kind": "commit",
+   "ref": "f8313b5",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:56:56+00:00",
+   "title": "docs: .Health honest-harms coverage + oral-fluid testing research stub",
+   "kind": "commit",
+   "ref": "cb16558",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:56:38+00:00",
+   "title": "data: adolescent persistent-use IQ decline (health, contested, seeded)",
+   "kind": "commit",
+   "ref": "2dbe001",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:56:28+00:00",
+   "title": "data: cannabis-impaired-driving collision risk (health, contested, seeded)",
+   "kind": "commit",
+   "ref": "e2ac1df",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:56:15+00:00",
+   "title": "data: cannabis-psychosis risk ratio (health, contested, seeded)",
+   "kind": "commit",
+   "ref": "f34b2d4",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:56:02+00:00",
+   "title": "data: cannabis use disorder prevalence (health, seeded)",
+   "kind": "commit",
+   "ref": "d795152",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:55:50+00:00",
+   "title": "data: source catalog entries for the cannabis-harms evidence base",
+   "kind": "commit",
+   "ref": "161b050",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  }
+ ]
+}

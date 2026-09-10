@@ -1,0 +1,101 @@
+{
+ "project": "news",
+ "entries": [
+  {
+   "date": "2026-09-09T21:25:52+00:00",
+   "title": "check.py: validate Open Graph/Twitter Card completeness + feed item validity",
+   "kind": "commit",
+   "ref": "4e874fd",
+   "branch": "jack/news-og-cards",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:26:25+00:00",
+   "title": "check.py: validate canonical <link> is absolute, on-domain, and self-referential",
+   "kind": "commit",
+   "ref": "a9c0d5c",
+   "branch": "jack/news-canonical-validation",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:10:22+00:00",
+   "title": "check.py: verify same-domain URLs in meta content= resolve to real files",
+   "kind": "commit",
+   "ref": "d37451f",
+   "branch": "jack/news-absolute-canonical-links",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:58:11+00:00",
+   "title": "feed freshness: visible 'last updated' line in footer + check.py sync",
+   "kind": "commit",
+   "ref": "dc5fa1f",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:57:14+00:00",
+   "title": "styles: mobile hardening for 390px viewports (mobile_check.py findings)",
+   "kind": "commit",
+   "ref": "e6e8df7",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:56:07+00:00",
+   "title": "gitignore: __pycache__ (stdlib test runs)",
+   "kind": "commit",
+   "ref": "9c996b1",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:56:03+00:00",
+   "title": "mobile_check.py: static 390px-viewport regression checks + tests + CI",
+   "kind": "commit",
+   "ref": "2a31ad8",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:22:21+00:00",
+   "title": "check.py: verify absolute same-domain links resolve to real files",
+   "kind": "commit",
+   "ref": "e8203e2",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:08:21+00:00",
+   "title": "tests: cover missing/malformed core files and non-UTF-8 pages",
+   "kind": "commit",
+   "ref": "720d8fa",
+   "branch": "jack/news-checker-missing-files",
+   "url": "https://github.com/YEAHDOGS/news/commit/720d8fa2c88af3601f9ce613107f38dc153029a7"
+  },
+  {
+   "date": "2026-09-09T19:07:59+00:00",
+   "title": "check.py: report missing/malformed core files as errors instead of crashing",
+   "kind": "commit",
+   "ref": "d7921da",
+   "branch": "detached",
+   "url": "https://github.com/YEAHDOGS/news/commit/d7921daaedcb541ff258d8e5e5b5458abccff03e"
+  },
+  {
+   "date": "2026-09-09T18:25:12+00:00",
+   "title": "ci: run checker regression tests on every push/PR alongside sanity checks",
+   "kind": "commit",
+   "ref": "26d0fa0",
+   "branch": "jack/news-checker-hardening",
+   "url": "https://github.com/YEAHDOGS/news/commit/26d0fa0a81e80d94ceef247970119f7155a48b5e"
+  },
+  {
+   "date": "2026-09-09T18:25:07+00:00",
+   "title": "scripts/test_check.py: stdlib regression suite (16 tests) for the sanity checker",
+   "kind": "commit",
+   "ref": "1f3a35b",
+   "branch": "detached",
+   "url": "https://github.com/YEAHDOGS/news/commit/1f3a35b2564e59cfbc7251d43c0faac47ae48950"
+  }
+ ]
+}

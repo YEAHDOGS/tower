@@ -1,0 +1,115 @@
+{
+ "project": "wax",
+ "entries": [
+  {
+   "date": "2026-09-09T16:06:24-05:00",
+   "title": "Demo: alert drop-pass CLI",
+   "kind": "video",
+   "url": "demos/05-wax-drop-pass.mp4",
+   "detail": "One tick of the per-minute drop cron in dry-run: board loaded, cooldowns checked, 2 price_drop alerts fired and recorded."
+  },
+  {
+   "date": "2026-09-09T16:06:24-05:00",
+   "title": "Demo: Crate Digger price verdict engine",
+   "kind": "video",
+   "url": "demos/01-wax-crate-digger.mp4",
+   "detail": "The verdict engine grades a $150 VG+ Doggystyle '93 against market data: median, spread, and a Good deal / Fair / Overpriced call \u2014 plus the reissue guardrail."
+  },
+  {
+   "date": "2026-09-09T21:07:17+00:00",
+   "title": "docs: mark collection-batch adapter BUILT in alert engine plan",
+   "kind": "commit",
+   "ref": "a645752",
+   "branch": "jack/wax-collection-seed",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T21:07:05+00:00",
+   "title": "feat: Discogs collection \u2192 alert-engine batch adapter (collection-batch.js)",
+   "kind": "commit",
+   "ref": "beb9db6",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:47:57+00:00",
+   "title": "docs: export price-verdict from @wax/core, mark verdict engine + alert handoff BUILT",
+   "kind": "commit",
+   "ref": "d22e4cb",
+   "branch": "jack/wax-price-verdict",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:47:57+00:00",
+   "title": "feat: Crate Digger price-verdict engine \u2014 grade-segmented medians, \u00b115% verdict bands, teaching row, reissue guardrail, alert handoff",
+   "kind": "commit",
+   "ref": "dabad4d",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T15:27:23-05:00",
+   "title": "spec: Crate Digger is no-login, Discogs API for barcode lookup",
+   "kind": "commit",
+   "ref": "a3427cd",
+   "branch": "jack/wax-doggystyle-market-note",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:26:39+00:00",
+   "title": "docs: Crate Digger mode spec \u2014 in-store price check feeding the alert engine",
+   "kind": "commit",
+   "ref": "4d2e1ca",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:26:29+00:00",
+   "title": "docs: market snapshot \u2014 Doggystyle original 1993 pressing price dispersion (2026-09-09)",
+   "kind": "commit",
+   "ref": "a849548",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:24:37+00:00",
+   "title": "feat: wax alert drop-pass [--dry-run] [--live] \u2014 per-minute cron entry point for the board-path drop scheduler (ALERT-ENGINE-PLAN.md \u00a73 NEXT",
+   "kind": "commit",
+   "ref": "e99b05f",
+   "branch": "jack/wax-drop-pass",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:15:37+00:00",
+   "title": "docs: mark drop-cron board-path hookup BUILT in ALERT-ENGINE-PLAN.md",
+   "kind": "commit",
+   "ref": "f4134bb",
+   "branch": "jack/wax-api-await",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:15:37+00:00",
+   "title": "feat: drop-cron board-path hookup \u2014 boot() replays durable alerts rows into cooldown, loadBoard() hydrates releases/watches through artists,",
+   "kind": "commit",
+   "ref": "d8640aa",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:47:41+00:00",
+   "title": "docs: mark drop-alert scheduler BUILT in ALERT-ENGINE-PLAN.md",
+   "kind": "commit",
+   "ref": "3c08cec",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:47:25+00:00",
+   "title": "feat: drop-alert scheduler + test-mode dispatch boundary (ALERT-ENGINE-PLAN.md \u00a73)",
+   "kind": "commit",
+   "ref": "5175787",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  }
+ ]
+}
