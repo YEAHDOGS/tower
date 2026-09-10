@@ -1,101 +1,107 @@
 {
- "project": "chains",
- "entries": [
-  {
-   "date": "2026-09-09T20:28:07+00:00",
-   "title": "feat: track PS2 memory cards (*.ps2) + docs/test regression guard",
-   "kind": "commit",
-   "ref": "c0df8e1",
-   "branch": "jack/chains-gamecube-gci",
-   "detail": "local branch, not yet pushed"
-  },
-  {
-   "date": "2026-09-09T20:13:16+00:00",
-   "title": "test: N64 fixture regression (case-insensitive match + byte-identity round-trip)",
-   "kind": "commit",
-   "ref": "4d87a7a",
-   "branch": "jack/chains-bizhawk-saveram",
-   "detail": "local branch, not yet pushed"
-  },
-  {
-   "date": "2026-09-09T20:13:16+00:00",
-   "title": "feat: track N64 battery saves (*.sra / *.eep / *.fla)",
-   "kind": "commit",
-   "ref": "c76cc38",
-   "branch": "detached",
-   "detail": "local branch, not yet pushed"
-  },
-  {
-   "date": "2026-09-09T19:47:41+00:00",
-   "title": "docs: README notes chains.sh dispatcher twin + bash test suites",
-   "kind": "commit",
-   "ref": "97ae5fb",
-   "branch": "jack/chains-bash-conversion",
-   "url": "https://github.com/YEAHDOGS/chains/commit/97ae5fb26e3d17b1437180dc3c4a9118db3c2033"
-  },
-  {
-   "date": "2026-09-09T19:47:36+00:00",
-   "title": "docs: engine port decision -- vault.ps1 stays PowerShell",
-   "kind": "commit",
-   "ref": "a79d25f",
-   "branch": "detached",
-   "url": "https://github.com/YEAHDOGS/chains/commit/a79d25f422d61631afa8a02fe91d19311c5811e3"
-  },
-  {
-   "date": "2026-09-09T19:47:30+00:00",
-   "title": "test: dispatcher regression suite for chains.sh (80 assertions)",
-   "kind": "commit",
-   "ref": "80fd4e3",
-   "branch": "detached",
-   "url": "https://github.com/YEAHDOGS/chains/commit/80fd4e33e0da7df336f6acf12551d9ba23eba587"
-  },
-  {
-   "date": "2026-09-09T19:47:12+00:00",
-   "title": "feat: chains.sh bash dispatcher twin of chains.ps1",
-   "kind": "commit",
-   "ref": "b80e895",
-   "branch": "detached",
-   "url": "https://github.com/YEAHDOGS/chains/commit/b80e8959ba2ee8d218ee03ddea8ff96b6a4dcecb"
-  },
-  {
-   "date": "2026-09-09T19:22:36+00:00",
-   "title": "test: .SaveRAM fixture regression (case-insensitive match + byte-identity round-trip)",
-   "kind": "commit",
-   "ref": "20bd219",
-   "branch": "detached",
-   "url": "https://github.com/YEAHDOGS/chains/commit/20bd219eb48079da218d08f4542f3015bc15955d"
-  },
-  {
-   "date": "2026-09-09T19:22:18+00:00",
-   "title": "feat: track BizHawk SaveRAM files (*.SaveRAM)",
-   "kind": "commit",
-   "ref": "06b34cf",
-   "branch": "detached",
-   "url": "https://github.com/YEAHDOGS/chains/commit/06b34cf1bea9648cb45c7b1192ef968744b48ed1"
-  },
-  {
-   "date": "2026-09-09T19:15:10+00:00",
-   "title": "test: .dsv fixture regression (case-insensitive match + byte-identity round-trip)",
-   "kind": "commit",
-   "ref": "1c7da96",
-   "branch": "jack/chains-nds-dsv",
-   "url": "https://github.com/YEAHDOGS/chains/commit/1c7da966d5e723b262098a210a7b6275a69de364"
-  },
-  {
-   "date": "2026-09-09T19:14:49+00:00",
-   "title": "feat: track DeSmuME NDS battery saves (*.dsv)",
-   "kind": "commit",
-   "ref": "6c614e7",
-   "branch": "detached",
-   "url": "https://github.com/YEAHDOGS/chains/commit/6c614e71c270d9dc76a9983de2c50d9b4e30691d"
-  },
-  {
-   "date": "2026-09-09T18:23:27+00:00",
-   "title": "fix: PROJECTS-BOARD.md links to repo-root SYNC.md",
-   "kind": "commit",
-   "ref": "c3b5423",
-   "branch": "jack/chains-psx-mcr",
-   "url": "https://github.com/YEAHDOGS/chains/commit/c3b5423af9420abf273b5709b7f850718f27cf72"
-  }
- ]
+  "project": "chains",
+  "entries": [
+    {
+      "date": "2026-09-09T20:28:07+00:00",
+      "title": "feat: track PS2 memory cards (*.ps2) + docs/test regression guard",
+      "kind": "commit",
+      "ref": "c0df8e1",
+      "branch": "jack/chains-gamecube-gci",
+      "detail": "local branch, not yet pushed"
+    },
+    {
+      "date": "2026-09-09T20:13:16+00:00",
+      "title": "test: N64 fixture regression (case-insensitive match + byte-identity round-trip)",
+      "kind": "commit",
+      "ref": "4d87a7a",
+      "branch": "jack/chains-bizhawk-saveram",
+      "detail": "local branch, not yet pushed"
+    },
+    {
+      "date": "2026-09-09T20:13:16+00:00",
+      "title": "feat: track N64 battery saves (*.sra / *.eep / *.fla)",
+      "kind": "commit",
+      "ref": "c76cc38",
+      "branch": "detached",
+      "detail": "local branch, not yet pushed"
+    },
+    {
+      "date": "2026-09-09T19:47:41+00:00",
+      "title": "docs: README notes chains.sh dispatcher twin + bash test suites",
+      "kind": "commit",
+      "ref": "97ae5fb",
+      "branch": "jack/chains-bash-conversion",
+      "url": "https://github.com/YEAHDOGS/chains/commit/97ae5fb26e3d17b1437180dc3c4a9118db3c2033"
+    },
+    {
+      "date": "2026-09-09T19:47:36+00:00",
+      "title": "docs: engine port decision -- vault.ps1 stays PowerShell",
+      "kind": "commit",
+      "ref": "a79d25f",
+      "branch": "detached",
+      "url": "https://github.com/YEAHDOGS/chains/commit/a79d25f422d61631afa8a02fe91d19311c5811e3"
+    },
+    {
+      "date": "2026-09-09T19:47:30+00:00",
+      "title": "test: dispatcher regression suite for chains.sh (80 assertions)",
+      "kind": "commit",
+      "ref": "80fd4e3",
+      "branch": "detached",
+      "url": "https://github.com/YEAHDOGS/chains/commit/80fd4e33e0da7df336f6acf12551d9ba23eba587"
+    },
+    {
+      "date": "2026-09-09T19:47:12+00:00",
+      "title": "feat: chains.sh bash dispatcher twin of chains.ps1",
+      "kind": "commit",
+      "ref": "b80e895",
+      "branch": "detached",
+      "url": "https://github.com/YEAHDOGS/chains/commit/b80e8959ba2ee8d218ee03ddea8ff96b6a4dcecb"
+    },
+    {
+      "date": "2026-09-09T19:22:36+00:00",
+      "title": "test: .SaveRAM fixture regression (case-insensitive match + byte-identity round-trip)",
+      "kind": "commit",
+      "ref": "20bd219",
+      "branch": "detached",
+      "url": "https://github.com/YEAHDOGS/chains/commit/20bd219eb48079da218d08f4542f3015bc15955d"
+    },
+    {
+      "date": "2026-09-09T19:22:18+00:00",
+      "title": "feat: track BizHawk SaveRAM files (*.SaveRAM)",
+      "kind": "commit",
+      "ref": "06b34cf",
+      "branch": "detached",
+      "url": "https://github.com/YEAHDOGS/chains/commit/06b34cf1bea9648cb45c7b1192ef968744b48ed1"
+    },
+    {
+      "date": "2026-09-09T19:15:10+00:00",
+      "title": "test: .dsv fixture regression (case-insensitive match + byte-identity round-trip)",
+      "kind": "commit",
+      "ref": "1c7da96",
+      "branch": "jack/chains-nds-dsv",
+      "url": "https://github.com/YEAHDOGS/chains/commit/1c7da966d5e723b262098a210a7b6275a69de364"
+    },
+    {
+      "date": "2026-09-09T19:14:49+00:00",
+      "title": "feat: track DeSmuME NDS battery saves (*.dsv)",
+      "kind": "commit",
+      "ref": "6c614e7",
+      "branch": "detached",
+      "url": "https://github.com/YEAHDOGS/chains/commit/6c614e71c270d9dc76a9983de2c50d9b4e30691d"
+    },
+    {
+      "date": "2026-09-09T18:23:27+00:00",
+      "title": "fix: PROJECTS-BOARD.md links to repo-root SYNC.md",
+      "kind": "commit",
+      "ref": "c3b5423",
+      "branch": "jack/chains-psx-mcr",
+      "url": "https://github.com/YEAHDOGS/chains/commit/c3b5423af9420abf273b5709b7f850718f27cf72"
+    },
+    {
+      "date": "2026-09-10T13:50:04-05:00",
+      "title": "Watchtower: no live site to screenshot yet",
+      "kind": "note",
+      "detail": "No GitHub Pages or custom-domain deployment found for this repo as of 2026-09-10; Watchtower will add a screenshot entry once a live site exists."
+    }
+  ]
 }

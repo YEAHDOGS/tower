@@ -1,101 +1,107 @@
 {
- "project": "bakery",
- "entries": [
-  {
-   "date": "2026-09-09T21:27:23+00:00",
-   "title": "feat: bake report <run-id> merge mode \u2014 merged markdown from per-agent report files",
-   "kind": "commit",
-   "ref": "480c416",
-   "branch": "jack/bakery-report-merge",
-   "detail": "local branch, not yet pushed"
-  },
-  {
-   "date": "2026-09-09T20:27:54+00:00",
-   "title": "feat: bake retry <run-id> \u2014 re-run only failed/timed-out agents as a new <run-id>-retryN run",
-   "kind": "commit",
-   "ref": "48aa334",
-   "branch": "jack/bakery-retry",
-   "detail": "local branch, not yet pushed"
-  },
-  {
-   "date": "2026-09-09T20:13:44+00:00",
-   "title": "feat: JSON output mode for bake status and collect",
-   "kind": "commit",
-   "ref": "e4308ff",
-   "branch": "jack/bakery-report",
-   "detail": "local branch, not yet pushed"
-  },
-  {
-   "date": "2026-09-09T20:01:59+00:00",
-   "title": "docs: README \u2014 bake init project layout and quickstart",
-   "kind": "commit",
-   "ref": "9937523",
-   "branch": "detached",
-   "detail": "local branch, not yet pushed"
-  },
-  {
-   "date": "2026-09-09T20:01:59+00:00",
-   "title": "feat: bake init \u2014 idempotent project scaffold with --dry-run",
-   "kind": "commit",
-   "ref": "97848f2",
-   "branch": "detached",
-   "detail": "local branch, not yet pushed"
-  },
-  {
-   "date": "2026-09-09T19:25:35+00:00",
-   "title": "feat: bake report command \u2014 fan out, wait, merge, deliver (+ README)",
-   "kind": "commit",
-   "ref": "94aa772",
-   "branch": "detached",
-   "detail": "local branch, not yet pushed"
-  },
-  {
-   "date": "2026-09-09T19:24:35+00:00",
-   "title": "feat: bakery.report \u2014 fan-out/wait/sanitized merge (injection-safe rendering)",
-   "kind": "commit",
-   "ref": "f5dafa7",
-   "branch": "detached",
-   "detail": "local branch, not yet pushed"
-  },
-  {
-   "date": "2026-09-09T19:21:48+00:00",
-   "title": "feat(security): guard.redact_secrets redacts secret-shaped values in free text",
-   "kind": "commit",
-   "ref": "d04aa3f",
-   "branch": "detached",
-   "detail": "local branch, not yet pushed"
-  },
-  {
-   "date": "2026-09-09T19:09:00+00:00",
-   "title": "test: regression suite for agent sandboxing (7 tests, incl. live leak e2e)",
-   "kind": "commit",
-   "ref": "8aa2651",
-   "branch": "jack/bakery-sandbox-env",
-   "detail": "local branch, not yet pushed"
-  },
-  {
-   "date": "2026-09-09T19:09:00+00:00",
-   "title": "feat(security): sandboxed least-privilege agent environment",
-   "kind": "commit",
-   "ref": "b1c1257",
-   "branch": "detached",
-   "detail": "local branch, not yet pushed"
-  },
-  {
-   "date": "2026-09-09T18:23:41+00:00",
-   "title": "test: first regression suite for recipe loading (9 tests pin validation/defaults)",
-   "kind": "commit",
-   "ref": "38edb3e",
-   "branch": "jack/bakery-secret-guard",
-   "detail": "local branch, not yet pushed"
-  },
-  {
-   "date": "2026-09-09T18:23:21+00:00",
-   "title": "feat(security): pre-flight secret guard refuses recipes that hand secrets to agents",
-   "kind": "commit",
-   "ref": "e100fd6",
-   "branch": "detached",
-   "detail": "local branch, not yet pushed"
-  }
- ]
+  "project": "bakery",
+  "entries": [
+    {
+      "date": "2026-09-09T21:27:23+00:00",
+      "title": "feat: bake report <run-id> merge mode \u2014 merged markdown from per-agent report files",
+      "kind": "commit",
+      "ref": "480c416",
+      "branch": "jack/bakery-report-merge",
+      "detail": "local branch, not yet pushed"
+    },
+    {
+      "date": "2026-09-09T20:27:54+00:00",
+      "title": "feat: bake retry <run-id> \u2014 re-run only failed/timed-out agents as a new <run-id>-retryN run",
+      "kind": "commit",
+      "ref": "48aa334",
+      "branch": "jack/bakery-retry",
+      "detail": "local branch, not yet pushed"
+    },
+    {
+      "date": "2026-09-09T20:13:44+00:00",
+      "title": "feat: JSON output mode for bake status and collect",
+      "kind": "commit",
+      "ref": "e4308ff",
+      "branch": "jack/bakery-report",
+      "detail": "local branch, not yet pushed"
+    },
+    {
+      "date": "2026-09-09T20:01:59+00:00",
+      "title": "docs: README \u2014 bake init project layout and quickstart",
+      "kind": "commit",
+      "ref": "9937523",
+      "branch": "detached",
+      "detail": "local branch, not yet pushed"
+    },
+    {
+      "date": "2026-09-09T20:01:59+00:00",
+      "title": "feat: bake init \u2014 idempotent project scaffold with --dry-run",
+      "kind": "commit",
+      "ref": "97848f2",
+      "branch": "detached",
+      "detail": "local branch, not yet pushed"
+    },
+    {
+      "date": "2026-09-09T19:25:35+00:00",
+      "title": "feat: bake report command \u2014 fan out, wait, merge, deliver (+ README)",
+      "kind": "commit",
+      "ref": "94aa772",
+      "branch": "detached",
+      "detail": "local branch, not yet pushed"
+    },
+    {
+      "date": "2026-09-09T19:24:35+00:00",
+      "title": "feat: bakery.report \u2014 fan-out/wait/sanitized merge (injection-safe rendering)",
+      "kind": "commit",
+      "ref": "f5dafa7",
+      "branch": "detached",
+      "detail": "local branch, not yet pushed"
+    },
+    {
+      "date": "2026-09-09T19:21:48+00:00",
+      "title": "feat(security): guard.redact_secrets redacts secret-shaped values in free text",
+      "kind": "commit",
+      "ref": "d04aa3f",
+      "branch": "detached",
+      "detail": "local branch, not yet pushed"
+    },
+    {
+      "date": "2026-09-09T19:09:00+00:00",
+      "title": "test: regression suite for agent sandboxing (7 tests, incl. live leak e2e)",
+      "kind": "commit",
+      "ref": "8aa2651",
+      "branch": "jack/bakery-sandbox-env",
+      "detail": "local branch, not yet pushed"
+    },
+    {
+      "date": "2026-09-09T19:09:00+00:00",
+      "title": "feat(security): sandboxed least-privilege agent environment",
+      "kind": "commit",
+      "ref": "b1c1257",
+      "branch": "detached",
+      "detail": "local branch, not yet pushed"
+    },
+    {
+      "date": "2026-09-09T18:23:41+00:00",
+      "title": "test: first regression suite for recipe loading (9 tests pin validation/defaults)",
+      "kind": "commit",
+      "ref": "38edb3e",
+      "branch": "jack/bakery-secret-guard",
+      "detail": "local branch, not yet pushed"
+    },
+    {
+      "date": "2026-09-09T18:23:21+00:00",
+      "title": "feat(security): pre-flight secret guard refuses recipes that hand secrets to agents",
+      "kind": "commit",
+      "ref": "e100fd6",
+      "branch": "detached",
+      "detail": "local branch, not yet pushed"
+    },
+    {
+      "date": "2026-09-10T13:50:04-05:00",
+      "title": "Watchtower: no live site to screenshot yet",
+      "kind": "note",
+      "detail": "No GitHub Pages or custom-domain deployment found for this repo as of 2026-09-10; Watchtower will add a screenshot entry once a live site exists."
+    }
+  ]
 }

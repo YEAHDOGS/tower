@@ -1,108 +1,114 @@
 {
- "project": "castle",
- "entries": [
-  {
-   "date": "2026-09-09T16:06:24-05:00",
-   "title": "Demo: sealed backup restore",
-   "kind": "video",
-   "url": "demos/04-castle-restore.mp4",
-   "detail": "A vault is sealed into an encrypted .castle file, then restored to a fresh temp dir \u2014 hashes proved in memory first, bytes verified identical."
-  },
-  {
-   "date": "2026-09-09T21:06:22+00:00",
-   "title": "feat(backup): read-only backup-list inventory of sealed .castle backups",
-   "kind": "commit",
-   "ref": "34bb9af",
-   "branch": "jack/castle-backup-list",
-   "detail": "local branch, not yet pushed"
-  },
-  {
-   "date": "2026-09-09T20:57:37+00:00",
-   "title": "docs(vault): mark step 8 restore lane done in FAMILY-DATA-VAULT.md",
-   "kind": "commit",
-   "ref": "36ae53f",
-   "branch": "jack/castle-restore",
-   "url": "https://github.com/YEAHDOGS/castle/commit/36ae53fec8c074fb724985a371c9f7c1d73ef226"
-  },
-  {
-   "date": "2026-09-09T20:57:29+00:00",
-   "title": "feat(vault): backup restore lane \u2014 restore .castle backups to disk (restore.py + CLI + 15 tests)",
-   "kind": "commit",
-   "ref": "67eae9e",
-   "branch": "detached",
-   "url": "https://github.com/YEAHDOGS/castle/commit/67eae9ec9b88826d420390bfaf1fbe8a6e5cd0f4"
-  },
-  {
-   "date": "2026-09-09T20:28:39+00:00",
-   "title": "feat(vault): API-token auth \u2014 wire DOGS Token Authority into the ingestion trust boundary (vault/apiauth.py)",
-   "kind": "commit",
-   "ref": "bd4a054",
-   "branch": "jack/castle-apiauth",
-   "url": "https://github.com/YEAHDOGS/castle/commit/bd4a054aa3fa8393f2e66e109ea10ceccafa24dd"
-  },
-  {
-   "date": "2026-09-09T20:13:05+00:00",
-   "title": "feat(auth): DOGS Token Authority \u2014 encrypted bearer tokens (castle/tokens/)",
-   "kind": "commit",
-   "ref": "0cdc06a",
-   "branch": "jack/castle-backups",
-   "url": "https://github.com/YEAHDOGS/castle/commit/0cdc06a2b46ae2ad5672a9a5ab7ffc0993ef9fed"
-  },
-  {
-   "date": "2026-09-09T19:53:41+00:00",
-   "title": "feat(clonewars): add bash twin of start.ps1 (executable)",
-   "kind": "commit",
-   "ref": "69629d2",
-   "branch": "jack/castle-bash-conversion",
-   "url": "https://github.com/YEAHDOGS/castle/commit/69629d2eb6cf51a5c229ea8a751d47b872834764"
-  },
-  {
-   "date": "2026-09-09T19:52:19+00:00",
-   "title": "docs(vault): CRYPTO-NOTES.md \u2014 crypto choices, honest limitations, migration path",
-   "kind": "commit",
-   "ref": "9aaa81d",
-   "branch": "detached",
-   "url": "https://github.com/YEAHDOGS/castle/commit/9aaa81d3ab64a548e4fae4aaabecdbaf9bf166c1"
-  },
-  {
-   "date": "2026-09-09T19:52:19+00:00",
-   "title": "feat(vault): wire chunked container into backup.py (+ --chunks CLI)",
-   "kind": "commit",
-   "ref": "015027e",
-   "branch": "detached",
-   "url": "https://github.com/YEAHDOGS/castle/commit/015027e2db410a03d3099a323915eb1c6adf50bc"
-  },
-  {
-   "date": "2026-09-09T19:48:07+00:00",
-   "title": "feat(clonewars): add bash twin of modules/verify.ps1",
-   "kind": "commit",
-   "ref": "291ff1c",
-   "branch": "detached",
-   "url": "https://github.com/YEAHDOGS/castle/commit/291ff1cbb08e77d577955427107fa218c4258980"
-  },
-  {
-   "date": "2026-09-09T19:47:42+00:00",
-   "title": "feat(vault): pure-stdlib chunked encrypted backup container (chunkseal.py, castle-chunks/v1)",
-   "kind": "commit",
-   "ref": "200ac7d",
-   "branch": "detached",
-   "url": "https://github.com/YEAHDOGS/castle/commit/200ac7d9f82bbdaae6754e22a48cddbcd17a18a1"
-  },
-  {
-   "date": "2026-09-09T19:45:10+00:00",
-   "title": "feat(clonewars): add bash twin of modules/resolvers.ps1",
-   "kind": "commit",
-   "ref": "b5b3542",
-   "branch": "detached",
-   "url": "https://github.com/YEAHDOGS/castle/commit/b5b3542eedb06c4c1ec82681f6297beb2ca9f220"
-  },
-  {
-   "date": "2026-09-09T19:44:16+00:00",
-   "title": "feat(clonewars): add bash twin of modules/network.ps1",
-   "kind": "commit",
-   "ref": "682d39b",
-   "branch": "detached",
-   "url": "https://github.com/YEAHDOGS/castle/commit/682d39b04a9db299efc189d243a713137bff6521"
-  }
- ]
+  "project": "castle",
+  "entries": [
+    {
+      "date": "2026-09-09T16:06:24-05:00",
+      "title": "Demo: sealed backup restore",
+      "kind": "video",
+      "url": "demos/04-castle-restore.mp4",
+      "detail": "A vault is sealed into an encrypted .castle file, then restored to a fresh temp dir \u2014 hashes proved in memory first, bytes verified identical."
+    },
+    {
+      "date": "2026-09-09T21:06:22+00:00",
+      "title": "feat(backup): read-only backup-list inventory of sealed .castle backups",
+      "kind": "commit",
+      "ref": "34bb9af",
+      "branch": "jack/castle-backup-list",
+      "detail": "local branch, not yet pushed"
+    },
+    {
+      "date": "2026-09-09T20:57:37+00:00",
+      "title": "docs(vault): mark step 8 restore lane done in FAMILY-DATA-VAULT.md",
+      "kind": "commit",
+      "ref": "36ae53f",
+      "branch": "jack/castle-restore",
+      "url": "https://github.com/YEAHDOGS/castle/commit/36ae53fec8c074fb724985a371c9f7c1d73ef226"
+    },
+    {
+      "date": "2026-09-09T20:57:29+00:00",
+      "title": "feat(vault): backup restore lane \u2014 restore .castle backups to disk (restore.py + CLI + 15 tests)",
+      "kind": "commit",
+      "ref": "67eae9e",
+      "branch": "detached",
+      "url": "https://github.com/YEAHDOGS/castle/commit/67eae9ec9b88826d420390bfaf1fbe8a6e5cd0f4"
+    },
+    {
+      "date": "2026-09-09T20:28:39+00:00",
+      "title": "feat(vault): API-token auth \u2014 wire DOGS Token Authority into the ingestion trust boundary (vault/apiauth.py)",
+      "kind": "commit",
+      "ref": "bd4a054",
+      "branch": "jack/castle-apiauth",
+      "url": "https://github.com/YEAHDOGS/castle/commit/bd4a054aa3fa8393f2e66e109ea10ceccafa24dd"
+    },
+    {
+      "date": "2026-09-09T20:13:05+00:00",
+      "title": "feat(auth): DOGS Token Authority \u2014 encrypted bearer tokens (castle/tokens/)",
+      "kind": "commit",
+      "ref": "0cdc06a",
+      "branch": "jack/castle-backups",
+      "url": "https://github.com/YEAHDOGS/castle/commit/0cdc06a2b46ae2ad5672a9a5ab7ffc0993ef9fed"
+    },
+    {
+      "date": "2026-09-09T19:53:41+00:00",
+      "title": "feat(clonewars): add bash twin of start.ps1 (executable)",
+      "kind": "commit",
+      "ref": "69629d2",
+      "branch": "jack/castle-bash-conversion",
+      "url": "https://github.com/YEAHDOGS/castle/commit/69629d2eb6cf51a5c229ea8a751d47b872834764"
+    },
+    {
+      "date": "2026-09-09T19:52:19+00:00",
+      "title": "docs(vault): CRYPTO-NOTES.md \u2014 crypto choices, honest limitations, migration path",
+      "kind": "commit",
+      "ref": "9aaa81d",
+      "branch": "detached",
+      "url": "https://github.com/YEAHDOGS/castle/commit/9aaa81d3ab64a548e4fae4aaabecdbaf9bf166c1"
+    },
+    {
+      "date": "2026-09-09T19:52:19+00:00",
+      "title": "feat(vault): wire chunked container into backup.py (+ --chunks CLI)",
+      "kind": "commit",
+      "ref": "015027e",
+      "branch": "detached",
+      "url": "https://github.com/YEAHDOGS/castle/commit/015027e2db410a03d3099a323915eb1c6adf50bc"
+    },
+    {
+      "date": "2026-09-09T19:48:07+00:00",
+      "title": "feat(clonewars): add bash twin of modules/verify.ps1",
+      "kind": "commit",
+      "ref": "291ff1c",
+      "branch": "detached",
+      "url": "https://github.com/YEAHDOGS/castle/commit/291ff1cbb08e77d577955427107fa218c4258980"
+    },
+    {
+      "date": "2026-09-09T19:47:42+00:00",
+      "title": "feat(vault): pure-stdlib chunked encrypted backup container (chunkseal.py, castle-chunks/v1)",
+      "kind": "commit",
+      "ref": "200ac7d",
+      "branch": "detached",
+      "url": "https://github.com/YEAHDOGS/castle/commit/200ac7d9f82bbdaae6754e22a48cddbcd17a18a1"
+    },
+    {
+      "date": "2026-09-09T19:45:10+00:00",
+      "title": "feat(clonewars): add bash twin of modules/resolvers.ps1",
+      "kind": "commit",
+      "ref": "b5b3542",
+      "branch": "detached",
+      "url": "https://github.com/YEAHDOGS/castle/commit/b5b3542eedb06c4c1ec82681f6297beb2ca9f220"
+    },
+    {
+      "date": "2026-09-09T19:44:16+00:00",
+      "title": "feat(clonewars): add bash twin of modules/network.ps1",
+      "kind": "commit",
+      "ref": "682d39b",
+      "branch": "detached",
+      "url": "https://github.com/YEAHDOGS/castle/commit/682d39b04a9db299efc189d243a713137bff6521"
+    },
+    {
+      "date": "2026-09-10T13:50:04-05:00",
+      "title": "Watchtower: no live site to screenshot yet",
+      "kind": "note",
+      "detail": "No GitHub Pages or custom-domain deployment found for this repo as of 2026-09-10; Watchtower will add a screenshot entry once a live site exists."
+    }
+  ]
 }

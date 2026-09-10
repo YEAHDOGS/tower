@@ -1,21 +1,27 @@
 {
- "project": "castle-os",
- "entries": [
-  {
-   "date": "2026-09-09T21:25:20+00:00",
-   "title": "Phase 1: scaffold archiso profile (rescue modes, build+verify, docs)",
-   "kind": "commit",
-   "ref": "0c923de",
-   "branch": "jack/castle-os-phase1",
-   "url": "https://github.com/YEAHDOGS/castle-os/commit/0c923deaa2ea61dfbafe7520b05272f93b06ef7a"
-  },
-  {
-   "date": "2026-09-09T19:58:56+00:00",
-   "title": "Phase 1: Castle OS live ISO profile (cli + gui modes)",
-   "kind": "commit",
-   "ref": "63e3689",
-   "branch": "detached",
-   "url": "https://github.com/YEAHDOGS/castle-os/commit/63e3689717f58692906eb9e625653884ea99e2f2"
-  }
- ]
+  "project": "castle-os",
+  "entries": [
+    {
+      "date": "2026-09-09T21:25:20+00:00",
+      "title": "Phase 1: scaffold archiso profile (rescue modes, build+verify, docs)",
+      "kind": "commit",
+      "ref": "0c923de",
+      "branch": "jack/castle-os-phase1",
+      "url": "https://github.com/YEAHDOGS/castle-os/commit/0c923deaa2ea61dfbafe7520b05272f93b06ef7a"
+    },
+    {
+      "date": "2026-09-09T19:58:56+00:00",
+      "title": "Phase 1: Castle OS live ISO profile (cli + gui modes)",
+      "kind": "commit",
+      "ref": "63e3689",
+      "branch": "detached",
+      "url": "https://github.com/YEAHDOGS/castle-os/commit/63e3689717f58692906eb9e625653884ea99e2f2"
+    },
+    {
+      "date": "2026-09-10T13:50:04-05:00",
+      "title": "Watchtower: no live site to screenshot yet",
+      "kind": "note",
+      "detail": "No GitHub Pages or custom-domain deployment found for this repo as of 2026-09-10; Watchtower will add a screenshot entry once a live site exists."
+    }
+  ]
 }

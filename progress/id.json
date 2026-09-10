@@ -1,13 +1,19 @@
 {
- "project": "id",
- "entries": [
-  {
-   "date": "2026-09-09T14:17:12-05:00",
-   "title": "DOGS ID: age-verification gate for the ecosystem",
-   "kind": "commit",
-   "ref": "c1b1156",
-   "branch": "master",
-   "url": "https://github.com/YEAHDOGS/id/commit/c1b1156aacad2f8b5511bf60b506132183ac2a79"
-  }
- ]
+  "project": "id",
+  "entries": [
+    {
+      "date": "2026-09-09T14:17:12-05:00",
+      "title": "DOGS ID: age-verification gate for the ecosystem",
+      "kind": "commit",
+      "ref": "c1b1156",
+      "branch": "master",
+      "url": "https://github.com/YEAHDOGS/id/commit/c1b1156aacad2f8b5511bf60b506132183ac2a79"
+    },
+    {
+      "date": "2026-09-10T13:50:04-05:00",
+      "title": "Watchtower: id.wearedogs.net unreachable",
+      "kind": "note",
+      "detail": "README references id.wearedogs.net as the live site, but the domain failed to connect on 2026-09-10 (two attempts); no screenshot until it responds."
+    }
+  ]
 }
