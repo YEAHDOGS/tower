@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-09-10T04:04:20.410062+00:00",
+ "generated_at": "2026-09-10T04:19:13.624609+00:00",
  "org": "YEAHDOGS",
  "site_status": {
-  "available": false,
-  "generated_at": null,
+  "available": true,
+  "generated_at": "2026-09-10T04:03:47.698Z",
   "url": "https://yeahdogs.github.io/watchtower/status.json"
  },
  "repos": [
@@ -12,7 +12,7 @@
    "description": "An independent news platform",
    "language": "HTML",
    "stars": 0,
-   "pushed_at": "2026-09-10T00:24:39Z",
+   "pushed_at": "2026-09-10T04:14:27Z",
    "open_issues": 0,
    "open_prs": 0,
    "commits": 6,
@@ -33,7 +33,7 @@
    "description": "A social media that deletes itself every 40 days",
    "language": "Svelte",
    "stars": 0,
-   "pushed_at": "2026-09-10T03:57:10Z",
+   "pushed_at": "2026-09-10T04:14:23Z",
    "open_issues": 0,
    "open_prs": 0,
    "commits": 22,
@@ -54,7 +54,7 @@
    "description": "A way to make your data yours",
    "language": "PowerShell",
    "stars": 0,
-   "pushed_at": "2026-09-10T02:26:33Z",
+   "pushed_at": "2026-09-10T04:14:34Z",
    "open_issues": 0,
    "open_prs": 0,
    "commits": 38,
@@ -75,7 +75,7 @@
    "description": "A fresh start for windows/android devices",
    "language": "PowerShell",
    "stars": 0,
-   "pushed_at": "2026-09-10T03:57:48Z",
+   "pushed_at": "2026-09-10T04:14:51Z",
    "open_issues": 0,
    "open_prs": 1,
    "commits": 104,
@@ -92,11 +92,26 @@
    "site": null
   },
   {
+   "name": "sdm",
+   "description": "Sex, Drugs, Music - A new dating app for the animals in the jungle",
+   "language": null,
+   "stars": 0,
+   "pushed_at": "2026-09-10T01:26:27Z",
+   "open_issues": 0,
+   "open_prs": 1,
+   "commits": 2,
+   "url": "https://github.com/YEAHDOGS/sdm",
+   "branch": "master",
+   "workflow": null,
+   "pages": null,
+   "site": null
+  },
+  {
    "name": "proof",
    "description": "The facts around the world's vices",
    "language": "JavaScript",
    "stars": 0,
-   "pushed_at": "2026-09-10T02:31:42Z",
+   "pushed_at": "2026-09-10T04:15:01Z",
    "open_issues": 0,
    "open_prs": 0,
    "commits": 8,
@@ -107,7 +122,28 @@
     "conclusion": "failure",
     "status": "completed",
     "url": "https://github.com/YEAHDOGS/proof/actions/runs/34425289511",
-    "updated_at": "2026-09-10T01:23:50Z"
+    "updated_at": "2026-09-10T04:08:41Z"
+   },
+   "pages": null,
+   "site": null
+  },
+  {
+   "name": "demo",
+   "description": "Our portfolio",
+   "language": "HTML",
+   "stars": 0,
+   "pushed_at": "2026-09-10T04:14:54Z",
+   "open_issues": 0,
+   "open_prs": 0,
+   "commits": 4,
+   "url": "https://github.com/YEAHDOGS/demo",
+   "branch": "master",
+   "workflow": {
+    "name": "Deploy landing page",
+    "conclusion": "failure",
+    "status": "completed",
+    "url": "https://github.com/YEAHDOGS/demo/actions/runs/34425335224",
+    "updated_at": "2026-09-10T01:24:31Z"
    },
    "pages": null,
    "site": null
@@ -117,7 +153,7 @@
    "description": "A DJ web-based interface, with music streaming service integration and hardware support",
    "language": "JavaScript",
    "stars": 0,
-   "pushed_at": "2026-09-10T02:25:28Z",
+   "pushed_at": "2026-09-10T04:14:31Z",
    "open_issues": 0,
    "open_prs": 0,
    "commits": 22,
@@ -130,6 +166,57 @@
     "url": "https://github.com/YEAHDOGS/playback/actions/runs/34425311435",
     "updated_at": "2026-09-10T01:24:09Z"
    },
+   "pages": null,
+   "site": null
+  },
+  {
+   "name": "pay",
+   "description": "A decentralized p2p payments platform",
+   "language": "HTML",
+   "stars": 0,
+   "pushed_at": "2026-09-10T04:14:57Z",
+   "open_issues": 0,
+   "open_prs": 0,
+   "commits": 6,
+   "url": "https://github.com/YEAHDOGS/pay",
+   "branch": "master",
+   "workflow": {
+    "name": "Deploy landing page",
+    "conclusion": "failure",
+    "status": "completed",
+    "url": "https://github.com/YEAHDOGS/pay/actions/runs/34425260894",
+    "updated_at": "2026-09-10T01:23:29Z"
+   },
+   "pages": null,
+   "site": null
+  },
+  {
+   "name": "help",
+   "description": "DOGS HELP - A way to give back",
+   "language": null,
+   "stars": 0,
+   "pushed_at": "2026-08-14T01:38:46Z",
+   "open_issues": 0,
+   "open_prs": 1,
+   "commits": 3,
+   "url": "https://github.com/YEAHDOGS/help",
+   "branch": "master",
+   "workflow": null,
+   "pages": null,
+   "site": null
+  },
+  {
+   "name": "bakery",
+   "description": "Claude parallel swarm management",
+   "language": "Python",
+   "stars": 0,
+   "pushed_at": "2026-09-10T03:55:58Z",
+   "open_issues": 0,
+   "open_prs": 0,
+   "commits": 5,
+   "url": "https://github.com/YEAHDOGS/bakery",
+   "branch": "master",
+   "workflow": null,
    "pages": null,
    "site": null
   },
@@ -155,25 +242,52 @@
    "site": null
   },
   {
+   "name": "sampler",
+   "description": "A way to find royalty-free samples easily, powered by AI",
+   "language": "Svelte",
+   "stars": 0,
+   "pushed_at": "2026-09-10T04:15:05Z",
+   "open_issues": 0,
+   "open_prs": 0,
+   "commits": 1,
+   "url": "https://github.com/YEAHDOGS/sampler",
+   "branch": "master",
+   "workflow": {
+    "name": "CI",
+    "conclusion": "failure",
+    "status": "completed",
+    "url": "https://github.com/YEAHDOGS/sampler/actions/runs/32937021036",
+    "updated_at": "2026-08-26T06:11:08Z"
+   },
+   "pages": null,
+   "site": null
+  },
+  {
    "name": "icecream",
    "description": "A view of the landscape, deep research on the global ice cream market for Snoop Dogg",
    "language": "JavaScript",
    "stars": 0,
-   "pushed_at": "2026-09-09T21:59:06Z",
+   "pushed_at": "2026-09-10T04:11:56Z",
    "open_issues": 0,
    "open_prs": 0,
-   "commits": 23,
+   "commits": 26,
    "url": "https://github.com/YEAHDOGS/icecream",
    "branch": "master",
    "workflow": {
     "name": "Deploy to GitHub Pages",
     "conclusion": "success",
     "status": "completed",
-    "url": "https://github.com/YEAHDOGS/icecream/actions/runs/34409845179",
-    "updated_at": "2026-09-09T21:59:47Z"
+    "url": "https://github.com/YEAHDOGS/icecream/actions/runs/34436235894",
+    "updated_at": "2026-09-10T04:12:35Z"
    },
    "pages": "https://yeahdogs.github.io/icecream/",
-   "site": null
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-10T04:03:47.698Z",
+    "since": "2026-09-09T19:39:36.427Z",
+    "responseMs": 172,
+    "failing": []
+   }
   },
   {
    "name": "wax",
@@ -197,25 +311,67 @@
    "site": null
   },
   {
+   "name": "remote",
+   "description": "DOGS Remote \u2014 native Android universal TV remote (IR blaster, Magic Mode venue profiles)",
+   "language": "Kotlin",
+   "stars": 0,
+   "pushed_at": "2026-09-10T00:26:26Z",
+   "open_issues": 0,
+   "open_prs": 0,
+   "commits": 24,
+   "url": "https://github.com/YEAHDOGS/remote",
+   "branch": "master",
+   "workflow": {
+    "name": "Build APK",
+    "conclusion": "success",
+    "status": "completed",
+    "url": "https://github.com/YEAHDOGS/remote/actions/runs/34354934284",
+    "updated_at": "2026-09-09T13:10:06Z"
+   },
+   "pages": null,
+   "site": null
+  },
+  {
+   "name": "chains",
+   "description": "Chains \u2014 git for video game save data: versioned, emulator-compatible cloud saves",
+   "language": "PowerShell",
+   "stars": 0,
+   "pushed_at": "2026-09-10T00:28:11Z",
+   "open_issues": 0,
+   "open_prs": 0,
+   "commits": 2,
+   "url": "https://github.com/YEAHDOGS/chains",
+   "branch": "master",
+   "workflow": null,
+   "pages": null,
+   "site": null
+  },
+  {
    "name": "tower",
    "description": "DOGS mission control \u2014 live build/repo status dashboard",
    "language": "HTML",
    "stars": 0,
-   "pushed_at": "2026-09-10T04:01:28Z",
+   "pushed_at": "2026-09-10T04:16:57Z",
    "open_issues": 0,
    "open_prs": 0,
-   "commits": 34,
+   "commits": 37,
    "url": "https://github.com/YEAHDOGS/tower",
    "branch": "master",
    "workflow": {
     "name": "pages build and deployment",
     "conclusion": "success",
     "status": "completed",
-    "url": "https://github.com/YEAHDOGS/tower/actions/runs/34435548900",
-    "updated_at": "2026-09-10T04:02:13Z"
+    "url": "https://github.com/YEAHDOGS/tower/actions/runs/34436575589",
+    "updated_at": "2026-09-10T04:17:36Z"
    },
    "pages": "https://yeahdogs.github.io/tower/",
-   "site": null
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-10T04:03:47.698Z",
+    "since": "2026-09-09T22:09:18.265Z",
+    "responseMs": 102,
+    "failing": []
+   }
   },
   {
    "name": "id",
@@ -258,21 +414,29 @@
    "description": "Watchtower: uptime + e2e monitor for all YEAHDOGS websites. Auto-discovers org Pages sites, alerts only on state transitions.",
    "language": "JavaScript",
    "stars": 0,
-   "pushed_at": "2026-09-10T00:23:45Z",
-   "open_issues": 0,
+   "pushed_at": "2026-09-10T04:15:19Z",
+   "open_issues": 1,
    "open_prs": 0,
    "commits": 8,
    "url": "https://github.com/YEAHDOGS/watchtower",
    "branch": "master",
    "workflow": {
     "name": "pages build and deployment",
-    "conclusion": null,
-    "status": "in_progress",
+    "conclusion": "success",
+    "status": "completed",
     "url": "https://github.com/YEAHDOGS/watchtower/actions/runs/34435705474",
-    "updated_at": "2026-09-10T04:04:00Z"
+    "updated_at": "2026-09-10T04:04:40Z"
    },
    "pages": "https://yeahdogs.github.io/watchtower/",
-   "site": null
+   "site": {
+    "status": "down",
+    "lastCheck": "2026-09-10T04:03:47.698Z",
+    "since": "2026-09-10T04:03:47.698Z",
+    "responseMs": 91,
+    "failing": [
+     "http: HTTP 404, expected 200"
+    ]
+   }
   },
   {
    "name": "mirror",
@@ -350,22 +514,13 @@
     "updated_at": "2026-09-09T19:57:10Z"
    },
    "pages": "https://yeahdogs.github.io/",
-   "site": null
-  },
-  {
-   "name": "plans",
-   "description": "DOGS investor and bank package: business plan, product one-pagers, 3-year projections",
-   "language": null,
-   "stars": 0,
-   "pushed_at": "2026-09-10T03:56:04Z",
-   "open_issues": 0,
-   "open_prs": 0,
-   "commits": 2,
-   "url": "https://github.com/YEAHDOGS/plans",
-   "branch": "master",
-   "workflow": null,
-   "pages": null,
-   "site": null
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-10T04:03:47.698Z",
+    "since": "2026-09-09T22:09:18.265Z",
+    "responseMs": 81,
+    "failing": []
+   }
   },
   {
    "name": "printshop",
