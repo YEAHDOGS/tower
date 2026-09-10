@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-10T04:01:23.127958+00:00",
+ "generated_at": "2026-09-10T04:04:20.410062+00:00",
  "org": "YEAHDOGS",
  "site_status": {
   "available": false,
@@ -50,6 +50,69 @@
    "site": null
   },
   {
+   "name": "castle",
+   "description": "A way to make your data yours",
+   "language": "PowerShell",
+   "stars": 0,
+   "pushed_at": "2026-09-10T02:26:33Z",
+   "open_issues": 0,
+   "open_prs": 0,
+   "commits": 38,
+   "url": "https://github.com/YEAHDOGS/castle",
+   "branch": "master",
+   "workflow": {
+    "name": "Deploy landing page",
+    "conclusion": "failure",
+    "status": "completed",
+    "url": "https://github.com/YEAHDOGS/castle/actions/runs/34425277011",
+    "updated_at": "2026-09-10T01:23:41Z"
+   },
+   "pages": null,
+   "site": null
+  },
+  {
+   "name": "phoenix",
+   "description": "A fresh start for windows/android devices",
+   "language": "PowerShell",
+   "stars": 0,
+   "pushed_at": "2026-09-10T03:57:48Z",
+   "open_issues": 0,
+   "open_prs": 1,
+   "commits": 104,
+   "url": "https://github.com/YEAHDOGS/phoenix",
+   "branch": "master",
+   "workflow": {
+    "name": "Deploy landing page",
+    "conclusion": "failure",
+    "status": "completed",
+    "url": "https://github.com/YEAHDOGS/phoenix/actions/runs/34425300510",
+    "updated_at": "2026-09-10T01:24:00Z"
+   },
+   "pages": null,
+   "site": null
+  },
+  {
+   "name": "proof",
+   "description": "The facts around the world's vices",
+   "language": "JavaScript",
+   "stars": 0,
+   "pushed_at": "2026-09-10T02:31:42Z",
+   "open_issues": 0,
+   "open_prs": 0,
+   "commits": 8,
+   "url": "https://github.com/YEAHDOGS/proof",
+   "branch": "master",
+   "workflow": {
+    "name": "Deploy landing page",
+    "conclusion": "failure",
+    "status": "completed",
+    "url": "https://github.com/YEAHDOGS/proof/actions/runs/34425289511",
+    "updated_at": "2026-09-10T01:23:50Z"
+   },
+   "pages": null,
+   "site": null
+  },
+  {
    "name": "playback",
    "description": "A DJ web-based interface, with music streaming service integration and hardware support",
    "language": "JavaScript",
@@ -66,6 +129,27 @@
     "status": "completed",
     "url": "https://github.com/YEAHDOGS/playback/actions/runs/34425311435",
     "updated_at": "2026-09-10T01:24:09Z"
+   },
+   "pages": null,
+   "site": null
+  },
+  {
+   "name": "divorce",
+   "description": "An easy way to get an uncontested divorce in Oklahoma",
+   "language": "Svelte",
+   "stars": 0,
+   "pushed_at": "2026-09-09T21:31:32Z",
+   "open_issues": 0,
+   "open_prs": 0,
+   "commits": 1,
+   "url": "https://github.com/YEAHDOGS/divorce",
+   "branch": "master",
+   "workflow": {
+    "name": "pages build and deployment",
+    "conclusion": "success",
+    "status": "completed",
+    "url": "https://github.com/YEAHDOGS/divorce/actions/runs/34339144656",
+    "updated_at": "2026-09-09T10:21:56Z"
    },
    "pages": null,
    "site": null
@@ -92,24 +176,159 @@
    "site": null
   },
   {
+   "name": "wax",
+   "description": "Wax \u2014 real-time vinyl drop alerts, collection cataloguing, and Discogs price tracking. Made by DOGS.",
+   "language": "JavaScript",
+   "stars": 0,
+   "pushed_at": "2026-09-10T02:26:27Z",
+   "open_issues": 0,
+   "open_prs": 0,
+   "commits": 6,
+   "url": "https://github.com/YEAHDOGS/wax",
+   "branch": "main",
+   "workflow": {
+    "name": "pages build and deployment",
+    "conclusion": "success",
+    "status": "completed",
+    "url": "https://github.com/YEAHDOGS/wax/actions/runs/34340167049",
+    "updated_at": "2026-09-09T10:26:34Z"
+   },
+   "pages": null,
+   "site": null
+  },
+  {
    "name": "tower",
    "description": "DOGS mission control \u2014 live build/repo status dashboard",
    "language": "HTML",
    "stars": 0,
-   "pushed_at": "2026-09-10T03:58:23Z",
+   "pushed_at": "2026-09-10T04:01:28Z",
    "open_issues": 0,
    "open_prs": 0,
-   "commits": 33,
+   "commits": 34,
    "url": "https://github.com/YEAHDOGS/tower",
    "branch": "master",
    "workflow": {
     "name": "pages build and deployment",
     "conclusion": "success",
     "status": "completed",
-    "url": "https://github.com/YEAHDOGS/tower/actions/runs/34435352043",
-    "updated_at": "2026-09-10T03:59:15Z"
+    "url": "https://github.com/YEAHDOGS/tower/actions/runs/34435548900",
+    "updated_at": "2026-09-10T04:02:13Z"
    },
    "pages": "https://yeahdogs.github.io/tower/",
+   "site": null
+  },
+  {
+   "name": "id",
+   "description": "DOGS ID \u2014 age-verification gate for the DOGS ecosystem (id.wearedogs.net)",
+   "language": "HTML",
+   "stars": 0,
+   "pushed_at": "2026-09-09T19:17:18Z",
+   "open_issues": 0,
+   "open_prs": 0,
+   "commits": 1,
+   "url": "https://github.com/YEAHDOGS/id",
+   "branch": "master",
+   "workflow": null,
+   "pages": null,
+   "site": null
+  },
+  {
+   "name": "paper",
+   "description": "Sick paper-trading app: crypto, stocks, options, futures, prediction markets. Fake money, real lessons.",
+   "language": "JavaScript",
+   "stars": 0,
+   "pushed_at": "2026-09-09T19:42:45Z",
+   "open_issues": 0,
+   "open_prs": 0,
+   "commits": 4,
+   "url": "https://github.com/YEAHDOGS/paper",
+   "branch": "master",
+   "workflow": {
+    "name": "pages build and deployment",
+    "conclusion": "success",
+    "status": "completed",
+    "url": "https://github.com/YEAHDOGS/paper/actions/runs/34396681088",
+    "updated_at": "2026-09-09T19:43:29Z"
+   },
+   "pages": null,
+   "site": null
+  },
+  {
+   "name": "watchtower",
+   "description": "Watchtower: uptime + e2e monitor for all YEAHDOGS websites. Auto-discovers org Pages sites, alerts only on state transitions.",
+   "language": "JavaScript",
+   "stars": 0,
+   "pushed_at": "2026-09-10T00:23:45Z",
+   "open_issues": 0,
+   "open_prs": 0,
+   "commits": 8,
+   "url": "https://github.com/YEAHDOGS/watchtower",
+   "branch": "master",
+   "workflow": {
+    "name": "pages build and deployment",
+    "conclusion": null,
+    "status": "in_progress",
+    "url": "https://github.com/YEAHDOGS/watchtower/actions/runs/34435705474",
+    "updated_at": "2026-09-10T04:04:00Z"
+   },
+   "pages": "https://yeahdogs.github.io/watchtower/",
+   "site": null
+  },
+  {
+   "name": "mirror",
+   "description": "Smart-mirror ambient dashboard: live tickers + paper trading stats. Pure black, huge type, wall-ready.",
+   "language": "JavaScript",
+   "stars": 0,
+   "pushed_at": "2026-09-09T19:45:54Z",
+   "open_issues": 0,
+   "open_prs": 0,
+   "commits": 2,
+   "url": "https://github.com/YEAHDOGS/mirror",
+   "branch": "master",
+   "workflow": {
+    "name": "pages build and deployment",
+    "conclusion": "success",
+    "status": "completed",
+    "url": "https://github.com/YEAHDOGS/mirror/actions/runs/34396991148",
+    "updated_at": "2026-09-09T19:46:41Z"
+   },
+   "pages": null,
+   "site": null
+  },
+  {
+   "name": "castle-os",
+   "description": "Castle OS (Clone Wars) \u2014 Arch-based live ISO appliance: router, NAS, arcade. Phase 1.",
+   "language": "Python",
+   "stars": 0,
+   "pushed_at": "2026-09-10T00:27:22Z",
+   "open_issues": 0,
+   "open_prs": 0,
+   "commits": 1,
+   "url": "https://github.com/YEAHDOGS/castle-os",
+   "branch": "master",
+   "workflow": null,
+   "pages": null,
+   "site": null
+  },
+  {
+   "name": "forge",
+   "description": "Forge \u2014 a guided wizard for forming your LLC (Oklahoma first). Worksheet + instructions; files nothing.",
+   "language": "JavaScript",
+   "stars": 0,
+   "pushed_at": "2026-09-09T19:57:44Z",
+   "open_issues": 0,
+   "open_prs": 0,
+   "commits": 1,
+   "url": "https://github.com/YEAHDOGS/forge",
+   "branch": "master",
+   "workflow": {
+    "name": "pages build and deployment",
+    "conclusion": "success",
+    "status": "completed",
+    "url": "https://github.com/YEAHDOGS/forge/actions/runs/34398174310",
+    "updated_at": "2026-09-09T19:58:39Z"
+   },
+   "pages": null,
    "site": null
   },
   {
@@ -131,6 +350,51 @@
     "updated_at": "2026-09-09T19:57:10Z"
    },
    "pages": "https://yeahdogs.github.io/",
+   "site": null
+  },
+  {
+   "name": "plans",
+   "description": "DOGS investor and bank package: business plan, product one-pagers, 3-year projections",
+   "language": null,
+   "stars": 0,
+   "pushed_at": "2026-09-10T03:56:04Z",
+   "open_issues": 0,
+   "open_prs": 0,
+   "commits": 2,
+   "url": "https://github.com/YEAHDOGS/plans",
+   "branch": "master",
+   "workflow": null,
+   "pages": null,
+   "site": null
+  },
+  {
+   "name": "printshop",
+   "description": "DOGS Print Shop \u2014 3D printable assets: STL file sales + print-on-demand.",
+   "language": "HTML",
+   "stars": 0,
+   "pushed_at": "2026-09-09T21:14:31Z",
+   "open_issues": 0,
+   "open_prs": 0,
+   "commits": 1,
+   "url": "https://github.com/YEAHDOGS/printshop",
+   "branch": "jack/printshop-scaffold-20260909",
+   "workflow": null,
+   "pages": null,
+   "site": null
+  },
+  {
+   "name": "radio",
+   "description": "Dogs Radio \u2014 24/7 community radio stations from Spotify playlists. Cloudflare-native rebuild of am_radio.",
+   "language": null,
+   "stars": 0,
+   "pushed_at": "2026-09-09T21:34:30Z",
+   "open_issues": 0,
+   "open_prs": 0,
+   "commits": 1,
+   "url": "https://github.com/YEAHDOGS/radio",
+   "branch": "master",
+   "workflow": null,
+   "pages": null,
    "site": null
   }
  ]
