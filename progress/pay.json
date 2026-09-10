@@ -1,0 +1,101 @@
+{
+ "project": "pay",
+ "entries": [
+  {
+   "date": "2026-09-09T21:27:42+00:00",
+   "title": "feat: webhook idempotency hardening \u2014 TTL-bound processed-event ledger, EVENT_BODY_CONFLICT on same-id/different-body replays, handleServerW",
+   "kind": "commit",
+   "ref": "010f05d",
+   "branch": "jack/pay-idempotency-ttl",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:26:49+00:00",
+   "title": "feat: server-side e2e staging drill \u2014 divorce 3000\u00a2 session \u2192 signed webhook \u2192 amount-guarded record_payment \u2192 packet unlock gate (9 regress",
+   "kind": "commit",
+   "ref": "599c6d7",
+   "branch": "jack/pay-server-drill",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:12:56+00:00",
+   "title": "feat: server-side amount expectation on webhook dispatch (AMOUNT_MISMATCH)",
+   "kind": "commit",
+   "ref": "194b6b5",
+   "branch": "jack/pay-server-webhook-verify",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:55:09+00:00",
+   "title": "tests: 18 regression tests for server-side webhook dispatch (synthetic signed payloads, replay, fail-closed)",
+   "kind": "commit",
+   "ref": "8eb54b3",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:55:09+00:00",
+   "title": "feat: server-side webhook dispatch \u2014 idempotency ledger + checkout.session.completed -> record_payment",
+   "kind": "commit",
+   "ref": "c281aa8",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:23:39+00:00",
+   "title": "docs: CHECKOUT.md + README cover the server-side webhook verifier",
+   "kind": "commit",
+   "ref": "5923d10",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:23:06+00:00",
+   "title": "tests: 21 regression tests for the server-side webhook verifier",
+   "kind": "commit",
+   "ref": "427b2d8",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:22:01+00:00",
+   "title": "feat: server-side webhook signature verifier (Stripe scheme) \u2014 lib/webhook-server.ts",
+   "kind": "commit",
+   "ref": "ed6e63f",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:08:07+00:00",
+   "title": "docs: README lib layout covers lib/rail again",
+   "kind": "commit",
+   "ref": "b5e146b",
+   "branch": "jack/pay-sweep2",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:07:53+00:00",
+   "title": "feat: ledger consistency + amount-tamper guard + e2e divorce checkout",
+   "kind": "commit",
+   "ref": "aace02f",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:06:42+00:00",
+   "title": "feat: idempotency keys on the settlement rail",
+   "kind": "commit",
+   "ref": "fd89b9e",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:06:00+00:00",
+   "title": "revert: restore lib/rail settlement rail (MockRail + RailAdapter)",
+   "kind": "commit",
+   "ref": "ed222e4",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  }
+ ]
+}

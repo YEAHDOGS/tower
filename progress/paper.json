@@ -1,0 +1,45 @@
+{
+ "project": "paper",
+ "entries": [
+  {
+   "date": "2026-09-09T19:42:41+00:00",
+   "title": "PAPER: live stock quotes via BYO Finnhub/Twelve key \u2014 Stooq is dead, keyed feeds, 60s auto-refresh, feed status line",
+   "kind": "commit",
+   "ref": "190f882",
+   "branch": "master",
+   "url": "https://github.com/YEAHDOGS/paper/commit/190f882d628c0bd48dc75c9122094f02ef21d684"
+  },
+  {
+   "date": "2026-09-09T19:41:54+00:00",
+   "title": "tests: commit P&L math suite (20/20 green)",
+   "kind": "commit",
+   "ref": "f5aa119",
+   "branch": "detached",
+   "url": "https://github.com/YEAHDOGS/paper/commit/f5aa119087e0a0326f747f8f597d42bc0f8dc93b"
+  },
+  {
+   "date": "2026-09-09T19:41:17+00:00",
+   "title": "PAPER: window.Paper API for trains (bots) \u2014 accounts/positions/trades/place/close/quote, README + example dip-buyer train, 24 api-test asser",
+   "kind": "commit",
+   "ref": "99b23cc",
+   "branch": "detached",
+   "url": "https://github.com/YEAHDOGS/paper/commit/99b23ccc23f43ccd1ec6e78a6f47382b456e1d9a"
+  },
+  {
+   "date": "2026-09-09T19:38:18+00:00",
+   "title": "PAPER: quick-pick symbol chips per account (BTC/ETH/NVDA/TSLA/\u2026) + live-price fill on tap",
+   "kind": "commit",
+   "ref": "e194e57",
+   "branch": "detached",
+   "url": "https://github.com/YEAHDOGS/paper/commit/e194e57729875544e972bbae4eed8f0562498fe7"
+  },
+  {
+   "date": "2026-09-09T19:28:38+00:00",
+   "title": "PAPER: paper-trading simulator for crypto, stocks, options, futures, prediction markets",
+   "kind": "commit",
+   "ref": "fc816b5",
+   "branch": "detached",
+   "url": "https://github.com/YEAHDOGS/paper/commit/fc816b585ed2b7cf49370fde4e91e5ec6b8771c9"
+  }
+ ]
+}

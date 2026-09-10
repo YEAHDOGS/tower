@@ -1,0 +1,108 @@
+{
+ "project": "divorce",
+ "entries": [
+  {
+   "date": "2026-09-09T16:06:24-05:00",
+   "title": "Demo: $30 test checkout \u2192 printable packet",
+   "kind": "video",
+   "url": "demos/03-divorce-test-checkout.mp4",
+   "detail": "The full staging flow with zero Stripe involvement: checkout session, signed webhook, idempotent dedupe, token-gated packet download."
+  },
+  {
+   "date": "2026-09-09T21:05:06+00:00",
+   "title": "server: checkout sessions expire after 24h \u2014 a payment for a stale session can no longer unlock the packet; 346 green",
+   "kind": "commit",
+   "ref": "cb4c64e",
+   "branch": "jack/divorce-webhook-hardening",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:50:34+00:00",
+   "title": "server: payment-record idempotency \u2014 fulfillSucceededPayment keys on payment intent id; duplicate deliveries return the original fulfillment",
+   "kind": "commit",
+   "ref": "8229577",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:50:34+00:00",
+   "title": "server: fail fast at startup \u2014 startCheckoutServer resolves both signing secrets before listen; refuses boot on missing/weak/live-without-op",
+   "kind": "commit",
+   "ref": "77aaf92",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:50:34+00:00",
+   "title": "server: reject weak webhook secrets \u2014 loadWebhookSecret/loadDownloadSecret fail closed below 16 chars; strength fixtures updated; 333 green",
+   "kind": "commit",
+   "ref": "9ce5b76",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:50:34+00:00",
+   "title": "test: end-to-end checkout\u2192packet-unlock regression \u2014 runCheckout \u2192 provider-validated receipt \u2192 buildPacket \u2192 packetToPrintableHtml, with de",
+   "kind": "commit",
+   "ref": "526f8f8",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:50:34+00:00",
+   "title": "ui: staging 'Download printable packet (test mode)' \u2014 builds the paid packet from test receipt + demo answers via the real buildPacket pipel",
+   "kind": "commit",
+   "ref": "f989317",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:50:34+00:00",
+   "title": "fix: export STRIPE_MODULE_SPECIFIER from stripe-payment-server.mjs \u2014 sibling server modules share the exact runtime-only specifier (caught b",
+   "kind": "commit",
+   "ref": "bd6f45b",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:50:34+00:00",
+   "title": "ui: wire checkout success path to the receipt stub \u2014 'View / print receipt (test mode)' button shows the paid receipt; full suite 316 green",
+   "kind": "commit",
+   "ref": "d4bec97",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:50:34+00:00",
+   "title": "ui: PacketReceiptStub printable receipt component + 4 tests \u2014 payment ID, date, $30, placeholder packet sections, TEST-MODE banner, print CS",
+   "kind": "commit",
+   "ref": "19b8dd8",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:50:34+00:00",
+   "title": "server: wire POST /api/stripe-checkout-session into startCheckoutServer (rate-gated, injected Stripe boundary); all 139 server tests green",
+   "kind": "commit",
+   "ref": "a156f37",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:50:34+00:00",
+   "title": "server: POST /api/stripe-checkout-session handler \u2014 test-key-only Checkout Sessions, log-only stub when no key is set, injected HTTP boundar",
+   "kind": "commit",
+   "ref": "8fd609d",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:23:39+00:00",
+   "title": "test: end-to-end checkout\u2192packet-unlock regression \u2014 runCheckout \u2192 provider-validated receipt \u2192 buildPacket \u2192 packetToPrintableHtml, with de",
+   "kind": "commit",
+   "ref": "eaf4132",
+   "branch": "jack/divorce-unlock-e2e",
+   "detail": "local branch, not yet pushed"
+  }
+ ]
+}
