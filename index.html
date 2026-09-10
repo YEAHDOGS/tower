@@ -45,14 +45,6 @@
     font-size: 1rem;
     margin-top: 8px;
   }
-  .brand .who strong { font-weight: 700; }
-  .brand .made-by {
-    display: block;
-    max-width: 420px;
-    width: 100%;
-    height: auto;
-    margin: 4px 0;
-  }
   .brand .tagline {
     color: var(--muted);
     font-size: 0.92rem;
@@ -251,22 +243,33 @@
     .tile-status { font-size: 0.68rem; }
     .search { max-width: none; }
   }
-  .corner-credit {
-    position: fixed; right: 14px; bottom: 12px; z-index: 50;
-    display: inline-block; padding: 7px 12px; border-radius: 999px;
-    background: rgba(10, 12, 16, 0.82); border: 1px solid #2a2f3a;
-    color: #e6e9f0; font-size: 0.72rem; letter-spacing: 0.02em;
-    text-decoration: none; backdrop-filter: blur(6px);
+  footer .credit {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 18px;
   }
-  .corner-credit:hover { border-color: #6ea8fe; color: #fff; }
-  .corner-credit b { font-weight: 700; }
+  footer .credit a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(10, 12, 16, 0.82);
+    border: 1px solid #2a2f3a;
+    color: #e6e9f0;
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  footer .credit a:hover { border-color: #6ea8fe; color: #fff; }
+  footer .credit img { height: 30px; width: auto; display: block; }
+  footer .credit b { font-weight: 700; }
 </style>
 </head>
 <body>
 
 <header class="brand">
   <h1>Watchtower</h1>
-  <p class="who"><a href="https://wearedogs.net"><img src="assets/made-by-dogs.png" alt="This product was made by DOGS" class="made-by"></a></p>
   <p class="tagline">Every project we build and ship, in one grid. Paper trading, business formation, ambient dashboards, self-hosted infrastructure — each tile links to the live project and its code, with a real-time uptime status from the Watchtower monitor.</p>
   <p class="statusline" id="statusline" aria-live="polite">
     <span id="proj-count">…</span>
@@ -302,6 +305,7 @@
 <footer>
   Live site status is checked every 30 minutes by the Watchtower engine and baked into this page's data feed — "live" is only shown when the monitor actually saw the site up. Alerts fire on UP→DOWN transitions. No personal data is collected or displayed.
   <br><a href="https://github.com/YEAHDOGS">YEAHDOGS</a> · <a href="https://github.com/YEAHDOGS/tower">YEAHDOGS/tower</a>
+  <div class="credit"><a href="https://wearedogs.net"><img src="assets/made-by-dogs.png" alt="DOGS"><span><b>This product was made by DOGS</b> · stick around</span></a></div>
 </footer>
 
 <script>
@@ -509,6 +513,5 @@
     });
 })();
 </script>
-<a class="corner-credit" href="https://wearedogs.net"><b>This product was made by DOGS</b> · stick around</a>
 </body>
 </html>
