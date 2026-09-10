@@ -46,13 +46,6 @@
     margin-top: 8px;
   }
   .brand .who strong { font-weight: 700; }
-  .brand .made-by {
-    display: block;
-    max-width: 420px;
-    width: 100%;
-    height: auto;
-    margin: 4px 0;
-  }
   .brand .tagline {
     color: var(--muted);
     font-size: 0.92rem;
@@ -251,23 +244,18 @@
     .tile-status { font-size: 0.68rem; }
     .search { max-width: none; }
   }
-  .corner-credit {
-    position: fixed; right: 14px; bottom: 12px; z-index: 50;
-    display: inline-block; padding: 7px 12px; border-radius: 999px;
-    background: rgba(10, 12, 16, 0.82); border: 1px solid #2a2f3a;
-    color: #e6e9f0; font-size: 0.72rem; letter-spacing: 0.02em;
-    text-decoration: none; backdrop-filter: blur(6px);
-  }
-  .corner-credit:hover { border-color: #6ea8fe; color: #fff; }
-  .corner-credit b { font-weight: 700; }
+  .dogs-foot { margin-top: 40px; text-align: right; }
+  .dogs-foot a { display: inline-block; text-decoration: none; }
+  .dogs-foot img { display: block; max-width: 230px; width: 100%; height: auto; margin: 0 0 8px auto; }
+  .dogs-foot span { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.02em; }
+  .dogs-foot b { color: var(--text); }
 </style>
 </head>
 <body>
 
 <header class="brand">
   <h1>Watchtower</h1>
-  <p class="who"><a href="https://wearedogs.net"><img src="assets/made-by-dogs.png" alt="This product was made by DOGS" class="made-by"></a></p>
-  <p class="tagline">Every project we build and ship, in one grid. Paper trading, business formation, ambient dashboards, self-hosted infrastructure — each tile links to the live project and its code, with a real-time uptime status from the Watchtower monitor.</p>
+  <p class="tagline">Every project we build and ship, in one grid. Each tile opens a project hub — screenshots, live status, what's going on, ideas, and a timeline from conception to latest update — with real-time uptime status from the Watchtower monitor.</p>
   <p class="statusline" id="statusline" aria-live="polite">
     <span id="proj-count">…</span>
     <span id="site-summary">…</span>
@@ -308,7 +296,7 @@
 (function () {
   "use strict";
 
-  var FEATURED = ["paper", "forge", "castle-os"];
+  var FEATURED = ["Castle"];
   var INFRA = ["castle", "castle-os", "tower", "watchtower", "phoenix",
                "chains", "id", "sdm", "remote", "yeahdogs.github.io"];
   var CATS = ["All", "Apps", "Trading", "Infra", "Docs"];
@@ -361,7 +349,10 @@
 
     var top = el("div", "tile-top");
     top.appendChild(el("span", "cat", r.category));
-    var si = siteInfo(r, siteAvail);
+    // Group tiles (e.g. Castle) collapse member repos into one hub entry.
+    var si = r.isGroup
+      ? { cls: "", text: "project hub — " + r.modules + " modules inside", rank: 1 }
+      : siteInfo(r, siteAvail);
     var dot = el("span", "dot " + si.cls);
     dot.title = si.text;
     top.appendChild(dot);
@@ -369,7 +360,7 @@
 
     var h = el("h2");
     var ra = el("a", null, r.name);
-    ra.href = r.url; ra.target = "_blank"; ra.rel = "noopener";
+    ra.href = r.hub; // tile opens the project hub page, never GitHub directly
     h.appendChild(ra);
     a.appendChild(h);
 
@@ -382,9 +373,7 @@
       pa.href = r.pages; pa.target = "_blank"; pa.rel = "noopener";
       links.appendChild(pa);
     }
-    var ga = el("a", null, "Repo");
-    ga.href = r.url; ga.target = "_blank"; ga.rel = "noopener";
-    links.appendChild(ga);
+    // GitHub repo links live on the hub page, not on the tile.
     foot.appendChild(links);
 
     var st = el("div", "tile-status " + si.cls);
@@ -462,20 +451,43 @@
     });
   }
 
-  fetch("data.json", { cache: "no-store" })
-    .then(function (res) {
+  Promise.all([
+    fetch("data.json", { cache: "no-store" }).then(function (res) {
       if (!res.ok) throw new Error("HTTP " + res.status);
       return res.json();
-    })
-    .then(function (data) {
+    }),
+    fetch("projects/groups.json", { cache: "no-store" }).then(function (res) {
+      return res.ok ? res.json() : { groups: {} };
+    }).catch(function () { return { groups: {} }; })
+  ])
+    .then(function (parts) {
+      var data = parts[0];
+      var groups = (parts[1] && parts[1].groups) || {};
       if (!data || !Array.isArray(data.repos)) throw new Error("bad data");
       state.siteAvail = !!(data.site_status && data.site_status.available);
-      state.repos = data.repos.map(function (r) {
+      // One tile per group (e.g. Castle); member repos never get their own tiles.
+      var entries = [], members = {};
+      Object.keys(groups).forEach(function (slug) {
+        var g = groups[slug];
+        (g.members || []).forEach(function (m) { members[m] = true; });
+        entries.push({
+          isGroup: true, name: g.title, slug: slug,
+          description: (g.tagline ? g.tagline + " — " : "") + (g.description || ""),
+          category: g.category || "Infra",
+          hub: "projects/" + slug + "/",
+          modules: (g.modules || []).length,
+          pages: null, site: null, srank: 1, pushed_at: null
+        });
+      });
+      data.repos.forEach(function (r) {
+        if (members[r.name]) return;
         var si = siteInfo(r, state.siteAvail);
         r.category = category(r.name);
         r.srank = si.rank;
-        return r;
+        r.hub = "projects/" + r.name + "/";
+        entries.push(r);
       });
+      state.repos = entries;
       var monitored = 0, down = 0;
       state.repos.forEach(function (r) {
         if (r.site) { monitored++; if (r.site.status === "down") down++; }
@@ -509,6 +521,8 @@
     });
 })();
 </script>
-<a class="corner-credit" href="https://wearedogs.net"><b>This product was made by DOGS</b> · stick around</a>
+<div class="dogs-foot">
+  <a href="https://wearedogs.net"><img src="assets/made-by-dogs.png" alt="DOGS"><span>This product was made by <b>DOGS</b></span></a>
+</div>
 </body>
 </html>
