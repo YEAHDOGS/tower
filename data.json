@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-09-10T13:37:40.318570+00:00",
+ "generated_at": "2026-09-10T14:40:16.467596+00:00",
  "org": "YEAHDOGS",
  "site_status": {
   "available": true,
-  "generated_at": "2026-09-10T10:23:51.033Z",
+  "generated_at": "2026-09-10T14:07:37.223Z",
   "url": "https://yeahdogs.github.io/watchtower/status.json"
  },
  "repos": [
@@ -26,7 +26,13 @@
     "updated_at": "2026-09-10T11:31:39Z"
    },
    "pages": "https://yeahdogs.github.io/news/",
-   "site": null
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-10T14:07:37.223Z",
+    "since": "2026-09-10T14:07:37.223Z",
+    "responseMs": 43,
+    "failing": []
+   }
   },
   {
    "name": "40",
@@ -47,7 +53,13 @@
     "updated_at": "2026-09-10T11:31:54Z"
    },
    "pages": "https://yeahdogs.github.io/40/",
-   "site": null
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-10T14:07:37.223Z",
+    "since": "2026-09-10T14:07:37.223Z",
+    "responseMs": 209,
+    "failing": []
+   }
   },
   {
    "name": "castle",
@@ -75,9 +87,9 @@
    "description": "A fresh start for windows/android devices",
    "language": "PowerShell",
    "stars": 0,
-   "pushed_at": "2026-09-10T13:35:07Z",
+   "pushed_at": "2026-09-10T14:32:50Z",
    "open_issues": 0,
-   "open_prs": 6,
+   "open_prs": 7,
    "commits": 106,
    "url": "https://github.com/YEAHDOGS/phoenix",
    "branch": "master",
@@ -89,7 +101,13 @@
     "updated_at": "2026-09-10T11:31:48Z"
    },
    "pages": "https://yeahdogs.github.io/phoenix/",
-   "site": null
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-10T14:07:37.223Z",
+    "since": "2026-09-10T14:07:37.223Z",
+    "responseMs": 43,
+    "failing": []
+   }
   },
   {
    "name": "sdm",
@@ -125,7 +143,13 @@
     "updated_at": "2026-09-10T11:31:57Z"
    },
    "pages": "https://yeahdogs.github.io/proof/",
-   "site": null
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-10T14:07:37.223Z",
+    "since": "2026-09-10T14:07:37.223Z",
+    "responseMs": 52,
+    "failing": []
+   }
   },
   {
    "name": "demo",
@@ -146,7 +170,13 @@
     "updated_at": "2026-09-10T11:31:22Z"
    },
    "pages": "https://yeahdogs.github.io/demo/",
-   "site": null
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-10T14:07:37.223Z",
+    "since": "2026-09-10T14:07:37.223Z",
+    "responseMs": 60,
+    "failing": []
+   }
   },
   {
    "name": "playback",
@@ -167,7 +197,13 @@
     "updated_at": "2026-09-10T11:32:07Z"
    },
    "pages": "https://yeahdogs.github.io/playback/",
-   "site": null
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-10T14:07:37.223Z",
+    "since": "2026-09-10T14:07:37.223Z",
+    "responseMs": 236,
+    "failing": []
+   }
   },
   {
    "name": "pay",
@@ -188,7 +224,13 @@
     "updated_at": "2026-09-10T11:31:40Z"
    },
    "pages": "https://yeahdogs.github.io/pay/",
-   "site": null
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-10T14:07:37.223Z",
+    "since": "2026-09-10T14:07:37.223Z",
+    "responseMs": 80,
+    "failing": []
+   }
   },
   {
    "name": "help",
@@ -283,9 +325,9 @@
    "pages": "https://yeahdogs.github.io/icecream/",
    "site": {
     "status": "up",
-    "lastCheck": "2026-09-10T10:23:51.033Z",
+    "lastCheck": "2026-09-10T14:07:37.223Z",
     "since": "2026-09-09T19:39:36.427Z",
-    "responseMs": 148,
+    "responseMs": 55,
     "failing": []
    }
   },
@@ -308,7 +350,13 @@
     "updated_at": "2026-09-10T11:31:27Z"
    },
    "pages": "https://yeahdogs.github.io/wax/",
-   "site": null
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-10T14:07:37.223Z",
+    "since": "2026-09-10T14:07:37.223Z",
+    "responseMs": 44,
+    "failing": []
+   }
   },
   {
    "name": "remote",
@@ -351,25 +399,25 @@
    "description": "DOGS mission control \u2014 live build/repo status dashboard",
    "language": "HTML",
    "stars": 0,
-   "pushed_at": "2026-09-10T12:38:25Z",
+   "pushed_at": "2026-09-10T14:23:40Z",
    "open_issues": 0,
    "open_prs": 3,
-   "commits": 45,
+   "commits": 46,
    "url": "https://github.com/YEAHDOGS/tower",
    "branch": "master",
    "workflow": {
     "name": "pages build and deployment",
     "conclusion": "success",
     "status": "completed",
-    "url": "https://github.com/YEAHDOGS/tower/actions/runs/34477859779",
-    "updated_at": "2026-09-10T12:39:24Z"
+    "url": "https://github.com/YEAHDOGS/tower/actions/runs/34483829512",
+    "updated_at": "2026-09-10T13:38:25Z"
    },
    "pages": "https://yeahdogs.github.io/tower/",
    "site": {
     "status": "up",
-    "lastCheck": "2026-09-10T10:23:51.033Z",
+    "lastCheck": "2026-09-10T14:07:37.223Z",
     "since": "2026-09-09T22:09:18.265Z",
-    "responseMs": 63,
+    "responseMs": 76,
     "failing": []
    }
   },
@@ -407,32 +455,38 @@
     "updated_at": "2026-09-10T11:31:33Z"
    },
    "pages": "https://yeahdogs.github.io/paper/",
-   "site": null
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-10T14:07:37.223Z",
+    "since": "2026-09-10T14:07:37.223Z",
+    "responseMs": 53,
+    "failing": []
+   }
   },
   {
    "name": "watchtower",
    "description": "Watchtower: uptime + e2e monitor for all YEAHDOGS websites. Auto-discovers org Pages sites, alerts only on state transitions.",
    "language": "JavaScript",
    "stars": 0,
-   "pushed_at": "2026-09-10T10:23:52Z",
+   "pushed_at": "2026-09-10T14:07:39Z",
    "open_issues": 0,
    "open_prs": 0,
-   "commits": 11,
+   "commits": 12,
    "url": "https://github.com/YEAHDOGS/watchtower",
    "branch": "master",
    "workflow": {
     "name": "pages build and deployment",
     "conclusion": "success",
     "status": "completed",
-    "url": "https://github.com/YEAHDOGS/watchtower/actions/runs/34465841736",
-    "updated_at": "2026-09-10T10:24:53Z"
+    "url": "https://github.com/YEAHDOGS/watchtower/actions/runs/34487008030",
+    "updated_at": "2026-09-10T14:08:40Z"
    },
    "pages": "https://yeahdogs.github.io/watchtower/",
    "site": {
     "status": "up",
-    "lastCheck": "2026-09-10T10:23:51.033Z",
+    "lastCheck": "2026-09-10T14:07:37.223Z",
     "since": "2026-09-10T09:25:39.369Z",
-    "responseMs": 80,
+    "responseMs": 63,
     "failing": []
    }
   },
@@ -455,7 +509,13 @@
     "updated_at": "2026-09-10T11:31:29Z"
    },
    "pages": "https://yeahdogs.github.io/mirror/",
-   "site": null
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-10T14:07:37.223Z",
+    "since": "2026-09-10T14:07:37.223Z",
+    "responseMs": 259,
+    "failing": []
+   }
   },
   {
    "name": "castle-os",
@@ -514,9 +574,9 @@
    "pages": "https://yeahdogs.github.io/",
    "site": {
     "status": "up",
-    "lastCheck": "2026-09-10T10:23:51.033Z",
+    "lastCheck": "2026-09-10T14:07:37.223Z",
     "since": "2026-09-09T22:09:18.265Z",
-    "responseMs": 50,
+    "responseMs": 62,
     "failing": []
    }
   },
@@ -546,6 +606,21 @@
    "commits": 1,
    "url": "https://github.com/YEAHDOGS/radio",
    "branch": "master",
+   "workflow": null,
+   "pages": null,
+   "site": null
+  },
+  {
+   "name": "dog",
+   "description": "The .dog text format \u2014 a JSON-superset with a declared header for byte-minimal, run-length-aware text encoding",
+   "language": null,
+   "stars": 0,
+   "pushed_at": "2026-09-10T14:35:05Z",
+   "open_issues": 0,
+   "open_prs": 0,
+   "commits": 1,
+   "url": "https://github.com/YEAHDOGS/dog",
+   "branch": "main",
    "workflow": null,
    "pages": null,
    "site": null
