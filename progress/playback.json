@@ -1,0 +1,101 @@
+{
+ "project": "playback",
+ "entries": [
+  {
+   "date": "2026-09-09T21:28:03+00:00",
+   "title": "fix: silence post-destroy async races on AudioDeck",
+   "kind": "commit",
+   "ref": "cd50122",
+   "branch": "jack/playback-post-destroy-silence",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:25:58+00:00",
+   "title": "fix: surface audio element load errors as deck loadError state",
+   "kind": "commit",
+   "ref": "e5166d2",
+   "branch": "jack/playback-race-sweep",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:10:16+00:00",
+   "title": "fix: guard AudioDeck async waveform decode against stale-track race (decodeToken)",
+   "kind": "commit",
+   "ref": "63f7291",
+   "branch": "jack/playback-object-url-leak",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:04:39+00:00",
+   "title": "tests: add 20 keyboard shortcut regression tests (shortcuts.unit.test.js)",
+   "kind": "commit",
+   "ref": "1ae5a4e",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:04:39+00:00",
+   "title": "feat: global keyboard shortcuts (space/arrows/M/?) with help overlay",
+   "kind": "commit",
+   "ref": "dcda076",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:01:35+00:00",
+   "title": "feat: add AudioDeck.seekBy() (clamped) and DjEngine.toggleMute()",
+   "kind": "commit",
+   "ref": "79a9818",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:22:20+00:00",
+   "title": "fix: revoke AudioDeck blob object URLs on track reload and destroy",
+   "kind": "commit",
+   "ref": "ce1d0a1",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:15:12+00:00",
+   "title": "tests: add 33 AudioDeck unit tests (mocked audio stack)",
+   "kind": "commit",
+   "ref": "3fe7c49",
+   "branch": "jack/playback-deck-tests",
+   "url": "https://github.com/YEAHDOGS/playback/commit/3fe7c4973257b4e91088108472bbad9bd7150e14"
+  },
+  {
+   "date": "2026-09-09T19:11:54+00:00",
+   "title": "fix: clamp AudioDeck.scrub() position to track bounds [0, duration]",
+   "kind": "commit",
+   "ref": "5f19665",
+   "branch": "detached",
+   "url": "https://github.com/YEAHDOGS/playback/commit/5f196657c717c6b5228fa18a7e2c15df727f7391"
+  },
+  {
+   "date": "2026-09-09T18:22:01+00:00",
+   "title": "tests: add real DjEngine unit tests with mocked Web Audio stack",
+   "kind": "commit",
+   "ref": "ea97966",
+   "branch": "jack/playback-engine-tests",
+   "url": "https://github.com/YEAHDOGS/playback/commit/ea979662ae0a8278d8f270c8aa77c8dee9daf98c"
+  },
+  {
+   "date": "2026-09-09T18:12:29+00:00",
+   "title": "a11y: keyboard navigation for the queue panel \u2014 roving tabindex, arrows/Home/End, Enter to play",
+   "kind": "commit",
+   "ref": "9b489d8",
+   "branch": "jack/playback-queue-ui",
+   "url": "https://github.com/YEAHDOGS/playback/commit/9b489d8bf7bc99c21cd3f5b1dfbf8b602d5c8ae0"
+  },
+  {
+   "date": "2026-09-09T17:44:41+00:00",
+   "title": "a11y: queue list gets an accessible name + dropped-tracks notice becomes a live region",
+   "kind": "commit",
+   "ref": "c9208e9",
+   "branch": "detached",
+   "url": "https://github.com/YEAHDOGS/playback/commit/c9208e9418ad90a2bad09414dc9a7b8b542974a2"
+  }
+ ]
+}
