@@ -12,7 +12,7 @@ build time — never a fake green). Search filters tiles by name/description;
 sort offers featured, name, status, recency, and category; category chips
 filter Apps / Trading / Infra / Docs.
 
-Header carries the Brandon Wellacruz / DOGS identity line so the URL works
+Header carries the DOGS identity line so the URL works
 on a resume; semantic HTML (`<article>` tiles with real links), proper
 `<title>`, meta description, and Open Graph tags make it indexable.
 
