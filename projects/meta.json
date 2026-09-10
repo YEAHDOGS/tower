@@ -1,0 +1,134 @@
+{
+  "_doc": "percent_complete drives the hub-page progress display. null renders as 'IN BUILD'. A number is only ever written here with a hard real source (milestone checklist, release tag, or the founder's explicit call) recorded in 'source'. Never fabricate a number.",
+  "repos": {
+    "news": {
+      "percent_complete": null,
+      "source": null,
+      "note": "No completion estimate published for this repo. Set a number only with a verifiable source."
+    },
+    "40": {
+      "percent_complete": null,
+      "source": null,
+      "note": "No completion estimate published for this repo. Set a number only with a verifiable source."
+    },
+    "castle": {
+      "percent_complete": null,
+      "source": null,
+      "note": "No completion estimate published for this repo. Set a number only with a verifiable source."
+    },
+    "phoenix": {
+      "percent_complete": null,
+      "source": null,
+      "note": "No completion estimate published for this repo. Set a number only with a verifiable source."
+    },
+    "proof": {
+      "percent_complete": null,
+      "source": null,
+      "note": "No completion estimate published for this repo. Set a number only with a verifiable source."
+    },
+    "playback": {
+      "percent_complete": null,
+      "source": null,
+      "note": "No completion estimate published for this repo. Set a number only with a verifiable source."
+    },
+    "divorce": {
+      "percent_complete": null,
+      "source": null,
+      "note": "No completion estimate published for this repo. Set a number only with a verifiable source."
+    },
+    "icecream": {
+      "percent_complete": null,
+      "source": null,
+      "note": "No completion estimate published for this repo. Set a number only with a verifiable source."
+    },
+    "wax": {
+      "percent_complete": null,
+      "source": null,
+      "note": "No completion estimate published for this repo. Set a number only with a verifiable source."
+    },
+    "tower": {
+      "percent_complete": null,
+      "source": null,
+      "note": "No completion estimate published for this repo. Set a number only with a verifiable source."
+    },
+    "id": {
+      "percent_complete": null,
+      "source": null,
+      "note": "No completion estimate published for this repo. Set a number only with a verifiable source."
+    },
+    "paper": {
+      "percent_complete": null,
+      "source": null,
+      "note": "No completion estimate published for this repo. Set a number only with a verifiable source."
+    },
+    "watchtower": {
+      "percent_complete": null,
+      "source": null,
+      "note": "No completion estimate published for this repo. Set a number only with a verifiable source."
+    },
+    "mirror": {
+      "percent_complete": null,
+      "source": null,
+      "note": "No completion estimate published for this repo. Set a number only with a verifiable source."
+    },
+    "castle-os": {
+      "percent_complete": null,
+      "source": null,
+      "note": "No completion estimate published for this repo. Set a number only with a verifiable source."
+    },
+    "forge": {
+      "percent_complete": null,
+      "source": null,
+      "note": "No completion estimate published for this repo. Set a number only with a verifiable source."
+    },
+    "yeahdogs.github.io": {
+      "percent_complete": null,
+      "source": null,
+      "note": "No completion estimate published for this repo. Set a number only with a verifiable source."
+    },
+    "plans": {
+      "percent_complete": null,
+      "source": null,
+      "note": "No completion estimate published for this repo. Set a number only with a verifiable source."
+    },
+    "printshop": {
+      "percent_complete": null,
+      "source": null,
+      "note": "No completion estimate published for this repo. Set a number only with a verifiable source."
+    },
+    "radio": {
+      "percent_complete": null,
+      "source": null,
+      "note": "No completion estimate published for this repo. Set a number only with a verifiable source."
+    }
+  },
+  "groups": {
+    "castle": {
+      "percent_complete": null,
+      "source": null,
+      "note": "Castle spans hardware, OS, app, and network services; no single honest percentage exists yet."
+    }
+  },
+  "modules": {
+    "castle/castle-os": {
+      "percent_complete": null,
+      "source": null,
+      "note": "Module-level estimate not published. Set a number only with a verifiable source."
+    },
+    "castle/app": {
+      "percent_complete": null,
+      "source": null,
+      "note": "Module-level estimate not published. Set a number only with a verifiable source."
+    },
+    "castle/drive-librarian": {
+      "percent_complete": null,
+      "source": null,
+      "note": "Module-level estimate not published. Set a number only with a verifiable source."
+    },
+    "castle/gateway": {
+      "percent_complete": null,
+      "source": null,
+      "note": "Module-level estimate not published. Set a number only with a verifiable source."
+    }
+  }
+}

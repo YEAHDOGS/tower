@@ -50,233 +50,13 @@
     font-size: 1rem;
     margin-top: 8px;
   }
-  .brand .tagline {
-    color: var(--muted);
-    font-size: 0.92rem;
-    margin-top: 4px;
-    max-width: 60ch;
-    line-height: 1.5;
-  }
-  .statusline {
-    margin-top: 12px;
-    font-size: 0.86rem;
-    color: var(--muted);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px 14px;
-    align-items: center;
-  }
-  .statusline .ok { color: var(--green); font-weight: 600; }
-  .statusline .bad { color: var(--red); font-weight: 600; }
-
-  /* ---- controls ---- */
-  .controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    align-items: center;
-    margin: 22px 0 6px;
-  }
-  .search {
-    flex: 1 1 220px;
-    max-width: 340px;
-    background: var(--tile);
-    border: 1px solid var(--tile-border);
-    border-radius: 8px;
-    color: var(--text);
-    font-size: 0.92rem;
-    padding: 10px 14px;
-  }
-  .search::placeholder { color: var(--gray); }
-  .search:focus { outline: none; border-color: var(--accent); }
-  .sortwrap { display: flex; align-items: center; gap: 8px; font-size: 0.86rem; color: var(--muted); }
-  .sortwrap select {
-    background: var(--tile);
-    border: 1px solid var(--tile-border);
-    border-radius: 8px;
-    color: var(--text);
-    font-size: 0.86rem;
-    padding: 9px 10px;
-  }
-  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 18px; }
-  .chip {
-    background: transparent;
-    border: 1px solid var(--tile-border);
-    border-radius: 999px;
-    color: var(--muted);
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    padding: 7px 16px;
-    cursor: pointer;
-    text-transform: uppercase;
-  }
-  .chip:hover { color: var(--text); border-color: var(--muted); }
-  .chip[aria-pressed="true"] {
-    background: var(--text);
-    border-color: var(--text);
-    color: var(--bg);
-  }
-  .showing { font-size: 0.82rem; color: var(--gray); margin-left: auto; }
-
-  /* ---- Metro tile grid ---- */
-  .tiles {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 14px;
-  }
-  .tile {
-    background: var(--tile);
-    border: 1px solid var(--tile-border);
-    border-radius: 4px;
-    aspect-ratio: 1 / 1;
-    padding: 18px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    transition: transform 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease;
-    overflow: hidden;
-  }
-  .tile:hover {
-    transform: translateY(-3px);
-    border-color: var(--accent);
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
-  }
-  .tile.wide { grid-column: span 2; aspect-ratio: 2 / 1; }
-  .tile-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  .cat {
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gray);
-  }
-  .dot {
-    width: 11px; height: 11px; border-radius: 50%;
-    background: var(--gray);
-    flex-shrink: 0;
-  }
-  .dot.up { background: var(--green); box-shadow: 0 0 8px rgba(61,220,132,.7); }
-  .dot.down { background: var(--red); box-shadow: 0 0 8px rgba(255,92,92,.7); }
-  .tile h2 {
-    font-size: 1.35rem;
-    font-weight: 700;
-    letter-spacing: 0.01em;
-    margin-bottom: 8px;
-    line-height: 1.15;
-  }
-  .tile.wide h2 { font-size: 1.7rem; }
-  .tile h2 a { color: var(--text); text-decoration: none; }
-  .tile h2 a:hover { color: var(--accent); }
-  .tile h2 a::after {
-    content: "";
-    position: absolute; inset: 0;
-  }
-  .tile .desc {
-    color: var(--muted);
-    font-size: 0.88rem;
-    line-height: 1.45;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    flex: 0 1 auto;
-  }
-  .tile-foot { margin-top: auto; padding-top: 12px; }
-  .tile-links { display: flex; gap: 10px; font-size: 0.82rem; position: relative; z-index: 1; }
-  .tile-links a {
-    color: var(--accent);
-    text-decoration: none;
-    border: 1px solid var(--tile-border);
-    border-radius: 6px;
-    padding: 6px 12px;
-    background: rgba(11, 14, 20, 0.55);
-  }
-  .tile-links a:hover { border-color: var(--accent); }
-  .tile-status {
-    margin-top: 10px;
-    font-size: 0.76rem;
-    color: var(--muted);
-    display: flex;
-    align-items: center;
-    gap: 7px;
-  }
-  .tile-status .sd { width: 8px; height: 8px; border-radius: 50%; background: var(--gray); flex-shrink: 0; }
-  .tile-status.up { color: var(--green); }
-  .tile-status.up .sd { background: var(--green); box-shadow: 0 0 6px rgba(61,220,132,.7); }
-  .tile-status.down { color: var(--red); font-weight: 600; }
-  .tile-status.down .sd { background: var(--red); box-shadow: 0 0 6px rgba(255,92,92,.7); }
-
-  .empty {
-    grid-column: 1 / -1;
-    text-align: center;
-    color: var(--muted);
-    padding: 60px 20px;
-    font-size: 0.95rem;
-  }
-  .error {
-    background: #2a1414; border: 1px solid var(--red); color: #ffb3b3;
-    border-radius: 8px; padding: 14px; margin-top: 20px; font-size: 0.9rem;
-  }
-
-  footer {
-    margin-top: 44px;
-    color: var(--muted);
-    font-size: 0.78rem;
-    line-height: 1.7;
-    text-align: center;
-  }
-  footer a { color: var(--muted); }
-
-  /* ---- phone: two columns of square tiles ---- */
-  @media (max-width: 560px) {
-    body { padding: 18px 12px 44px; }
-    .brand h1 { font-size: 1.5rem; }
-    .tiles { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .tile { padding: 14px; }
-    .tile.wide { grid-column: span 2; aspect-ratio: 2 / 1; }
-    .tile h2 { font-size: 1.02rem; }
-    .tile.wide h2 { font-size: 1.25rem; }
-    .tile .desc { font-size: 0.78rem; -webkit-line-clamp: 3; }
-    .tile-links { font-size: 0.74rem; }
-    .tile-links a { padding: 5px 9px; }
-    .tile-status { font-size: 0.68rem; }
-    .search { max-width: none; }
-  }
-  footer .credit {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 18px;
-  }
-  footer .credit a {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 14px;
-    border-radius: 999px;
-    background: rgba(10, 12, 16, 0.82);
-    border: 1px solid #2a2f3a;
-    color: #e6e9f0;
-    font-size: 0.72rem;
-    letter-spacing: 0.02em;
-    text-decoration: none;
-  }
-  footer .credit a:hover { border-color: #6ea8fe; color: #fff; }
-  footer .credit img { height: 30px; width: auto; display: block; }
-  footer .credit b { font-weight: 700; }
-</style>
+  .brand .who strong { font-weight: 700; }</style>
 </head>
 <body>
 
 <header class="brand">
-  <h1><a href="https://github.com/YEAHDOGS/watchtower">Watchtower</a></h1>
-  <p class="tagline">Every project we build and ship, in one grid. Paper trading, business formation, ambient dashboards, self-hosted infrastructure — each tile links to the live project and its code, with a real-time uptime status from the Watchtower monitor.</p>
-  <p class="statusline" id="statusline" aria-live="polite">
+  <h1>Watchtower</h1>
+  <p class="tagline">Every project we build and ship, in one grid. Each tile opens a project hub — screenshots, live status, what's going on, ideas, and a timeline from conception to latest update — with real-time uptime status from the Watchtower monitor.</p>  <p class="statusline" id="statusline" aria-live="polite">
     <span id="proj-count">…</span>
     <span id="site-summary">…</span>
     <span>Updated <span id="updated">…</span></span>
@@ -317,7 +97,7 @@
 (function () {
   "use strict";
 
-  var FEATURED = ["paper", "forge", "castle-os"];
+  var FEATURED = ["Castle"];
   var INFRA = ["castle", "castle-os", "tower", "watchtower", "phoenix",
                "chains", "id", "sdm", "remote", "yeahdogs.github.io"];
   var CATS = ["All", "Apps", "Trading", "Infra", "Docs"];
@@ -370,7 +150,10 @@
 
     var top = el("div", "tile-top");
     top.appendChild(el("span", "cat", r.category));
-    var si = siteInfo(r, siteAvail);
+    // Group tiles (e.g. Castle) collapse member repos into one hub entry.
+    var si = r.isGroup
+      ? { cls: "", text: "project hub — " + r.modules + " modules inside", rank: 1 }
+      : siteInfo(r, siteAvail);
     var dot = el("span", "dot " + si.cls);
     dot.title = si.text;
     top.appendChild(dot);
@@ -378,7 +161,7 @@
 
     var h = el("h2");
     var ra = el("a", null, r.name);
-    ra.href = r.url; ra.target = "_blank"; ra.rel = "noopener";
+    ra.href = r.hub; // tile opens the project hub page, never GitHub directly
     h.appendChild(ra);
     a.appendChild(h);
 
@@ -391,9 +174,7 @@
       pa.href = r.pages; pa.target = "_blank"; pa.rel = "noopener";
       links.appendChild(pa);
     }
-    var ga = el("a", null, "Repo");
-    ga.href = r.url; ga.target = "_blank"; ga.rel = "noopener";
-    links.appendChild(ga);
+    // GitHub repo links live on the hub page, not on the tile.
     foot.appendChild(links);
 
     var st = el("div", "tile-status " + si.cls);
@@ -471,20 +252,43 @@
     });
   }
 
-  fetch("data.json", { cache: "no-store" })
-    .then(function (res) {
+  Promise.all([
+    fetch("data.json", { cache: "no-store" }).then(function (res) {
       if (!res.ok) throw new Error("HTTP " + res.status);
       return res.json();
-    })
-    .then(function (data) {
+    }),
+    fetch("projects/groups.json", { cache: "no-store" }).then(function (res) {
+      return res.ok ? res.json() : { groups: {} };
+    }).catch(function () { return { groups: {} }; })
+  ])
+    .then(function (parts) {
+      var data = parts[0];
+      var groups = (parts[1] && parts[1].groups) || {};
       if (!data || !Array.isArray(data.repos)) throw new Error("bad data");
       state.siteAvail = !!(data.site_status && data.site_status.available);
-      state.repos = data.repos.map(function (r) {
+      // One tile per group (e.g. Castle); member repos never get their own tiles.
+      var entries = [], members = {};
+      Object.keys(groups).forEach(function (slug) {
+        var g = groups[slug];
+        (g.members || []).forEach(function (m) { members[m] = true; });
+        entries.push({
+          isGroup: true, name: g.title, slug: slug,
+          description: (g.tagline ? g.tagline + " — " : "") + (g.description || ""),
+          category: g.category || "Infra",
+          hub: "projects/" + slug + "/",
+          modules: (g.modules || []).length,
+          pages: null, site: null, srank: 1, pushed_at: null
+        });
+      });
+      data.repos.forEach(function (r) {
+        if (members[r.name]) return;
         var si = siteInfo(r, state.siteAvail);
         r.category = category(r.name);
         r.srank = si.rank;
-        return r;
+        r.hub = "projects/" + r.name + "/";
+        entries.push(r);
       });
+      state.repos = entries;
       var monitored = 0, down = 0;
       state.repos.forEach(function (r) {
         if (r.site) { monitored++; if (r.site.status === "down") down++; }
@@ -518,5 +322,8 @@
     });
 })();
 </script>
+<div class="dogs-foot">
+  <a href="https://wearedogs.net"><img src="assets/made-by-dogs.png" alt="DOGS"><span>This product was made by <b>DOGS</b></span></a>
+</div>
 </body>
 </html>
