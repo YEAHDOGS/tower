@@ -40,6 +40,11 @@
     letter-spacing: 0.02em;
     font-weight: 750;
   }
+  .brand h1 a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .brand h1 a:hover { text-decoration: underline; }
   .brand .who {
     color: var(--text);
     font-size: 1rem;
@@ -269,7 +274,7 @@
 <body>
 
 <header class="brand">
-  <h1>Watchtower</h1>
+  <h1><a href="https://github.com/YEAHDOGS/watchtower">Watchtower</a></h1>
   <p class="tagline">Every project we build and ship, in one grid. Paper trading, business formation, ambient dashboards, self-hosted infrastructure — each tile links to the live project and its code, with a real-time uptime status from the Watchtower monitor.</p>
   <p class="statusline" id="statusline" aria-live="polite">
     <span id="proj-count">…</span>
