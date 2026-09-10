@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-10T14:40:16.467596+00:00",
+ "generated_at": "2026-09-10T15:28:21.895408+00:00",
  "org": "YEAHDOGS",
  "site_status": {
   "available": true,
@@ -87,9 +87,9 @@
    "description": "A fresh start for windows/android devices",
    "language": "PowerShell",
    "stars": 0,
-   "pushed_at": "2026-09-10T14:32:50Z",
+   "pushed_at": "2026-09-10T15:25:17Z",
    "open_issues": 0,
-   "open_prs": 7,
+   "open_prs": 8,
    "commits": 106,
    "url": "https://github.com/YEAHDOGS/phoenix",
    "branch": "master",
@@ -399,18 +399,18 @@
    "description": "DOGS mission control \u2014 live build/repo status dashboard",
    "language": "HTML",
    "stars": 0,
-   "pushed_at": "2026-09-10T14:23:40Z",
+   "pushed_at": "2026-09-10T14:40:21Z",
    "open_issues": 0,
    "open_prs": 3,
-   "commits": 46,
+   "commits": 47,
    "url": "https://github.com/YEAHDOGS/tower",
    "branch": "master",
    "workflow": {
     "name": "pages build and deployment",
     "conclusion": "success",
     "status": "completed",
-    "url": "https://github.com/YEAHDOGS/tower/actions/runs/34483829512",
-    "updated_at": "2026-09-10T13:38:25Z"
+    "url": "https://github.com/YEAHDOGS/tower/actions/runs/34490591232",
+    "updated_at": "2026-09-10T14:41:07Z"
    },
    "pages": "https://yeahdogs.github.io/tower/",
    "site": {
@@ -613,7 +613,7 @@
   {
    "name": "dog",
    "description": "The .dog text format \u2014 a JSON-superset with a declared header for byte-minimal, run-length-aware text encoding",
-   "language": null,
+   "language": "TypeScript",
    "stars": 0,
    "pushed_at": "2026-09-10T14:35:05Z",
    "open_issues": 0,
