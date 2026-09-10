@@ -1,0 +1,101 @@
+{
+ "project": "40",
+ "entries": [
+  {
+   "date": "2026-09-09T20:25:26+00:00",
+   "title": "security: startup self-check rejects weak JWT_SECRET in production (>=32 chars, never the dev fallback)",
+   "kind": "commit",
+   "ref": "58c7b83",
+   "branch": "jack/40-blocklist-1000",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:10:45+00:00",
+   "title": "security: reject common passwords at signup/change-password",
+   "kind": "commit",
+   "ref": "2721d62",
+   "branch": "jack/40-password-auth",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:59:30+00:00",
+   "title": "security: password change revokes all other sessions; unique token per login",
+   "kind": "commit",
+   "ref": "30a1eb1",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:59:24+00:00",
+   "title": "security: HttpOnly+Secure+SameSite session cookies alongside Bearer tokens",
+   "kind": "commit",
+   "ref": "2faee9d",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:55:51+00:00",
+   "title": "security: login rate limiting \u2014 per-IP + per-account sliding window, exponential lockout",
+   "kind": "commit",
+   "ref": "1dc6fdb",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:28:17+00:00",
+   "title": "security: passwords are actually verified at login",
+   "kind": "commit",
+   "ref": "b26b84d",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T19:06:12+00:00",
+   "title": "docs: env contract \u2014 JWT_SECRET required in production, staging checklist",
+   "kind": "commit",
+   "ref": "7e86d30",
+   "branch": "jack/40-sweep4",
+   "url": "https://github.com/YEAHDOGS/40/commit/7e86d306782dbf2270adef7d9d665401b32a2492"
+  },
+  {
+   "date": "2026-09-09T19:06:00+00:00",
+   "title": "feat(40): loud startup banner naming required env vars (JWT_SECRET fails fatal)",
+   "kind": "commit",
+   "ref": "5f7e866",
+   "branch": "detached",
+   "url": "https://github.com/YEAHDOGS/40/commit/5f7e8664c47eca583bf01ccee885ce3a04f11353"
+  },
+  {
+   "date": "2026-09-09T18:24:47+00:00",
+   "title": "tests: api tests self-provision a throwaway sqlite DB",
+   "kind": "commit",
+   "ref": "1bd1902",
+   "branch": "jack/40-jwt-failsafe",
+   "url": "https://github.com/YEAHDOGS/40/commit/1bd1902d06fc9b76687fe36b000c5845fc6e532a"
+  },
+  {
+   "date": "2026-09-09T18:22:50+00:00",
+   "title": "security: fail closed when JWT_SECRET is missing in production",
+   "kind": "commit",
+   "ref": "efebe86",
+   "branch": "detached",
+   "url": "https://github.com/YEAHDOGS/40/commit/efebe86ecacbd78d2ffe25b3c8fa6dfdc8ef5328"
+  },
+  {
+   "date": "2026-09-09T18:17:22+00:00",
+   "title": "feat(audit): structured audit logging of all authz denials",
+   "kind": "commit",
+   "ref": "dec97d0",
+   "branch": "jack/40-authz-validation",
+   "url": "https://github.com/YEAHDOGS/40/commit/dec97d025c5fcf58ee9690bdd4d0b3209d87b1dc"
+  },
+  {
+   "date": "2026-09-09T17:44:26+00:00",
+   "title": "docs: TRUST_PROXY proxy-header trust policy in README security posture + .env.example",
+   "kind": "commit",
+   "ref": "1505b82",
+   "branch": "detached",
+   "url": "https://github.com/YEAHDOGS/40/commit/1505b82973ec2b4ee73f35a14bd51f90c263038c"
+  }
+ ]
+}

@@ -1,0 +1,108 @@
+{
+ "project": "phoenix",
+ "entries": [
+  {
+   "date": "2026-09-09T16:06:24-05:00",
+   "title": "Demo: NUKE guard dual typed confirmation",
+   "kind": "video",
+   "url": "demos/02-phoenix-nuke-guard.mp4",
+   "detail": "Dry-run disk enumeration with BOOT-disk refusal, then the 59-case guard regression suite: exact-path + exact-phrase arming, hostile firmware as data."
+  },
+  {
+   "date": "2026-09-09T21:05:59+00:00",
+   "title": "test: test-phoenix-nuke.sh -- 36 new cases for the image-proof gate (unit + integration + skip-gate); 132/132 green",
+   "kind": "commit",
+   "ref": "f6da520",
+   "branch": "jack/phoenix-runbook-r1",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T21:05:59+00:00",
+   "title": "feat: phoenix-nuke.sh -- image-proof gate (runbook invariant 1: verified image or no wipe)",
+   "kind": "commit",
+   "ref": "054b5fc",
+   "branch": "detached",
+   "detail": "local branch, not yet pushed"
+  },
+  {
+   "date": "2026-09-09T20:50:42+00:00",
+   "title": "docs: NUKE-TEST-PLAN T6b -- document phoenix-nuke-guard.sh arming gate + its 59-case regression suite",
+   "kind": "commit",
+   "ref": "53a6e18",
+   "branch": "detached",
+   "url": "https://github.com/YEAHDOGS/phoenix/commit/53a6e1873cbe45f4c6682071c1ed351de072923d"
+  },
+  {
+   "date": "2026-09-09T20:50:29+00:00",
+   "title": "test: tests/tools/test-phoenix-nuke-guard.sh -- 59 cases (hostile firmware as data, exact-dev resolution, exact-phrase aborts, boot/mounted ",
+   "kind": "commit",
+   "ref": "e06af44",
+   "branch": "detached",
+   "url": "https://github.com/YEAHDOGS/phoenix/commit/e06af4401726aefeaddef33b495bc05aa17c3675"
+  },
+  {
+   "date": "2026-09-09T20:50:25+00:00",
+   "title": "feat: tools/phoenix-nuke-guard.sh -- interactive NUKE arming guard (exact /dev path + exact 'NUKE <dev>' phrase, dry-run default, boot/syste",
+   "kind": "commit",
+   "ref": "2904f03",
+   "branch": "detached",
+   "url": "https://github.com/YEAHDOGS/phoenix/commit/2904f03a0543dd447e4d2053b1a48b235ae5ab7e"
+  },
+  {
+   "date": "2026-09-09T20:24:26+00:00",
+   "title": "feat: tools/phoenix-quarantine-copy.sh -- scripted runbook Step 2.7 quarantine copy",
+   "kind": "commit",
+   "ref": "19fad10",
+   "branch": "jack/phoenix-quarantine",
+   "url": "https://github.com/YEAHDOGS/phoenix/commit/19fad10ac6b13c1748817b8d6930cedde7ca75f3"
+  },
+  {
+   "date": "2026-09-09T20:09:28+00:00",
+   "title": "feat: New-PhoenixConfig writer pair (.sh + .ps1) + test-phoenix-config.sh",
+   "kind": "commit",
+   "ref": "41ffd55",
+   "branch": "jack/phoenix-menu",
+   "url": "https://github.com/YEAHDOGS/phoenix/commit/41ffd55389ced862d25624f1bfd8579f79833ae2"
+  },
+  {
+   "date": "2026-09-09T19:49:11+00:00",
+   "title": "test: test-phoenix-nuke.sh -- 8 new cases for the eval-free lsblk parser (benign parse, -P unescaping, hostile $() and quote-break-out paylo",
+   "kind": "commit",
+   "ref": "a6c8e3f",
+   "branch": "detached",
+   "url": "https://github.com/YEAHDOGS/phoenix/commit/a6c8e3f38af7d9d125e60a9024d6fb5835750b67"
+  },
+  {
+   "date": "2026-09-09T19:47:04+00:00",
+   "title": "fix: phoenix-nuke.sh -- eval-free lsblk -P parser (parse_lsblk_pairs); firmware strings (MODEL/SERIAL) are untrusted input and must never ex",
+   "kind": "commit",
+   "ref": "621638b",
+   "branch": "detached",
+   "url": "https://github.com/YEAHDOGS/phoenix/commit/621638b5cbdd886336f799c400b2064e1e0e16c2"
+  },
+  {
+   "date": "2026-09-09T19:43:13+00:00",
+   "title": "docs: record Windows-only script classification (do-not-convert list)",
+   "kind": "commit",
+   "ref": "f9f13a6",
+   "branch": "jack/phoenix-bash-utils",
+   "url": "https://github.com/YEAHDOGS/phoenix/commit/f9f13a68baaee7abcba49ff4388eb9b4a69bfb8d"
+  },
+  {
+   "date": "2026-09-09T19:43:02+00:00",
+   "title": "fix(tools): make pre-existing file-compare.sh executable",
+   "kind": "commit",
+   "ref": "19b5f3b",
+   "branch": "detached",
+   "url": "https://github.com/YEAHDOGS/phoenix/commit/19b5f3b42362182c42338e4322b0b89d8e6b6e0f"
+  },
+  {
+   "date": "2026-09-09T19:42:56+00:00",
+   "title": "feat(tools): add bash twin delete-node.sh for delete-node.ps1",
+   "kind": "commit",
+   "ref": "d2aea0e",
+   "branch": "detached",
+   "url": "https://github.com/YEAHDOGS/phoenix/commit/d2aea0e8c139217462e5bb6f1e585593547a0375"
+  }
+ ]
+}
