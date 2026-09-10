@@ -1,13 +1,19 @@
 {
- "project": "forge",
- "entries": [
-  {
-   "date": "2026-09-09T19:57:41+00:00",
-   "title": "Forge v1: Oklahoma LLC formation wizard (files nothing, worksheet + instructions)",
-   "kind": "commit",
-   "ref": "d5179c2",
-   "branch": "master",
-   "url": "https://github.com/YEAHDOGS/forge/commit/d5179c2a5dc14a3c8503aaed902cca34bc3557ba"
-  }
- ]
+  "project": "forge",
+  "entries": [
+    {
+      "date": "2026-09-09T19:57:41+00:00",
+      "title": "Forge v1: Oklahoma LLC formation wizard (files nothing, worksheet + instructions)",
+      "kind": "commit",
+      "ref": "d5179c2",
+      "branch": "master",
+      "url": "https://github.com/YEAHDOGS/forge/commit/d5179c2a5dc14a3c8503aaed902cca34bc3557ba"
+    },
+    {
+      "date": "2026-09-10T13:50:04-05:00",
+      "title": "Watchtower: no live site to screenshot yet",
+      "kind": "note",
+      "detail": "No GitHub Pages or custom-domain deployment found for this repo as of 2026-09-10; Watchtower will add a screenshot entry once a live site exists."
+    }
+  ]
 }
