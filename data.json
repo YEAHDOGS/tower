@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-09-10T05:04:42.577026+00:00",
+ "generated_at": "2026-09-10T14:23:22.190626+00:00",
  "org": "YEAHDOGS",
  "site_status": {
   "available": true,
-  "generated_at": "2026-09-10T04:03:47.698Z",
+  "generated_at": "2026-09-10T14:07:37.223Z",
   "url": "https://yeahdogs.github.io/watchtower/status.json"
  },
  "repos": [
@@ -20,13 +20,19 @@
    "branch": "master",
    "workflow": {
     "name": "Deploy landing page",
-    "conclusion": "failure",
+    "conclusion": "success",
     "status": "completed",
-    "url": "https://github.com/YEAHDOGS/news/actions/runs/34438123767",
-    "updated_at": "2026-09-10T04:41:11Z"
+    "url": "https://github.com/YEAHDOGS/news/actions/runs/34471166143",
+    "updated_at": "2026-09-10T11:31:39Z"
    },
-   "pages": null,
-   "site": null
+   "pages": "https://yeahdogs.github.io/news/",
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-10T14:07:37.223Z",
+    "since": "2026-09-10T14:07:37.223Z",
+    "responseMs": 43,
+    "failing": []
+   }
   },
   {
    "name": "40",
@@ -41,22 +47,28 @@
    "branch": "master",
    "workflow": {
     "name": "Deploy landing page",
-    "conclusion": "failure",
+    "conclusion": "success",
     "status": "completed",
-    "url": "https://github.com/YEAHDOGS/40/actions/runs/34438120859",
-    "updated_at": "2026-09-10T04:41:07Z"
+    "url": "https://github.com/YEAHDOGS/40/actions/runs/34471169131",
+    "updated_at": "2026-09-10T11:31:54Z"
    },
-   "pages": null,
-   "site": null
+   "pages": "https://yeahdogs.github.io/40/",
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-10T14:07:37.223Z",
+    "since": "2026-09-10T14:07:37.223Z",
+    "responseMs": 209,
+    "failing": []
+   }
   },
   {
    "name": "castle",
    "description": "A way to make your data yours",
    "language": "PowerShell",
    "stars": 0,
-   "pushed_at": "2026-09-10T05:01:48Z",
+   "pushed_at": "2026-09-10T12:23:06Z",
    "open_issues": 0,
-   "open_prs": 1,
+   "open_prs": 2,
    "commits": 39,
    "url": "https://github.com/YEAHDOGS/castle",
    "branch": "master",
@@ -75,21 +87,27 @@
    "description": "A fresh start for windows/android devices",
    "language": "PowerShell",
    "stars": 0,
-   "pushed_at": "2026-09-10T04:43:17Z",
+   "pushed_at": "2026-09-10T13:35:07Z",
    "open_issues": 0,
-   "open_prs": 1,
+   "open_prs": 6,
    "commits": 106,
    "url": "https://github.com/YEAHDOGS/phoenix",
    "branch": "master",
    "workflow": {
     "name": "Deploy landing page",
-    "conclusion": "failure",
+    "conclusion": "success",
     "status": "completed",
-    "url": "https://github.com/YEAHDOGS/phoenix/actions/runs/34438274300",
-    "updated_at": "2026-09-10T04:43:34Z"
+    "url": "https://github.com/YEAHDOGS/phoenix/actions/runs/34471178930",
+    "updated_at": "2026-09-10T11:31:48Z"
    },
-   "pages": null,
-   "site": null
+   "pages": "https://yeahdogs.github.io/phoenix/",
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-10T14:07:37.223Z",
+    "since": "2026-09-10T14:07:37.223Z",
+    "responseMs": 43,
+    "failing": []
+   }
   },
   {
    "name": "sdm",
@@ -119,13 +137,19 @@
    "branch": "master",
    "workflow": {
     "name": "Deploy landing page",
-    "conclusion": "failure",
+    "conclusion": "success",
     "status": "completed",
-    "url": "https://github.com/YEAHDOGS/proof/actions/runs/34438160755",
-    "updated_at": "2026-09-10T04:41:46Z"
+    "url": "https://github.com/YEAHDOGS/proof/actions/runs/34471182557",
+    "updated_at": "2026-09-10T11:31:57Z"
    },
-   "pages": null,
-   "site": null
+   "pages": "https://yeahdogs.github.io/proof/",
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-10T14:07:37.223Z",
+    "since": "2026-09-10T14:07:37.223Z",
+    "responseMs": 52,
+    "failing": []
+   }
   },
   {
    "name": "demo",
@@ -139,14 +163,20 @@
    "url": "https://github.com/YEAHDOGS/demo",
    "branch": "master",
    "workflow": {
-    "name": "Deploy landing page",
-    "conclusion": "failure",
+    "name": "pages build and deployment",
+    "conclusion": "success",
     "status": "completed",
-    "url": "https://github.com/YEAHDOGS/demo/actions/runs/34438153231",
-    "updated_at": "2026-09-10T04:41:38Z"
+    "url": "https://github.com/YEAHDOGS/demo/actions/runs/34471129836",
+    "updated_at": "2026-09-10T11:31:22Z"
    },
-   "pages": null,
-   "site": null
+   "pages": "https://yeahdogs.github.io/demo/",
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-10T14:07:37.223Z",
+    "since": "2026-09-10T14:07:37.223Z",
+    "responseMs": 60,
+    "failing": []
+   }
   },
   {
    "name": "playback",
@@ -161,13 +191,19 @@
    "branch": "master",
    "workflow": {
     "name": "Deploy landing page",
-    "conclusion": "failure",
+    "conclusion": "success",
     "status": "completed",
-    "url": "https://github.com/YEAHDOGS/playback/actions/runs/34438127146",
-    "updated_at": "2026-09-10T04:41:16Z"
+    "url": "https://github.com/YEAHDOGS/playback/actions/runs/34471175460",
+    "updated_at": "2026-09-10T11:32:07Z"
    },
-   "pages": null,
-   "site": null
+   "pages": "https://yeahdogs.github.io/playback/",
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-10T14:07:37.223Z",
+    "since": "2026-09-10T14:07:37.223Z",
+    "responseMs": 236,
+    "failing": []
+   }
   },
   {
    "name": "pay",
@@ -182,13 +218,19 @@
    "branch": "master",
    "workflow": {
     "name": "Deploy landing page",
-    "conclusion": "failure",
+    "conclusion": "success",
     "status": "completed",
-    "url": "https://github.com/YEAHDOGS/pay/actions/runs/34438156784",
-    "updated_at": "2026-09-10T04:41:45Z"
+    "url": "https://github.com/YEAHDOGS/pay/actions/runs/34471172112",
+    "updated_at": "2026-09-10T11:31:40Z"
    },
-   "pages": null,
-   "site": null
+   "pages": "https://yeahdogs.github.io/pay/",
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-10T14:07:37.223Z",
+    "since": "2026-09-10T14:07:37.223Z",
+    "responseMs": 80,
+    "failing": []
+   }
   },
   {
    "name": "help",
@@ -267,25 +309,25 @@
    "description": "A view of the landscape, deep research on the global ice cream market for Snoop Dogg",
    "language": "JavaScript",
    "stars": 0,
-   "pushed_at": "2026-09-10T04:11:56Z",
+   "pushed_at": "2026-09-10T09:59:16Z",
    "open_issues": 0,
    "open_prs": 0,
-   "commits": 26,
+   "commits": 27,
    "url": "https://github.com/YEAHDOGS/icecream",
    "branch": "master",
    "workflow": {
     "name": "Deploy to GitHub Pages",
     "conclusion": "success",
     "status": "completed",
-    "url": "https://github.com/YEAHDOGS/icecream/actions/runs/34436235894",
-    "updated_at": "2026-09-10T04:12:35Z"
+    "url": "https://github.com/YEAHDOGS/icecream/actions/runs/34463636151",
+    "updated_at": "2026-09-10T09:59:52Z"
    },
    "pages": "https://yeahdogs.github.io/icecream/",
    "site": {
     "status": "up",
-    "lastCheck": "2026-09-10T04:03:47.698Z",
+    "lastCheck": "2026-09-10T14:07:37.223Z",
     "since": "2026-09-09T19:39:36.427Z",
-    "responseMs": 172,
+    "responseMs": 55,
     "failing": []
    }
   },
@@ -304,11 +346,17 @@
     "name": "pages build and deployment",
     "conclusion": "success",
     "status": "completed",
-    "url": "https://github.com/YEAHDOGS/wax/actions/runs/34340167049",
-    "updated_at": "2026-09-09T10:26:34Z"
+    "url": "https://github.com/YEAHDOGS/wax/actions/runs/34471125677",
+    "updated_at": "2026-09-10T11:31:27Z"
    },
-   "pages": null,
-   "site": null
+   "pages": "https://yeahdogs.github.io/wax/",
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-10T14:07:37.223Z",
+    "since": "2026-09-10T14:07:37.223Z",
+    "responseMs": 44,
+    "failing": []
+   }
   },
   {
    "name": "remote",
@@ -336,9 +384,9 @@
    "description": "Chains \u2014 git for video game save data: versioned, emulator-compatible cloud saves",
    "language": "PowerShell",
    "stars": 0,
-   "pushed_at": "2026-09-10T00:28:11Z",
+   "pushed_at": "2026-09-10T09:23:13Z",
    "open_issues": 0,
-   "open_prs": 0,
+   "open_prs": 3,
    "commits": 2,
    "url": "https://github.com/YEAHDOGS/chains",
    "branch": "master",
@@ -351,25 +399,25 @@
    "description": "DOGS mission control \u2014 live build/repo status dashboard",
    "language": "HTML",
    "stars": 0,
-   "pushed_at": "2026-09-10T04:19:30Z",
+   "pushed_at": "2026-09-10T13:37:45Z",
    "open_issues": 0,
-   "open_prs": 0,
-   "commits": 38,
+   "open_prs": 3,
+   "commits": 46,
    "url": "https://github.com/YEAHDOGS/tower",
    "branch": "master",
    "workflow": {
     "name": "pages build and deployment",
     "conclusion": "success",
     "status": "completed",
-    "url": "https://github.com/YEAHDOGS/tower/actions/runs/34436739743",
-    "updated_at": "2026-09-10T04:20:15Z"
+    "url": "https://github.com/YEAHDOGS/tower/actions/runs/34483829512",
+    "updated_at": "2026-09-10T13:38:25Z"
    },
    "pages": "https://yeahdogs.github.io/tower/",
    "site": {
     "status": "up",
-    "lastCheck": "2026-09-10T04:03:47.698Z",
+    "lastCheck": "2026-09-10T14:07:37.223Z",
     "since": "2026-09-09T22:09:18.265Z",
-    "responseMs": 102,
+    "responseMs": 76,
     "failing": []
    }
   },
@@ -403,39 +451,43 @@
     "name": "pages build and deployment",
     "conclusion": "success",
     "status": "completed",
-    "url": "https://github.com/YEAHDOGS/paper/actions/runs/34396681088",
-    "updated_at": "2026-09-09T19:43:29Z"
+    "url": "https://github.com/YEAHDOGS/paper/actions/runs/34471136185",
+    "updated_at": "2026-09-10T11:31:33Z"
    },
-   "pages": null,
-   "site": null
+   "pages": "https://yeahdogs.github.io/paper/",
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-10T14:07:37.223Z",
+    "since": "2026-09-10T14:07:37.223Z",
+    "responseMs": 53,
+    "failing": []
+   }
   },
   {
    "name": "watchtower",
    "description": "Watchtower: uptime + e2e monitor for all YEAHDOGS websites. Auto-discovers org Pages sites, alerts only on state transitions.",
    "language": "JavaScript",
    "stars": 0,
-   "pushed_at": "2026-09-10T04:41:41Z",
-   "open_issues": 1,
+   "pushed_at": "2026-09-10T14:07:39Z",
+   "open_issues": 0,
    "open_prs": 0,
-   "commits": 9,
+   "commits": 12,
    "url": "https://github.com/YEAHDOGS/watchtower",
    "branch": "master",
    "workflow": {
     "name": "pages build and deployment",
     "conclusion": "success",
     "status": "completed",
-    "url": "https://github.com/YEAHDOGS/watchtower/actions/runs/34438167382",
-    "updated_at": "2026-09-10T04:42:26Z"
+    "url": "https://github.com/YEAHDOGS/watchtower/actions/runs/34487008030",
+    "updated_at": "2026-09-10T14:08:40Z"
    },
    "pages": "https://yeahdogs.github.io/watchtower/",
    "site": {
-    "status": "down",
-    "lastCheck": "2026-09-10T04:03:47.698Z",
-    "since": "2026-09-10T04:03:47.698Z",
-    "responseMs": 91,
-    "failing": [
-     "http: HTTP 404, expected 200"
-    ]
+    "status": "up",
+    "lastCheck": "2026-09-10T14:07:37.223Z",
+    "since": "2026-09-10T09:25:39.369Z",
+    "responseMs": 63,
+    "failing": []
    }
   },
   {
@@ -453,11 +505,17 @@
     "name": "pages build and deployment",
     "conclusion": "success",
     "status": "completed",
-    "url": "https://github.com/YEAHDOGS/mirror/actions/runs/34396991148",
-    "updated_at": "2026-09-09T19:46:41Z"
+    "url": "https://github.com/YEAHDOGS/mirror/actions/runs/34471139383",
+    "updated_at": "2026-09-10T11:31:29Z"
    },
-   "pages": null,
-   "site": null
+   "pages": "https://yeahdogs.github.io/mirror/",
+   "site": {
+    "status": "up",
+    "lastCheck": "2026-09-10T14:07:37.223Z",
+    "since": "2026-09-10T14:07:37.223Z",
+    "responseMs": 259,
+    "failing": []
+   }
   },
   {
    "name": "castle-os",
@@ -516,9 +574,9 @@
    "pages": "https://yeahdogs.github.io/",
    "site": {
     "status": "up",
-    "lastCheck": "2026-09-10T04:03:47.698Z",
+    "lastCheck": "2026-09-10T14:07:37.223Z",
     "since": "2026-09-09T22:09:18.265Z",
-    "responseMs": 81,
+    "responseMs": 62,
     "failing": []
    }
   },
