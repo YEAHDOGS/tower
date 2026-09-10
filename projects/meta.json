@@ -1,5 +1,5 @@
 {
-  "_doc": "percent_complete drives the hub-page progress display. null renders as 'IN BUILD'. A number is only ever written here with a hard real source (milestone checklist, release tag, or Brandon's explicit call) recorded in 'source'. Never fabricate a number.",
+  "_doc": "percent_complete drives the hub-page progress display. null renders as 'IN BUILD'. A number is only ever written here with a hard real source (milestone checklist, release tag, or the founder's explicit call) recorded in 'source'. Never fabricate a number.",
   "repos": {
     "news": {
       "percent_complete": null,
