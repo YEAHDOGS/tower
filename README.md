@@ -12,8 +12,8 @@ build time — never a fake green). Search filters tiles by name/description;
 sort offers featured, name, status, recency, and category; category chips
 filter Apps / Trading / Infra / Docs.
 
-Header carries the the founder / DOGS identity line so the URL works
-on a resume; semantic HTML (`<article>` tiles with real links), proper
+Header carries the DOGS identity badge ("This product was made by DOGS",
+linking to wearedogs.net); semantic HTML (`<article>` tiles with real links), proper
 `<title>`, meta description, and Open Graph tags make it indexable.
 
 Data is baked into `data.json` at build time from public repo metadata.
