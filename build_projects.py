@@ -442,12 +442,18 @@ main{margin-top:26px;display:grid;gap:18px}
 /* module cards */
 .mods{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
 .mod{border:1px solid var(--line);border-radius:8px;padding:18px;background:#000;text-decoration:none;
-  display:block;transition:border-color .15s ease}
-.mod:hover{border-color:var(--text)}
+  display:block;transition:border-color .15s ease,transform .15s ease}
+.mod:hover{border-color:var(--text);transform:translateY(-3px)}
 .mod h3{font-family:var(--display);letter-spacing:.06em;text-transform:uppercase;font-size:1.15rem;margin-bottom:8px}
 .mod p{color:var(--muted);font-size:.88rem;line-height:1.5}
 .mod .go{display:inline-block;margin-top:12px;font-size:.78rem;letter-spacing:.14em;
   font-family:var(--display);text-transform:uppercase;border-bottom:1px solid var(--text)}
+/* motion: header entrance, scroll-reveal sections, staggered module cards */
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.dossier-head{animation:rise .5s ease both}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
+.reveal.in{opacity:1;transform:none}
+.cardin{animation:rise .45s ease backwards}
 /* videos */
 .vids{display:grid;gap:14px}
 .vids video{width:100%;border-radius:8px;border:1px solid var(--line);background:#000}
@@ -461,6 +467,10 @@ main{margin-top:26px;display:grid;gap:18px}
   .track{transition:none}
   .mod{transition:none}
   .snav,.sdot{transition:none}
+  .dossier-head{animation:none}
+  .reveal{opacity:1;transform:none;transition:none}
+  .cardin{animation:none}
+  .mod:hover{transform:none}
 }
 @media (max-width:560px){
   body{padding:18px 12px 32px}
@@ -489,6 +499,29 @@ JS = """
       var dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>40) go(i+(dx<0?1:-1)); x0=null; },{passive:true});
     go(0);
   });
+
+  // motion: scroll-reveal sections + staggered module-card entrance.
+  // classes are added from JS only, so no-JS visitors never see hidden content.
+  (function(){
+    var reduceM = window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduceM && ('IntersectionObserver' in window)){
+      var secs = document.querySelectorAll('main .panel');
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(en){
+          if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+        });
+      }, {rootMargin:'0px 0px -6% 0px', threshold:0.06});
+      Array.prototype.forEach.call(secs, function(s){
+        s.classList.add('reveal'); io.observe(s);
+      });
+    }
+    var cards = document.querySelectorAll('.mods .mod');
+    Array.prototype.forEach.call(cards, function(c, i){
+      c.style.animationDelay = Math.min(i*45, 700) + 'ms';
+      c.classList.add('cardin');
+    });
+  })();
 })();
 """
 
