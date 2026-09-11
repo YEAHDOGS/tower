@@ -28,10 +28,10 @@ Local clones (read-only) are resolved from ~/workspace/org-audit/<repo>,
 PII guard: every generated page is scanned for blocklisted personal-name
 tokens before it is written; the build aborts on any hit.
 
-Attribution rule (hard): the line "This product was made by DOGS" and the
-DOGS badge image appear EXACTLY ONCE per page, as a normal scrolling footer
-element at the bottom-right. Never fixed, never in the header, never
-duplicated.
+Attribution rule (hard): the DOGS badge image, linking to
+https://wearedogs.net, appears EXACTLY ONCE per page, as a normal scrolling
+footer element at the bottom. No other footer text or links. Never fixed,
+never in the header, never duplicated.
 """
 
 import glob
@@ -507,7 +507,7 @@ PAGE = """<!DOCTYPE html>
 {sections}
 </main>
 <footer class="dogs-foot">
-  <a href="https://wearedogs.net"><img src="{badge_src}" alt="DOGS"><span>This product was made by <b>DOGS</b></span></a>
+  <a href="https://wearedogs.net"><img src="{badge_src}" alt="DOGS"></a>
 </footer>
 <script>{js}</script>
 </body>
@@ -520,14 +520,12 @@ def section(title, body):
 
 
 def footer_only(html_text, where):
-    # the attribution line + badge must appear exactly once per page
+    # the badge (linking to wearedogs.net) must appear exactly once per page
     pii_guard(html_text, where)
-    count = html_text.lower().count("this product was made by")
-    if count != 1:
-        sys.exit("ATTRIBUTION: expected exactly 1 attribution, found %d in %s; aborting."
-                 % (count, where))
     if html_text.lower().count("made-by-dogs.png") != 1:
         sys.exit("ATTRIBUTION: badge image must appear exactly once in %s; aborting." % where)
+    if html_text.lower().count("https://wearedogs.net") != 1:
+        sys.exit("ATTRIBUTION: wearedogs.net link must appear exactly once in %s; aborting." % where)
 
 
 def write_page(path, html_text):
