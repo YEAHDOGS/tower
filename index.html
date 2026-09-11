@@ -293,6 +293,23 @@
     .tiles { grid-template-columns: 1fr; }
     .tile.wide { grid-column: span 1; }
   }
+  /* ---- 1440px polish: cinematic desktop, intentional breathing room ---- */
+  @media (min-width: 1240px) {
+    /* Hero: wider cinematic frame and bolder scrim type. */
+    .hero { aspect-ratio: 24 / 9; margin-bottom: 28px; }
+    .hero-scrim { padding: 88px 32px 26px; }
+    .hero-name { font-size: 1.75rem; }
+    .hero-tag { font-size: 1.05rem; }
+    /* Tile grid: same 4-up column count as below, wider gutters so each
+       tile breathes at 1440px instead of packing edge-to-edge. */
+    .tiles { gap: 28px; }
+    .tile-body { padding: 16px 20px; }
+    .tile h2 { font-size: 1.28rem; }
+    /* Controls: generous top rhythm; footer gets a roomier closer. */
+    .controls { margin: 22px 0 14px; }
+    .chips { margin-bottom: 22px; }
+    footer { margin-top: 72px; }
+  }
   /* ---- 390px polish: phone-first spacing and breathing room ---- */
   @media (max-width: 480px) {
     body { padding: 16px 12px 44px; }
