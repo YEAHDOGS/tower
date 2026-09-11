@@ -454,6 +454,9 @@ main{margin-top:26px;display:grid;gap:18px}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
 .reveal.in{opacity:1;transform:none}
 .cardin{animation:rise .45s ease backwards}
+/* key-art hero entrance: cinematic scale-settle after the header rises */
+@keyframes heroIn{from{opacity:0;transform:scale(1.06)}to{opacity:1;transform:scale(1)}}
+.hero-art{animation:heroIn .9s ease .15s both}
 /* videos */
 .vids{display:grid;gap:14px}
 .vids video{width:100%;border-radius:8px;border:1px solid var(--line);background:#000}
@@ -470,6 +473,7 @@ main{margin-top:26px;display:grid;gap:18px}
   .dossier-head{animation:none}
   .reveal{opacity:1;transform:none;transition:none}
   .cardin{animation:none}
+  .hero-art{animation:none}
   .mod:hover{transform:none}
 }
 @media (max-width:560px){
