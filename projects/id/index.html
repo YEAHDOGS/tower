@@ -108,8 +108,13 @@ main{margin-top:26px;display:grid;gap:18px}
 @keyframes heroIn{from{opacity:0;transform:scale(1.06)}to{opacity:1;transform:scale(1)}}
 .hero-art{animation:heroIn .9s ease .15s both}
 /* videos */
-.vids{display:grid;gap:14px}
+.vids{display:grid;gap:20px}
+.vids.two{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.vids figure{margin:0}
 .vids video{width:100%;border-radius:8px;border:1px solid var(--line);background:#000}
+.vids figcaption{margin-top:8px}
+.vids figcaption strong{display:block;font-size:.95rem;color:var(--text)}
+.vids figcaption span{display:block;font-size:.85rem;color:var(--muted);margin-top:2px}
 /* footer: THE one attribution — bottom-right, scrolls with the page */
 .dogs-foot{margin-top:34px;text-align:right}
 .dogs-foot a{display:inline-block;text-decoration:none}

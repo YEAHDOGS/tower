@@ -108,8 +108,13 @@ main{margin-top:26px;display:grid;gap:18px}
 @keyframes heroIn{from{opacity:0;transform:scale(1.06)}to{opacity:1;transform:scale(1)}}
 .hero-art{animation:heroIn .9s ease .15s both}
 /* videos */
-.vids{display:grid;gap:14px}
+.vids{display:grid;gap:20px}
+.vids.two{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.vids figure{margin:0}
 .vids video{width:100%;border-radius:8px;border:1px solid var(--line);background:#000}
+.vids figcaption{margin-top:8px}
+.vids figcaption strong{display:block;font-size:.95rem;color:var(--text)}
+.vids figcaption span{display:block;font-size:.85rem;color:var(--muted);margin-top:2px}
 /* footer: THE one attribution — bottom-right, scrolls with the page */
 .dogs-foot{margin-top:34px;text-align:right}
 .dogs-foot a{display:inline-block;text-decoration:none}
@@ -146,6 +151,7 @@ main{margin-top:26px;display:grid;gap:18px}
 <div class="hero-art"><img src="../../assets/gen/divorce/hero.webp" alt="divorce key art" loading="eager"></div>
 <main>
 <section class="panel"><h2>Slideshow</h2><div class="slide titlecard" role="img" aria-label="No live site yet — title card"><svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice"><rect width="800" height="450" fill="#0b0e14"/><rect x="24" y="24" width="752" height="402" fill="none" stroke="#232b3a" stroke-width="2"/><text x="400" y="180" text-anchor="middle" fill="#e6e9f0" font-size="64" font-weight="800" font-family="Impact,Haettenschweiler,'Arial Narrow',sans-serif" letter-spacing="2">DIVORCE</text><text x="400" y="240" text-anchor="middle" fill="#8b93a7" font-size="28" font-family="Impact,Haettenschweiler,'Arial Narrow',sans-serif" letter-spacing="6">DOGS</text><text x="400" y="300" text-anchor="middle" fill="#5b6478" font-size="20" font-family="Verdana,sans-serif">No live site yet — title card</text></svg></div></section>
+<section class="panel"><h2>Videos</h2><div class="vids"><figure><video controls preload="metadata" src="../../demos/03-divorce-test-checkout.mp4"></video><figcaption><strong>Demo: $30 test checkout → printable packet</strong><span>The full staging flow with zero Stripe involvement: checkout session, signed webhook, idempotent dedupe, token-gated packet download.</span></figcaption></figure></div></section>
 <section class="panel"><h2>What&#x27;s going on</h2><p class="lede">An easy way to get an uncontested divorce in Oklahoma</p><div class="commit"><p class="msg">Initial commit</p><p class="when">latest commit · 2026-08-26</p></div></section>
 <section class="panel"><h2>Status</h2><div class="facts"><div class="fact"><p class="k">Live status</p><p class="v ">not monitored</p></div><div class="fact"><p class="k">Language</p><p class="v ">Svelte</p></div><div class="fact"><p class="k">Stars</p><p class="v ">0</p></div><div class="fact"><p class="k">Open issues</p><p class="v ">0</p></div><div class="fact"><p class="k">Open PRs</p><p class="v ">0</p></div><div class="fact"><p class="k">Commits</p><p class="v ">1</p></div><div class="fact"><p class="k">Last push</p><p class="v ">2026-09-09</p></div><div class="fact"><p class="k">Last workflow</p><p class="v ">pages build and deployment · success</p></div></div></section>
 <section class="panel"><h2>Percent complete</h2><div class="pct"><span class="inbuild">IN BUILD</span><p class="fine">No completion estimate published yet. A percentage is only shown here with a verifiable source.</p></div></section>
