@@ -9,8 +9,9 @@ per group (projects/<group>/) with linked module sub-pages
 Content sources (all honest, never invented):
   - header/status/links : data.json (Watchtower site status; degrades to
     "not monitored", never a fake green)
-  - slideshow           : assets/shots/<slug>/*.png captured from the live
-    site by capture_shots.py; repos with no live site get a pure CSS/SVG
+  - slideshow           : assets/shots/<slug>/*.{png,webp} captured from the live
+    site by capture_shots.py (PNGs re-encoded to webp for weight);
+    repos with no live site get a pure CSS/SVG
     title card (no external assets)
   - what's going on      : repo description + latest commit (msg + date)
     from the local clone's git log (read-only)
@@ -327,7 +328,8 @@ def hero_art(slug):
 
 
 def slideshow(slug, name):
-    files = sorted(glob.glob(os.path.join(SHOTS_DIR, slug, "*.png")))
+    files = sorted(glob.glob(os.path.join(SHOTS_DIR, slug, "*.png")) +
+                   glob.glob(os.path.join(SHOTS_DIR, slug, "*.webp")))
     caps = CAPTIONS.get(slug, DEFAULT_CAPTIONS)
     if not files:
         return title_card(name, "No live site yet — title card")
