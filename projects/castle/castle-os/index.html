@@ -38,6 +38,9 @@ main{margin-top:26px;display:grid;gap:18px}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:22px}
 .panel>h2{font-family:var(--display);font-size:1.35rem;letter-spacing:.12em;text-transform:uppercase;
   border-left:6px solid var(--text);padding-left:12px;margin-bottom:16px}
+/* key art hero */
+.hero-art{margin:0 0 6px;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.hero-art img{width:100%;display:block;aspect-ratio:21/9;object-fit:cover}
 /* slideshow */
 .slides{position:relative;overflow:hidden;border-radius:8px;border:1px solid var(--line);background:#000}
 .track{display:flex;transition:transform .35s ease}
@@ -121,12 +124,13 @@ main{margin-top:26px;display:grid;gap:18px}
   <div class="badges"><span class="badge na">○ Castle module</span><span class="badge">In build</span></div>
   <div class="actions"><a class="btn ghost" href="../">← Castle hub</a></div>
 </header>
+
 <main>
 <section class="panel"><h2>Pictures</h2><div class="slide titlecard" role="img" aria-label="No live site yet — title card"><svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice"><rect width="800" height="450" fill="#0b0e14"/><rect x="24" y="24" width="752" height="402" fill="none" stroke="#232b3a" stroke-width="2"/><text x="400" y="180" text-anchor="middle" fill="#e6e9f0" font-size="64" font-weight="800" font-family="Impact,Haettenschweiler,'Arial Narrow',sans-serif" letter-spacing="2">CASTLE OS</text><text x="400" y="240" text-anchor="middle" fill="#8b93a7" font-size="28" font-family="Impact,Haettenschweiler,'Arial Narrow',sans-serif" letter-spacing="6">DOGS</text><text x="400" y="300" text-anchor="middle" fill="#5b6478" font-size="20" font-family="Verdana,sans-serif">No live site yet — title card</text></svg></div></section>
-<section class="panel"><h2>What&#x27;s going on</h2><p class="lede">The operating system underneath Castle. Ships headless CLI-only, or with a GUI on a Wayland compositor.</p><div class="commit"><p class="msg">Phase 1: harden build.sh and verify.sh</p><p class="when">latest commit · 2026-09-10</p></div></section>
+<section class="panel"><h2>What&#x27;s going on</h2><p class="lede">The operating system underneath Castle. Ships headless CLI-only, or with a GUI on a Wayland compositor.</p><div class="commit"><p class="msg">Phase 1: Castle OS live ISO profile (cli + gui modes)</p><p class="when">latest commit · 2026-09-09</p></div></section>
 <section class="panel"><h2>Percent complete</h2><div class="pct"><span class="inbuild">IN BUILD</span><p class="fine">No completion estimate published yet. A percentage is only shown here with a verifiable source.</p></div></section>
-<section class="panel"><h2>Ideas</h2><p class="empty-note">No published roadmap yet.</p></section>
-<section class="panel"><h2>Timeline</h2><ol class="timeline"><li class="first"><p class="t">2026-09-09</p><p class="s">Phase 1: scaffold archiso profile (rescue modes, build+verify, docs)<span class="tag">Conception</span></p></li><li><p class="t">2026-09-10</p><p class="s">Phase 1: add castle-disks read-only disk enumerator (nuke interlock step 1)</p></li><li><p class="t">2026-09-10</p><p class="s">Phase 1: harden build.sh and verify.sh</p></li></ol></section>
+<section class="panel"><h2>Ideas</h2><ul class="ideas"><li>[ ] Router: nftables policy, DHCP/DNS (dnsmasq is installed; policy isn&#x27;t),<span class="src">from docs/PHASE2-TODO.md</span></li><li>[ ] NAS / private cloud: Samba shares, storage pooling, the 10TB-drive story<span class="src">from docs/PHASE2-TODO.md</span></li><li>[ ] Arcade: emulator set, controller support, kiosk launcher<span class="src">from docs/PHASE2-TODO.md</span></li><li>[ ] Headless-first admin: SSH hardening, web dashboard or TUI<span class="src">from docs/PHASE2-TODO.md</span></li></ul></section>
+<section class="panel"><h2>Timeline</h2><ol class="timeline"><li class="first"><p class="t">2026-09-09</p><p class="s">Phase 1: Castle OS live ISO profile (cli + gui modes)<span class="tag">Conception</span></p></li></ol></section>
 </main>
 <footer class="dogs-foot">
   <a href="https://wearedogs.net"><img src="../../assets/made-by-dogs.png" alt="DOGS"><span>This product was made by <b>DOGS</b></span></a>

@@ -2,6 +2,14 @@
  "project": "paper",
  "entries": [
   {
+   "date": "2026-09-10T23:06:26.367570+00:00",
+   "title": "Live landing page captured \u2014 desktop + mobile",
+   "kind": "screenshot",
+   "thumb": "assets/shots/paper/shot-1-desktop.png",
+   "url": "https://yeahdogs.github.io/paper/",
+   "detail": "Headless-Chromium capture of the live landing page: desktop, scrolled desktop, mobile 390px."
+  },
+  {
    "date": "2026-09-09T19:42:41+00:00",
    "title": "PAPER: live stock quotes via BYO Finnhub/Twelve key \u2014 Stooq is dead, keyed feeds, 60s auto-refresh, feed status line",
    "kind": "commit",

@@ -38,6 +38,9 @@ main{margin-top:26px;display:grid;gap:18px}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:22px}
 .panel>h2{font-family:var(--display);font-size:1.35rem;letter-spacing:.12em;text-transform:uppercase;
   border-left:6px solid var(--text);padding-left:12px;margin-bottom:16px}
+/* key art hero */
+.hero-art{margin:0 0 6px;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.hero-art img{width:100%;display:block;aspect-ratio:21/9;object-fit:cover}
 /* slideshow */
 .slides{position:relative;overflow:hidden;border-radius:8px;border:1px solid var(--line);background:#000}
 .track{display:flex;transition:transform .35s ease}
@@ -121,6 +124,7 @@ main{margin-top:26px;display:grid;gap:18px}
   <div class="badges"><span class="badge na">○ Castle module</span><span class="badge">In build</span></div>
   <div class="actions"><a class="btn ghost" href="../">← Castle hub</a></div>
 </header>
+
 <main>
 <section class="panel"><h2>Pictures</h2><div class="slide titlecard" role="img" aria-label="No live site yet — title card"><svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice"><rect width="800" height="450" fill="#0b0e14"/><rect x="24" y="24" width="752" height="402" fill="none" stroke="#232b3a" stroke-width="2"/><text x="400" y="180" text-anchor="middle" fill="#e6e9f0" font-size="64" font-weight="800" font-family="Impact,Haettenschweiler,'Arial Narrow',sans-serif" letter-spacing="2">DRIVE LIBRARIAN</text><text x="400" y="240" text-anchor="middle" fill="#8b93a7" font-size="28" font-family="Impact,Haettenschweiler,'Arial Narrow',sans-serif" letter-spacing="6">DOGS</text><text x="400" y="300" text-anchor="middle" fill="#5b6478" font-size="20" font-family="Verdana,sans-serif">No live site yet — title card</text></svg></div></section>
 <section class="panel"><h2>What&#x27;s going on</h2><p class="lede">Tag every flash drive by USB serial (or a composite fingerprint when serials are blank), log sightings, and keep timestamped immutable backups that refresh on plug-in. Unknown drives are logged and flagged — never auto-trusted.</p><p class="empty-note">Tracked with the Castle repo — see the <a href="../">Castle hub</a> for timeline and ideas.</p></section>

@@ -49,6 +49,7 @@ GROUPS_JSON = os.path.join(HERE, "projects", "groups.json")
 META_JSON = os.path.join(HERE, "projects", "meta.json")
 PROJECTS_DIR = os.path.join(HERE, "projects")
 SHOTS_DIR = os.path.join(HERE, "assets", "shots")
+GEN_DIR = os.path.join(HERE, "assets", "gen")
 BADGE = "../../assets/made-by-dogs.png"
 
 # SHA-256 digests of blocklisted personal-name tokens. The plaintext tokens
@@ -62,6 +63,48 @@ _PII_DIGESTS = frozenset({
     "fdb7d5c701a3b4a9981e98fd486d22b51b51f2e91605540e57081d440573c009",
     "27044a5ee7023157d3c992b1a8749432d56863bc093b16cc90b736f4b1956b9c",
 })
+
+
+def redact_pii(text):
+    """Replace blocklisted personal-name tokens with [redacted].
+
+    Hub pages ingest arbitrary repo history (commit subjects, branch names)
+    that can contain a leaked name variant. The blocklist is stored as
+    SHA-256 digests only — the plaintext never appears in source. This
+    scans 1-3 word n-grams exactly like pii_guard and substitutes matches,
+    so generated pages can never republish a leak. The guard still runs
+    after this as verification.
+    """
+    digests = set(_PII_DIGESTS)
+    for tok in os.environ.get("PII_BLOCKLIST", "").split(","):
+        tok = tok.strip().lower()
+        if tok:
+            digests.add(hashlib.sha256(tok.encode()).hexdigest())
+    words = [(m.group(), m.start(), m.end())
+             for m in re.finditer(r"[a-z0-9]+", text.lower())]
+    spans = []
+    for n in (1, 2, 3):
+        for i in range(len(words) - n + 1):
+            cand = " ".join(w[0] for w in words[i:i + n])
+            if hashlib.sha256(cand.encode()).hexdigest() in digests:
+                spans.append((words[i][1], words[i + n - 1][2]))
+    if not spans:
+        return text
+    spans.sort()
+    merged = [spans[0]]
+    for s, e in spans[1:]:
+        if s <= merged[-1][1]:
+            merged[-1] = (merged[-1][0], max(merged[-1][1], e))
+        else:
+            merged.append((s, e))
+    out = []
+    pos = 0
+    for s, e in merged:
+        out.append(text[pos:s])
+        out.append("[redacted]")
+        pos = e
+    out.append(text[pos:])
+    return "".join(out)
 
 
 def pii_guard(text, where):
@@ -270,6 +313,19 @@ CAPTIONS = {
 DEFAULT_CAPTIONS = ["Live site — desktop", "Live site — desktop, scrolled", "Live site — mobile (390px)"]
 
 
+def hero_art(slug):
+    """Generated key-art banner for a hub page, or "" when absent.
+
+    Reads assets/gen/<slug>/hero.* written by the media pipeline. The
+    banner is pure imagery — no copy, per the minimal-words rule."""
+    hits = sorted(glob.glob(os.path.join(GEN_DIR, slug, "hero.*")))
+    if not hits:
+        return ""
+    rel = "../../assets/gen/%s/%s" % (slug, os.path.basename(hits[0]))
+    return ('<div class="hero-art"><img src="%s" alt="%s key art" loading="eager">'
+            "</div>" % (esc(rel), esc(slug)))
+
+
 def slideshow(slug, name):
     files = sorted(glob.glob(os.path.join(SHOTS_DIR, slug, "*.png")))
     caps = CAPTIONS.get(slug, DEFAULT_CAPTIONS)
@@ -330,6 +386,9 @@ main{margin-top:26px;display:grid;gap:18px}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:22px}
 .panel>h2{font-family:var(--display);font-size:1.35rem;letter-spacing:.12em;text-transform:uppercase;
   border-left:6px solid var(--text);padding-left:12px;margin-bottom:16px}
+/* key art hero */
+.hero-art{margin:0 0 6px;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.hero-art img{width:100%;display:block;aspect-ratio:21/9;object-fit:cover}
 /* slideshow */
 .slides{position:relative;overflow:hidden;border-radius:8px;border:1px solid var(--line);background:#000}
 .track{display:flex;transition:transform .35s ease}
@@ -443,6 +502,7 @@ PAGE = """<!DOCTYPE html>
   <div class="badges">{badge}{pct_pill}</div>
   <div class="actions">{buttons}</div>
 </header>
+{hero}
 <main>
 {sections}
 </main>
@@ -471,7 +531,9 @@ def footer_only(html_text, where):
 
 
 def write_page(path, html_text):
+    html_text = redact_pii(html_text)
     footer_only(html_text, path)
+    pii_guard(html_text, path)
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w") as f:
         f.write(html_text)
@@ -559,6 +621,7 @@ def repo_hub(repo, meta):
         css=CSS, home="../../", crumb=" / " + esc(name), name=esc(name),
         lede=esc(repo.get("description") or "No description published."),
         badge=badge, pct_pill=pct_pill, buttons=buttons,
+        hero=hero_art(name),
         sections=sections, badge_src=BADGE, js=JS,
     )
 
@@ -639,6 +702,7 @@ def group_hub(slug, group, repos_by_name, meta):
         + esc(group.get("description") or ""),
         badge='<span class="badge na">○ %d modules</span>' % len(group.get("modules", [])),
         pct_pill=pct_pill, buttons=repo_buttons,
+        hero=hero_art(slug),
         sections=sections, badge_src=BADGE, js=JS,
     )
 
@@ -707,6 +771,7 @@ def module_page(group_slug, group, mod, meta):
         badge='<span class="badge na">○ Castle module</span>',
         pct_pill=pct_pill,
         buttons='<a class="btn ghost" href="../">← Castle hub</a>',
+        hero="",
         sections="\n".join(sections_list), badge_src=BADGE, js=JS,
     )
 

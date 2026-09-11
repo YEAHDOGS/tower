@@ -16,6 +16,7 @@ Re-run any time to refresh; the 20-minute loop runs it, commits data.json,
 and pushes the gh-pages branch.
 """
 
+import glob
 import hashlib
 import json
 import os
@@ -188,6 +189,17 @@ def open_pr_count(repo):
     return count_from(link, items)
 
 
+def gen_art(name):
+    """Generated key art for a repo tile/hub, or None.
+
+    Looks for assets/gen/<name>/hero.* (written by the media pipeline).
+    Purely local: no network, no PII surface."""
+    hits = sorted(glob.glob(os.path.join(HERE, "assets", "gen", name, "hero.*")))
+    if not hits:
+        return None
+    return "assets/gen/%s/%s" % (name, os.path.basename(hits[0]))
+
+
 def build_repo(raw):
     name = raw["name"]
     branch = raw.get("default_branch") or "main"
@@ -210,6 +222,9 @@ def build_repo(raw):
         # tile links open the project hub page (projects/<name>/) when one
         # exists; the redesign's index.html reads r.hub for this.
         "hub": ("projects/" + name + "/") if os.path.isfile(hub_path) else None,
+        # Generated key art (assets/gen/<name>/hero.*); the tile falls back
+        # to this when no live-site screenshot progress entry exists.
+        "art": gen_art(name),
     }
 
 

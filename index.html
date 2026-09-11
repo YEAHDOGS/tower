@@ -296,6 +296,8 @@
     (r.progress || []).forEach(function (p) {
       if (!e && p.kind === "screenshot" && (p.thumb || p.url)) e = p;
     });
+    // Fallback: generated key art so no tile is ever a blank void.
+    if (!e && r.art) e = { url: r.art, title: r.name + " key art" };
     var d = el("div", "tile-shot" + (e ? "" : " empty"));
     if (e) {
       var img = document.createElement("img");
@@ -448,13 +450,20 @@
       Object.keys(groups).forEach(function (slug) {
         var g = groups[slug];
         (g.members || []).forEach(function (m) { members[m] = true; });
+        // Group tiles inherit imagery from the matching repo entry in
+        // data.json (generated key art + live-site screenshot), so they are
+        // never blank voids.
+        var src = null;
+        data.repos.forEach(function (r) { if (r.name === slug) src = r; });
         entries.push({
           isGroup: true, name: g.title, slug: slug,
           description: (g.tagline ? g.tagline + " — " : "") + (g.description || ""),
           category: g.category || "Infra",
           hub: "projects/" + slug + "/",
           modules: (g.modules || []).length,
-          pages: null, site: null, srank: 1, pushed_at: null
+          pages: null, site: null, srank: 1, pushed_at: null,
+          art: src ? src.art : null,
+          progress: src ? (src.progress || []) : []
         });
       });
       data.repos.forEach(function (r) {
