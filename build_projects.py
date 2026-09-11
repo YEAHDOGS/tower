@@ -355,6 +355,34 @@ def slideshow(slug, name):
         '</div>' % (len(slides), "".join(slides), len(slides), dots)
     )
 
+
+def videos_section(repos):
+    """'Videos' section from kind=='video' progress entries (repo-root-relative mp4s).
+
+    Detail pages live two levels under the repo root (projects/<slug>/),
+    so urls like 'demos/01-foo.mp4' become '../../demos/01-foo.mp4'.
+    Returns '' when no repo has a demo video.
+    """
+    vids = []
+    for r in repos:
+        for e in r.get("progress", []):
+            url = (e.get("url") or "")
+            if e.get("kind") == "video" and url.endswith(".mp4") \
+                    and not url.startswith(("http://", "https://", "/")):
+                vids.append((
+                    "../../" + url,
+                    e.get("title") or "Demo",
+                    e.get("detail") or "",
+                ))
+    if not vids:
+        return ""
+    items = "".join(
+        '<figure><video controls preload="metadata" src="%s"></video>'
+        '<figcaption><strong>%s</strong><span>%s</span></figcaption></figure>'
+        % (esc(src), esc(title), esc(detail)) for src, title, detail in vids)
+    return section("Videos", '<div class="vids%s">%s</div>'
+                   % (" two" if len(vids) > 1 else "", items))
+
 CSS = """
 :root{
   --bg:#000; --panel:#0b0e14; --line:#232b3a; --text:#f5f5f5;
@@ -458,8 +486,13 @@ main{margin-top:26px;display:grid;gap:18px}
 @keyframes heroIn{from{opacity:0;transform:scale(1.06)}to{opacity:1;transform:scale(1)}}
 .hero-art{animation:heroIn .9s ease .15s both}
 /* videos */
-.vids{display:grid;gap:14px}
+.vids{display:grid;gap:20px}
+.vids.two{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.vids figure{margin:0}
 .vids video{width:100%;border-radius:8px;border:1px solid var(--line);background:#000}
+.vids figcaption{margin-top:8px}
+.vids figcaption strong{display:block;font-size:.95rem;color:var(--text)}
+.vids figcaption span{display:block;font-size:.85rem;color:var(--muted);margin-top:2px}
 /* footer: THE one attribution — bottom-right, scrolls with the page */
 .dogs-foot{margin-top:34px;text-align:right}
 .dogs-foot a{display:inline-block;text-decoration:none}
@@ -661,14 +694,15 @@ def repo_hub(repo, meta):
     else:
         tl_html = '<p class="empty-note">Timeline unavailable — no local history in this build environment.</p>'
 
-    sections = "\n".join([
+    sections = "\n".join(filter(None, [
         section("Slideshow", slideshow(name, name)),
+        videos_section([repo]),
         section("What's going on", going),
         section("Status", facts_html),
         section("Percent complete", percent_block(pct_meta)),
         section("Ideas", ideas_html),
         section("Timeline", tl_html),
-    ])
+    ]))
     pct = pct_meta.get("percent_complete")
     pct_pill = ('<span class="badge">%d%%</span>' % pct) if isinstance(pct, (int, float)) \
         else '<span class="badge">In build</span>'
@@ -741,14 +775,15 @@ def group_hub(slug, group, repos_by_name, meta):
     pct_pill = ('<span class="badge">%d%%</span>' % pct) if isinstance(pct, (int, float)) \
         else '<span class="badge">In build</span>'
 
-    sections = "\n".join([
+    sections = "\n".join(filter(None, [
         section("Slideshow", slideshow("castle", group["title"])),
+        videos_section(members),
         section("What's going on", going),
         section("Modules", mods_html),
         section("Percent complete", percent_block(pct_meta)),
         section("Ideas", ideas_html),
         section("Timeline", tl_html),
-    ])
+    ]))
     return PAGE.format(
         title=esc(group["title"]),
         meta_desc=esc("DOGS project dossier: %s. %s"

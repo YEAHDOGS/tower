@@ -108,8 +108,13 @@ main{margin-top:26px;display:grid;gap:18px}
 @keyframes heroIn{from{opacity:0;transform:scale(1.06)}to{opacity:1;transform:scale(1)}}
 .hero-art{animation:heroIn .9s ease .15s both}
 /* videos */
-.vids{display:grid;gap:14px}
+.vids{display:grid;gap:20px}
+.vids.two{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.vids figure{margin:0}
 .vids video{width:100%;border-radius:8px;border:1px solid var(--line);background:#000}
+.vids figcaption{margin-top:8px}
+.vids figcaption strong{display:block;font-size:.95rem;color:var(--text)}
+.vids figcaption span{display:block;font-size:.85rem;color:var(--muted);margin-top:2px}
 /* footer: THE one attribution — bottom-right, scrolls with the page */
 .dogs-foot{margin-top:34px;text-align:right}
 .dogs-foot a{display:inline-block;text-decoration:none}
@@ -146,6 +151,7 @@ main{margin-top:26px;display:grid;gap:18px}
 <div class="hero-art"><img src="../../assets/gen/wax/hero.webp" alt="wax key art" loading="eager"></div>
 <main>
 <section class="panel"><h2>Slideshow</h2><div class="slides" data-slides="3"><div class="track"><figure class="slide"><img src="../../assets/shots/wax/shot-1-desktop.webp" alt="Live site — desktop" loading="lazy"><figcaption>Live site — desktop</figcaption></figure><figure class="slide"><img src="../../assets/shots/wax/shot-2-desktop.webp" alt="Live site — desktop, scrolled" loading="lazy"><figcaption>Live site — desktop, scrolled</figcaption></figure><figure class="slide"><img src="../../assets/shots/wax/shot-3-mobile.webp" alt="Live site — mobile (390px)" loading="lazy"><figcaption>Live site — mobile (390px)</figcaption></figure></div><button class="snav prev" aria-label="Previous slide">‹</button><button class="snav next" aria-label="Next slide">›</button><div class="scount"><span class="cur">1</span> / 3</div><div class="sdots"><button class="sdot" data-i="0" aria-label="Slide 1"></button><button class="sdot" data-i="1" aria-label="Slide 2"></button><button class="sdot" data-i="2" aria-label="Slide 3"></button></div></div></section>
+<section class="panel"><h2>Videos</h2><div class="vids two"><figure><video controls preload="metadata" src="../../demos/05-wax-drop-pass.mp4"></video><figcaption><strong>Demo: alert drop-pass CLI</strong><span>One tick of the per-minute drop cron in dry-run: board loaded, cooldowns checked, 2 price_drop alerts fired and recorded.</span></figcaption></figure><figure><video controls preload="metadata" src="../../demos/01-wax-crate-digger.mp4"></video><figcaption><strong>Demo: Crate Digger price verdict engine</strong><span>The verdict engine grades a $150 VG+ Doggystyle &#x27;93 against market data: median, spread, and a Good deal / Fair / Overpriced call — plus the reissue guardrail.</span></figcaption></figure></div></section>
 <section class="panel"><h2>What&#x27;s going on</h2><p class="lede">Wax — real-time vinyl drop alerts, collection cataloguing, and Discogs price tracking. Made by DOGS.</p><div class="commit"><p class="msg">chore(wax): root npm test runs the engine suite</p><p class="when">latest commit · 2026-09-10</p></div></section>
 <section class="panel"><h2>Status</h2><div class="facts"><div class="fact"><p class="k">Live status</p><p class="v ok">LIVE</p></div><div class="fact"><p class="k">Language</p><p class="v ">JavaScript</p></div><div class="fact"><p class="k">Stars</p><p class="v ">0</p></div><div class="fact"><p class="k">Open issues</p><p class="v ">0</p></div><div class="fact"><p class="k">Open PRs</p><p class="v ">1</p></div><div class="fact"><p class="k">Commits</p><p class="v ">6</p></div><div class="fact"><p class="k">Last push</p><p class="v ">2026-09-10</p></div><div class="fact"><p class="k">Last workflow</p><p class="v ">pages build and deployment · success</p></div></div></section>
 <section class="panel"><h2>Percent complete</h2><div class="pct"><span class="inbuild">IN BUILD</span><p class="fine">No completion estimate published yet. A percentage is only shown here with a verifiable source.</p></div></section>

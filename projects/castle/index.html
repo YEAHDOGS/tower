@@ -108,8 +108,13 @@ main{margin-top:26px;display:grid;gap:18px}
 @keyframes heroIn{from{opacity:0;transform:scale(1.06)}to{opacity:1;transform:scale(1)}}
 .hero-art{animation:heroIn .9s ease .15s both}
 /* videos */
-.vids{display:grid;gap:14px}
+.vids{display:grid;gap:20px}
+.vids.two{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.vids figure{margin:0}
 .vids video{width:100%;border-radius:8px;border:1px solid var(--line);background:#000}
+.vids figcaption{margin-top:8px}
+.vids figcaption strong{display:block;font-size:.95rem;color:var(--text)}
+.vids figcaption span{display:block;font-size:.85rem;color:var(--muted);margin-top:2px}
 /* footer: THE one attribution — bottom-right, scrolls with the page */
 .dogs-foot{margin-top:34px;text-align:right}
 .dogs-foot a{display:inline-block;text-decoration:none}
@@ -146,6 +151,7 @@ main{margin-top:26px;display:grid;gap:18px}
 <div class="hero-art"><img src="../../assets/gen/castle/hero.webp" alt="castle key art" loading="eager"></div>
 <main>
 <section class="panel"><h2>Slideshow</h2><div class="slides" data-slides="3"><div class="track"><figure class="slide"><img src="../../assets/shots/castle/shot-1-desktop.webp" alt="Live site — desktop" loading="lazy"><figcaption>Live site — desktop</figcaption></figure><figure class="slide"><img src="../../assets/shots/castle/shot-2-desktop.webp" alt="Live site — desktop, scrolled" loading="lazy"><figcaption>Live site — desktop, scrolled</figcaption></figure><figure class="slide"><img src="../../assets/shots/castle/shot-3-mobile.webp" alt="Live site — mobile (390px)" loading="lazy"><figcaption>Live site — mobile (390px)</figcaption></figure></div><button class="snav prev" aria-label="Previous slide">‹</button><button class="snav next" aria-label="Next slide">›</button><div class="scount"><span class="cur">1</span> / 3</div><div class="sdots"><button class="sdot" data-i="0" aria-label="Slide 1"></button><button class="sdot" data-i="1" aria-label="Slide 2"></button><button class="sdot" data-i="2" aria-label="Slide 3"></button></div></div></section>
+<section class="panel"><h2>Videos</h2><div class="vids"><figure><video controls preload="metadata" src="../../demos/04-castle-restore.mp4"></video><figcaption><strong>Demo: sealed backup restore</strong><span>A vault is sealed into an encrypted .castle file, then restored to a fresh temp dir — hashes proved in memory first, bytes verified identical.</span></figcaption></figure></div></section>
 <section class="panel"><h2>What&#x27;s going on</h2><p class="lede">Castle is the DOGS home-server platform: it replaces the router and the cloud at the same time. One box behind the ISP modem handles routing, firewall, DNS filtering, and network storage — with a single app to run it all.</p><div class="commit"><p class="msg"><b>castle</b> — Vision: chain of custody for every file on Castle <span class='when'>(2026-09-10)</span></p><br><p class="msg"><b>castle-os</b> — Phase 1: Castle OS live ISO profile (cli + gui modes) <span class='when'>(2026-09-09)</span></p></div></section>
 <section class="panel"><h2>Modules</h2><div class="mods"><a class="mod" href="castle-os/"><h3>Castle OS</h3><p>The operating system underneath Castle. Ships headless CLI-only, or with a GUI on a Wayland compositor.</p><span class="go">Open dossier →</span></a><a class="mod" href="app/"><h3>Castle App</h3><p>One control plane for everything Castle: iOS, Android, and web. Configure the box, browse files, manage users and security.</p><span class="go">Open dossier →</span></a><a class="mod" href="drive-librarian/"><h3>Drive Librarian</h3><p>Tag every flash drive by USB serial (or a composite fingerprint when serials are blank), log sightings, and keep timestamped immutable backups that refresh on plug-in. Unknown drives are logged and flagged — never auto-trusted.</p><span class="go">Open dossier →</span></a><a class="mod" href="gateway/"><h3>Gateway</h3><p>The router replacement: DHCP, DNS, firewall, VLANs, QoS, Pi-hole-style blocking, and quota-controlled duplicate-download caching — everything behind the ISP modem, no silent TLS interception.</p><span class="go">Open dossier →</span></a></div></section>
 <section class="panel"><h2>Percent complete</h2><div class="pct"><span class="inbuild">IN BUILD</span><p class="fine">No completion estimate published yet. A percentage is only shown here with a verifiable source.</p></div></section>
