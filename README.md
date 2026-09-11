@@ -38,7 +38,7 @@ git checkout --orphan gh-pages-tmp  # or reuse existing gh-pages branch
 ```
 
 Publishing: the `gh-pages` branch contains only `index.html` + `data.json`
-+ `projects/` + `assets/shots/` + `assets/made-by-dogs.png`
++ `projects/` + `assets/shots/` + `assets/made-by-dogs.webp`
 (no build tooling, no secrets). To republish after a refresh:
 
 ```bash
