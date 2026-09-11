@@ -16,6 +16,7 @@ Re-run any time to refresh; the 20-minute loop runs it, commits data.json,
 and pushes the gh-pages branch.
 """
 
+import hashlib
 import json
 import os
 import re
@@ -28,6 +29,18 @@ ORG = "YEAHDOGS"
 API = "https://api.github.com"
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "data.json")
+
+# SHA-256 digests of blocklisted personal-name tokens. The plaintext tokens
+# are NEVER stored in source or in any repo — they live only in the
+# operator's PII_BLOCKLIST env var. Do not attempt to reverse these.
+_PII_DIGESTS = frozenset({
+    "9655c2c7cdd9fca965ede488f6872419c249f3eb472e598fff294b8024fa548c",
+    "daa0d545b81a4dd98b2db9d70fce671c694376a8c9d1f8cf4750d5a9611684c7",
+    "5e93a92dad54c997eb529df41c1f686e5cb2cffdf15c8fad6cbd3a66d7caac25",
+    "870e94b1c543092c3894b88587267a2421697bee690ae75b9bb02d5622e8e4ab",
+    "fdb7d5c701a3b4a9981e98fd486d22b51b51f2e91605540e57081d440573c009",
+    "27044a5ee7023157d3c992b1a8749432d56863bc093b16cc90b736f4b1956b9c",
+})
 
 # Progress timelines: per-project dated entries, read from progress/*.json.
 # See progress/README.md for the worker contract. Entries are public data.
@@ -236,11 +249,17 @@ def fetch_site_status():
 
 
 def pii_guard(payload):
-    # Default blocklist: the founder's personal name must never appear on the
-    # public site. Extra tokens can be added via the PII_BLOCKLIST env var.
-    default_blocklist = ["the founder", "the founder", "the founder", "the founder", "the founder", "the founder"]
-    blocklist = default_blocklist + [t for t in os.environ.get("PII_BLOCKLIST", "").split(",") if t.strip()]
-    if not blocklist:
+    # Anonymity guard: the founder's personal name must never appear on the
+    # public site. The blocklist is stored as SHA-256 digests so the
+    # plaintext tokens NEVER appear in source. Extra plaintext tokens can be
+    # supplied at runtime via the PII_BLOCKLIST env var (comma-separated);
+    # they are hashed in memory and never written anywhere.
+    blocklist_digests = set(_PII_DIGESTS)
+    for tok in os.environ.get("PII_BLOCKLIST", "").split(","):
+        tok = tok.strip().lower()
+        if tok:
+            blocklist_digests.add(hashlib.sha256(tok.encode()).hexdigest())
+    if not blocklist_digests:
         return
     blob = json.dumps(payload).lower()
     # Also scan the hand-maintained page shell, not just generated data.
@@ -249,9 +268,12 @@ def pii_guard(payload):
             blob += "\n" + f.read().lower()
     except OSError:
         pass
-    for token in blocklist:
-        if token.strip().lower() in blob:
-            sys.exit("PII_GUARD: blocklisted string found in output; aborting.")
+    words = re.findall(r"[a-z0-9]+", blob)
+    for n in (1, 2, 3):
+        for i in range(len(words) - n + 1):
+            cand = " ".join(words[i:i + n])
+            if hashlib.sha256(cand.encode()).hexdigest() in blocklist_digests:
+                sys.exit("PII_GUARD: blocklisted personal-name token in output; aborting.")
 
 
 def main():
