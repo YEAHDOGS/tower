@@ -144,11 +144,14 @@
   .tiles {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-    gap: 18px;
+    gap: 24px;
   }
   .tile {
     background: var(--tile);
     border: 1px solid var(--tile-border);
+    /* Category accent bar: binds the name to its tile and keeps tiles
+       visually distinct from the row above. */
+    border-top: 3px solid var(--tile-border);
     border-radius: 14px;
     overflow: hidden;
     display: flex;
@@ -156,6 +159,10 @@
     animation: rise .45s ease both;
     transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
   }
+  .tile.cat-apps    { border-top-color: #6ea8fe; }
+  .tile.cat-trading { border-top-color: #3ddc84; }
+  .tile.cat-infra   { border-top-color: #f5a524; }
+  .tile.cat-docs    { border-top-color: #e58aa8; }
   .tile:hover {
     transform: translateY(-4px);
     border-color: #3d4b66;
@@ -195,7 +202,7 @@
     color: var(--muted); font-size: 0.7rem;
     letter-spacing: 0.1em; text-transform: uppercase;
   }
-  .tile-body { padding: 16px 18px 14px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .tile-body { padding: 14px 18px 14px; display: flex; flex-direction: column; gap: 9px; flex: 1; }
   .tile-top {
     display: flex; align-items: center; justify-content: space-between;
   }
@@ -206,7 +213,7 @@
   .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--gray); flex-shrink: 0; }
   .dot.up { background: var(--green); box-shadow: 0 0 8px var(--green); }
   .dot.down { background: var(--red); box-shadow: 0 0 8px var(--red); }
-  .tile h2 { font-size: 1.15rem; font-weight: 700; letter-spacing: 0.01em; }
+  .tile h2 { font-size: 1.22rem; font-weight: 750; letter-spacing: 0.01em; line-height: 1.25; }
   .tile h2 a { color: var(--text); text-decoration: none; }
   .tile h2 a:hover { color: var(--accent); }
   .tile h2 a::after { content: ""; position: absolute; inset: 0; }
@@ -390,13 +397,22 @@
   }
 
   function tile(r, siteAvail) {
-    var a = el("article", "tile" + (FEATURED.indexOf(r.name) !== -1 ? " wide" : ""));
+    var a = el("article", "tile" + (FEATURED.indexOf(r.name) !== -1 ? " wide" : "") +
+      " cat-" + (r.category || "Apps").toLowerCase());
     a.setAttribute("aria-label", r.name);
 
     // Image-first: screenshot on top so every tile is visually distinct.
     a.appendChild(tileShot(r));
 
     var body = el("div", "tile-body");
+
+    // Name directly under its own image: the header reads as this tile's
+    // title, never as the tail of the tile above it.
+    var h = el("h2");
+    var ra = el("a", null, r.name);
+    ra.href = r.hub || r.url; // tile opens the project hub page, never GitHub directly
+    h.appendChild(ra);
+    body.appendChild(h);
 
     var top = el("div", "tile-top");
     top.appendChild(el("span", "cat", r.category));
@@ -408,12 +424,6 @@
     dot.title = si.text;
     top.appendChild(dot);
     body.appendChild(top);
-
-    var h = el("h2");
-    var ra = el("a", null, r.name);
-    ra.href = r.hub || r.url; // tile opens the project hub page, never GitHub directly
-    h.appendChild(ra);
-    body.appendChild(h);
 
     if (r.description) body.appendChild(el("p", "desc", r.description));
 
