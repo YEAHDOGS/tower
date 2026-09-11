@@ -37,6 +37,7 @@ duplicated.
 import glob
 import html
 import json
+import hashlib
 import os
 import re
 import subprocess
@@ -50,14 +51,31 @@ PROJECTS_DIR = os.path.join(HERE, "projects")
 SHOTS_DIR = os.path.join(HERE, "assets", "shots")
 BADGE = "../../assets/made-by-dogs.png"
 
-BLOCKLIST = ["the founder the founder", "the founder the founder", "the founder", "the founder"]
+# SHA-256 digests of blocklisted personal-name tokens. The plaintext tokens
+# are NEVER stored in source or in any repo — they live only in the
+# operator's PII_BLOCKLIST env var. Do not attempt to reverse these.
+_PII_DIGESTS = frozenset({
+    "9655c2c7cdd9fca965ede488f6872419c249f3eb472e598fff294b8024fa548c",
+    "daa0d545b81a4dd98b2db9d70fce671c694376a8c9d1f8cf4750d5a9611684c7",
+    "5e93a92dad54c997eb529df41c1f686e5cb2cffdf15c8fad6cbd3a66d7caac25",
+    "870e94b1c543092c3894b88587267a2421697bee690ae75b9bb02d5622e8e4ab",
+    "fdb7d5c701a3b4a9981e98fd486d22b51b51f2e91605540e57081d440573c009",
+    "27044a5ee7023157d3c992b1a8749432d56863bc093b16cc90b736f4b1956b9c",
+})
 
 
 def pii_guard(text, where):
-    low = text.lower()
-    for tok in BLOCKLIST:
-        if tok in low:
-            sys.exit("PII_GUARD: blocklisted token %r in %s; aborting." % (tok, where))
+    digests = set(_PII_DIGESTS)
+    for tok in os.environ.get("PII_BLOCKLIST", "").split(","):
+        tok = tok.strip().lower()
+        if tok:
+            digests.add(hashlib.sha256(tok.encode()).hexdigest())
+    words = re.findall(r"[a-z0-9]+", text.lower())
+    for n in (1, 2, 3):
+        for i in range(len(words) - n + 1):
+            cand = " ".join(words[i:i + n])
+            if hashlib.sha256(cand.encode()).hexdigest() in digests:
+                sys.exit("PII_GUARD: blocklisted personal-name token in %s; aborting." % where)
 
 
 def esc(s):
