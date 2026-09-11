@@ -38,19 +38,42 @@
   a { color: var(--accent); }
 
   /* ---- header ---- */
-  .brand { margin-bottom: 20px; }
-  .brand .eyebrow {
-    font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 8px;
+  .site-head {
+    position: sticky; top: 0; z-index: 60;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px;
+    margin: 0 -20px 16px; padding: 12px 20px;
+    background: rgba(11,14,20,.84);
+    -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--tile-border);
+    animation: rise .45s ease both;
   }
-  .brand h1 { font-size: 2rem; letter-spacing: 0.02em; font-weight: 750; }
-  .brand .tagline { color: var(--muted); margin-top: 8px; font-size: 0.95rem; }
+  @supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+    .site-head { background: var(--bg); }
+  }
+  .head-brand {
+    display: inline-flex; align-items: center; gap: 12px;
+    text-decoration: none; color: var(--text);
+  }
+  .head-badge { height: 34px; width: auto; display: block; border-radius: 8px; }
+  .head-name { font-size: 1.3rem; letter-spacing: 0.02em; font-weight: 750; margin: 0; }
+  .head-nav { display: flex; gap: 2px; align-items: center; }
+  .head-nav a {
+    color: var(--muted); text-decoration: none;
+    font-size: 0.88rem; font-weight: 600;
+    padding: 8px 12px; border-radius: 10px;
+  }
+  .head-nav a:hover { color: var(--text); background: rgba(255,255,255,.06); }
   .statusline {
-    margin-top: 10px; font-size: 0.8rem; color: var(--muted);
+    margin-bottom: 18px; font-size: 0.8rem; color: var(--muted);
     display: flex; gap: 14px; flex-wrap: wrap;
   }
   .statusline .ok { color: var(--green); }
   .statusline .bad { color: var(--red); }
+  #hero, #tiles { scroll-margin-top: 76px; }
+  @media (prefers-reduced-motion: reduce) {
+    .site-head { animation: none; }
+  }
 
   /* ---- featured carousel ---- */
   .hero {
@@ -260,7 +283,9 @@
 
   @media (max-width: 640px) {
     body { padding: 20px 14px 48px; }
-    .brand h1 { font-size: 1.6rem; }
+    .site-head { margin: 0 -14px 16px; padding: 10px 14px; }
+    .head-name { font-size: 1.1rem; }
+    .head-nav a { padding: 8px 10px; font-size: 0.82rem; }
     .tiles { grid-template-columns: 1fr; }
     .tile.wide { grid-column: span 1; }
   }
@@ -268,16 +293,21 @@
 </head>
 <body>
 
-<header class="brand">
-  <div class="eyebrow">DOGS Infrastructure · Projects</div>
-  <h1>Watchtower</h1>
-  <p class="tagline">Every project we build and ship, in one grid.</p>
-  <p class="statusline" id="statusline" aria-live="polite">
-    <span id="proj-count">…</span>
-    <span id="site-summary">…</span>
-    <span>Updated <span id="updated">…</span></span>
-  </p>
+<header class="site-head">
+  <a class="head-brand" href="./" aria-label="Watchtower — back to top">
+    <img class="head-badge" src="assets/made-by-dogs.png" alt="DOGS">
+    <h1 class="head-name">Watchtower</h1>
+  </a>
+  <nav class="head-nav" aria-label="Page sections">
+    <a href="#hero">Featured</a>
+    <a href="#tiles">Projects</a>
+  </nav>
 </header>
+<p class="statusline" id="statusline" aria-live="polite">
+  <span id="proj-count">…</span>
+  <span id="site-summary">…</span>
+  <span>Updated <span id="updated">…</span></span>
+</p>
 
 <section class="hero" id="hero" aria-label="Featured projects" hidden>
   <div class="hero-track" id="hero-track"></div>
