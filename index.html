@@ -55,15 +55,7 @@
     display: inline-flex; align-items: center; gap: 12px;
     text-decoration: none; color: var(--text);
   }
-  .head-badge { height: 34px; width: auto; display: block; border-radius: 8px; }
   .head-name { font-size: 1.3rem; letter-spacing: 0.02em; font-weight: 750; margin: 0; }
-  .head-nav { display: flex; gap: 2px; align-items: center; }
-  .head-nav a {
-    color: var(--muted); text-decoration: none;
-    font-size: 0.88rem; font-weight: 600;
-    padding: 8px 12px; border-radius: 10px;
-  }
-  .head-nav a:hover { color: var(--text); background: rgba(255,255,255,.06); }
   .statusline {
     margin-bottom: 18px; font-size: 0.8rem; color: var(--muted);
     display: flex; gap: 14px; flex-wrap: wrap;
@@ -283,9 +275,9 @@
 
   @media (max-width: 640px) {
     body { padding: 20px 14px 48px; }
-    .site-head { margin: 0 -14px 16px; padding: 10px 14px; }
-    .head-name { font-size: 1.1rem; }
-    .head-nav a { padding: 8px 10px; font-size: 0.82rem; }
+    .site-head { margin: 0 -14px 16px; padding: 10px 14px; gap: 8px; }
+    .head-brand { gap: 8px; min-width: 0; }
+    .head-name { font-size: 1.05rem; white-space: nowrap; }
     .tiles { grid-template-columns: 1fr; }
     .tile.wide { grid-column: span 1; }
   }
@@ -295,13 +287,8 @@
 
 <header class="site-head">
   <a class="head-brand" href="./" aria-label="Watchtower — back to top">
-    <img class="head-badge" src="assets/made-by-dogs.png" alt="DOGS">
     <h1 class="head-name">Watchtower</h1>
   </a>
-  <nav class="head-nav" aria-label="Page sections">
-    <a href="#hero">Featured</a>
-    <a href="#tiles">Projects</a>
-  </nav>
 </header>
 <p class="statusline" id="statusline" aria-live="polite">
   <span id="proj-count">…</span>
