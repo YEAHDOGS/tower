@@ -293,6 +293,32 @@
     .tiles { grid-template-columns: 1fr; }
     .tile.wide { grid-column: span 1; }
   }
+  /* ---- 390px polish: phone-first spacing and breathing room ---- */
+  @media (max-width: 480px) {
+    body { padding: 16px 12px 44px; }
+    .site-head { margin: 0 -12px 12px; padding: 10px 12px; }
+    /* Featured: carousel controls move to the top so the scrim copy gets
+       the full width instead of a 128px carve-out. */
+    .hero-ui { top: 10px; bottom: auto; right: 10px; }
+    .hero-scrim { padding: 64px 18px 16px; }
+    .hero-name { font-size: 1.05rem; }
+    .hero-tag { font-size: 0.82rem; }
+    .hero-arrow { width: 36px; height: 36px; }
+    /* Controls: search owns its row; sort + count share the next. */
+    .controls { gap: 10px; margin: 14px 0 10px; }
+    .search { flex: 1 1 100%; }
+    .showing { margin-left: 0; }
+    .chips { margin-bottom: 14px; gap: 7px; }
+    .chip { padding: 6px 12px; }
+    /* Tiles: single column, tighter body, readable name at a glance. */
+    .tiles { gap: 18px; }
+    .tile h2 { font-size: 1.12rem; }
+    .tile-body { padding: 12px 14px; gap: 8px; }
+    .desc { font-size: 0.84rem; }
+    .tile-foot { padding-top: 8px; }
+    /* Footer: stack centered on a narrow screen. */
+    footer { flex-direction: column; align-items: center; text-align: center; margin-top: 44px; }
+  }
 </style>
 </head>
 <body>
