@@ -67,6 +67,18 @@
     .site-head { animation: none; }
   }
 
+  /* ---- page/section transitions ---- */
+  html { scroll-behavior: smooth; }
+  .reveal {
+    opacity: 0; transform: translateY(18px);
+    transition: opacity .55s ease, transform .55s ease;
+  }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
   /* ---- featured carousel ---- */
   .hero {
     position: relative;
@@ -76,7 +88,7 @@
     background: #0a0d13;
     aspect-ratio: 21 / 9;
     margin-bottom: 22px;
-    animation: rise .5s ease both;
+    /* entrance handled by .reveal section transitions, not the tile rise */
   }
   .hero-track { position: absolute; inset: 0; }
   .hero-slide {
@@ -571,6 +583,28 @@
     }
   }
 
+  // ---- page/section transitions: fade+slide each section in as it
+  // enters the viewport; smooth scroll between anchor sections. Classes are
+  // applied from JS so no-JS visitors never see a hidden page.
+  function setupReveals() {
+    var sel = "#statusline, #hero, .controls, #chips, footer";
+    var els = document.querySelectorAll(sel);
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      Array.prototype.forEach.call(els, function (n) { n.classList.add("in"); });
+      return;
+    }
+    Array.prototype.forEach.call(els, function (n) { n.classList.add("reveal"); });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          en.target.classList.add("in");
+          io.unobserve(en.target);
+        }
+      });
+    }, { rootMargin: "0px 0px -6% 0px", threshold: 0.06 });
+    Array.prototype.forEach.call(els, function (n) { io.observe(n); });
+  }
+
   var state = { q: "", sort: "featured", cat: "All", repos: [], siteAvail: false };
 
   function sorters(mode) {
@@ -720,11 +754,13 @@
       wireControls();
       buildHero();
       render();
+      setupReveals();
     })
     .catch(function (e) {
       var d = document.getElementById("err");
       d.className = "error";
       d.textContent = "Could not load Watchtower data: " + e.message;
+      setupReveals();
     });
 })();
 </script>
