@@ -454,7 +454,10 @@
     top.appendChild(dot);
     body.appendChild(top);
 
-    if (r.description) body.appendChild(el("p", "desc", r.description));
+    // Tile copy: TAGLINES override (3-6 words); raw repo description
+    // stays on the object for search filtering only.
+    var blurb = TAGLINES[r.name] || r.description;
+    if (blurb) body.appendChild(el("p", "desc", blurb));
 
     var foot = el("div", "tile-foot");
     var links = el("div", "tile-links");
@@ -475,6 +478,34 @@
     a.appendChild(body);
     return a;
   }
+
+  // Tile taglines: name + 3-6 words on every tile, no paragraphs.
+  // Overrides the raw GitHub repo descriptions (kept only for search).
+  var TAGLINES = {
+    "news": "Independent news, no spin.",
+    "40": "Self-deleting social media.",
+    "phoenix": "Fresh start for devices.",
+    "sdm": "Dating for the wild.",
+    "proof": "Facts on world vices.",
+    "playback": "DJ booth in browser.",
+    "pay": "Peer-to-peer payments.",
+    "help": "Give back, DOGS style.",
+    "bakery": "Parallel swarm manager.",
+    "divorce": "DIY Oklahoma divorce.",
+    "sampler": "AI sample finder.",
+    "icecream": "The global ice cream landscape.",
+    "wax": "Vinyl drop alerts.",
+    "remote": "Universal TV remote.",
+    "chains": "Git for save data.",
+    "id": "Age verification gate.",
+    "paper": "Fake money, real lessons.",
+    "mirror": "Smart mirror dashboard.",
+    "forge": "LLC formation wizard.",
+    "printshop": "Printable 3D assets.",
+    "radio": "24/7 community radio.",
+    "dog": "Byte-minimal text format.",
+    "Castle": "Your data, your network, your rules."
+  };
 
   // ---- featured carousel ----
   var CAROUSEL = ["Castle", "icecream", "wax", "phoenix"];
@@ -709,7 +740,7 @@
         data.repos.forEach(function (r) { if (r.name === slug) src = r; });
         entries.push({
           isGroup: true, name: g.title, slug: slug,
-          description: (g.tagline ? g.tagline + " — " : "") + (g.description || ""),
+          description: g.tagline || g.description || "", // tagline only on tiles: 3-6 words, never a paragraph
           category: g.category || "Infra",
           hub: "projects/" + slug + "/",
           modules: (g.modules || []).length,
