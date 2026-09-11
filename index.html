@@ -245,6 +245,11 @@
   "use strict";
 
   var FEATURED = ["Castle"];
+  // tower / watchtower / demo are all the same project — the portfolio
+  // itself. It doesn't monitor its own uptime, so it gets no tile.
+  var HIDDEN = ["tower", "watchtower", "demo"];
+  // icecream sinks to the bottom of every sort — other work comes first.
+  var SUNK = ["icecream"];
   var INFRA = ["castle", "castle-os", "tower", "watchtower", "phoenix",
                "chains", "id", "sdm", "remote", "yeahdogs.github.io"];
   var CATS = ["All", "Apps", "Trading", "Infra", "Docs"];
@@ -392,6 +397,14 @@
           (r.description || "").toLowerCase().indexOf(q) === -1) return false;
       return true;
     }).sort(sorters(state.sort));
+    // SUNK entries always render last, whatever the sort mode.
+    if (SUNK.length) {
+      list.sort(function (x, y) {
+        var sx = SUNK.indexOf(x.name) !== -1, sy = SUNK.indexOf(y.name) !== -1;
+        if (sx !== sy) return sx ? 1 : -1;
+        return 0;
+      });
+    }
     if (!list.length) {
       var e = el("div", "empty", "No projects match. Try a different search or category.");
       box.appendChild(e);
@@ -468,6 +481,7 @@
       });
       data.repos.forEach(function (r) {
         if (members[r.name]) return;
+        if (HIDDEN.indexOf(r.name) !== -1) return;
         var si = siteInfo(r, state.siteAvail);
         r.category = category(r.name);
         r.srank = si.rank;
