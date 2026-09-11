@@ -52,6 +52,69 @@
   .statusline .ok { color: var(--green); }
   .statusline .bad { color: var(--red); }
 
+  /* ---- featured carousel ---- */
+  .hero {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid var(--tile-border);
+    background: #0a0d13;
+    aspect-ratio: 21 / 9;
+    margin-bottom: 22px;
+    animation: rise .5s ease both;
+  }
+  .hero-track { position: absolute; inset: 0; }
+  .hero-slide {
+    position: absolute; inset: 0;
+    display: block;
+    opacity: 0; visibility: hidden;
+    transition: opacity .55s ease, visibility 0s linear .55s;
+  }
+  .hero-slide.active {
+    opacity: 1; visibility: visible;
+    transition: opacity .55s ease;
+    z-index: 1;
+  }
+  .hero-slide img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    display: block;
+  }
+  .hero-scrim {
+    position: absolute; inset: auto 0 0 0;
+    padding: 72px 24px 20px;
+    background: linear-gradient(to top, rgba(5,7,11,.9) 0%, rgba(5,7,11,0) 100%);
+  }
+  .hero-name { font-size: 1.5rem; font-weight: 750; letter-spacing: 0.01em; color: var(--text); }
+  .hero-tag { color: #c4cad8; margin-top: 6px; font-size: 0.95rem; }
+  .hero-ui {
+    position: absolute; right: 16px; bottom: 16px; z-index: 2;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-dots { display: flex; gap: 7px; align-items: center; }
+  .hero-dot {
+    width: 22px; height: 4px; border-radius: 2px; border: 0; padding: 0;
+    background: rgba(255,255,255,.28); cursor: pointer;
+  }
+  .hero-dot[aria-selected="true"] { background: #fff; }
+  .hero-arrow {
+    width: 34px; height: 34px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.25);
+    background: rgba(10,13,19,.55); color: #fff; font-size: 1rem; line-height: 1;
+    cursor: pointer; padding: 0;
+  }
+  .hero-arrow:hover { background: rgba(10,13,19,.85); }
+  @media (max-width: 640px) {
+    .hero { aspect-ratio: 16 / 11; }
+    .hero-name { font-size: 1.15rem; }
+    .hero-tag { font-size: 0.85rem; }
+    .hero-scrim { padding: 56px 128px 18px 18px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero { animation: none; }
+    .hero-slide { transition: none; }
+  }
+
   /* ---- controls ---- */
   .controls {
     display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
@@ -209,6 +272,15 @@
   </p>
 </header>
 
+<section class="hero" id="hero" aria-label="Featured projects" hidden>
+  <div class="hero-track" id="hero-track"></div>
+  <div class="hero-ui">
+    <div class="hero-dots" id="hero-dots" role="tablist" aria-label="Featured slides"></div>
+    <button class="hero-arrow" id="hero-prev" type="button" aria-label="Previous featured project">&#8249;</button>
+    <button class="hero-arrow" id="hero-next" type="button" aria-label="Next featured project">&#8250;</button>
+  </div>
+</section>
+
 <main>
   <div class="controls" role="search">
     <label for="q" class="sr-only" style="position:absolute;left:-9999px">Search projects</label>
@@ -365,6 +437,113 @@
     return a;
   }
 
+  // ---- featured carousel ----
+  var CAROUSEL = ["Castle", "icecream", "wax", "phoenix"];
+  // Short taglines only: name + 3-6 words on every slide, no paragraphs.
+  var CAROUSEL_TAGS = {
+    "Castle": "Your data, your rules.",
+    "icecream": "The global ice cream landscape.",
+    "wax": "Vinyl drop alerts.",
+    "phoenix": "A fresh start for devices."
+  };
+
+  function slideImg(r) {
+    var e = null;
+    (r.progress || []).forEach(function (p) {
+      if (!e && p.kind === "screenshot" && (p.thumb || p.url)) e = p;
+    });
+    // Same fallback as tiles: generated key art so a slide is never blank.
+    if (!e && r.art) e = { url: r.art, title: r.name + " key art" };
+    return e;
+  }
+
+  var heroIdx = 0, heroTimer = null, heroCount = 0;
+  var reduceMotion = window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function heroShow(n) {
+    var slides = document.querySelectorAll("#hero-track .hero-slide");
+    var dots = document.querySelectorAll("#hero-dots .hero-dot");
+    if (!slides.length) return;
+    slides[heroIdx].classList.remove("active");
+    dots[heroIdx].setAttribute("aria-selected", "false");
+    heroIdx = ((n % slides.length) + slides.length) % slides.length;
+    slides[heroIdx].classList.add("active");
+    dots[heroIdx].setAttribute("aria-selected", "true");
+  }
+
+  function heroStop() {
+    if (heroTimer) { clearInterval(heroTimer); heroTimer = null; }
+  }
+
+  function heroStart() {
+    heroStop();
+    if (!reduceMotion && heroCount > 1) {
+      heroTimer = setInterval(function () { heroShow(heroIdx + 1); }, 6500);
+    }
+  }
+
+  function heroGo(n) { heroShow(n); heroStart(); }
+
+  function buildHero() {
+    var items = [];
+    CAROUSEL.forEach(function (slug) {
+      for (var i = 0; i < state.repos.length; i++) {
+        var r = state.repos[i];
+        if (r.name === slug) {
+          var im = slideImg(r);
+          if (im) items.push({ r: r, im: im });
+          break;
+        }
+      }
+    });
+    if (!items.length) return;
+    var track = document.getElementById("hero-track");
+    var dots = document.getElementById("hero-dots");
+    items.forEach(function (it, i) {
+      var a = el("a", "hero-slide");
+      a.href = it.r.hub || it.r.url;
+      a.setAttribute("aria-label", it.r.name + " — featured project");
+      if (i === 0) a.classList.add("active");
+      var img = document.createElement("img");
+      img.src = it.im.thumb || it.im.url;
+      img.alt = it.r.name + " preview";
+      img.loading = i === 0 ? "eager" : "lazy";
+      if (i === 0) img.setAttribute("fetchpriority", "high");
+      a.appendChild(img);
+      var scrim = el("div", "hero-scrim");
+      scrim.appendChild(el("div", "hero-name", it.r.name));
+      var tag = CAROUSEL_TAGS[it.r.name] || it.r.description || "";
+      if (tag) scrim.appendChild(el("div", "hero-tag", tag));
+      a.appendChild(scrim);
+      track.appendChild(a);
+      var d = el("button", "hero-dot");
+      d.type = "button";
+      d.setAttribute("role", "tab");
+      d.setAttribute("aria-selected", i === 0 ? "true" : "false");
+      d.setAttribute("aria-label", "Show " + it.r.name);
+      (function (n) { d.addEventListener("click", function () { heroGo(n); }); })(i);
+      dots.appendChild(d);
+    });
+    heroCount = items.length;
+    document.getElementById("hero").hidden = false;
+    if (heroCount > 1) {
+      document.getElementById("hero-prev").addEventListener("click", function () { heroGo(heroIdx - 1); });
+      document.getElementById("hero-next").addEventListener("click", function () { heroGo(heroIdx + 1); });
+      var hero = document.getElementById("hero");
+      hero.addEventListener("mouseenter", heroStop);
+      hero.addEventListener("mouseleave", heroStart);
+      hero.addEventListener("focusin", heroStop);
+      hero.addEventListener("focusout", heroStart);
+      document.addEventListener("visibilitychange", function () {
+        if (document.hidden) heroStop(); else heroStart();
+      });
+      heroStart();
+    } else {
+      document.querySelector(".hero-ui").style.display = "none";
+    }
+  }
+
   var state = { q: "", sort: "featured", cat: "All", repos: [], siteAvail: false };
 
   function sorters(mode) {
@@ -512,6 +691,7 @@
         relTime(data.generated_at) + " (" +
         new Date(data.generated_at).toISOString().replace("T", " ").slice(0, 16) + " UTC)";
       wireControls();
+      buildHero();
       render();
     })
     .catch(function (e) {
