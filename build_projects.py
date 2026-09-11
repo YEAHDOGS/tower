@@ -50,7 +50,7 @@ META_JSON = os.path.join(HERE, "projects", "meta.json")
 PROJECTS_DIR = os.path.join(HERE, "projects")
 SHOTS_DIR = os.path.join(HERE, "assets", "shots")
 GEN_DIR = os.path.join(HERE, "assets", "gen")
-BADGE = "../../assets/made-by-dogs.png"
+BADGE = "../../assets/made-by-dogs.webp"
 
 # SHA-256 digests of blocklisted personal-name tokens. The plaintext tokens
 # are NEVER stored in source or in any repo — they live only in the
@@ -522,7 +522,7 @@ def section(title, body):
 def footer_only(html_text, where):
     # the badge (linking to wearedogs.net) must appear exactly once per page
     pii_guard(html_text, where)
-    if html_text.lower().count("made-by-dogs.png") != 1:
+    if html_text.lower().count("made-by-dogs.webp") != 1:
         sys.exit("ATTRIBUTION: badge image must appear exactly once in %s; aborting." % where)
     if html_text.lower().count("https://wearedogs.net") != 1:
         sys.exit("ATTRIBUTION: wearedogs.net link must appear exactly once in %s; aborting." % where)
