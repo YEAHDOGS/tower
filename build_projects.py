@@ -457,6 +457,11 @@ main{margin-top:26px;display:grid;gap:18px}
 .dogs-foot img{display:block;max-width:230px;width:100%;height:auto;margin:0 0 8px auto}
 .dogs-foot span{font-size:.8rem;color:var(--muted);letter-spacing:.02em}
 .dogs-foot b{color:var(--text)}
+@media (prefers-reduced-motion: reduce){
+  .track{transition:none}
+  .mod{transition:none}
+  .snav,.sdot{transition:none}
+}
 @media (max-width:560px){
   body{padding:18px 12px 32px}
   .panel{padding:16px}
