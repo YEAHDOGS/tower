@@ -365,6 +365,17 @@ def social_img_file(slug):
     return hits[0] if hits else ""
 
 
+def share_slug_for(*candidates):
+    """First candidate slug that resolves to a share image, or the first.
+
+    Used for pages whose own slug has no screenshot or key art (e.g. Castle
+    module sub-pages) so they still get og:image + dims instead of none."""
+    for c in candidates:
+        if social_img_file(c):
+            return c
+    return candidates[0]
+
+
 def social_meta(title, desc, url_path, slug):
     """Open Graph + Twitter Card tags for a detail page.
 
@@ -953,11 +964,12 @@ def module_page(group_slug, group, mod, meta):
     title_full = "%s — DOGS Project Dossier" % mod["title"]
     desc = ("DOGS project dossier: %s (a Castle module). %s"
             % (mod["title"], mod.get("blurb") or ""))[:160]
+    share = share_slug_for(shot_slug, mod["slug"], group_slug)
     return PAGE.format(
         title=esc(mod["title"]),
         meta_desc=esc(desc),
         social=social_meta(title_full, desc,
-                           "projects/%s/%s/" % (group_slug, mod["slug"]), shot_slug),
+                           "projects/%s/%s/" % (group_slug, mod["slug"]), share),
         css=CSS, home="../../",
         favicon=FAVICON,
         crumb=' / <a href="../" style="color:var(--muted)">%s</a> / %s'
