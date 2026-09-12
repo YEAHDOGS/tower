@@ -141,9 +141,14 @@ main{margin-top:26px;display:grid;gap:18px}
   .cardin{animation:none}
   .hero-art{animation:none}
   .mod:hover{transform:none}
+  .skip{transition:none}
 }
 /* keyboard focus: visible ring on links, slideshow controls, cards — matches the dark aesthetic */
 :focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:6px}
+/* skip-to-content: invisible until keyboard focus, then slides into view */
+.skip{position:absolute;left:12px;top:-60px;z-index:200;background:var(--green);color:#000;
+  font-weight:700;text-decoration:none;padding:10px 16px;border-radius:8px;transition:top .18s ease}
+.skip:focus-visible{top:12px}
 @media (max-width:560px){
   body{padding:18px 12px 32px}
   .panel{padding:16px}
@@ -154,6 +159,7 @@ main{margin-top:26px;display:grid;gap:18px}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <header class="dossier-head">
   <p class="kicker"><a href="../../">Watchtower</a> / radio</p>
   <h1>radio</h1>
@@ -162,7 +168,7 @@ main{margin-top:26px;display:grid;gap:18px}
   <div class="actions"><a class="btn ghost" href="https://github.com/YEAHDOGS/radio">GitHub repo</a></div>
 </header>
 <div class="hero-art"><img src="../../assets/gen/radio/hero.webp" alt="radio key art" loading="eager"></div>
-<main>
+<main id="main">
 <section class="panel"><h2>Slideshow</h2><div class="slide titlecard" role="img" aria-label="No live site yet — title card"><svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice"><rect width="800" height="450" fill="#0b0e14"/><rect x="24" y="24" width="752" height="402" fill="none" stroke="#232b3a" stroke-width="2"/><text x="400" y="180" text-anchor="middle" fill="#e6e9f0" font-size="64" font-weight="800" font-family="Impact,Haettenschweiler,'Arial Narrow',sans-serif" letter-spacing="2">RADIO</text><text x="400" y="240" text-anchor="middle" fill="#8b93a7" font-size="28" font-family="Impact,Haettenschweiler,'Arial Narrow',sans-serif" letter-spacing="6">DOGS</text><text x="400" y="300" text-anchor="middle" fill="#5b6478" font-size="20" font-family="Verdana,sans-serif">No live site yet — title card</text></svg></div></section>
 <section class="panel"><h2>What&#x27;s going on</h2><p class="lede">Dogs Radio — 24/7 community radio stations from Spotify playlists. Cloudflare-native rebuild of am_radio.</p><div class="commit"><p class="msg">History snapshot not available in this build environment.</p><p class="when">last push · 2026-09-09</p></div></section>
 <section class="panel"><h2>Status</h2><div class="facts"><div class="fact"><p class="k">Live status</p><p class="v ">not monitored</p></div><div class="fact"><p class="k">Language</p><p class="v ">—</p></div><div class="fact"><p class="k">Stars</p><p class="v ">0</p></div><div class="fact"><p class="k">Open issues</p><p class="v ">0</p></div><div class="fact"><p class="k">Open PRs</p><p class="v ">0</p></div><div class="fact"><p class="k">Commits</p><p class="v ">1</p></div><div class="fact"><p class="k">Last push</p><p class="v ">2026-09-09</p></div></div></section>

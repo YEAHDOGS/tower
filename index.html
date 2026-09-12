@@ -240,6 +240,15 @@
     outline-offset: 3px;
     border-radius: 6px;
   }
+  /* skip-to-content: invisible until keyboard focus, then slides into view */
+  .skip {
+    position: absolute; left: 12px; top: -60px; z-index: 200;
+    background: var(--accent); color: #0b0e14;
+    font-weight: 700; text-decoration: none;
+    padding: 10px 16px; border-radius: 8px;
+    transition: top .18s ease;
+  }
+  .skip:focus-visible { top: 12px; }
   .tile-shot.empty span {
     color: var(--muted); font-size: 0.7rem;
     letter-spacing: 0.1em; text-transform: uppercase;
@@ -354,6 +363,7 @@
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <header class="site-head">
   <a class="head-brand" href="./" aria-label="Watchtower — back to top">
@@ -375,7 +385,7 @@
   </div>
 </section>
 
-<main>
+<main id="main">
   <div class="controls" role="search">
     <label for="q" class="sr-only" style="position:absolute;left:-9999px">Search projects</label>
     <input id="q" class="search" type="search" placeholder="Search projects…" autocomplete="off" aria-label="Search projects">
