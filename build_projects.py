@@ -338,13 +338,16 @@ def social_img(slug):
 def social_meta(title, desc, url_path, slug):
     """Open Graph + Twitter Card tags for a detail page.
 
-    Title/description mirror the <title> and meta description; no extra copy."""
+    Title/description mirror the <title> and meta description; no extra copy.
+    Emits a canonical link first so search engines index each dossier at one
+    URL (the hub at build.py already has one)."""
+    url = "%s/%s" % (SITE_BASE, url_path.strip("/"))
     lines = [
+        '<link rel="canonical" href="%s">' % esc(url),
         '<meta property="og:type" content="article">',
         '<meta property="og:title" content="%s">' % esc(title),
         '<meta property="og:description" content="%s">' % esc(desc),
-        '<meta property="og:url" content="%s">' %
-        esc("%s/%s" % (SITE_BASE, url_path.strip("/"))),
+        '<meta property="og:url" content="%s">' % esc(url),
         '<meta name="twitter:card" content="summary_large_image">',
         '<meta name="twitter:title" content="%s">' % esc(title),
         '<meta name="twitter:description" content="%s">' % esc(desc),
