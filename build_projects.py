@@ -323,6 +323,7 @@ DEFAULT_CAPTIONS = ["Live site — desktop", "Live site — desktop, scrolled", 
 SITE_BASE = "https://yeahdogs.github.io/tower"
 FAVICON = SITE_BASE + "/assets/favicon.svg"
 MANIFEST = SITE_BASE + "/assets/site.webmanifest"
+APPLE_TOUCH_ICON = SITE_BASE + "/assets/apple-touch-icon.png"
 
 
 def social_img(slug):
@@ -715,6 +716,7 @@ PAGE = """<!DOCTYPE html>
 <meta name="description" content="{meta_desc}">
 <link rel="icon" type="image/svg+xml" href="{favicon}">
 <link rel="manifest" href="{manifest}">
+<link rel="apple-touch-icon" href="{apple_touch_icon}">
 <meta name="theme-color" content="#0b0e14">
 {social}
 {jsonld}
@@ -849,6 +851,7 @@ def repo_hub(repo, meta):
         jsonld=json_ld(title_full, desc, "projects/%s/" % name),
         favicon=FAVICON,
         manifest=MANIFEST,
+        apple_touch_icon=APPLE_TOUCH_ICON,
         css=CSS, home="../../", crumb=" / " + esc(name), name=esc(name),
         lede=esc(repo.get("description") or "No description published."),
         badge=badge, pct_pill=pct_pill, buttons=buttons,
@@ -935,6 +938,7 @@ def group_hub(slug, group, repos_by_name, meta):
         css=CSS, home="../../", crumb=" / " + esc(group["title"]),
         favicon=FAVICON,
         manifest=MANIFEST,
+        apple_touch_icon=APPLE_TOUCH_ICON,
         name=esc(group["title"]),
         lede=esc(group.get("tagline") or "") + ("<br>" if group.get("tagline") else "")
         + esc(group.get("description") or ""),
@@ -1012,6 +1016,7 @@ def module_page(group_slug, group, mod, meta):
         css=CSS, home="../../",
         favicon=FAVICON,
         manifest=MANIFEST,
+        apple_touch_icon=APPLE_TOUCH_ICON,
         crumb=' / <a href="../" style="color:var(--muted)">%s</a> / %s'
               % (esc(group["title"]), esc(mod["title"])),
         name=esc(mod["title"]), lede=esc(mod.get("blurb") or ""),
