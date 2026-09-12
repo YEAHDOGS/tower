@@ -234,6 +234,12 @@
     .tile-shot img { transition: none; }
     .tile:hover .tile-shot img { transform: none; }
   }
+  /* keyboard focus: visible ring on tiles, nav, carousel — matches the dark aesthetic */
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
   .tile-shot.empty span {
     color: var(--muted); font-size: 0.7rem;
     letter-spacing: 0.1em; text-transform: uppercase;
