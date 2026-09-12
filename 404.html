@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Watchtower</title>
+<meta name="description" content="That room doesn't exist. Back to the Watchtower.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<meta name="theme-color" content="#0b0e14">
+<meta name="robots" content="noindex">
+<style>
+  :root {
+    --bg: #0b0e14;
+    --text: #e6e9f0;
+    --muted: #8b93a7;
+    --accent: #6ea8fe;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    background:
+      radial-gradient(60vmax 40vmax at 50% 20%, rgba(110,168,254,.08), transparent 60%),
+      var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    min-height: 100svh; padding: 24px; text-align: center;
+  }
+  .code {
+    font-size: clamp(96px, 28vw, 220px);
+    font-weight: 800; letter-spacing: -0.04em; line-height: 1;
+    background: linear-gradient(180deg, #e6e9f0, #5b6478);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: rise .6s ease-out both;
+  }
+  .line { color: var(--muted); font-size: 18px; margin: 16px 0 32px;
+          animation: rise .6s .08s ease-out both; }
+  .back {
+    display: inline-block; padding: 14px 28px; border-radius: 999px;
+    background: var(--accent); color: #0b0e14; font-weight: 700; font-size: 16px;
+    text-decoration: none; animation: rise .6s .16s ease-out both;
+  }
+  .back:hover { filter: brightness(1.1); }
+  .back:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+  footer { position: fixed; bottom: 20px; left: 0; right: 0; display: flex; justify-content: center; }
+  footer img { height: 28px; width: auto; opacity: .9; }
+  @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .code, .line, .back { animation: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="code">404</div>
+  <p class="line">That room doesn't exist.</p>
+  <a class="back" href="/tower/">Back to the Watchtower</a>
+  <footer>
+    <a href="https://wearedogs.net"><img src="assets/made-by-dogs.webp" alt="This product was made by DOGS"></a>
+  </footer>
+</body>
+</html>
