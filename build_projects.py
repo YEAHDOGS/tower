@@ -322,6 +322,7 @@ DEFAULT_CAPTIONS = ["Live site — desktop", "Live site — desktop, scrolled", 
 
 SITE_BASE = "https://yeahdogs.github.io/tower"
 FAVICON = SITE_BASE + "/assets/favicon.svg"
+MANIFEST = SITE_BASE + "/assets/site.webmanifest"
 
 
 def social_img(slug):
@@ -713,6 +714,7 @@ PAGE = """<!DOCTYPE html>
 <title>{title} — DOGS Project Dossier</title>
 <meta name="description" content="{meta_desc}">
 <link rel="icon" type="image/svg+xml" href="{favicon}">
+<link rel="manifest" href="{manifest}">
 <meta name="theme-color" content="#0b0e14">
 {social}
 {jsonld}
@@ -846,6 +848,7 @@ def repo_hub(repo, meta):
         social=social_meta(title_full, desc, "projects/%s/" % name, name),
         jsonld=json_ld(title_full, desc, "projects/%s/" % name),
         favicon=FAVICON,
+        manifest=MANIFEST,
         css=CSS, home="../../", crumb=" / " + esc(name), name=esc(name),
         lede=esc(repo.get("description") or "No description published."),
         badge=badge, pct_pill=pct_pill, buttons=buttons,
@@ -931,6 +934,7 @@ def group_hub(slug, group, repos_by_name, meta):
         jsonld=json_ld(title_full, desc, "projects/%s/" % slug),
         css=CSS, home="../../", crumb=" / " + esc(group["title"]),
         favicon=FAVICON,
+        manifest=MANIFEST,
         name=esc(group["title"]),
         lede=esc(group.get("tagline") or "") + ("<br>" if group.get("tagline") else "")
         + esc(group.get("description") or ""),
@@ -1007,6 +1011,7 @@ def module_page(group_slug, group, mod, meta):
                        "projects/%s/%s/" % (group_slug, mod["slug"])),
         css=CSS, home="../../",
         favicon=FAVICON,
+        manifest=MANIFEST,
         crumb=' / <a href="../" style="color:var(--muted)">%s</a> / %s'
               % (esc(group["title"]), esc(mod["title"])),
         name=esc(mod["title"]), lede=esc(mod.get("blurb") or ""),
