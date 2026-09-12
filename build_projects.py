@@ -382,7 +382,9 @@ def social_meta(title, desc, url_path, slug):
     Title/description mirror the <title> and meta description; no extra copy.
     Emits a canonical link first so search engines index each dossier at one
     URL (the hub at build.py already has one). og:image carries width/height
-    tags so share crawlers can lay out the card without a prefetch."""
+    tags so share crawlers can lay out the card without a prefetch.
+    og:site_name + og:locale identify the site to share crawlers once per
+    page rather than being inferred from each og:title."""
     url = "%s/%s" % (SITE_BASE, url_path.strip("/"))
     lines = [
         '<link rel="canonical" href="%s">' % esc(url),
@@ -390,6 +392,8 @@ def social_meta(title, desc, url_path, slug):
         '<meta property="og:title" content="%s">' % esc(title),
         '<meta property="og:description" content="%s">' % esc(desc),
         '<meta property="og:url" content="%s">' % esc(url),
+        '<meta property="og:site_name" content="Watchtower">',
+        '<meta property="og:locale" content="en_US">',
         '<meta name="twitter:card" content="summary_large_image">',
         '<meta name="twitter:title" content="%s">' % esc(title),
         '<meta name="twitter:description" content="%s">' % esc(desc),
