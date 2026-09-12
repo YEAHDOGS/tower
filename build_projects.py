@@ -627,6 +627,7 @@ PAGE = """<!DOCTYPE html>
 <title>{title} — DOGS Project Dossier</title>
 <meta name="description" content="{meta_desc}">
 <link rel="icon" type="image/svg+xml" href="{favicon}">
+<meta name="theme-color" content="#0b0e14">
 {social}
 <style>{css}</style>
 </head>
