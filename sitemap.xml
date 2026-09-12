@@ -21,6 +21,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://yeahdogs.github.io/tower/projects/castle/app/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yeahdogs.github.io/tower/projects/castle/castle-os/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yeahdogs.github.io/tower/projects/castle/drive-librarian/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://yeahdogs.github.io/tower/projects/castle/gateway/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://yeahdogs.github.io/tower/projects/chains/</loc>
     <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
