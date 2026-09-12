@@ -316,6 +316,7 @@ DEFAULT_CAPTIONS = ["Live site — desktop", "Live site — desktop, scrolled", 
 
 
 SITE_BASE = "https://yeahdogs.github.io/tower"
+FAVICON = SITE_BASE + "/assets/favicon.svg"
 
 
 def social_img(slug):
@@ -625,6 +626,7 @@ PAGE = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title} — DOGS Project Dossier</title>
 <meta name="description" content="{meta_desc}">
+<link rel="icon" type="image/svg+xml" href="{favicon}">
 {social}
 <style>{css}</style>
 </head>
@@ -753,6 +755,7 @@ def repo_hub(repo, meta):
     return PAGE.format(
         title=esc(name), meta_desc=esc(desc),
         social=social_meta(title_full, desc, "projects/%s/" % name, name),
+        favicon=FAVICON,
         css=CSS, home="../../", crumb=" / " + esc(name), name=esc(name),
         lede=esc(repo.get("description") or "No description published."),
         badge=badge, pct_pill=pct_pill, buttons=buttons,
@@ -836,6 +839,7 @@ def group_hub(slug, group, repos_by_name, meta):
         meta_desc=esc(desc),
         social=social_meta(title_full, desc, "projects/%s/" % slug, slug),
         css=CSS, home="../../", crumb=" / " + esc(group["title"]),
+        favicon=FAVICON,
         name=esc(group["title"]),
         lede=esc(group.get("tagline") or "") + ("<br>" if group.get("tagline") else "")
         + esc(group.get("description") or ""),
@@ -908,6 +912,7 @@ def module_page(group_slug, group, mod, meta):
         social=social_meta(title_full, desc,
                            "projects/%s/%s/" % (group_slug, mod["slug"]), shot_slug),
         css=CSS, home="../../",
+        favicon=FAVICON,
         crumb=' / <a href="../" style="color:var(--muted)">%s</a> / %s'
               % (esc(group["title"]), esc(mod["title"])),
         name=esc(mod["title"]), lede=esc(mod.get("blurb") or ""),
