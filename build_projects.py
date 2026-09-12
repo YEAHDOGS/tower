@@ -402,6 +402,9 @@ def social_meta(title, desc, url_path, slug):
             lines.append('<meta property="og:image:width" content="%d">' % dims[0])
             lines.append('<meta property="og:image:height" content="%d">' % dims[1])
         lines.append('<meta name="twitter:image" content="%s">' % esc(img))
+        alt = "%s: project preview" % title
+        lines.append('<meta property="og:image:alt" content="%s">' % esc(alt))
+        lines.append('<meta name="twitter:image:alt" content="%s">' % esc(alt))
     return "\n".join(lines)
 
 
