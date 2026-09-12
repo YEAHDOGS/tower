@@ -314,6 +314,46 @@ CAPTIONS = {
 DEFAULT_CAPTIONS = ["Live site — desktop", "Live site — desktop, scrolled", "Live site — mobile (390px)"]
 
 
+SITE_BASE = "https://yeahdogs.github.io/tower"
+
+
+def social_img(slug):
+    """Absolute URL of the best share image for a detail page, or \"\".
+
+    Prefers the first live-site screenshot (desktop), falls back to the
+    generated key-art banner. Detail pages live under /tower/projects/,
+    so images resolve off SITE_BASE."""
+    hits = sorted(glob.glob(os.path.join(SHOTS_DIR, slug, "*.webp")) +
+                  glob.glob(os.path.join(SHOTS_DIR, slug, "*.png")))
+    if hits:
+        return "%s/assets/shots/%s/%s" % (SITE_BASE, slug, os.path.basename(hits[0]))
+    hits = sorted(glob.glob(os.path.join(GEN_DIR, slug, "hero.*")))
+    if hits:
+        return "%s/assets/gen/%s/%s" % (SITE_BASE, slug, os.path.basename(hits[0]))
+    return ""
+
+
+def social_meta(title, desc, url_path, slug):
+    """Open Graph + Twitter Card tags for a detail page.
+
+    Title/description mirror the <title> and meta description; no extra copy."""
+    lines = [
+        '<meta property="og:type" content="article">',
+        '<meta property="og:title" content="%s">' % esc(title),
+        '<meta property="og:description" content="%s">' % esc(desc),
+        '<meta property="og:url" content="%s">' %
+        esc("%s/%s" % (SITE_BASE, url_path.strip("/"))),
+        '<meta name="twitter:card" content="summary_large_image">',
+        '<meta name="twitter:title" content="%s">' % esc(title),
+        '<meta name="twitter:description" content="%s">' % esc(desc),
+    ]
+    img = social_img(slug)
+    if img:
+        lines.append('<meta property="og:image" content="%s">' % esc(img))
+        lines.append('<meta name="twitter:image" content="%s">' % esc(img))
+    return "\n".join(lines)
+
+
 def hero_art(slug):
     """Generated key-art banner for a hub page, or "" when absent.
 
@@ -584,6 +624,7 @@ PAGE = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title} — DOGS Project Dossier</title>
 <meta name="description" content="{meta_desc}">
+{social}
 <style>{css}</style>
 </head>
 <body>
@@ -706,9 +747,11 @@ def repo_hub(repo, meta):
     pct = pct_meta.get("percent_complete")
     pct_pill = ('<span class="badge">%d%%</span>' % pct) if isinstance(pct, (int, float)) \
         else '<span class="badge">In build</span>'
+    title_full = "%s — DOGS Project Dossier" % name
+    desc = ("DOGS project dossier: %s. %s" % (name, repo.get("description") or ""))[:160]
     return PAGE.format(
-        title=esc(name), meta_desc=esc("DOGS project dossier: %s. %s"
-                                       % (name, repo.get("description") or ""))[:160],
+        title=esc(name), meta_desc=esc(desc),
+        social=social_meta(title_full, desc, "projects/%s/" % name, name),
         css=CSS, home="../../", crumb=" / " + esc(name), name=esc(name),
         lede=esc(repo.get("description") or "No description published."),
         badge=badge, pct_pill=pct_pill, buttons=buttons,
@@ -784,10 +827,13 @@ def group_hub(slug, group, repos_by_name, meta):
         section("Ideas", ideas_html),
         section("Timeline", tl_html),
     ]))
+    title_full = "%s — DOGS Project Dossier" % group["title"]
+    desc = ("DOGS project dossier: %s. %s"
+            % (group["title"], group.get("tagline") or ""))[:160]
     return PAGE.format(
         title=esc(group["title"]),
-        meta_desc=esc("DOGS project dossier: %s. %s"
-                     % (group["title"], group.get("tagline") or ""))[:160],
+        meta_desc=esc(desc),
+        social=social_meta(title_full, desc, "projects/%s/" % slug, slug),
         css=CSS, home="../../", crumb=" / " + esc(group["title"]),
         name=esc(group["title"]),
         lede=esc(group.get("tagline") or "") + ("<br>" if group.get("tagline") else "")
@@ -852,10 +898,14 @@ def module_page(group_slug, group, mod, meta):
         section("Ideas", ideas_html),
         section("Timeline", tl_html),
     ]
+    title_full = "%s — DOGS Project Dossier" % mod["title"]
+    desc = ("DOGS project dossier: %s (a Castle module). %s"
+            % (mod["title"], mod.get("blurb") or ""))[:160]
     return PAGE.format(
         title=esc(mod["title"]),
-        meta_desc=esc("DOGS project dossier: %s (a Castle module). %s"
-                     % (mod["title"], mod.get("blurb") or ""))[:160],
+        meta_desc=esc(desc),
+        social=social_meta(title_full, desc,
+                           "projects/%s/%s/" % (group_slug, mod["slug"]), shot_slug),
         css=CSS, home="../../",
         crumb=' / <a href="../" style="color:var(--muted)">%s</a> / %s'
               % (esc(group["title"]), esc(mod["title"])),
