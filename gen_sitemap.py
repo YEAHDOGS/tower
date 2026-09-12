@@ -18,9 +18,17 @@ PROJECTS = os.path.join(HERE, "projects")
 def urls():
     out = [("index.html", "1.0")]  # hub
     for slug in sorted(os.listdir(PROJECTS)):
-        page = os.path.join(PROJECTS, slug, "index.html")
+        slug_dir = os.path.join(PROJECTS, slug)
+        if not os.path.isdir(slug_dir):
+            continue
+        page = os.path.join(slug_dir, "index.html")
         if os.path.isfile(page):
             out.append((os.path.join("projects", slug, "index.html"), "0.8"))
+        # one level deeper: sub-pages (e.g. Castle module dossiers)
+        for sub in sorted(os.listdir(slug_dir)):
+            sub_page = os.path.join(slug_dir, sub, "index.html")
+            if os.path.isfile(sub_page):
+                out.append((os.path.join("projects", slug, sub, "index.html"), "0.6"))
     return out
 
 def main():
