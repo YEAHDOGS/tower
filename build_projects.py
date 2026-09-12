@@ -44,6 +44,11 @@ import re
 import subprocess
 import sys
 
+try:
+    from PIL import Image
+except ImportError:  # image dims are optional; build must not break without it
+    Image = None
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA_JSON = os.path.join(HERE, "data.json")
 GROUPS_JSON = os.path.join(HERE, "projects", "groups.json")
@@ -325,14 +330,39 @@ def social_img(slug):
     Prefers the first live-site screenshot (desktop), falls back to the
     generated key-art banner. Detail pages live under /tower/projects/,
     so images resolve off SITE_BASE."""
+    f = social_img_file(slug)
+    if not f:
+        return ""
+    rel = os.path.relpath(f, os.path.join(HERE, "assets"))
+    return "%s/assets/%s" % (SITE_BASE, rel.replace(os.sep, "/"))
+
+
+def social_img_dims(slug):
+    """(width, height) of the best share image for a slug, or None.
+
+    Read with Pillow at build time; None on any failure so the build
+    never breaks over an unreadable image."""
+    f = social_img_file(slug)
+    if not f or Image is None:
+        return None
+    try:
+        with Image.open(f) as im:
+            return im.size
+    except Exception:
+        return None
+
+
+def social_img_file(slug):
+    """Local path of the best share image for a detail page, or "".
+
+    Prefers the first live-site screenshot (desktop), falls back to the
+    generated key-art banner."""
     hits = sorted(glob.glob(os.path.join(SHOTS_DIR, slug, "*.webp")) +
                   glob.glob(os.path.join(SHOTS_DIR, slug, "*.png")))
     if hits:
-        return "%s/assets/shots/%s/%s" % (SITE_BASE, slug, os.path.basename(hits[0]))
+        return hits[0]
     hits = sorted(glob.glob(os.path.join(GEN_DIR, slug, "hero.*")))
-    if hits:
-        return "%s/assets/gen/%s/%s" % (SITE_BASE, slug, os.path.basename(hits[0]))
-    return ""
+    return hits[0] if hits else ""
 
 
 def social_meta(title, desc, url_path, slug):
@@ -340,7 +370,8 @@ def social_meta(title, desc, url_path, slug):
 
     Title/description mirror the <title> and meta description; no extra copy.
     Emits a canonical link first so search engines index each dossier at one
-    URL (the hub at build.py already has one)."""
+    URL (the hub at build.py already has one). og:image carries width/height
+    tags so share crawlers can lay out the card without a prefetch."""
     url = "%s/%s" % (SITE_BASE, url_path.strip("/"))
     lines = [
         '<link rel="canonical" href="%s">' % esc(url),
@@ -355,6 +386,10 @@ def social_meta(title, desc, url_path, slug):
     img = social_img(slug)
     if img:
         lines.append('<meta property="og:image" content="%s">' % esc(img))
+        dims = social_img_dims(slug)
+        if dims:
+            lines.append('<meta property="og:image:width" content="%d">' % dims[0])
+            lines.append('<meta property="og:image:height" content="%d">' % dims[1])
         lines.append('<meta name="twitter:image" content="%s">' % esc(img))
     return "\n".join(lines)
 
