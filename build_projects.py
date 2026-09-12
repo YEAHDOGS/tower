@@ -550,9 +550,14 @@ main{margin-top:26px;display:grid;gap:18px}
   .cardin{animation:none}
   .hero-art{animation:none}
   .mod:hover{transform:none}
+  .skip{transition:none}
 }
 /* keyboard focus: visible ring on links, slideshow controls, cards — matches the dark aesthetic */
 :focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:6px}
+/* skip-to-content: invisible until keyboard focus, then slides into view */
+.skip{position:absolute;left:12px;top:-60px;z-index:200;background:var(--green);color:#000;
+  font-weight:700;text-decoration:none;padding:10px 16px;border-radius:8px;transition:top .18s ease}
+.skip:focus-visible{top:12px}
 @media (max-width:560px){
   body{padding:18px 12px 32px}
   .panel{padding:16px}
@@ -634,6 +639,7 @@ PAGE = """<!DOCTYPE html>
 <style>{css}</style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <header class="dossier-head">
   <p class="kicker"><a href="{home}">Watchtower</a>{crumb}</p>
   <h1>{name}</h1>
@@ -642,7 +648,7 @@ PAGE = """<!DOCTYPE html>
   <div class="actions">{buttons}</div>
 </header>
 {hero}
-<main>
+<main id="main">
 {sections}
 </main>
 <footer class="dogs-foot">

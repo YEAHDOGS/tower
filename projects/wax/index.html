@@ -141,9 +141,14 @@ main{margin-top:26px;display:grid;gap:18px}
   .cardin{animation:none}
   .hero-art{animation:none}
   .mod:hover{transform:none}
+  .skip{transition:none}
 }
 /* keyboard focus: visible ring on links, slideshow controls, cards — matches the dark aesthetic */
 :focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:6px}
+/* skip-to-content: invisible until keyboard focus, then slides into view */
+.skip{position:absolute;left:12px;top:-60px;z-index:200;background:var(--green);color:#000;
+  font-weight:700;text-decoration:none;padding:10px 16px;border-radius:8px;transition:top .18s ease}
+.skip:focus-visible{top:12px}
 @media (max-width:560px){
   body{padding:18px 12px 32px}
   .panel{padding:16px}
@@ -154,6 +159,7 @@ main{margin-top:26px;display:grid;gap:18px}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <header class="dossier-head">
   <p class="kicker"><a href="../../">Watchtower</a> / wax</p>
   <h1>wax</h1>
@@ -162,7 +168,7 @@ main{margin-top:26px;display:grid;gap:18px}
   <div class="actions"><a class="btn" href="https://yeahdogs.github.io/wax/">Live site</a><a class="btn ghost" href="https://github.com/YEAHDOGS/wax">GitHub repo</a></div>
 </header>
 <div class="hero-art"><img src="../../assets/gen/wax/hero.webp" alt="wax key art" loading="eager"></div>
-<main>
+<main id="main">
 <section class="panel"><h2>Slideshow</h2><div class="slides" data-slides="3"><div class="track"><figure class="slide"><img src="../../assets/shots/wax/shot-1-desktop.webp" alt="Live site — desktop" loading="lazy"><figcaption>Live site — desktop</figcaption></figure><figure class="slide"><img src="../../assets/shots/wax/shot-2-desktop.webp" alt="Live site — desktop, scrolled" loading="lazy"><figcaption>Live site — desktop, scrolled</figcaption></figure><figure class="slide"><img src="../../assets/shots/wax/shot-3-mobile.webp" alt="Live site — mobile (390px)" loading="lazy"><figcaption>Live site — mobile (390px)</figcaption></figure></div><button class="snav prev" aria-label="Previous slide">‹</button><button class="snav next" aria-label="Next slide">›</button><div class="scount"><span class="cur">1</span> / 3</div><div class="sdots"><button class="sdot" data-i="0" aria-label="Slide 1"></button><button class="sdot" data-i="1" aria-label="Slide 2"></button><button class="sdot" data-i="2" aria-label="Slide 3"></button></div></div></section>
 <section class="panel"><h2>Videos</h2><div class="vids two"><figure><video controls preload="metadata" src="../../demos/05-wax-drop-pass.mp4"></video><figcaption><strong>Demo: alert drop-pass CLI</strong><span>One tick of the per-minute drop cron in dry-run: board loaded, cooldowns checked, 2 price_drop alerts fired and recorded.</span></figcaption></figure><figure><video controls preload="metadata" src="../../demos/01-wax-crate-digger.mp4"></video><figcaption><strong>Demo: Crate Digger price verdict engine</strong><span>The verdict engine grades a $150 VG+ Doggystyle &#x27;93 against market data: median, spread, and a Good deal / Fair / Overpriced call — plus the reissue guardrail.</span></figcaption></figure></div></section>
 <section class="panel"><h2>What&#x27;s going on</h2><p class="lede">Wax — real-time vinyl drop alerts, collection cataloguing, and Discogs price tracking. Made by DOGS.</p><div class="commit"><p class="msg">chore(wax): root npm test runs the engine suite</p><p class="when">latest commit · 2026-09-10</p></div></section>

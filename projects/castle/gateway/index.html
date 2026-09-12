@@ -139,9 +139,14 @@ main{margin-top:26px;display:grid;gap:18px}
   .cardin{animation:none}
   .hero-art{animation:none}
   .mod:hover{transform:none}
+  .skip{transition:none}
 }
 /* keyboard focus: visible ring on links, slideshow controls, cards — matches the dark aesthetic */
 :focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:6px}
+/* skip-to-content: invisible until keyboard focus, then slides into view */
+.skip{position:absolute;left:12px;top:-60px;z-index:200;background:var(--green);color:#000;
+  font-weight:700;text-decoration:none;padding:10px 16px;border-radius:8px;transition:top .18s ease}
+.skip:focus-visible{top:12px}
 @media (max-width:560px){
   body{padding:18px 12px 32px}
   .panel{padding:16px}
@@ -152,6 +157,7 @@ main{margin-top:26px;display:grid;gap:18px}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <header class="dossier-head">
   <p class="kicker"><a href="../../">Watchtower</a> / <a href="../" style="color:var(--muted)">Castle</a> / Gateway</p>
   <h1>Gateway</h1>
@@ -160,7 +166,7 @@ main{margin-top:26px;display:grid;gap:18px}
   <div class="actions"><a class="btn ghost" href="../">← Castle hub</a></div>
 </header>
 
-<main>
+<main id="main">
 <section class="panel"><h2>Pictures</h2><div class="slide titlecard" role="img" aria-label="No live site yet — title card"><svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice"><rect width="800" height="450" fill="#0b0e14"/><rect x="24" y="24" width="752" height="402" fill="none" stroke="#232b3a" stroke-width="2"/><text x="400" y="180" text-anchor="middle" fill="#e6e9f0" font-size="64" font-weight="800" font-family="Impact,Haettenschweiler,'Arial Narrow',sans-serif" letter-spacing="2">GATEWAY</text><text x="400" y="240" text-anchor="middle" fill="#8b93a7" font-size="28" font-family="Impact,Haettenschweiler,'Arial Narrow',sans-serif" letter-spacing="6">DOGS</text><text x="400" y="300" text-anchor="middle" fill="#5b6478" font-size="20" font-family="Verdana,sans-serif">No live site yet — title card</text></svg></div></section>
 <section class="panel"><h2>What&#x27;s going on</h2><p class="lede">The router replacement: DHCP, DNS, firewall, VLANs, QoS, Pi-hole-style blocking, and quota-controlled duplicate-download caching — everything behind the ISP modem, no silent TLS interception.</p><p class="empty-note">Tracked with the Castle repo — see the <a href="../">Castle hub</a> for timeline and ideas.</p></section>
 <section class="panel"><h2>Percent complete</h2><div class="pct"><span class="inbuild">IN BUILD</span><p class="fine">No completion estimate published yet. A percentage is only shown here with a verifiable source.</p></div></section>
