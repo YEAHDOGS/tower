@@ -198,8 +198,9 @@ def open_pr_count(repo):
 
 # Repo renames: asset/dossier slugs that predate a rename, so key art, the
 # hub page, and the progress timeline stay wired to the renamed repo.
-# (YEAHDOGS/dog -> YEAHDOGS/.dog; his order: one canonical .dog repo.)
-ASSET_SLUG = {".dog": "dog"}
+# (YEAHDOGS/dog -> YEAHDOGS/.dog was consolidated 2026-09-13: assets moved to
+# assets/gen/.dog/, progress to progress/.dog.json, dossier to projects/.dog/.)
+ASSET_SLUG = {}
 
 
 def gen_art(name):

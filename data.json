@@ -2624,8 +2624,8 @@
     "updated_at": "2026-09-12T12:59:59Z"
    },
    "pages": "https://yeahdogs.github.io/.dog/",
-   "hub": "projects/dog/",
-   "art": "assets/gen/dog/hero.webp",
+   "hub": "projects/.dog/",
+   "art": "assets/gen/.dog/hero.webp",
    "site": {
     "status": "up",
     "lastCheck": "2026-09-13T03:46:51.694Z",
