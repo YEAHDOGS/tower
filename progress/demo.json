@@ -11,7 +11,7 @@
   },
   {
    "date": "2026-09-09T20:26:22+00:00",
-   "title": "docs(stage): dist inventory + one-command gh-pages staging script; decisions #6 \u2014 ship dist/ as-is when user approves",
+   "title": "docs(stage): dist inventory + one-command gh-pages staging script; decisions #6 \u2014 ship dist/ as-is when owner approves",
    "kind": "commit",
    "ref": "77f4e97",
    "branch": "jack/demo-staging-prep",

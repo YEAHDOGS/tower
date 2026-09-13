@@ -11,7 +11,7 @@
     },
     {
       "date": "2026-09-09T20:26:17+00:00",
-      "title": "docs: TASKS hygiene states the real production rule \u2014 main merges only via PR + user approval; jack/* branches are the free-push staging l",
+      "title": "docs: TASKS hygiene states the real production rule \u2014 main merges only via PR + owner approval; jack/* branches are the free-push staging l",
       "kind": "commit",
       "ref": "ce4ccce",
       "branch": "jack/sdm-pr-conventions",

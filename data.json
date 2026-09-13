@@ -611,7 +611,7 @@
      "kind": "commit"
     },
     {
-     "title": "docs: TASKS hygiene states the real production rule \u2014 main merges only via PR + user approval; jack/* branches are the free-push staging l",
+     "title": "docs: TASKS hygiene states the real production rule \u2014 main merges only via PR + owner approval; jack/* branches are the free-push staging l",
      "date": "2026-09-09T20:26:17+00:00",
      "ref": "ce4ccce",
      "branch": "jack/sdm-pr-conventions",
@@ -873,7 +873,7 @@
      "thumb": "assets/shots/demo/shot-1-desktop.webp"
     },
     {
-     "title": "docs(stage): dist inventory + one-command gh-pages staging script; decisions #6 \u2014 ship dist/ as-is when user approves",
+     "title": "docs(stage): dist inventory + one-command gh-pages staging script; decisions #6 \u2014 ship dist/ as-is when owner approves",
      "date": "2026-09-09T20:26:22+00:00",
      "ref": "77f4e97",
      "branch": "jack/demo-staging-prep",
