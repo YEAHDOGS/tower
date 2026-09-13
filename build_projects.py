@@ -524,7 +524,8 @@ a{color:inherit}
   text-transform:uppercase}
 .kicker a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line)}
 .dossier-head h1{font-family:var(--display);font-size:clamp(2.6rem,9vw,5rem);
-  text-transform:uppercase;letter-spacing:.02em;line-height:.95;margin-bottom:12px}
+  text-transform:uppercase;letter-spacing:.02em;line-height:.95;margin-bottom:12px;
+  overflow-wrap:break-word}/* long dot-names (yeahdogs.github.io) must wrap, not stretch 390px */
 .lede{color:var(--muted);font-size:1.02rem;line-height:1.55;max-width:62ch;margin-bottom:16px}
 .badges{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:18px}
 .badge{font-family:var(--display);font-size:.82rem;letter-spacing:.14em;
@@ -539,6 +540,7 @@ a{color:inherit}
 .btn.ghost{background:transparent;color:var(--text)}
 .btn:hover{opacity:.85}
 main{margin-top:26px;display:grid;gap:18px}
+main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic width was stretching pages (paper, yeahdogs.github.io overflowed 390px) */
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:22px}
 .panel>h2{font-family:var(--display);font-size:1.35rem;letter-spacing:.12em;text-transform:uppercase;
   border-left:6px solid var(--text);padding-left:12px;margin-bottom:16px}
@@ -590,7 +592,8 @@ main{margin-top:26px;display:grid;gap:18px}
   border-radius:50%;background:var(--bg);border:2px solid var(--text)}
 .timeline li.first::before{background:var(--text)}
 .timeline .t{font-size:.75rem;color:var(--dim);letter-spacing:.08em}
-.timeline .s{font-weight:600;line-height:1.45;margin-top:2px}
+.timeline .s{font-weight:600;line-height:1.45;margin-top:2px;overflow-wrap:break-word}
+/* unbreakable tokens (window.Paper, slash-paths) must wrap inside 390px */
 .timeline .tag{display:inline-block;font-family:var(--display);font-size:.68rem;letter-spacing:.16em;
   border:1px solid var(--text);border-radius:4px;padding:2px 8px;margin-left:8px;vertical-align:middle}
 /* module cards */
