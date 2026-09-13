@@ -26,6 +26,15 @@
     ],
     "url": "https://yeahdogs.github.io/castle/"
   },
+  "chains": {
+    "captured_at": "2026-09-13T11:27:11+00:00",
+    "files": [
+      "shot-1-desktop.webp",
+      "shot-2-desktop.webp",
+      "shot-3-mobile.webp"
+    ],
+    "url": "https://yeahdogs.github.io/chains/"
+  },
   "demo": {
     "captured_at": "2026-09-11T11:48:17+00:00",
     "files": [
