@@ -39,8 +39,11 @@
 body{background:var(--bg);color:var(--text);font-family:var(--body);
   padding:26px 18px 40px;max-width:1080px;margin:0 auto;-webkit-font-smoothing:antialiased}
 a{color:inherit}
-.kicker{font-family:var(--display);letter-spacing:.28em;font-size:.78rem;color:var(--muted);
-  text-transform:uppercase;margin-bottom:10px}
+.kicker{position:sticky;top:0;z-index:60;margin:-26px -18px 16px;padding:12px 18px;
+  background:rgba(0,0,0,.84);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+  font-family:var(--display);letter-spacing:.28em;font-size:.78rem;color:var(--muted);
+  text-transform:uppercase}
 .kicker a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line)}
 .dossier-head h1{font-family:var(--display);font-size:clamp(2.6rem,9vw,5rem);
   text-transform:uppercase;letter-spacing:.02em;line-height:.95;margin-bottom:12px}
@@ -163,6 +166,7 @@ main{margin-top:26px;display:grid;gap:18px}
 .skip:focus-visible{top:12px}
 @media (max-width:560px){
   body{padding:18px 12px 32px}
+  .kicker{margin:-18px -12px 14px;padding:12px 12px;letter-spacing:.18em}
   .panel{padding:16px}
   .slide img{aspect-ratio:4/5;object-position:top}
   .snav{top:30%}
@@ -172,8 +176,8 @@ main{margin-top:26px;display:grid;gap:18px}
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<p class="kicker"><a href="../../">Watchtower</a> / divorce</p>
 <header class="dossier-head">
-  <p class="kicker"><a href="../../">Watchtower</a> / divorce</p>
   <h1>divorce</h1>
   <p class="lede">An easy way to get an uncontested divorce in Oklahoma</p>
   <div class="badges"><span class="badge na">○ NOT MONITORED</span><span class="badge">In build</span></div>

@@ -39,8 +39,11 @@
 body{background:var(--bg);color:var(--text);font-family:var(--body);
   padding:26px 18px 40px;max-width:1080px;margin:0 auto;-webkit-font-smoothing:antialiased}
 a{color:inherit}
-.kicker{font-family:var(--display);letter-spacing:.28em;font-size:.78rem;color:var(--muted);
-  text-transform:uppercase;margin-bottom:10px}
+.kicker{position:sticky;top:0;z-index:60;margin:-26px -18px 16px;padding:12px 18px;
+  background:rgba(0,0,0,.84);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+  font-family:var(--display);letter-spacing:.28em;font-size:.78rem;color:var(--muted);
+  text-transform:uppercase}
 .kicker a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line)}
 .dossier-head h1{font-family:var(--display);font-size:clamp(2.6rem,9vw,5rem);
   text-transform:uppercase;letter-spacing:.02em;line-height:.95;margin-bottom:12px}
@@ -163,6 +166,7 @@ main{margin-top:26px;display:grid;gap:18px}
 .skip:focus-visible{top:12px}
 @media (max-width:560px){
   body{padding:18px 12px 32px}
+  .kicker{margin:-18px -12px 14px;padding:12px 12px;letter-spacing:.18em}
   .panel{padding:16px}
   .slide img{aspect-ratio:4/5;object-position:top}
   .snav{top:30%}
@@ -172,8 +176,8 @@ main{margin-top:26px;display:grid;gap:18px}
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<p class="kicker"><a href="../../">Watchtower</a> / demo</p>
 <header class="dossier-head">
-  <p class="kicker"><a href="../../">Watchtower</a> / demo</p>
   <h1>demo</h1>
   <p class="lede">Our portfolio</p>
   <div class="badges"><span class="badge up">● LIVE</span><span class="badge">In build</span></div>
@@ -183,7 +187,7 @@ main{margin-top:26px;display:grid;gap:18px}
 <main id="main">
 <section class="panel"><h2>Slideshow</h2><div class="slides" data-slides="3"><div class="track"><figure class="slide"><img src="../../assets/shots/demo/shot-1-desktop.webp" alt="Live site — desktop" loading="lazy"><figcaption>Live site — desktop</figcaption></figure><figure class="slide"><img src="../../assets/shots/demo/shot-2-desktop.webp" alt="Live site — desktop, scrolled" loading="lazy"><figcaption>Live site — desktop, scrolled</figcaption></figure><figure class="slide"><img src="../../assets/shots/demo/shot-3-mobile.webp" alt="Live site — mobile (390px)" loading="lazy"><figcaption>Live site — mobile (390px)</figcaption></figure></div><button class="snav prev" aria-label="Previous slide">‹</button><button class="snav next" aria-label="Next slide">›</button><div class="scount"><span class="cur">1</span> / 3</div><div class="sdots"><button class="sdot" data-i="0" aria-label="Slide 1"></button><button class="sdot" data-i="1" aria-label="Slide 2"></button><button class="sdot" data-i="2" aria-label="Slide 3"></button></div></div></section>
 <section class="panel"><h2>What&#x27;s going on</h2><p class="lede">Our portfolio</p><div class="commit"><p class="msg">chore: ignore __pycache__, build output, machine state dirs</p><p class="when">latest commit · 2026-09-10</p></div></section>
-<section class="panel"><h2>Status</h2><div class="facts"><div class="fact"><p class="k">Live status</p><p class="v ok">LIVE</p></div><div class="fact"><p class="k">Language</p><p class="v ">HTML</p></div><div class="fact"><p class="k">Stars</p><p class="v ">0</p></div><div class="fact"><p class="k">Open issues</p><p class="v ">0</p></div><div class="fact"><p class="k">Open PRs</p><p class="v ">1</p></div><div class="fact"><p class="k">Commits</p><p class="v ">5</p></div><div class="fact"><p class="k">Last push</p><p class="v ">2026-09-10</p></div><div class="fact"><p class="k">Last workflow</p><p class="v ">pages build and deployment · success</p></div></div></section>
+<section class="panel"><h2>Status</h2><div class="facts"><div class="fact"><p class="k">Live status</p><p class="v ok">LIVE</p></div><div class="fact"><p class="k">Language</p><p class="v ">HTML</p></div><div class="fact"><p class="k">Stars</p><p class="v ">0</p></div><div class="fact"><p class="k">Open issues</p><p class="v ">0</p></div><div class="fact"><p class="k">Open PRs</p><p class="v ">0</p></div><div class="fact"><p class="k">Commits</p><p class="v ">12</p></div><div class="fact"><p class="k">Last push</p><p class="v ">2026-09-12</p></div><div class="fact"><p class="k">Last workflow</p><p class="v ">pages build and deployment · success</p></div></div></section>
 <section class="panel"><h2>Percent complete</h2><div class="pct"><span class="inbuild">IN BUILD</span><p class="fine">No completion estimate published yet. A percentage is only shown here with a verifiable source.</p></div></section>
 <section class="panel"><h2>Ideas</h2><ul class="ideas"><li>ProjectCard — thumbnail, name, one-liner, live-link affordance<span class="src">from docs/design-direction.md</span></li><li>Badge — stack/tech tags, status (live / in-progress / archived)<span class="src">from docs/design-direction.md</span></li><li>SectionHeader — consistent rhythm between page sections<span class="src">from docs/design-direction.md</span></li><li>Hero — landing only; big type, current focus, single CTA<span class="src">from docs/design-direction.md</span></li></ul></section>
 <section class="panel"><h2>Timeline</h2><ol class="timeline"><li class="first"><p class="t">2026-08-12</p><p class="s">Initial commit<span class="tag">Conception</span></p></li><li><p class="t">2026-09-09</p><p class="s">Expand README: portfolio purpose, planned site shape, status</p></li><li><p class="t">2026-09-09</p><p class="s">Add docs/roadmap.md: phased plan from docs to polish</p></li><li><p class="t">2026-09-09</p><p class="s">Add docs/content-plan.md: case-study template and candidate projects</p></li><li><p class="t">2026-09-09</p><p class="s">Add docs/design-direction.md: visual principles and component vocabulary</p></li><li><p class="t">2026-09-09</p><p class="s">Add docs/decisions.md: name, framework, deploy target, domain open questions</p></li><li><p class="t">2026-09-10</p><p class="s">chore: remove [redacted] reference from content plan + name-audit regression check</p></li><li><p class="t">2026-09-10</p><p class="s">chore: ignore __pycache__, build output, machine state dirs</p></li></ol></section>

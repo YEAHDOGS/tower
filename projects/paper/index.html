@@ -39,8 +39,11 @@
 body{background:var(--bg);color:var(--text);font-family:var(--body);
   padding:26px 18px 40px;max-width:1080px;margin:0 auto;-webkit-font-smoothing:antialiased}
 a{color:inherit}
-.kicker{font-family:var(--display);letter-spacing:.28em;font-size:.78rem;color:var(--muted);
-  text-transform:uppercase;margin-bottom:10px}
+.kicker{position:sticky;top:0;z-index:60;margin:-26px -18px 16px;padding:12px 18px;
+  background:rgba(0,0,0,.84);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+  font-family:var(--display);letter-spacing:.28em;font-size:.78rem;color:var(--muted);
+  text-transform:uppercase}
 .kicker a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line)}
 .dossier-head h1{font-family:var(--display);font-size:clamp(2.6rem,9vw,5rem);
   text-transform:uppercase;letter-spacing:.02em;line-height:.95;margin-bottom:12px}
@@ -163,6 +166,7 @@ main{margin-top:26px;display:grid;gap:18px}
 .skip:focus-visible{top:12px}
 @media (max-width:560px){
   body{padding:18px 12px 32px}
+  .kicker{margin:-18px -12px 14px;padding:12px 12px;letter-spacing:.18em}
   .panel{padding:16px}
   .slide img{aspect-ratio:4/5;object-position:top}
   .snav{top:30%}
@@ -172,18 +176,18 @@ main{margin-top:26px;display:grid;gap:18px}
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<p class="kicker"><a href="../../">Watchtower</a> / paper</p>
 <header class="dossier-head">
-  <p class="kicker"><a href="../../">Watchtower</a> / paper</p>
   <h1>paper</h1>
   <p class="lede">Sick paper-trading app: crypto, stocks, options, futures, prediction markets. Fake money, real lessons.</p>
-  <div class="badges"><span class="badge up">● LIVE</span><span class="badge">In build</span></div>
+  <div class="badges"><span class="badge down">● DOWN</span><span class="badge">In build</span></div>
   <div class="actions"><a class="btn" href="https://yeahdogs.github.io/paper/">Live site</a><a class="btn ghost" href="https://github.com/YEAHDOGS/paper">GitHub repo</a></div>
 </header>
 <div class="hero-art"><img src="../../assets/gen/paper/hero.webp" alt="paper key art" loading="eager"></div>
 <main id="main">
 <section class="panel"><h2>Slideshow</h2><div class="slides" data-slides="3"><div class="track"><figure class="slide"><img src="../../assets/shots/paper/shot-1-desktop.webp" alt="Live site — desktop" loading="lazy"><figcaption>Live site — desktop</figcaption></figure><figure class="slide"><img src="../../assets/shots/paper/shot-2-desktop.webp" alt="Live site — desktop, scrolled" loading="lazy"><figcaption>Live site — desktop, scrolled</figcaption></figure><figure class="slide"><img src="../../assets/shots/paper/shot-3-mobile.webp" alt="Live site — mobile (390px)" loading="lazy"><figcaption>Live site — mobile (390px)</figcaption></figure></div><button class="snav prev" aria-label="Previous slide">‹</button><button class="snav next" aria-label="Next slide">›</button><div class="scount"><span class="cur">1</span> / 3</div><div class="sdots"><button class="sdot" data-i="0" aria-label="Slide 1"></button><button class="sdot" data-i="1" aria-label="Slide 2"></button><button class="sdot" data-i="2" aria-label="Slide 3"></button></div></div></section>
 <section class="panel"><h2>What&#x27;s going on</h2><p class="lede">Sick paper-trading app: crypto, stocks, options, futures, prediction markets. Fake money, real lessons.</p><div class="commit"><p class="msg">PAPER: live stock quotes via BYO Finnhub/Twelve key — Stooq is dead, keyed feeds, 60s auto-refresh, feed status line</p><p class="when">latest commit · 2026-09-09</p></div></section>
-<section class="panel"><h2>Status</h2><div class="facts"><div class="fact"><p class="k">Live status</p><p class="v ok">LIVE</p></div><div class="fact"><p class="k">Language</p><p class="v ">JavaScript</p></div><div class="fact"><p class="k">Stars</p><p class="v ">0</p></div><div class="fact"><p class="k">Open issues</p><p class="v ">0</p></div><div class="fact"><p class="k">Open PRs</p><p class="v ">0</p></div><div class="fact"><p class="k">Commits</p><p class="v ">4</p></div><div class="fact"><p class="k">Last push</p><p class="v ">2026-09-09</p></div><div class="fact"><p class="k">Last workflow</p><p class="v ">pages build and deployment · success</p></div></div></section>
+<section class="panel"><h2>Status</h2><div class="facts"><div class="fact"><p class="k">Live status</p><p class="v bad">DOWN</p></div><div class="fact"><p class="k">Language</p><p class="v ">JavaScript</p></div><div class="fact"><p class="k">Stars</p><p class="v ">0</p></div><div class="fact"><p class="k">Open issues</p><p class="v ">0</p></div><div class="fact"><p class="k">Open PRs</p><p class="v ">0</p></div><div class="fact"><p class="k">Commits</p><p class="v ">6</p></div><div class="fact"><p class="k">Last push</p><p class="v ">2026-09-12</p></div><div class="fact"><p class="k">Last workflow</p><p class="v ">pages build and deployment · success</p></div></div></section>
 <section class="panel"><h2>Percent complete</h2><div class="pct"><span class="inbuild">IN BUILD</span><p class="fine">No completion estimate published yet. A percentage is only shown here with a verifiable source.</p></div></section>
 <section class="panel"><h2>Ideas</h2><p class="empty-note">No published roadmap yet — ideas are still in the build log. Nothing here is invented.</p></section>
 <section class="panel"><h2>Timeline</h2><ol class="timeline"><li class="first"><p class="t">2026-09-09</p><p class="s">PAPER: paper-trading simulator for crypto, stocks, options, futures, prediction markets<span class="tag">Conception</span></p></li><li><p class="t">2026-09-09</p><p class="s">PAPER: quick-pick symbol chips per account (BTC/ETH/NVDA/TSLA/…) + live-price fill on tap</p></li><li><p class="t">2026-09-09</p><p class="s">PAPER: window.Paper API for trains (bots) — accounts/positions/trades/place/close/quote, README + example dip-buyer train, 24 api-test assertions green</p></li><li><p class="t">2026-09-09</p><p class="s">PAPER: live stock quotes via BYO Finnhub/Twelve key — Stooq is dead, keyed feeds, 60s auto-refresh, feed status line</p></li></ol></section>
