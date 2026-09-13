@@ -178,15 +178,28 @@ def pages_url(repo):
 
 
 def commit_count(repo, branch):
-    items, link = api(
-        "/repos/%s/%s/commits?per_page=1&sha=%s" % (ORG, repo, branch)
-    )
+    try:
+        items, link = api(
+            "/repos/%s/%s/commits?per_page=1&sha=%s" % (ORG, repo, branch)
+        )
+    except urllib.error.HTTPError as e:
+        # Empty repo: GitHub 409s the commits endpoint ("Git Repository is
+        # empty"). Zero commits is the honest count, not a skip.
+        if e.code == 409:
+            return 0
+        raise
     return count_from(link, items)
 
 
 def open_pr_count(repo):
     items, link = api("/repos/%s/%s/pulls?state=open&per_page=1" % (ORG, repo))
     return count_from(link, items)
+
+
+# Repo renames: asset/dossier slugs that predate a rename, so key art, the
+# hub page, and the progress timeline stay wired to the renamed repo.
+# (YEAHDOGS/dog -> YEAHDOGS/.dog; his order: one canonical .dog repo.)
+ASSET_SLUG = {".dog": "dog"}
 
 
 def gen_art(name):
@@ -202,10 +215,11 @@ def gen_art(name):
 
 def build_repo(raw):
     name = raw["name"]
+    slug = ASSET_SLUG.get(name, name)
     branch = raw.get("default_branch") or "main"
     prs = open_pr_count(name)
     issues_including_prs = raw.get("open_issues_count") or 0
-    hub_path = os.path.join("projects", name, "index.html")
+    hub_path = os.path.join("projects", slug, "index.html")
     return {
         "name": name,
         "description": raw.get("description") or "",
@@ -219,12 +233,12 @@ def build_repo(raw):
         "branch": branch,
         "workflow": latest_workflow(name),
         "pages": pages_url(name),
-        # tile links open the project hub page (projects/<name>/) when one
+        # tile links open the project hub page (projects/<slug>/) when one
         # exists; the redesign's index.html reads r.hub for this.
-        "hub": ("projects/" + name + "/") if os.path.isfile(hub_path) else None,
-        # Generated key art (assets/gen/<name>/hero.*); the tile falls back
+        "hub": ("projects/" + slug + "/") if os.path.isfile(hub_path) else None,
+        # Generated key art (assets/gen/<slug>/hero.*); the tile falls back
         # to this when no live-site screenshot progress entry exists.
-        "art": gen_art(name),
+        "art": gen_art(slug),
     }
 
 
@@ -314,7 +328,10 @@ def main():
             # unavailable or the repo has no monitored site.
             repo["site"] = site_by_repo.get(repo["name"]) if site_by_repo else None
             # Dated progress timeline from progress/<repo>.json (may be empty).
-            repo["progress"] = progress_by_repo.get(repo["name"], [])
+            # Follows ASSET_SLUG renames so a renamed repo keeps its timeline.
+            repo["progress"] = progress_by_repo.get(
+                ASSET_SLUG.get(repo["name"], repo["name"]), []
+            )
             out.append(repo)
         except Exception as e:  # noqa: BLE001 - one bad repo must not kill the build
             print("WARN: skipping %s: %s" % (raw.get("name"), e), file=sys.stderr)
