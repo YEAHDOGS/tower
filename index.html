@@ -107,6 +107,7 @@
     aspect-ratio: 21 / 9;
     margin-bottom: 22px;
     /* entrance handled by .reveal section transitions, not the tile rise */
+    touch-action: pan-y; /* vertical scroll stays native; we own horizontal swipes */
   }
   .hero-track { position: absolute; inset: 0; }
   .hero-slide {
@@ -697,6 +698,31 @@
         if (e.key === "ArrowLeft") { e.preventDefault(); heroGo(heroIdx - 1); }
         else if (e.key === "ArrowRight") { e.preventDefault(); heroGo(heroIdx + 1); }
       });
+      // Touch swipe: the native mobile gesture. Horizontal swipe moves
+      // slides; vertical drags scroll the page untouched (passive, no
+      // preventDefault). Tap-length gestures (< 48px) fall through to links.
+      var tX = 0, tY = 0, tId = null;
+      hero.addEventListener("touchstart", function (e) {
+        var t = e.changedTouches[0];
+        tX = t.clientX; tY = t.clientY; tId = t.identifier;
+        heroStop();
+      }, { passive: true });
+      hero.addEventListener("touchend", function (e) {
+        var t = null, i;
+        for (i = 0; i < e.changedTouches.length; i++) {
+          if (e.changedTouches[i].identifier === tId) { t = e.changedTouches[i]; break; }
+        }
+        tId = null;
+        if (t) {
+          var dx = t.clientX - tX, dy = t.clientY - tY;
+          if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+            heroGo(dx < 0 ? heroIdx + 1 : heroIdx - 1);
+            return;
+          }
+        }
+        heroStart();
+      }, { passive: true });
+      hero.addEventListener("touchcancel", function () { tId = null; heroStart(); }, { passive: true });
       hero.addEventListener("mouseenter", heroStop);
       hero.addEventListener("mouseleave", heroStart);
       hero.addEventListener("focusin", heroStop);
