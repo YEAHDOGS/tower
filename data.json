@@ -2656,7 +2656,7 @@
    "workflow": null,
    "pages": null,
    "hub": null,
-   "art": null,
+   "art": "assets/gen/dogs.red/hero.webp",
    "site": null,
    "progress": []
   }
