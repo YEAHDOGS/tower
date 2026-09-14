@@ -741,11 +741,13 @@
     }
   }
 
-  // ---- page/section transitions: fade+slide each section in as it
-  // enters the viewport; smooth scroll between anchor sections. Classes are
-  // applied from JS so no-JS visitors never see a hidden page.
+  // ---- page/section transitions: fade+slide every section in as it
+  // enters the viewport; smooth scroll between anchor sections. The tile
+  // grid is a section too — it rises as a block while tiles stagger
+  // inside (tile entrance animation is separate). Classes are applied from
+  // JS so no-JS visitors never see a hidden page.
   function setupReveals() {
-    var sel = "#statusline, #hero, .controls, #chips";
+    var sel = "#statusline, #hero, .controls, #chips, #tiles";
     var els = document.querySelectorAll(sel);
     if (reduceMotion || !("IntersectionObserver" in window)) {
       Array.prototype.forEach.call(els, function (n) { n.classList.add("in"); });
