@@ -359,10 +359,14 @@
     .head-badge { height: 26px; }
     .head-name { font-size: 1.02rem; white-space: nowrap; }
     .head-nav a { font-size: 0.78rem; padding: 7px 8px; }
-    /* Featured: carousel controls move to the top so the scrim copy gets
-       the full width instead of a 128px carve-out. */
-    .hero-ui { top: 10px; bottom: auto; right: 10px; }
-    .hero-scrim { padding: 64px 18px 16px; }
+    /* Featured: controls ride bottom-right over the scrim gradient (dark,
+       readable, standard carousel spot) instead of floating over the
+       slide's own UI up top; scrim keeps a carve-out so copy never
+       collides with them. */
+    .hero-ui { top: auto; bottom: 10px; right: 10px; gap: 8px; }
+    .hero-scrim { padding: 40px 18px 54px 18px; }
+    .hero-arrow { width: 30px; height: 30px; }
+    .hero-dot { width: 16px; }
     .hero-name { font-size: 1.05rem; }
     .hero-tag { font-size: 0.82rem; }
     .hero-arrow { width: 36px; height: 36px; }
