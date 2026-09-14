@@ -446,7 +446,7 @@ def hero_art(slug):
     if not hits:
         return ""
     rel = "../../assets/gen/%s/%s" % (slug, os.path.basename(hits[0]))
-    return ('<div class="hero-art"><img src="%s" alt="%s key art" loading="eager">'
+    return ('<div class="hero-art"><img src="%s" alt="%s key art" loading="eager" decoding="async">'
             "</div>" % (esc(rel), esc(slug)))
 
 
@@ -461,7 +461,7 @@ def slideshow(slug, name):
         cap = caps[i] if i < len(caps) else "Live site"
         rel = "../../assets/shots/%s/%s" % (slug, os.path.basename(f))
         slides.append(
-            '<figure class="slide"><img src="%s" alt="%s" loading="lazy">'
+            '<figure class="slide"><img src="%s" alt="%s" loading="lazy" decoding="async">'
             '<figcaption>%s</figcaption></figure>' % (esc(rel), esc(cap), esc(cap))
         )
     dots = "".join(
@@ -743,7 +743,7 @@ PAGE = """<!DOCTYPE html>
 {sections}
 </main>
 <footer class="dogs-foot">
-  <a href="https://wearedogs.net"><img src="{badge_src}" alt="DOGS"></a>
+  <a href="https://wearedogs.net"><img src="{badge_src}" alt="DOGS" decoding="async"></a>
 </footer>
 <script>{js}</script>
 </body>
