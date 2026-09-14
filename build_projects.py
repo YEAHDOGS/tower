@@ -657,6 +657,7 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
   .scount{top:8px;right:8px;padding:3px 10px;font-size:.7rem}
   .sdots{padding:10px;gap:6px}
   .sdot{width:8px;height:8px}
+  .timeline .tag{display:block;width:fit-content;margin:8px 0 0;vertical-align:baseline}/* 390px: tag gets its own line so it never crowds the subject */
   .dogs-foot img{max-width:180px}
 }
 """
