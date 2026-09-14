@@ -69,11 +69,28 @@
   @supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
     .site-head { background: var(--bg); }
   }
+  .head-left {
+    display: inline-flex; align-items: center; gap: 12px; min-width: 0;
+  }
+  .head-badge-link { display: inline-flex; flex-shrink: 0; border-radius: 6px; }
   .head-brand {
     display: inline-flex; align-items: center; gap: 12px;
-    text-decoration: none; color: var(--text);
+    text-decoration: none; color: var(--text); min-width: 0;
   }
+  .head-badge { height: 32px; width: auto; display: block; flex-shrink: 0; }
   .head-name { font-size: 1.3rem; letter-spacing: 0.02em; font-weight: 750; margin: 0; }
+  /* minimal nav: page-section anchors, no clutter */
+  .head-nav { display: flex; align-items: center; gap: 2px; }
+  .head-nav a {
+    color: var(--muted); text-decoration: none;
+    font-size: 0.82rem; font-weight: 600; letter-spacing: 0.02em;
+    padding: 8px 11px; border-radius: 8px;
+    transition: color .15s ease, background .15s ease;
+  }
+  .head-nav a:hover { color: var(--text); background: rgba(255,255,255,.06); }
+  @media (prefers-reduced-motion: reduce) {
+    .head-nav a { transition: none; }
+  }
   .statusline {
     margin-bottom: 18px; font-size: 0.8rem; color: var(--muted);
     display: flex; gap: 14px; flex-wrap: wrap;
@@ -310,22 +327,6 @@
   }
   .error { color: var(--red); margin-top: 16px; }
 
-  /* ---- footer ---- */
-  footer {
-    margin-top: 56px; padding-top: 24px;
-    border-top: 1px solid var(--tile-border);
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 16px; flex-wrap: wrap;
-  }
-  footer .note { color: var(--muted); font-size: 0.78rem; max-width: 560px; line-height: 1.5; }
-  footer .note a { color: var(--muted); }
-  .dogs-foot a {
-    display: inline-flex; align-items: center; gap: 10px;
-    text-decoration: none; color: var(--muted); font-size: 0.82rem;
-  }
-  .dogs-foot img { height: 30px; width: auto; display: block; }
-  .dogs-foot b { color: var(--text); }
-
   @media (max-width: 640px) {
     body { padding: 20px 14px 48px; }
     .site-head { margin: 0 -14px 16px; padding: 10px 14px; gap: 8px; }
@@ -346,15 +347,18 @@
     .tiles { gap: 28px; }
     .tile-body { padding: 16px 20px; }
     .tile h2 { font-size: 1.28rem; }
-    /* Controls: generous top rhythm; footer gets a roomier closer. */
+    /* Controls: generous top rhythm at 1440px. */
     .controls { margin: 22px 0 14px; }
     .chips { margin-bottom: 22px; }
-    footer { margin-top: 72px; }
   }
   /* ---- 390px polish: phone-first spacing and breathing room ---- */
   @media (max-width: 480px) {
     body { padding: 16px 12px 44px; }
-    .site-head { margin: 0 -12px 12px; padding: 10px 12px; }
+    .site-head { margin: 0 -12px 12px; padding: 10px 12px; gap: 6px; }
+    .head-left { gap: 8px; }
+    .head-badge { height: 26px; }
+    .head-name { font-size: 1.02rem; white-space: nowrap; }
+    .head-nav a { font-size: 0.78rem; padding: 7px 8px; }
     /* Featured: carousel controls move to the top so the scrim copy gets
        the full width instead of a 128px carve-out. */
     .hero-ui { top: 10px; bottom: auto; right: 10px; }
@@ -374,8 +378,6 @@
     .tile-body { padding: 12px 14px; gap: 8px; }
     .desc { font-size: 0.84rem; }
     .tile-foot { padding-top: 8px; }
-    /* Footer: stack centered on a narrow screen. */
-    footer { flex-direction: column; align-items: center; text-align: center; margin-top: 44px; }
   }
 </style>
 </head>
@@ -383,9 +385,18 @@
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="site-head">
-  <a class="head-brand" href="./" aria-label="Watchtower — back to top">
-    <h1 class="head-name">Watchtower</h1>
-  </a>
+  <div class="head-left">
+    <a class="head-badge-link" href="https://wearedogs.net" aria-label="This product was made by DOGS">
+      <img class="head-badge" src="assets/made-by-dogs.webp" alt="This product was made by DOGS" width="360" height="119">
+    </a>
+    <a class="head-brand" href="./" aria-label="Watchtower — back to top">
+      <h1 class="head-name">Watchtower</h1>
+    </a>
+  </div>
+  <nav class="head-nav" aria-label="Page sections">
+    <a href="#hero">Featured</a>
+    <a href="#tiles">Projects</a>
+  </nav>
 </header>
 <p class="statusline" id="statusline" aria-live="polite">
   <span id="proj-count">…</span>
@@ -426,12 +437,6 @@
     <p style="color:#8b93a7;margin-top:20px">Watchtower's project tiles need JavaScript to load live status data. The raw project list is available in <a href="data.json" style="color:#6ea8fe">data.json</a>.</p>
   </noscript>
 </main>
-
-<footer>
-  <div class="dogs-foot">
-    <a href="https://wearedogs.net"><img src="assets/made-by-dogs.webp" alt="DOGS" width="360" height="119"></a>
-  </div>
-</footer>
 
 <script>
 (function () {
@@ -740,7 +745,7 @@
   // enters the viewport; smooth scroll between anchor sections. Classes are
   // applied from JS so no-JS visitors never see a hidden page.
   function setupReveals() {
-    var sel = "#statusline, #hero, .controls, #chips, footer";
+    var sel = "#statusline, #hero, .controls, #chips";
     var els = document.querySelectorAll(sel);
     if (reduceMotion || !("IntersectionObserver" in window)) {
       Array.prototype.forEach.call(els, function (n) { n.classList.add("in"); });
