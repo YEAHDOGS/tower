@@ -276,6 +276,9 @@
     transition: top .18s ease;
   }
   .skip:focus-visible { top: 12px; }
+  @media (prefers-reduced-motion: reduce) {
+    .skip { transition: none; }
+  }
   /* visually hidden but still announced by screen readers (carousel live region) */
   .visually-hidden {
     position: absolute !important;
@@ -391,7 +394,7 @@
 <header class="site-head">
   <div class="head-left">
     <a class="head-badge-link" href="https://wearedogs.net" aria-label="This product was made by DOGS">
-      <img class="head-badge" src="assets/made-by-dogs.webp" alt="This product was made by DOGS" width="360" height="119">
+      <img class="head-badge" src="assets/made-by-dogs.webp" alt="This product was made by DOGS" width="360" height="119" decoding="async">
     </a>
     <a class="head-brand" href="./" aria-label="Watchtower — back to top">
       <h1 class="head-name">Watchtower</h1>
@@ -515,6 +518,7 @@
       img.src = e.thumb || e.url;
       img.alt = e.title || (r.name + " screenshot");
       img.loading = "lazy";
+      img.decoding = "async";
       d.appendChild(img);
       d.title = e.title;
     } else {
@@ -688,6 +692,7 @@
       img.src = it.im.thumb || it.im.url;
       img.alt = it.r.name + " preview";
       img.loading = i === 0 ? "eager" : "lazy";
+      img.decoding = "async";
       if (i === 0) img.setAttribute("fetchpriority", "high");
       a.appendChild(img);
       var scrim = el("div", "hero-scrim");
