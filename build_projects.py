@@ -650,7 +650,11 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
   .kicker{margin:-18px -12px 14px;padding:12px 12px;letter-spacing:.18em}
   .panel{padding:16px}
   .slide img{aspect-ratio:4/5;object-position:top}
-  .snav{top:30%}
+  .snav{top:30%;width:36px;height:36px;font-size:1.2rem}
+  .snav.prev{left:6px}.snav.next{right:6px}
+  .scount{top:8px;right:8px;padding:3px 10px;font-size:.7rem}
+  .sdots{padding:10px;gap:6px}
+  .sdot{width:8px;height:8px}
   .dogs-foot img{max-width:180px}
 }
 """
