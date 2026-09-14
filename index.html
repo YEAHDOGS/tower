@@ -447,6 +447,10 @@
   "use strict";
 
   var FEATURED = ["castle"];
+  // Slugs in FEATURED/CAROUSEL are lowercase; repo names come back from
+  // the API lowercase too, but group tiles use the group's display title
+  // ("Castle"). norm() keeps the featured matching case-proof.
+  function norm(n) { return (n || "").toLowerCase(); }
   // tower / watchtower / demo are all the same project — the portfolio
   // itself. It doesn't monitor its own uptime, so it gets no tile.
   var HIDDEN = ["tower", "watchtower", "demo", "yeahdogs.github.io"];
@@ -521,7 +525,7 @@
   }
 
   function tile(r, siteAvail) {
-    var a = el("article", "tile" + (FEATURED.indexOf(r.name) !== -1 ? " wide" : "") +
+    var a = el("article", "tile" + (FEATURED.indexOf(norm(r.name)) !== -1 ? " wide" : "") +
       " cat-" + (r.category || "Apps").toLowerCase());
     a.setAttribute("aria-label", r.name);
 
@@ -665,7 +669,7 @@
     CAROUSEL.forEach(function (slug) {
       for (var i = 0; i < state.repos.length; i++) {
         var r = state.repos[i];
-        if (r.name === slug) {
+        if (norm(r.name) === slug) {
           var im = slideImg(r);
           if (im) items.push({ r: r, im: im });
           break;
@@ -688,7 +692,7 @@
       a.appendChild(img);
       var scrim = el("div", "hero-scrim");
       scrim.appendChild(el("div", "hero-name", it.r.name));
-      var tag = CAROUSEL_TAGS[it.r.name] || it.r.description || "";
+      var tag = CAROUSEL_TAGS[norm(it.r.name)] || it.r.description || "";
       if (tag) scrim.appendChild(el("div", "hero-tag", tag));
       a.appendChild(scrim);
       track.appendChild(a);
