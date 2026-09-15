@@ -660,6 +660,9 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
   .timeline .tag{display:block;width:fit-content;margin:8px 0 0;vertical-align:baseline}/* 390px: tag gets its own line so it never crowds the subject */
   .dogs-foot img{max-width:180px}
 }
+@media (min-width:900px){
+  .ideas{grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px 22px}/* desktop: two columns so the IDEAS panel fills the 1080px content width instead of one skinny column */
+}
 """
 
 JS = """
