@@ -101,6 +101,10 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
 .inbuild{display:inline-block;font-family:var(--display);letter-spacing:.18em;font-size:1.1rem;
   border:2px solid var(--text);border-radius:8px;padding:10px 20px;margin-bottom:10px}
 .fine{font-size:.85rem;color:var(--muted);line-height:1.5;max-width:60ch}
+/* percent: the no-estimate state speaks the same dashed placeholder-card language as empty IDEAS/timeline panels */
+.pct-empty{border:1px dashed var(--line);border-radius:10px;padding:20px 18px;max-width:52ch}
+.pct-empty .inbuild{margin-bottom:12px}
+.pct-empty .fine{margin:0}
 /* ideas */
 .ideas{list-style:none;display:grid;gap:10px}
 .ideas li{border-left:3px solid var(--text);padding:8px 0 8px 14px;line-height:1.5}
@@ -200,7 +204,7 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
 <main id="main">
 <section class="panel"><h2>Pictures</h2><div class="slide titlecard" role="img" aria-label="No live site yet — title card"><svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice"><rect width="800" height="450" fill="#0b0e14"/><rect x="24" y="24" width="752" height="402" fill="none" stroke="#232b3a" stroke-width="2"/><text x="400" y="180" text-anchor="middle" fill="#e6e9f0" font-size="64" font-weight="800" font-family="Impact,Haettenschweiler,'Arial Narrow',sans-serif" letter-spacing="2">CASTLE OS</text><text x="400" y="240" text-anchor="middle" fill="#8b93a7" font-size="28" font-family="Impact,Haettenschweiler,'Arial Narrow',sans-serif" letter-spacing="6">DOGS</text><text x="400" y="300" text-anchor="middle" fill="#5b6478" font-size="20" font-family="Verdana,sans-serif">No live site yet — title card</text></svg></div></section>
 <section class="panel"><h2>What&#x27;s going on</h2><p class="lede">The operating system underneath Castle. Ships headless CLI-only, or with a GUI on a Wayland compositor.</p><div class="commit"><p class="msg">Phase 1: Castle OS live ISO profile (cli + gui modes)</p><p class="when">latest commit · 2026-09-09</p></div></section>
-<section class="panel"><h2>Percent complete</h2><div class="pct"><span class="inbuild">IN BUILD</span><p class="fine">No completion estimate published yet. A percentage is only shown here with a verifiable source.</p></div></section>
+<section class="panel"><h2>Percent complete</h2><div class="pct pct-empty"><span class="inbuild">IN BUILD</span><p class="fine">No completion estimate published yet. A percentage is only shown here with a verifiable source.</p></div></section>
 <section class="panel"><h2>Ideas</h2><ul class="ideas"><li>[ ] Router: nftables policy, DHCP/DNS (dnsmasq is installed; policy isn&#x27;t),<span class="src">from docs/PHASE2-TODO.md</span></li><li>[ ] NAS / private cloud: Samba shares, storage pooling, the 10TB-drive story<span class="src">from docs/PHASE2-TODO.md</span></li><li>[ ] Arcade: emulator set, controller support, kiosk launcher<span class="src">from docs/PHASE2-TODO.md</span></li><li>[ ] Headless-first admin: SSH hardening, web dashboard or TUI<span class="src">from docs/PHASE2-TODO.md</span></li></ul></section>
 <section class="panel"><h2>Timeline</h2><ol class="timeline"><li class="first"><p class="t">2026-09-09</p><p class="s">Phase 1: Castle OS live ISO profile (cli + gui modes)<span class="tag">Conception</span></p></li></ol></section>
 </main>

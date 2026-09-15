@@ -287,7 +287,7 @@ def percent_block(meta):
             % (p, p, src)
         )
     return (
-        '<div class="pct"><span class="inbuild">IN BUILD</span>'
+        '<div class="pct pct-empty"><span class="inbuild">IN BUILD</span>'
         '<p class="fine">No completion estimate published yet. A percentage is only '
         'shown here with a verifiable source.</p></div>'
     )
@@ -579,6 +579,10 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
 .inbuild{display:inline-block;font-family:var(--display);letter-spacing:.18em;font-size:1.1rem;
   border:2px solid var(--text);border-radius:8px;padding:10px 20px;margin-bottom:10px}
 .fine{font-size:.85rem;color:var(--muted);line-height:1.5;max-width:60ch}
+/* percent: the no-estimate state speaks the same dashed placeholder-card language as empty IDEAS/timeline panels */
+.pct-empty{border:1px dashed var(--line);border-radius:10px;padding:20px 18px;max-width:52ch}
+.pct-empty .inbuild{margin-bottom:12px}
+.pct-empty .fine{margin:0}
 /* ideas */
 .ideas{list-style:none;display:grid;gap:10px}
 .ideas li{border-left:3px solid var(--text);padding:8px 0 8px 14px;line-height:1.5}

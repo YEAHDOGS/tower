@@ -101,6 +101,10 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
 .inbuild{display:inline-block;font-family:var(--display);letter-spacing:.18em;font-size:1.1rem;
   border:2px solid var(--text);border-radius:8px;padding:10px 20px;margin-bottom:10px}
 .fine{font-size:.85rem;color:var(--muted);line-height:1.5;max-width:60ch}
+/* percent: the no-estimate state speaks the same dashed placeholder-card language as empty IDEAS/timeline panels */
+.pct-empty{border:1px dashed var(--line);border-radius:10px;padding:20px 18px;max-width:52ch}
+.pct-empty .inbuild{margin-bottom:12px}
+.pct-empty .fine{margin:0}
 /* ideas */
 .ideas{list-style:none;display:grid;gap:10px}
 .ideas li{border-left:3px solid var(--text);padding:8px 0 8px 14px;line-height:1.5}
@@ -202,7 +206,7 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
 <section class="panel"><h2>Videos</h2><div class="vids"><figure><video controls preload="metadata" src="../../demos/03-divorce-test-checkout.mp4"></video><figcaption><strong>Demo: $30 test checkout → printable packet</strong><span>The full staging flow with zero Stripe involvement: checkout session, signed webhook, idempotent dedupe, token-gated packet download.</span></figcaption></figure></div></section>
 <section class="panel"><h2>What&#x27;s going on</h2><p class="lede">An easy way to get an uncontested divorce in Oklahoma</p><div class="commit"><p class="msg">Initial commit</p><p class="when">latest commit · 2026-08-26</p></div></section>
 <section class="panel"><h2>Status</h2><div class="facts"><div class="fact"><p class="k">Live status</p><p class="v ">not monitored</p></div><div class="fact"><p class="k">Language</p><p class="v ">Svelte</p></div><div class="fact"><p class="k">Stars</p><p class="v ">0</p></div><div class="fact"><p class="k">Open issues</p><p class="v ">0</p></div><div class="fact"><p class="k">Open PRs</p><p class="v ">0</p></div><div class="fact"><p class="k">Commits</p><p class="v ">1</p></div><div class="fact"><p class="k">Last push</p><p class="v ">2026-09-09</p></div><div class="fact"><p class="k">Last workflow</p><p class="v ">pages build and deployment · success</p></div></div></section>
-<section class="panel"><h2>Percent complete</h2><div class="pct"><span class="inbuild">IN BUILD</span><p class="fine">No completion estimate published yet. A percentage is only shown here with a verifiable source.</p></div></section>
+<section class="panel"><h2>Percent complete</h2><div class="pct pct-empty"><span class="inbuild">IN BUILD</span><p class="fine">No completion estimate published yet. A percentage is only shown here with a verifiable source.</p></div></section>
 <section class="panel"><h2>Ideas</h2><p class="empty-note">No published roadmap yet — ideas are still in the build log. Nothing here is invented.</p></section>
 <section class="panel"><h2>Timeline</h2><ol class="timeline"><li class="first"><p class="t">2026-08-26</p><p class="s">Initial commit<span class="tag">Conception</span></p></li></ol></section>
 </main>
