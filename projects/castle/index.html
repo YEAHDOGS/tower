@@ -90,9 +90,9 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
 .commit .when{font-size:.8rem;color:var(--dim)}
 /* status facts */
 .facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
-.fact{border:1px solid var(--line);border-radius:8px;padding:12px;background:#000}
+.fact{border:1px solid var(--line);border-radius:10px;padding:12px;background:#000;min-width:0}
 .fact .k{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
-.fact .v{font-weight:600;font-size:.95rem}
+.fact .v{font-weight:600;font-size:.95rem;font-variant-numeric:tabular-nums;overflow-wrap:break-word;line-height:1.4}
 .fact .v.ok{color:var(--green)} .fact .v.bad{color:var(--red)}
 /* percent */
 .pct-bar{height:14px;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:#000;margin-bottom:10px}
@@ -250,7 +250,7 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
     go(0);
   });
 
-  // motion: scroll-reveal sections + staggered module-card entrance.
+  // motion: scroll-reveal sections + staggered module/fact-card entrance.
   // classes are added from JS only, so no-JS visitors never see hidden content.
   (function(){
     var reduceM = window.matchMedia &&
@@ -266,7 +266,7 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
         s.classList.add('reveal'); io.observe(s);
       });
     }
-    var cards = document.querySelectorAll('.mods .mod');
+    var cards = document.querySelectorAll('.mods .mod, .facts .fact');
     Array.prototype.forEach.call(cards, function(c, i){
       c.style.animationDelay = Math.min(i*45, 700) + 'ms';
       c.classList.add('cardin');
