@@ -188,6 +188,9 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
 }
 @media (min-width:900px){
   .ideas{grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px 22px}/* desktop: two columns so the IDEAS panel fills the 1080px content width instead of one skinny column */
+  .timeline li{display:grid;grid-template-columns:110px 1fr;gap:4px 22px;align-items:baseline}/* desktop: date and subject share one row — the TIMELINE panel fills the 1080px content width instead of stacking like mobile */
+  .timeline .t{text-align:right}
+  .timeline .s{margin-top:0}
 }
 </style>
 </head>
