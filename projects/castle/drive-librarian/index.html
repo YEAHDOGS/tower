@@ -126,7 +126,8 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
   border:1px solid var(--text);border-radius:4px;padding:2px 8px;margin-left:8px;vertical-align:middle}
 /* module cards */
 .mods{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
-.mod{border:1px solid var(--line);border-radius:8px;padding:18px;background:#000;text-decoration:none;
+.mod{border:1px solid var(--line);border-radius:10px;padding:18px;background:#000;text-decoration:none;
+/* 10px radius matches the fact/panel/placeholder card language (was 8px) */
   display:block;transition:border-color .15s ease,transform .15s ease}
 .mod:hover{border-color:var(--text);transform:translateY(-3px)}
 .mod h3{font-family:var(--display);letter-spacing:.06em;text-transform:uppercase;font-size:1.15rem;margin-bottom:8px}
@@ -259,25 +260,40 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
 
   // motion: scroll-reveal sections + staggered module/fact-card entrance.
   // classes are added from JS only, so no-JS visitors never see hidden content.
+  // audit fix: the card stagger used to fire at page load, so cards in panels
+  // below the fold (e.g. castle's Modules) animated invisibly behind the panel's
+  // own opacity:0 reveal. The stagger now fires per-panel, when the panel is
+  // actually scrolled into view.
   (function(){
     var reduceM = window.matchMedia &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(!reduceM && ('IntersectionObserver' in window)){
-      var secs = document.querySelectorAll('main .panel');
-      var io = new IntersectionObserver(function(es){
-        es.forEach(function(en){
-          if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
-        });
-      }, {rootMargin:'0px 0px -6% 0px', threshold:0.06});
-      Array.prototype.forEach.call(secs, function(s){
-        s.classList.add('reveal'); io.observe(s);
+    var hasIO = 'IntersectionObserver' in window;
+    function cardinPanel(scope){
+      var cards = scope.querySelectorAll('.mod, .fact');
+      Array.prototype.forEach.call(cards, function(c, i){
+        c.style.animationDelay = Math.min(i*45, 700) + 'ms';
+        c.classList.add('cardin');
       });
     }
-    var cards = document.querySelectorAll('.mods .mod, .facts .fact');
-    Array.prototype.forEach.call(cards, function(c, i){
-      c.style.animationDelay = Math.min(i*45, 700) + 'ms';
-      c.classList.add('cardin');
-    });
+    if(!reduceM && hasIO){
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(en){
+          if(en.isIntersecting){
+            en.target.classList.add('in');
+            cardinPanel(en.target);
+            io.unobserve(en.target);
+          }
+        });
+      }, {rootMargin:'0px 0px -6% 0px', threshold:0.06});
+      Array.prototype.forEach.call(document.querySelectorAll('main .panel'), function(s){
+        s.classList.add('reveal'); io.observe(s);
+      });
+    } else {
+      // reduced-motion or no IntersectionObserver: no scroll-reveal, so cards
+      // enter at load exactly as before (CSS still neuters the animation when
+      // reduced-motion is on).
+      cardinPanel(document);
+    }
   })();
 })();
 </script>
