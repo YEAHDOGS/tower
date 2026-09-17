@@ -135,7 +135,12 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
   font-family:var(--display);text-transform:uppercase;border-bottom:1px solid var(--text)}
 /* motion: header entrance, scroll-reveal sections, staggered module cards */
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-.dossier-head{animation:rise .5s ease both}
+/* dossier-head: the head itself doesn't move — its children stagger in
+   (h1 → lede → badges → actions), the same staggered language as the module cards */
+.dossier-head>*{animation:rise .45s ease backwards}
+.dossier-head .lede{animation-delay:.07s}
+.dossier-head .badges{animation-delay:.14s}
+.dossier-head .actions{animation-delay:.21s}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
 .reveal.in{opacity:1;transform:none}
 .cardin{animation:rise .45s ease backwards}
@@ -160,7 +165,7 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
   .track{transition:none}
   .mod{transition:none}
   .snav,.sdot{transition:none}
-  .dossier-head{animation:none}
+  .dossier-head>*{animation:none}
   .pct-bar i{animation:none}/* reduced-motion: bar renders at final width, no fill-in */
   .reveal{opacity:1;transform:none;transition:none}
   .cardin{animation:none}
