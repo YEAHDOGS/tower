@@ -567,6 +567,12 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
 .snav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.65);color:#fff;border:1px solid var(--line);
   width:42px;height:42px;border-radius:50%;font-size:1.4rem;cursor:pointer;line-height:1}
 .snav.prev{left:10px}.snav.next{right:10px}
+/* touch-only layouts: swipe owns navigation, so the arrow chrome fades back
+   over the key art and only surfaces when the visitor touches or focuses it */
+@media (pointer:coarse){
+  .snav{opacity:.55;transition:opacity .2s ease}
+  .snav:hover,.snav:active,.snav:focus-visible{opacity:1}
+}
 /* slideshow footer: one row — caption left, dots + count right
    (audit: was a stacked caption bar plus a separate dots bar, 69px of chrome) */
 .sfoot{display:flex;align-items:center;gap:8px 14px;flex-wrap:wrap;padding:10px 14px;border-top:1px solid var(--line)}
