@@ -70,20 +70,24 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
 .hero-art{margin:0 0 6px;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
 .hero-art img{width:100%;display:block;aspect-ratio:21/9;object-fit:cover}
 /* slideshow */
-.slides{position:relative;overflow:hidden;border-radius:8px;border:1px solid var(--line);background:#000}
+.slides{overflow:hidden;border-radius:8px;border:1px solid var(--line);background:#000}
+.stage{position:relative;overflow:hidden}/* arrows center on the image itself, not on the whole box */
 .track{display:flex;transition:transform .35s ease}
 .slide{min-width:100%}
 .slide img{width:100%;display:block;aspect-ratio:16/10;object-fit:cover;object-position:top}
 .slide.titlecard svg{width:100%;display:block}
-.slide figcaption{font-size:.78rem;color:var(--muted);padding:10px 14px;border-top:1px solid var(--line)}
-.snav{position:absolute;top:38%;background:rgba(0,0,0,.65);color:#fff;border:1px solid var(--line);
+.snav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.65);color:#fff;border:1px solid var(--line);
   width:42px;height:42px;border-radius:50%;font-size:1.4rem;cursor:pointer;line-height:1}
 .snav.prev{left:10px}.snav.next{right:10px}
-.scount{position:absolute;top:10px;right:12px;background:rgba(0,0,0,.65);border:1px solid var(--line);
-  border-radius:999px;padding:4px 12px;font-size:.75rem;color:var(--muted)}
-.sdots{display:flex;gap:8px;justify-content:center;padding:12px}
-.sdot{width:10px;height:10px;border-radius:50%;border:1px solid var(--dim);background:transparent;cursor:pointer}
-.sdot[aria-current="true"]{background:var(--text);border-color:var(--text)}
+/* slideshow footer: one row — caption left, dots + count right
+   (audit: was a stacked caption bar plus a separate dots bar, 69px of chrome) */
+.sfoot{display:flex;align-items:center;gap:8px 14px;flex-wrap:wrap;padding:10px 14px;border-top:1px solid var(--line)}
+.scap{font-size:.78rem;color:var(--muted);flex:1 1 140px;min-width:0}
+.sdots{display:flex;gap:2px;margin-left:auto}
+.sdot{position:relative;width:30px;height:30px;border:0;background:transparent;cursor:pointer;padding:0}/* 30px tap target, 10px visual dot */
+.sdot::after{content:"";position:absolute;inset:10px;border-radius:50%;border:1px solid var(--dim)}
+.sdot[aria-current="true"]::after{background:var(--text);border-color:var(--text)}
+.scount{font-size:.75rem;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
 /* whats going on */
 .commit{background:#000;border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-top:12px}
 .commit .msg{font-weight:600;margin-bottom:6px;line-height:1.45}
@@ -188,11 +192,10 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
   .hero-art{margin-bottom:14px}/* 390px: hero gets breathing room above the slideshow panel */
   .hero-art img{aspect-ratio:16/10}/* 390px: 21/9 reads as a thin sliver — 16/10 keeps the key art visible */
   .slide img{aspect-ratio:4/5;object-position:top}
-  .snav{top:30%;width:36px;height:36px;font-size:1.2rem}
+  .snav{width:36px;height:36px;font-size:1.2rem}
   .snav.prev{left:6px}.snav.next{right:6px}
-  .scount{top:8px;right:8px;padding:3px 10px;font-size:.7rem}
-  .sdots{padding:10px;gap:6px}
-  .sdot{width:8px;height:8px}
+  .sdot{width:26px;height:26px}
+  .sdot::after{inset:9px}
   .timeline .tag{display:block;width:fit-content;margin:8px 0 0;vertical-align:baseline}/* 390px: tag gets its own line so it never crowds the subject */
   .dogs-foot img{max-width:180px}
 }
@@ -215,7 +218,7 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
 </header>
 <div class="hero-art"><img src="../../assets/gen/remote/hero.webp" alt="remote key art" loading="eager" decoding="async"></div>
 <main id="main">
-<section class="panel"><h2>Slideshow</h2><div class="slides" data-slides="3"><div class="track"><figure class="slide"><img src="../../assets/shots/remote/shot-1-desktop.webp" alt="Live site — desktop" loading="lazy" decoding="async"><figcaption>Live site — desktop</figcaption></figure><figure class="slide"><img src="../../assets/shots/remote/shot-2-desktop.webp" alt="Live site — desktop, scrolled" loading="lazy" decoding="async"><figcaption>Live site — desktop, scrolled</figcaption></figure><figure class="slide"><img src="../../assets/shots/remote/shot-3-mobile.webp" alt="Live site — mobile (390px)" loading="lazy" decoding="async"><figcaption>Live site — mobile (390px)</figcaption></figure></div><button class="snav prev" aria-label="Previous slide">‹</button><button class="snav next" aria-label="Next slide">›</button><div class="scount"><span class="cur">1</span> / 3</div><div class="sdots"><button class="sdot" data-i="0" aria-label="Slide 1"></button><button class="sdot" data-i="1" aria-label="Slide 2"></button><button class="sdot" data-i="2" aria-label="Slide 3"></button></div></div></section>
+<section class="panel"><h2>Slideshow</h2><div class="slides" data-slides="3"><div class="stage"><div class="track"><figure class="slide" data-cap="Live site — desktop"><img src="../../assets/shots/remote/shot-1-desktop.webp" alt="Live site — desktop" loading="lazy" decoding="async"></figure><figure class="slide" data-cap="Live site — desktop, scrolled"><img src="../../assets/shots/remote/shot-2-desktop.webp" alt="Live site — desktop, scrolled" loading="lazy" decoding="async"></figure><figure class="slide" data-cap="Live site — mobile (390px)"><img src="../../assets/shots/remote/shot-3-mobile.webp" alt="Live site — mobile (390px)" loading="lazy" decoding="async"></figure></div><button class="snav prev" aria-label="Previous slide">‹</button><button class="snav next" aria-label="Next slide">›</button></div><div class="sfoot"><span class="scap" aria-live="polite">Live site — desktop</span><div class="sdots"><button class="sdot" data-i="0" aria-label="Slide 1"></button><button class="sdot" data-i="1" aria-label="Slide 2"></button><button class="sdot" data-i="2" aria-label="Slide 3"></button></div><div class="scount"><span class="cur">1</span> / 3</div></div></div></section>
 <section class="panel"><h2>What&#x27;s going on</h2><p class="lede">DOGS Remote — native Android universal TV remote (IR blaster, Magic Mode venue profiles)</p><div class="commit"><p class="msg">History snapshot not available in this build environment.</p><p class="when">last push · 2026-09-12</p></div></section>
 <section class="panel"><h2>Status</h2><div class="facts"><div class="fact"><p class="k">Live status</p><p class="v ok">LIVE</p></div><div class="fact"><p class="k">Language</p><p class="v ">Kotlin</p></div><div class="fact"><p class="k">Stars</p><p class="v ">0</p></div><div class="fact"><p class="k">Open issues</p><p class="v ">0</p></div><div class="fact"><p class="k">Open PRs</p><p class="v ">0</p></div><div class="fact"><p class="k">Commits</p><p class="v ">24</p></div><div class="fact"><p class="k">Last push</p><p class="v ">2026-09-12</p></div><div class="fact"><p class="k">Last workflow</p><p class="v ">pages build and deployment · success</p></div></div></section>
 <section class="panel"><h2>Percent complete</h2><div class="pct pct-empty"><span class="inbuild">IN BUILD</span><p class="fine">No completion estimate published yet. A percentage is only shown here with a verifiable source.</p></div></section>
@@ -229,10 +232,11 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
 (function(){
   document.querySelectorAll('.slides[data-slides]').forEach(function(box){
     var n=+box.getAttribute('data-slides'), i=0;
-    var track=box.querySelector('.track'), cur=box.querySelector('.cur');
+    var track=box.querySelector('.track'), cur=box.querySelector('.cur'), scap=box.querySelector('.scap');
     var dots=Array.prototype.slice.call(box.querySelectorAll('.sdot'));
     function go(k){ i=(k+n)%n; track.style.transform='translateX(-'+(i*100)+'%)';
       cur.textContent=i+1;
+      if(scap){ var c=track.children[i]&&track.children[i].getAttribute('data-cap'); if(c) scap.textContent=c; }
       dots.forEach(function(d,j){ d.setAttribute('aria-current', j===i?'true':'false'); }); }
     box.querySelector('.prev').addEventListener('click',function(){takeover();go(i-1)});
     box.querySelector('.next').addEventListener('click',function(){takeover();go(i+1)});
