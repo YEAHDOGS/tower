@@ -662,6 +662,8 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
 .ideas li{border-left:3px solid var(--text);padding:8px 0 8px 14px;line-height:1.5}
 .ideas .src{display:block;font-size:.72rem;color:var(--dim);margin-top:4px;letter-spacing:.06em}
 .empty-note{color:var(--muted);line-height:1.6;border:1px dashed var(--line);border-radius:10px;padding:20px 18px;max-width:52ch}/* empty IDEAS/timeline panels read as an intentional placeholder card, not a forgotten blank */
+.empty-note a{color:var(--text);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--dim)}
+.empty-note a:hover{text-decoration-color:var(--text)}
 /* timeline */
 .timeline{list-style:none;position:relative;padding-left:26px}
 .timeline::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:var(--line)}
@@ -1126,7 +1128,7 @@ def module_page(group_slug, group, mod, meta):
         % (' class="first"' if j == 0 else "", esc(e["date"]), esc(e["subject"]),
            '<span class="tag">Conception</span>' if j == 0 else "")
         for j, e in enumerate(tl)) + "</ol>") if tl else \
-        '<p class="empty-note">Timeline lives on the Castle hub.</p>'
+        '<p class="empty-note">Timeline lives on the <a href="../">Castle hub</a>.</p>'
 
     pct_meta = (meta.get("modules") or {}).get("%s/%s" % (group_slug, mod["slug"]), {})
     pct = pct_meta.get("percent_complete")
