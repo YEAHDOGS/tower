@@ -68,7 +68,7 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
   border-left:6px solid var(--text);padding-left:12px;margin-bottom:16px}
 /* key art hero */
 .hero-art{margin:0 0 6px;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
-.hero-art img{width:100%;display:block;aspect-ratio:21/9;object-fit:cover}
+.hero-art img,.hero-art svg{width:100%;display:block;aspect-ratio:21/9;object-fit:cover}
 /* slideshow */
 .slides{overflow:hidden;border-radius:8px;border:1px solid var(--line);background:#000}
 .stage{position:relative;overflow:hidden}/* arrows center on the image itself, not on the whole box */
@@ -210,7 +210,7 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
   .kicker{margin:-18px -12px 14px;padding:12px 12px;letter-spacing:.18em}
   .panel{padding:16px}
   .hero-art{margin-bottom:14px}/* 390px: hero gets breathing room above the slideshow panel */
-  .hero-art img{aspect-ratio:16/10}/* 390px: 21/9 reads as a thin sliver — 16/10 keeps the key art visible */
+  .hero-art img,.hero-art svg{aspect-ratio:16/10}/* 390px: 21/9 reads as a thin sliver — 16/10 keeps the key art visible */
   .slide img{aspect-ratio:4/5;object-position:top}
   .snav{width:36px;height:36px;font-size:1.2rem}
   .snav.prev{left:6px}.snav.next{right:6px}
@@ -229,14 +229,14 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<p class="kicker"><a href="../../">Watchtower</a> / <a href="../" style="color:var(--muted)">Castle</a> / Castle OS</p>
+<p class="kicker"><a href="../../../">Watchtower</a> / <a href="../" style="color:var(--muted)">Castle</a> / Castle OS</p>
 <header class="dossier-head">
   <h1>Castle OS</h1>
   <p class="lede">The operating system underneath Castle. Ships headless CLI-only, or with a GUI on a Wayland compositor.</p>
   <div class="badges"><span class="badge na">○ Castle module</span><span class="badge">In build</span></div>
   <div class="actions"><a class="btn ghost" href="../">← Castle hub</a></div>
 </header>
-
+<div class="hero-art"><img src="../../../assets/gen/castle-os/hero.webp" alt="castle-os key art" loading="eager" decoding="async"></div>
 <main id="main">
 <section class="panel"><h2>Pictures</h2><div class="slide titlecard" role="img" aria-label="No live site yet — title card"><svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice"><rect width="800" height="450" fill="#0b0e14"/><rect x="24" y="24" width="752" height="402" fill="none" stroke="#232b3a" stroke-width="2"/><text x="400" y="180" text-anchor="middle" fill="#e6e9f0" font-size="64" font-weight="800" font-family="Impact,Haettenschweiler,'Arial Narrow',sans-serif" letter-spacing="2">CASTLE OS</text><text x="400" y="240" text-anchor="middle" fill="#8b93a7" font-size="28" font-family="Impact,Haettenschweiler,'Arial Narrow',sans-serif" letter-spacing="6">DOGS</text><text x="400" y="300" text-anchor="middle" fill="#5b6478" font-size="20" font-family="Verdana,sans-serif">No live site yet — title card</text></svg></div></section>
 <section class="panel"><h2>What&#x27;s going on</h2><p class="lede">The operating system underneath Castle. Ships headless CLI-only, or with a GUI on a Wayland compositor.</p><div class="commit"><p class="msg">Phase 1: Castle OS live ISO profile (cli + gui modes)</p><p class="when">latest commit · 2026-09-09</p></div></section>
@@ -245,7 +245,7 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
 <section class="panel"><h2>Timeline</h2><ol class="timeline"><li class="first"><p class="t">2026-09-09</p><p class="s">Phase 1: Castle OS live ISO profile (cli + gui modes)<span class="tag">Conception</span></p></li></ol></section>
 </main>
 <footer class="dogs-foot">
-  <a href="https://wearedogs.net"><img src="../../assets/made-by-dogs.webp" alt="DOGS" decoding="async"></a>
+  <a href="https://wearedogs.net"><img src="../../../assets/made-by-dogs.webp" alt="DOGS" decoding="async"></a>
 </footer>
 <script>
 (function(){

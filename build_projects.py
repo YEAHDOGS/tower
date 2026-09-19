@@ -456,20 +456,45 @@ def json_ld(title, desc, url_path):
     return '<script type="application/ld+json">\n%s\n</script>' % json.dumps(data)
 
 
-def hero_art(slug):
+def hero_art(slug, rel_prefix="../../"):
     """Generated key-art banner for a hub page, or "" when absent.
 
     Reads assets/gen/<slug>/hero.* written by the media pipeline. The
-    banner is pure imagery — no copy, per the minimal-words rule."""
+    banner is pure imagery — no copy, per the minimal-words rule.
+    rel_prefix points from the page back to the repo root (module pages
+    sit one level deeper)."""
     hits = sorted(glob.glob(os.path.join(GEN_DIR, slug, "hero.*")))
     if not hits:
         return ""
-    rel = "../../assets/gen/%s/%s" % (slug, os.path.basename(hits[0]))
+    rel = "%sassets/gen/%s/%s" % (rel_prefix, slug, os.path.basename(hits[0]))
     return ('<div class="hero-art"><img src="%s" alt="%s key art" loading="eager" decoding="async">'
             "</div>" % (esc(rel), esc(slug)))
 
 
-def slideshow(slug, name):
+def module_hero(slug, name):
+    """Key-art hero for a Castle module page, or \"\" when nothing applies.
+
+    Real generated art (assets/gen/<slug>/hero.*) when the media pipeline has
+    produced it; otherwise a generator-baked SVG key-art banner in the same
+    language as the module thumbs (mod_thumb) — dark field, inner border,
+    module name + DOGS. Decorative (aria-hidden): the page h1 names the
+    module. Mirrors hero_art so module pages get the hub treatment."""
+    hits = sorted(glob.glob(os.path.join(GEN_DIR, slug, "hero.*")))
+    if hits:
+        return hero_art(slug, "../../../")
+    return ('<div class="hero-art" aria-hidden="true">'
+            '<svg viewBox="0 0 1680 720" preserveAspectRatio="xMidYMid slice">'
+            '<rect width="1680" height="720" fill="#0b0e14"/>'
+            '<rect x="36" y="36" width="1608" height="648" fill="none" stroke="#232b3a" stroke-width="3"/>'
+            '<text x="840" y="345" text-anchor="middle" fill="#e6e9f0" font-size="120" font-weight="800" '
+            'font-family="Impact,Haettenschweiler,\'Arial Narrow\',sans-serif" letter-spacing="3">%s</text>'
+            '<text x="840" y="455" text-anchor="middle" fill="#8b93a7" font-size="44" '
+            'font-family="Impact,Haettenschweiler,\'Arial Narrow\',sans-serif" letter-spacing="14">DOGS</text>'
+            '</svg></div>'
+            % esc(name.upper()))
+
+
+def slideshow(slug, name, rel_prefix="../../"):
     files = sorted(glob.glob(os.path.join(SHOTS_DIR, slug, "*.png")) +
                    glob.glob(os.path.join(SHOTS_DIR, slug, "*.webp")))
     caps = CAPTIONS.get(slug, DEFAULT_CAPTIONS)
@@ -478,7 +503,7 @@ def slideshow(slug, name):
     slides = []
     for i, f in enumerate(files):
         cap = caps[i] if i < len(caps) else "Live site"
-        rel = "../../assets/shots/%s/%s" % (slug, os.path.basename(f))
+        rel = "%sassets/shots/%s/%s" % (rel_prefix, slug, os.path.basename(f))
         slides.append(
             '<figure class="slide" data-cap="%s"><img src="%s" alt="%s" loading="lazy" decoding="async"></figure>'
             % (esc(cap), esc(rel), esc(cap))
@@ -575,7 +600,7 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
   border-left:6px solid var(--text);padding-left:12px;margin-bottom:16px}
 /* key art hero */
 .hero-art{margin:0 0 6px;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
-.hero-art img{width:100%;display:block;aspect-ratio:21/9;object-fit:cover}
+.hero-art img,.hero-art svg{width:100%;display:block;aspect-ratio:21/9;object-fit:cover}
 /* slideshow */
 .slides{overflow:hidden;border-radius:8px;border:1px solid var(--line);background:#000}
 .stage{position:relative;overflow:hidden}/* arrows center on the image itself, not on the whole box */
@@ -717,7 +742,7 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
   .kicker{margin:-18px -12px 14px;padding:12px 12px;letter-spacing:.18em}
   .panel{padding:16px}
   .hero-art{margin-bottom:14px}/* 390px: hero gets breathing room above the slideshow panel */
-  .hero-art img{aspect-ratio:16/10}/* 390px: 21/9 reads as a thin sliver — 16/10 keeps the key art visible */
+  .hero-art img,.hero-art svg{aspect-ratio:16/10}/* 390px: 21/9 reads as a thin sliver — 16/10 keeps the key art visible */
   .slide img{aspect-ratio:4/5;object-position:top}
   .snav{width:36px;height:36px;font-size:1.2rem}
   .snav.prev{left:6px}.snav.next{right:6px}
@@ -1109,7 +1134,7 @@ def module_page(group_slug, group, mod, meta):
         else '<span class="badge">In build</span>'
 
     sections_list = [
-        section("Pictures", slideshow(shot_slug, mod["title"])),
+        section("Pictures", slideshow(shot_slug, mod["title"], "../../../")),
         section("What's going on", going),
     ]
     if vids_html:
@@ -1130,7 +1155,7 @@ def module_page(group_slug, group, mod, meta):
                            "projects/%s/%s/" % (group_slug, mod["slug"]), share),
         jsonld=json_ld(title_full, desc,
                        "projects/%s/%s/" % (group_slug, mod["slug"])),
-        css=CSS, home="../../",
+        css=CSS, home="../../../",
         favicon=FAVICON,
         manifest=MANIFEST,
         apple_touch_icon=APPLE_TOUCH_ICON,
@@ -1140,8 +1165,8 @@ def module_page(group_slug, group, mod, meta):
         badge='<span class="badge na">○ Castle module</span>',
         pct_pill=pct_pill,
         buttons='<a class="btn ghost" href="../">← Castle hub</a>',
-        hero="",
-        sections="\n".join(sections_list), badge_src=BADGE, js=JS,
+        hero=module_hero(mod["slug"], mod["title"]),
+        sections="\n".join(sections_list), badge_src="../../../assets/made-by-dogs.webp", js=JS,
     )
 
 
