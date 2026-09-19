@@ -144,10 +144,15 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
   border:1px solid var(--text);border-radius:4px;padding:2px 8px;margin-left:8px;vertical-align:middle}
 /* module cards */
 .mods{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
-.mod{border:1px solid var(--line);border-radius:10px;padding:18px;background:#000;text-decoration:none;
+.mod{border:1px solid var(--line);border-radius:10px;background:#000;text-decoration:none;overflow:hidden;
 /* 10px radius matches the fact/panel/placeholder card language (was 8px) */
   display:block;transition:border-color .15s ease,transform .15s ease}
+/* image on top: each module card carries its own title-card thumb (aria-hidden,
+   the link's h3 names the module) so no card is blank and no art repeats */
 .mod:hover{border-color:var(--text);transform:translateY(-3px)}
+.mod .mthumb{display:block}
+.mod .mthumb svg{display:block;width:100%;height:auto}
+.mod .mbody{display:block;padding:18px}
 .mod h3{font-family:var(--display);letter-spacing:.06em;text-transform:uppercase;font-size:1.15rem;margin-bottom:8px}
 .mod p{color:var(--muted);font-size:.88rem;line-height:1.5}
 .mod .go{display:inline-block;margin-top:12px;font-size:.78rem;letter-spacing:.14em;

@@ -310,6 +310,25 @@ def title_card(name, caption):
     )
 
 
+def mod_thumb(name):
+    """Compact title-card thumbnail for a module link card — image on top in the
+    same SVG language as the slideshow title card. Decorative: the link's own
+    h3 names the module, so the SVG is aria-hidden. Distinct per module, so no
+    card is blank and no art repeats."""
+    return (
+        '<span class="mthumb" aria-hidden="true">'
+        '<svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice">'
+        '<rect width="800" height="450" fill="#0b0e14"/>'
+        '<rect x="24" y="24" width="752" height="402" fill="none" stroke="#232b3a" stroke-width="2"/>'
+        '<text x="400" y="212" text-anchor="middle" fill="#e6e9f0" font-size="72" font-weight="800" '
+        'font-family="Impact,Haettenschweiler,\'Arial Narrow\',sans-serif" letter-spacing="2">%s</text>'
+        '<text x="400" y="290" text-anchor="middle" fill="#8b93a7" font-size="30" '
+        'font-family="Impact,Haettenschweiler,\'Arial Narrow\',sans-serif" letter-spacing="8">DOGS</text>'
+        '</svg></span>'
+        % esc(name.upper())
+    )
+
+
 CAPTIONS = {
     "yeahdogs.github.io": [
         "Forwards to the Watchtower — desktop",
@@ -632,10 +651,15 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
   border:1px solid var(--text);border-radius:4px;padding:2px 8px;margin-left:8px;vertical-align:middle}
 /* module cards */
 .mods{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
-.mod{border:1px solid var(--line);border-radius:10px;padding:18px;background:#000;text-decoration:none;
+.mod{border:1px solid var(--line);border-radius:10px;background:#000;text-decoration:none;overflow:hidden;
 /* 10px radius matches the fact/panel/placeholder card language (was 8px) */
   display:block;transition:border-color .15s ease,transform .15s ease}
+/* image on top: each module card carries its own title-card thumb (aria-hidden,
+   the link's h3 names the module) so no card is blank and no art repeats */
 .mod:hover{border-color:var(--text);transform:translateY(-3px)}
+.mod .mthumb{display:block}
+.mod .mthumb svg{display:block;width:100%;height:auto}
+.mod .mbody{display:block;padding:18px}
 .mod h3{font-family:var(--display);letter-spacing:.06em;text-transform:uppercase;font-size:1.15rem;margin-bottom:8px}
 .mod p{color:var(--muted);font-size:.88rem;line-height:1.5}
 .mod .go{display:inline-block;margin-top:12px;font-size:.78rem;letter-spacing:.14em;
@@ -979,8 +1003,10 @@ def group_hub(slug, group, repos_by_name, meta):
     mods = []
     for mod in group.get("modules", []):
         mods.append(
-            '<a class="mod" href="%s/"><h3>%s</h3><p>%s</p><span class="go">Open dossier →</span></a>'
-            % (esc(mod["slug"]), esc(mod["title"]), esc(mod.get("blurb") or "")))
+            '<a class="mod" href="%s/">%s<span class="mbody"><h3>%s</h3><p>%s</p>'
+            '<span class="go">Open dossier →</span></span></a>'
+            % (esc(mod["slug"]), mod_thumb(mod["title"]), esc(mod["title"]),
+               esc(mod.get("blurb") or "")))
     mods_html = '<div class="mods">' + "".join(mods) + "</div>"
 
     if ideas:
