@@ -44,6 +44,15 @@
     ],
     "url": "https://yeahdogs.github.io/demo/"
   },
+  "firehose": {
+    "captured_at": "2026-09-19T19:25:14+00:00",
+    "files": [
+      "shot-1-desktop.webp",
+      "shot-2-desktop.webp",
+      "shot-3-mobile.webp"
+    ],
+    "url": "https://yeahdogs.github.io/firehose/"
+  },
   "forge": {
     "captured_at": "2026-09-13T10:07:42+00:00",
     "files": [
@@ -52,6 +61,15 @@
       "shot-3-mobile.webp"
     ],
     "url": "https://yeahdogs.github.io/forge/"
+  },
+  "grasshopper": {
+    "captured_at": "2026-09-19T19:25:27+00:00",
+    "files": [
+      "shot-1-desktop.webp",
+      "shot-2-desktop.webp",
+      "shot-3-mobile.webp"
+    ],
+    "url": "http://grasshopper.dogs.red/"
   },
   "icecream": {
     "captured_at": "2026-09-11T11:48:17+00:00",
@@ -179,6 +197,15 @@
     ],
     "url": "https://yeahdogs.github.io/sdm/"
   },
+  "shiftwork": {
+    "captured_at": "2026-09-19T19:24:58+00:00",
+    "files": [
+      "shot-1-desktop.webp",
+      "shot-2-desktop.webp",
+      "shot-3-mobile.webp"
+    ],
+    "url": "http://shiftwork.dogs.red/"
+  },
   "tower": {
     "captured_at": "2026-09-11T11:48:17+00:00",
     "files": [
@@ -187,6 +214,15 @@
       "shot-3-mobile.webp"
     ],
     "url": "https://yeahdogs.github.io/tower/"
+  },
+  "walkthru": {
+    "captured_at": "2026-09-19T19:24:40+00:00",
+    "files": [
+      "shot-1-desktop.webp",
+      "shot-2-desktop.webp",
+      "shot-3-mobile.webp"
+    ],
+    "url": "https://yeahdogs.github.io/walkthru/"
   },
   "watchtower": {
     "captured_at": "2026-09-11T11:48:17+00:00",
