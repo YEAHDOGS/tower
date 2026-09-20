@@ -471,17 +471,16 @@ def hero_art(slug, rel_prefix="../../"):
             "</div>" % (esc(rel), esc(slug)))
 
 
-def module_hero(slug, name):
-    """Key-art hero for a Castle module page, or \"\" when nothing applies.
+def key_art_hero(slug, name, rel_prefix):
+    """Key-art hero: generated art when the media pipeline produced it,
+    otherwise a generator-baked SVG banner in the key-art language (dark
+    field, inner border, name + DOGS). Decorative (aria-hidden): the page
+    h1 names the thing. Pure imagery, no copy beyond the name.
 
-    Real generated art (assets/gen/<slug>/hero.*) when the media pipeline has
-    produced it; otherwise a generator-baked SVG key-art banner in the same
-    language as the module thumbs (mod_thumb) — dark field, inner border,
-    module name + DOGS. Decorative (aria-hidden): the page h1 names the
-    module. Mirrors hero_art so module pages get the hub treatment."""
+    rel_prefix points from the page back to the repo root."""
     hits = sorted(glob.glob(os.path.join(GEN_DIR, slug, "hero.*")))
     if hits:
-        return hero_art(slug, "../../../")
+        return hero_art(slug, rel_prefix)
     return ('<div class="hero-art" aria-hidden="true">'
             '<svg viewBox="0 0 1680 720" preserveAspectRatio="xMidYMid slice">'
             '<rect width="1680" height="720" fill="#0b0e14"/>'
@@ -492,6 +491,18 @@ def module_hero(slug, name):
             'font-family="Impact,Haettenschweiler,\'Arial Narrow\',sans-serif" letter-spacing="14">DOGS</text>'
             '</svg></div>'
             % esc(name.upper()))
+
+
+def module_hero(slug, name):
+    """Key-art hero for a Castle module page (3 levels deep)."""
+    return key_art_hero(slug, name, "../../../")
+
+
+def project_hero(slug, name):
+    """Key-art hero for a repo hub project page (2 levels deep) — the same
+    treatment module pages already get, so hero-less projects (no generated
+    art yet) still open with a banner instead of bare text."""
+    return key_art_hero(slug, name, "../../")
 
 
 def slideshow(slug, name, rel_prefix="../../"):
@@ -1002,7 +1013,7 @@ def repo_hub(repo, meta):
         css=CSS, home="../../", crumb=" / " + esc(name), name=esc(name),
         lede=esc(repo.get("description") or "No description published."),
         badge=badge, pct_pill=pct_pill, buttons=buttons,
-        hero=hero_art(name),
+        hero=project_hero(name, name),
         sections=sections, badge_src=BADGE, js=JS,
     )
 
