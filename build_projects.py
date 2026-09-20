@@ -1127,7 +1127,7 @@ def module_page(group_slug, group, mod, meta):
     ideas_html = ('<ul class="ideas">' + "".join(
         '<li>%s<span class="src">from %s</span></li>' % (esc(i["text"]), esc(i["source"]))
         for i in ideas) + "</ul>") if ideas else \
-        '<p class="empty-note">No published roadmap yet.</p>'
+        '<p class="empty-note">Roadmap lives on the <a href="../">Castle hub</a>.</p>'
     tl_html = ('<ol class="timeline">' + "".join(
         '<li%s><p class="t">%s</p><p class="s">%s%s</p></li>'
         % (' class="first"' if j == 0 else "", esc(e["date"]), esc(e["subject"]),
