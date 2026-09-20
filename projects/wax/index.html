@@ -102,10 +102,13 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
 .slides.live .spause{display:inline-flex;align-items:center;justify-content:center}
 .spause:hover{border-color:var(--text);color:var(--text)}
 .spause[aria-pressed="true"]{border-color:var(--text);color:var(--text)}
-/* whats going on */
-.commit{background:#000;border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-top:12px}
-.commit .msg{font-weight:600;margin-bottom:6px;line-height:1.45}
-.commit .when{font-size:.8rem;color:var(--dim)}
+/* whats going on — commit box: kicker up top, message in mono */
+.commit{background:#000;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:12px}
+.commit .ckicker{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:0 0 8px;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.commit .ckicker time{color:var(--muted);letter-spacing:.05em;font-variant-numeric:tabular-nums}
+.commit .msg{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-weight:600;font-size:.92rem;line-height:1.55;margin:0 0 2px;overflow-wrap:break-word}
+.commit .msg:last-child{margin-bottom:0}
+.commit .msg .cdate{font-weight:400;color:var(--dim);font-size:.8rem}
 /* status facts */
 .facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
 .fact{border:1px solid var(--line);border-radius:10px;padding:12px;background:#000;min-width:0}
@@ -242,7 +245,7 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
 <main id="main">
 <section class="panel"><h2>Slideshow</h2><div class="slides" data-slides="3"><div class="stage"><div class="track"><figure class="slide" data-cap="Live site — desktop"><img src="../../assets/shots/wax/shot-1-desktop.webp" alt="Live site — desktop" loading="lazy" decoding="async"></figure><figure class="slide" data-cap="Live site — desktop, scrolled"><img src="../../assets/shots/wax/shot-2-desktop.webp" alt="Live site — desktop, scrolled" loading="lazy" decoding="async"></figure><figure class="slide" data-cap="Live site — mobile (390px)"><img src="../../assets/shots/wax/shot-3-mobile.webp" alt="Live site — mobile (390px)" loading="lazy" decoding="async"></figure></div><button class="snav prev" aria-label="Previous slide">‹</button><button class="snav next" aria-label="Next slide">›</button></div><div class="sfoot"><span class="scap" aria-live="polite">Live site — desktop</span><div class="sdots"><button class="sdot" data-i="0" aria-label="Slide 1"></button><button class="sdot" data-i="1" aria-label="Slide 2"></button><button class="sdot" data-i="2" aria-label="Slide 3"></button></div><div class="scount"><span class="cur">1</span> / 3</div><button class="spause" aria-pressed="false" aria-label="Pause slideshow">❚❚</button></div></div></section>
 <section class="panel"><h2>Videos</h2><div class="vids two"><figure><video controls preload="metadata" src="../../demos/05-wax-drop-pass.mp4"></video><figcaption><strong>Demo: alert drop-pass CLI</strong><span>One tick of the per-minute drop cron in dry-run: board loaded, cooldowns checked, 2 price_drop alerts fired and recorded.</span></figcaption></figure><figure><video controls preload="metadata" src="../../demos/01-wax-crate-digger.mp4"></video><figcaption><strong>Demo: Crate Digger price verdict engine</strong><span>The verdict engine grades a $150 VG+ Doggystyle &#x27;93 against market data: median, spread, and a Good deal / Fair / Overpriced call — plus the reissue guardrail.</span></figcaption></figure></div></section>
-<section class="panel"><h2>What&#x27;s going on</h2><p class="lede">Wax — real-time vinyl drop alerts, collection cataloguing, and Discogs price tracking. Made by DOGS.</p><div class="commit"><p class="msg">chore(wax): root npm test runs the engine suite</p><p class="when">latest commit · 2026-09-10</p></div></section>
+<section class="panel"><h2>What&#x27;s going on</h2><p class="lede">Wax — real-time vinyl drop alerts, collection cataloguing, and Discogs price tracking. Made by DOGS.</p><div class="commit"><p class="ckicker"><span>Latest commit</span><time>2026-09-10</time></p><p class="msg">chore(wax): root npm test runs the engine suite</p></div></section>
 <section class="panel"><h2>Status</h2><div class="facts"><div class="fact"><p class="k">Live status</p><p class="v bad">DOWN</p></div><div class="fact"><p class="k">Language</p><p class="v ">JavaScript</p></div><div class="fact"><p class="k">Stars</p><p class="v ">0</p></div><div class="fact"><p class="k">Open issues</p><p class="v ">0</p></div><div class="fact"><p class="k">Open PRs</p><p class="v ">0</p></div><div class="fact"><p class="k">Commits</p><p class="v ">11</p></div><div class="fact"><p class="k">Last push</p><p class="v ">2026-09-12</p></div><div class="fact"><p class="k">Last workflow</p><p class="v ">pages build and deployment · success</p></div></div></section>
 <section class="panel"><h2>Percent complete</h2><div class="pct pct-empty"><span class="inbuild">IN BUILD</span><p class="fine">No completion estimate published yet. A percentage is only shown here with a verifiable source.</p></div></section>
 <section class="panel"><h2>Ideas</h2><p class="empty-note">No published roadmap yet — ideas are still in the build log. Nothing here is invented.</p></section>

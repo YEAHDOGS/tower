@@ -102,10 +102,13 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
 .slides.live .spause{display:inline-flex;align-items:center;justify-content:center}
 .spause:hover{border-color:var(--text);color:var(--text)}
 .spause[aria-pressed="true"]{border-color:var(--text);color:var(--text)}
-/* whats going on */
-.commit{background:#000;border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-top:12px}
-.commit .msg{font-weight:600;margin-bottom:6px;line-height:1.45}
-.commit .when{font-size:.8rem;color:var(--dim)}
+/* whats going on — commit box: kicker up top, message in mono */
+.commit{background:#000;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:12px}
+.commit .ckicker{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:0 0 8px;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.commit .ckicker time{color:var(--muted);letter-spacing:.05em;font-variant-numeric:tabular-nums}
+.commit .msg{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-weight:600;font-size:.92rem;line-height:1.55;margin:0 0 2px;overflow-wrap:break-word}
+.commit .msg:last-child{margin-bottom:0}
+.commit .msg .cdate{font-weight:400;color:var(--dim);font-size:.8rem}
 /* status facts */
 .facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
 .fact{border:1px solid var(--line);border-radius:10px;padding:12px;background:#000;min-width:0}
@@ -241,7 +244,7 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
 <div class="hero-art"><img src="../../../assets/gen/castle-os/hero.webp" alt="castle-os key art" loading="eager" decoding="async"></div>
 <main id="main">
 <section class="panel"><h2>Pictures</h2><div class="slide titlecard" role="img" aria-label="No live site yet — title card"><svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice"><rect width="800" height="450" fill="#0b0e14"/><rect x="24" y="24" width="752" height="402" fill="none" stroke="#232b3a" stroke-width="2"/><text x="400" y="180" text-anchor="middle" fill="#e6e9f0" font-size="64" font-weight="800" font-family="Impact,Haettenschweiler,'Arial Narrow',sans-serif" letter-spacing="2">CASTLE OS</text><text x="400" y="240" text-anchor="middle" fill="#8b93a7" font-size="28" font-family="Impact,Haettenschweiler,'Arial Narrow',sans-serif" letter-spacing="6">DOGS</text><text x="400" y="300" text-anchor="middle" fill="#5b6478" font-size="20" font-family="Verdana,sans-serif">No live site yet — title card</text></svg></div></section>
-<section class="panel"><h2>What&#x27;s going on</h2><p class="lede">The operating system underneath Castle. Ships headless CLI-only, or with a GUI on a Wayland compositor.</p><div class="commit"><p class="msg">Phase 1: Castle OS live ISO profile (cli + gui modes)</p><p class="when">latest commit · 2026-09-09</p></div></section>
+<section class="panel"><h2>What&#x27;s going on</h2><p class="lede">The operating system underneath Castle. Ships headless CLI-only, or with a GUI on a Wayland compositor.</p><div class="commit"><p class="ckicker"><span>Latest commit</span><time>2026-09-09</time></p><p class="msg">Phase 1: Castle OS live ISO profile (cli + gui modes)</p></div></section>
 <section class="panel"><h2>Percent complete</h2><div class="pct pct-empty"><span class="inbuild">IN BUILD</span><p class="fine">No completion estimate published yet. A percentage is only shown here with a verifiable source.</p></div></section>
 <section class="panel"><h2>Ideas</h2><ul class="ideas"><li>[ ] Router: nftables policy, DHCP/DNS (dnsmasq is installed; policy isn&#x27;t),<span class="src">from docs/PHASE2-TODO.md</span></li><li>[ ] NAS / private cloud: Samba shares, storage pooling, the 10TB-drive story<span class="src">from docs/PHASE2-TODO.md</span></li><li>[ ] Arcade: emulator set, controller support, kiosk launcher<span class="src">from docs/PHASE2-TODO.md</span></li><li>[ ] Headless-first admin: SSH hardening, web dashboard or TUI<span class="src">from docs/PHASE2-TODO.md</span></li></ul></section>
 <section class="panel"><h2>Timeline</h2><ol class="timeline"><li class="first"><p class="t">2026-09-09</p><p class="s">Phase 1: Castle OS live ISO profile (cli + gui modes)<span class="tag">Conception</span></p></li></ol></section>

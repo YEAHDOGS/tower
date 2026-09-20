@@ -102,10 +102,13 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
 .slides.live .spause{display:inline-flex;align-items:center;justify-content:center}
 .spause:hover{border-color:var(--text);color:var(--text)}
 .spause[aria-pressed="true"]{border-color:var(--text);color:var(--text)}
-/* whats going on */
-.commit{background:#000;border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-top:12px}
-.commit .msg{font-weight:600;margin-bottom:6px;line-height:1.45}
-.commit .when{font-size:.8rem;color:var(--dim)}
+/* whats going on — commit box: kicker up top, message in mono */
+.commit{background:#000;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:12px}
+.commit .ckicker{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:0 0 8px;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.commit .ckicker time{color:var(--muted);letter-spacing:.05em;font-variant-numeric:tabular-nums}
+.commit .msg{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-weight:600;font-size:.92rem;line-height:1.55;margin:0 0 2px;overflow-wrap:break-word}
+.commit .msg:last-child{margin-bottom:0}
+.commit .msg .cdate{font-weight:400;color:var(--dim);font-size:.8rem}
 /* status facts */
 .facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
 .fact{border:1px solid var(--line);border-radius:10px;padding:12px;background:#000;min-width:0}

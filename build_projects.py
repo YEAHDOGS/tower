@@ -634,10 +634,13 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
 .slides.live .spause{display:inline-flex;align-items:center;justify-content:center}
 .spause:hover{border-color:var(--text);color:var(--text)}
 .spause[aria-pressed="true"]{border-color:var(--text);color:var(--text)}
-/* whats going on */
-.commit{background:#000;border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-top:12px}
-.commit .msg{font-weight:600;margin-bottom:6px;line-height:1.45}
-.commit .when{font-size:.8rem;color:var(--dim)}
+/* whats going on — commit box: kicker up top, message in mono */
+.commit{background:#000;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:12px}
+.commit .ckicker{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:0 0 8px;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.commit .ckicker time{color:var(--muted);letter-spacing:.05em;font-variant-numeric:tabular-nums}
+.commit .msg{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-weight:600;font-size:.92rem;line-height:1.55;margin:0 0 2px;overflow-wrap:break-word}
+.commit .msg:last-child{margin-bottom:0}
+.commit .msg .cdate{font-weight:400;color:var(--dim);font-size:.8rem}
 /* status facts */
 .facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
 .fact{border:1px solid var(--line);border-radius:10px;padding:12px;background:#000;min-width:0}
@@ -926,13 +929,15 @@ def repo_hub(repo, meta):
 
     if lc:
         going = ('<p class="lede">%s</p>' % esc(repo.get("description") or "No description published.")
-                 + '<div class="commit"><p class="msg">%s</p>'
-                   '<p class="when">latest commit · %s</p></div>' % (esc(lc["subject"]), esc(lc["date"])))
+                 + '<div class="commit"><p class="ckicker"><span>Latest commit</span>'
+                   '<time>%s</time></p><p class="msg">%s</p></div>'
+                   % (esc(lc["date"]), esc(lc["subject"])))
     else:
         pushed = (repo.get("pushed_at") or "")[:10]
         going = ('<p class="lede">%s</p>' % esc(repo.get("description") or "No description published.")
-                 + '<div class="commit"><p class="msg">History snapshot not available in this build '
-                   'environment.</p><p class="when">last push · %s</p></div>' % esc(pushed))
+                 + '<div class="commit"><p class="ckicker"><span>History snapshot</span>'
+                   '<time>%s</time></p><p class="msg">Snapshot not available in this build environment.</p>'
+                   '</div>' % esc(pushed))
 
     facts = [
         ("Live status", ("LIVE" if (repo.get("site") or {}).get("status") == "up"
@@ -1018,12 +1023,12 @@ def group_hub(slug, group, repos_by_name, meta):
     for m, c in clones:
         lc = latest_commit(c) if c else None
         if lc:
-            lc_parts.append("<b>%s</b> — %s <span class='when'>(%s)</span>"
+            lc_parts.append("<b>%s</b> — %s <span class=\"cdate\">%s</span>"
                             % (esc(m), esc(lc["subject"]), esc(lc["date"])))
     going = ('<p class="lede">%s</p>' % esc(group.get("description") or ""))
     if lc_parts:
-        going += '<div class="commit">' + "<br>".join(
-            '<p class="msg">%s</p>' % p for p in lc_parts) + "</div>"
+        going += ('<div class="commit"><p class="ckicker"><span>Latest commits</span></p>'
+                  + "".join('<p class="msg">%s</p>' % p for p in lc_parts) + "</div>")
     else:
         going += '<p class="empty-note">Module history not available in this build environment.</p>'
 
@@ -1103,9 +1108,9 @@ def module_page(group_slug, group, mod, meta):
         # castle-os gets the full treatment from its own repo history
         lc = latest_commit(clone)
         if lc:
-            going += ('<div class="commit"><p class="msg">%s</p>'
-                      '<p class="when">latest commit · %s</p></div>'
-                      % (esc(lc["subject"]), esc(lc["date"])))
+            going += ('<div class="commit"><p class="ckicker"><span>Latest commit</span>'
+                      '<time>%s</time></p><p class="msg">%s</p></div>'
+                      % (esc(lc["date"]), esc(lc["subject"])))
         tl = timeline(clone)
         ideas = collect_ideas(clone)
     else:
