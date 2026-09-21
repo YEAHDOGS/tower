@@ -176,13 +176,34 @@ def latest_commit(repo_dir):
     return {"date": date.strip(), "subject": subject.strip()}
 
 
+def _has_pii_token(text):
+    """True if text contains a blocklisted personal-name token (1-3 grams)."""
+    words = re.findall(r"[a-z0-9]+", text.lower())
+    for n in (1, 2, 3):
+        for i in range(len(words) - n + 1):
+            cand = " ".join(words[i:i + n])
+            if hashlib.sha256(cand.encode()).hexdigest() in _PII_DIGESTS:
+                return True
+    return False
+
+
 def timeline(repo_dir, keep=8):
     lines = git_log(repo_dir, "%h|%ad|%s", ["--date=short", "--reverse"])
     entries = []
     for l in lines:
         h, _, rest = l.partition("|")
         date, _, subject = rest.partition("|")
-        entries.append({"hash": h.strip(), "date": date.strip(), "subject": subject.strip()})
+        subject = subject.strip()
+        # Portfolio curation: internal privacy-maintenance chores ("remove
+        # founder's name", anonymity scrubs) are not project milestones and
+        # reference an individual, not the company. Subjects carrying a
+        # personal-name token are dropped for the same reason — the public
+        # dossier timeline never shows them, scrubbed or otherwise.
+        if re.search(r"founder|anonymity", subject, re.I):
+            continue
+        if _has_pii_token(subject):
+            continue
+        entries.append({"hash": h.strip(), "date": date.strip(), "subject": subject})
     if not entries:
         return []
     picked = [entries[0]]
