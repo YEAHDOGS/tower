@@ -973,17 +973,17 @@ def repo_hub(repo, meta):
         buttons += '<a class="btn" href="%s">Live site</a>' % esc(repo["pages"])
     buttons += '<a class="btn ghost" href="%s">GitHub repo</a>' % esc(repo["url"])
 
+    # "What's going on" leads with fresh signal, not the header lede (the
+    # description already shows directly under the title).
     if lc:
-        going = ('<p class="lede">%s</p>' % esc(repo.get("description") or "No description published.")
-                 + '<div class="commit"><p class="ckicker"><span>Latest commit</span>'
-                   '<time>%s</time></p><p class="msg">%s</p></div>'
-                   % (esc(lc["date"]), esc(lc["subject"])))
+        going = ('<div class="commit"><p class="ckicker"><span>Latest commit</span>'
+                 '<time>%s</time></p><p class="msg">%s</p></div>'
+                 % (esc(lc["date"]), esc(lc["subject"])))
     else:
         pushed = (repo.get("pushed_at") or "")[:10]
-        going = ('<p class="lede">%s</p>' % esc(repo.get("description") or "No description published.")
-                 + '<div class="commit"><p class="ckicker"><span>History snapshot</span>'
-                   '<time>%s</time></p><p class="msg">Snapshot not available in this build environment.</p>'
-                   '</div>' % esc(pushed))
+        going = ('<div class="commit"><p class="ckicker"><span>History snapshot</span>'
+                 '<time>%s</time></p><p class="msg">Snapshot not available in this build environment.</p>'
+                 '</div>' % esc(pushed))
 
     facts = [
         ("Live status", ("LIVE" if (repo.get("site") or {}).get("status") == "up"
@@ -1072,7 +1072,9 @@ def group_hub(slug, group, repos_by_name, meta):
         if lc:
             lc_parts.append("<b>%s</b> — %s <span class=\"cdate\">%s</span>"
                             % (esc(m), esc(lc["subject"]), esc(lc["date"])))
-    going = ('<p class="lede">%s</p>' % esc(group.get("description") or ""))
+    # "What's going on" leads with the fresh commits, not the description —
+    # the description already shows under the title (header lede).
+    going = ""
     if lc_parts:
         going += ('<div class="commit"><p class="ckicker"><span>Latest commits</span></p>'
                   + "".join('<p class="msg">%s</p>' % p for p in lc_parts) + "</div>")
@@ -1151,9 +1153,10 @@ def module_page(group_slug, group, mod, meta):
     clone = find_clone(repo) if repo else None
     shot_slug = "%s-%s" % (group_slug, mod["slug"])
 
-    going = '<p class="lede">%s</p>' % esc(mod.get("blurb") or "")
+    going = ""
     if repo == "castle-os" and clone:
         # castle-os gets the full treatment from its own repo history
+        # (the module blurb already shows as the header lede above)
         lc = latest_commit(clone)
         if lc:
             going += ('<div class="commit"><p class="ckicker"><span>Latest commit</span>'
