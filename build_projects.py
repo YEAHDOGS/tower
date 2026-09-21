@@ -140,6 +140,7 @@ CLONE_BASES = [
 ]
 CLONE_ALIASES = {
     "icecream": [os.path.expanduser("~/workspace/icecream-inspect")],
+    "cups": [os.path.expanduser("~/workspace/cups")],
     "yeahdogs.github.io": ["/tmp/hubclones/root"],
 }
 
@@ -526,11 +527,14 @@ def project_hero(slug, name):
     return key_art_hero(slug, name, "../../")
 
 
-def slideshow(slug, name, rel_prefix="../../"):
+def slideshow(slug, name, rel_prefix="../../", site=None):
     files = sorted(glob.glob(os.path.join(SHOTS_DIR, slug, "*.png")) +
                    glob.glob(os.path.join(SHOTS_DIR, slug, "*.webp")))
     caps = CAPTIONS.get(slug, DEFAULT_CAPTIONS)
     if not files:
+        # Honest fallback: a monitored LIVE site is not a "no site yet".
+        if site and site.get("status") == "up":
+            return title_card(name, "Live site — screenshots coming soon")
         return title_card(name, "No live site yet — title card")
     slides = []
     for i, f in enumerate(files):
@@ -1011,7 +1015,7 @@ def repo_hub(repo, meta):
         tl_html = '<p class="empty-note">Timeline unavailable — no local history in this build environment.</p>'
 
     sections = "\n".join(filter(None, [
-        section("Slideshow", slideshow(name, name)),
+        section("Slideshow", slideshow(name, name, site=repo.get("site"))),
         videos_section([repo]),
         section("What's going on", going),
         section("Status", facts_html),
