@@ -527,6 +527,16 @@ def project_hero(slug, name):
     return key_art_hero(slug, name, "../../")
 
 
+def shots_exist(slug):
+    """True when the media pipeline produced real screenshots for this slug.
+
+    When false, the page's key-art hero already serves as the title card,
+    so the Slideshow/Pictures section would just repeat the same banner
+    twice — callers skip the section instead."""
+    return bool(glob.glob(os.path.join(SHOTS_DIR, slug, "*.png")) +
+                glob.glob(os.path.join(SHOTS_DIR, slug, "*.webp")))
+
+
 def slideshow(slug, name, rel_prefix="../../", site=None):
     files = sorted(glob.glob(os.path.join(SHOTS_DIR, slug, "*.png")) +
                    glob.glob(os.path.join(SHOTS_DIR, slug, "*.webp")))
@@ -1015,7 +1025,8 @@ def repo_hub(repo, meta):
         tl_html = '<p class="empty-note">Timeline unavailable — no local history in this build environment.</p>'
 
     sections = "\n".join(filter(None, [
-        section("Slideshow", slideshow(name, name, site=repo.get("site"))),
+        section("Slideshow", slideshow(name, name, site=repo.get("site")))
+        if shots_exist(name) else None,
         videos_section([repo]),
         section("What's going on", going),
         section("Status", facts_html),
@@ -1104,7 +1115,8 @@ def group_hub(slug, group, repos_by_name, meta):
         else '<span class="badge">In build</span>'
 
     sections = "\n".join(filter(None, [
-        section("Slideshow", slideshow("castle", group["title"])),
+        section("Slideshow", slideshow("castle", group["title"]))
+        if shots_exist("castle") else None,
         videos_section(members),
         section("What's going on", going),
         section("Modules", mods_html),
@@ -1176,8 +1188,10 @@ def module_page(group_slug, group, mod, meta):
     pct_pill = ('<span class="badge">%d%%</span>' % pct) if isinstance(pct, (int, float)) \
         else '<span class="badge">In build</span>'
 
-    sections_list = [
-        section("Pictures", slideshow(shot_slug, mod["title"], "../../../")),
+    sections_list = []
+    if shots_exist(shot_slug):
+        sections_list.append(section("Pictures", slideshow(shot_slug, mod["title"], "../../../")))
+    sections_list += [
         section("What's going on", going),
     ]
     if vids_html:
