@@ -517,26 +517,40 @@ def hero_art(slug, rel_prefix="../../"):
             "</div>" % (esc(rel), esc(slug)))
 
 
+# Abstract fallback key art: dark field, inner border, radial glow + twin
+# orbit rings (hub/base motif) + a faint diagonal hairline pair. No text at
+# all — the page h1 already names the project, and rendering the name twice
+# (once in the h1, once in the banner) dominated the page. Decorative only.
+FALLBACK_HERO = (
+    '<div class="hero-art fallback" aria-hidden="true">'
+    '<svg viewBox="0 0 1680 720" preserveAspectRatio="xMidYMid slice">'
+    '<defs><radialGradient id="khg" cx="50%" cy="44%" r="68%">'
+    '<stop offset="0%" stop-color="#1c2434"/>'
+    '<stop offset="58%" stop-color="#10141d"/>'
+    '<stop offset="100%" stop-color="#0b0e14"/>'
+    '</radialGradient></defs>'
+    '<rect width="1680" height="720" fill="url(#khg)"/>'
+    '<line x1="140" y1="596" x2="1540" y2="124" stroke="#232b3a" stroke-width="1" opacity="0.55"/>'
+    '<line x1="140" y1="620" x2="1540" y2="148" stroke="#1a2130" stroke-width="1" opacity="0.55"/>'
+    '<circle cx="840" cy="318" r="92" fill="none" stroke="#33405a" stroke-width="2" opacity="0.85"/>'
+    '<circle cx="840" cy="318" r="134" fill="none" stroke="#232b3a" stroke-width="1" opacity="0.6"/>'
+    '<circle cx="932" cy="226" r="7" fill="#3a4a66" opacity="0.9"/>'
+    '<rect x="36" y="36" width="1608" height="648" fill="none" stroke="#232b3a" stroke-width="3"/>'
+    '</svg></div>'
+)
+
+
 def key_art_hero(slug, name, rel_prefix):
     """Key-art hero: generated art when the media pipeline produced it,
-    otherwise a generator-baked SVG banner in the key-art language (dark
-    field, inner border, name + DOGS). Decorative (aria-hidden): the page
-    h1 names the thing. Pure imagery, no copy beyond the name.
+    otherwise the abstract FALLBACK_HERO banner in the key-art language
+    (dark field, inner border — no text, the h1 names the project).
+    Decorative (aria-hidden).
 
     rel_prefix points from the page back to the repo root."""
     hits = sorted(glob.glob(os.path.join(GEN_DIR, slug, "hero.*")))
     if hits:
         return hero_art(slug, rel_prefix)
-    return ('<div class="hero-art" aria-hidden="true">'
-            '<svg viewBox="0 0 1680 720" preserveAspectRatio="xMidYMid slice">'
-            '<rect width="1680" height="720" fill="#0b0e14"/>'
-            '<rect x="36" y="36" width="1608" height="648" fill="none" stroke="#232b3a" stroke-width="3"/>'
-            '<text x="840" y="345" text-anchor="middle" fill="#e6e9f0" font-size="120" font-weight="800" '
-            'font-family="Impact,Haettenschweiler,\'Arial Narrow\',sans-serif" letter-spacing="3">%s</text>'
-            '<text x="840" y="455" text-anchor="middle" fill="#8b93a7" font-size="44" '
-            'font-family="Impact,Haettenschweiler,\'Arial Narrow\',sans-serif" letter-spacing="14">DOGS</text>'
-            '</svg></div>'
-            % esc(name.upper()))
+    return FALLBACK_HERO
 
 
 def module_hero(slug, name):
@@ -669,6 +683,7 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
 /* key art hero */
 .hero-art{margin:0 0 6px;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
 .hero-art img,.hero-art svg{width:100%;display:block;aspect-ratio:21/9;object-fit:cover}
+.hero-art.fallback svg{aspect-ratio:32/9}/* fallback has no art to show: a low banner, not a dominant box */
 /* slideshow */
 .slides{overflow:hidden;border-radius:8px;border:1px solid var(--line);background:#000}
 .stage{position:relative;overflow:hidden}/* arrows center on the image itself, not on the whole box */
@@ -816,6 +831,7 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
   .panel{padding:16px}
   .hero-art{margin-bottom:14px}/* 390px: hero gets breathing room above the slideshow panel */
   .hero-art img,.hero-art svg{aspect-ratio:16/10}/* 390px: 21/9 reads as a thin sliver — 16/10 keeps the key art visible */
+  .hero-art.fallback svg{aspect-ratio:21/9}/* 390px: fallback stays a low banner, not a dominant box */
   .slide img{aspect-ratio:4/5;object-position:top}
   .snav{width:36px;height:36px;font-size:1.2rem}
   .snav.prev{left:6px}.snav.next{right:6px}
