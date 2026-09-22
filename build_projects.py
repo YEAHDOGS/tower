@@ -1081,7 +1081,9 @@ def group_hub(slug, group, repos_by_name, meta, pitches):
 
 def module_page(group_slug, group, mod, meta, pitches):
     """Investor-facing module page: status-blind. Blurb, key art,
-    screenshots, demo videos. Keeps only the back-to-hub link."""
+    screenshots, demo videos, plus a sibling-modules strip (same treatment
+    as the hub's Modules grid) so a module with no shots or videos still
+    has a body instead of an empty page. Keeps only the back-to-hub link."""
     shot_slug = "%s-%s" % (group_slug, mod["slug"])
 
     vids = mod.get("videos") or []
@@ -1090,11 +1092,23 @@ def module_page(group_slug, group, mod, meta, pitches):
         vids_html = '<div class="vids">' + "".join(
             '<video controls preload="metadata" src="%s"></video>' % esc(v) for v in vids) + "</div>"
 
+    sibs = [m for m in group.get("modules", []) if m["slug"] != mod["slug"]]
+    sibs_html = ""
+    if sibs:
+        sibs_html = '<div class="mods">' + "".join(
+            '<a class="mod" href="../%s/">%s<span class="mbody"><h3>%s</h3><p>%s</p>'
+            '<span class="go">Open dossier \u2192</span></span></a>'
+            % (esc(m["slug"]), mod_thumb(m["title"]), esc(m["title"]),
+               esc(m.get("blurb") or ""))
+            for m in sibs) + "</div>"
+
     sections_list = []
     if shots_exist(shot_slug):
         sections_list.append(section("Screenshots", slideshow(shot_slug, mod["title"], "../../../")))
     if vids_html:
         sections_list.append(section("Videos", vids_html))
+    if sibs_html:
+        sections_list.append(section("More from %s" % group["title"], sibs_html))
 
     title_full = "%s \u2014 DOGS" % mod["title"]
     desc = (mod.get("blurb") or "")[:160]
