@@ -3,7 +3,7 @@
   "entries": [
     {
       "date": "2026-09-09T21:27:23+00:00",
-      "title": "feat: bake report <run-id> merge mode \u2014 merged markdown from per-agent report files",
+      "title": "feat: bake report <run-id> merge mode — merged markdown from per-agent report files",
       "kind": "commit",
       "ref": "480c416",
       "branch": "jack/bakery-report-merge",
@@ -11,7 +11,7 @@
     },
     {
       "date": "2026-09-09T20:27:54+00:00",
-      "title": "feat: bake retry <run-id> \u2014 re-run only failed/timed-out agents as a new <run-id>-retryN run",
+      "title": "feat: bake retry <run-id> — re-run only failed/timed-out agents as a new <run-id>-retryN run",
       "kind": "commit",
       "ref": "48aa334",
       "branch": "jack/bakery-retry",
@@ -27,7 +27,7 @@
     },
     {
       "date": "2026-09-09T20:01:59+00:00",
-      "title": "docs: README \u2014 bake init project layout and quickstart",
+      "title": "docs: README — bake init project layout and quickstart",
       "kind": "commit",
       "ref": "9937523",
       "branch": "detached",
@@ -35,7 +35,7 @@
     },
     {
       "date": "2026-09-09T20:01:59+00:00",
-      "title": "feat: bake init \u2014 idempotent project scaffold with --dry-run",
+      "title": "feat: bake init — idempotent project scaffold with --dry-run",
       "kind": "commit",
       "ref": "97848f2",
       "branch": "detached",
@@ -43,7 +43,7 @@
     },
     {
       "date": "2026-09-09T19:25:35+00:00",
-      "title": "feat: bake report command \u2014 fan out, wait, merge, deliver (+ README)",
+      "title": "feat: bake report command — fan out, wait, merge, deliver (+ README)",
       "kind": "commit",
       "ref": "94aa772",
       "branch": "detached",
@@ -51,7 +51,7 @@
     },
     {
       "date": "2026-09-09T19:24:35+00:00",
-      "title": "feat: bakery.report \u2014 fan-out/wait/sanitized merge (injection-safe rendering)",
+      "title": "feat: bakery.report — fan-out/wait/sanitized merge (injection-safe rendering)",
       "kind": "commit",
       "ref": "f5dafa7",
       "branch": "detached",
@@ -96,12 +96,6 @@
       "ref": "e100fd6",
       "branch": "detached",
       "detail": "local branch, not yet pushed"
-    },
-    {
-      "date": "2026-09-10T13:50:04-05:00",
-      "title": "Watchtower: no live site to screenshot yet",
-      "kind": "note",
-      "detail": "No GitHub Pages or custom-domain deployment found for this repo as of 2026-09-10; Watchtower will add a screenshot entry once a live site exists."
     }
   ]
 }

@@ -16,12 +16,6 @@
       "ref": "63e3689",
       "branch": "detached",
       "url": "https://github.com/YEAHDOGS/castle-os/commit/63e3689717f58692906eb9e625653884ea99e2f2"
-    },
-    {
-      "date": "2026-09-10T13:50:04-05:00",
-      "title": "Watchtower: no live site to screenshot yet",
-      "kind": "note",
-      "detail": "No GitHub Pages or custom-domain deployment found for this repo as of 2026-09-10; Watchtower will add a screenshot entry once a live site exists."
     }
   ]
 }

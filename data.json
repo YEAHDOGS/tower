@@ -1,11 +1,6 @@
 {
  "generated_at": "2026-09-21T18:52:14.796108+00:00",
  "org": "YEAHDOGS",
- "site_status": {
-  "available": true,
-  "generated_at": "2026-09-21T16:18:13.698Z",
-  "url": "https://yeahdogs.github.io/watchtower/status.json"
- },
  "repos": [
   {
    "name": "news",
@@ -28,16 +23,9 @@
    "pages": "https://yeahdogs.github.io/news/",
    "hub": "projects/news/",
    "art": "assets/gen/news/hero.webp",
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-10T14:07:37.223Z",
-    "responseMs": 264,
-    "failing": []
-   },
    "progress": [
     {
-     "title": "Live landing page captured \u2014 desktop + mobile",
+     "title": "Screenshot \u2014 desktop + mobile",
      "detail": "Headless-Chromium capture of the live landing page: desktop, scrolled desktop, mobile 390px.",
      "url": "https://yeahdogs.github.io/news/",
      "date": "2026-09-10T23:06:26.367570+00:00",
@@ -163,16 +151,9 @@
    "pages": "https://yeahdogs.github.io/40/",
    "hub": "projects/40/",
    "art": "assets/gen/40/hero.webp",
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-10T14:07:37.223Z",
-    "responseMs": 285,
-    "failing": []
-   },
    "progress": [
     {
-     "title": "Live landing page captured \u2014 desktop + mobile",
+     "title": "Screenshot \u2014 desktop + mobile",
      "detail": "Headless-Chromium capture of the live landing page: desktop, scrolled desktop, mobile 390px.",
      "url": "https://yeahdogs.github.io/40/",
      "date": "2026-09-10T23:06:26.367570+00:00",
@@ -298,16 +279,9 @@
    "pages": "https://yeahdogs.github.io/castle/",
    "hub": "projects/castle/",
    "art": "assets/gen/castle/hero.webp",
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-10T18:11:55.248Z",
-    "responseMs": 265,
-    "failing": []
-   },
    "progress": [
     {
-     "title": "Live landing page captured \u2014 desktop + mobile",
+     "title": "Screenshot \u2014 desktop + mobile",
      "detail": "Headless-Chromium capture of the live landing page: desktop, scrolled desktop, mobile 390px.",
      "url": "https://yeahdogs.github.io/castle/",
      "date": "2026-09-10T23:06:26.367570+00:00",
@@ -446,16 +420,9 @@
    "pages": "https://yeahdogs.github.io/phoenix/",
    "hub": "projects/phoenix/",
    "art": "assets/gen/phoenix/hero.webp",
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-10T14:07:37.223Z",
-    "responseMs": 281,
-    "failing": []
-   },
    "progress": [
     {
-     "title": "Live landing page captured \u2014 desktop + mobile",
+     "title": "Screenshot \u2014 desktop + mobile",
      "detail": "Headless-Chromium capture of the live landing page: desktop, scrolled desktop, mobile 390px.",
      "url": "https://yeahdogs.github.io/phoenix/",
      "date": "2026-09-10T23:06:26.367570+00:00",
@@ -588,20 +555,7 @@
    "pages": "https://yeahdogs.github.io/sdm/",
    "hub": "projects/sdm/",
    "art": "assets/gen/sdm/hero.webp",
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-11T10:25:36.698Z",
-    "responseMs": 258,
-    "failing": []
-   },
    "progress": [
-    {
-     "title": "Watchtower: no live site to screenshot yet",
-     "detail": "No GitHub Pages or custom-domain deployment found for this repo as of 2026-09-10; Watchtower will add a screenshot entry once a live site exists.",
-     "date": "2026-09-10T13:50:04-05:00",
-     "kind": "note"
-    },
     {
      "title": "docs: add BRAND-VOICE.md \u2014 jungle voice guide with 21 sample lines; mark TASKS P0#2 done",
      "detail": "local branch, not yet pushed",
@@ -721,16 +675,9 @@
    "pages": "https://yeahdogs.github.io/proof/",
    "hub": "projects/proof/",
    "art": "assets/gen/proof/hero.webp",
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-10T14:07:37.223Z",
-    "responseMs": 262,
-    "failing": []
-   },
    "progress": [
     {
-     "title": "Live landing page captured \u2014 desktop + mobile",
+     "title": "Screenshot \u2014 desktop + mobile",
      "detail": "Headless-Chromium capture of the live landing page: desktop, scrolled desktop, mobile 390px.",
      "url": "https://yeahdogs.github.io/proof/",
      "date": "2026-09-10T23:06:26.367570+00:00",
@@ -856,16 +803,9 @@
    "pages": "https://yeahdogs.github.io/demo/",
    "hub": "projects/demo/",
    "art": "assets/gen/demo/hero.webp",
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-10T14:07:37.223Z",
-    "responseMs": 257,
-    "failing": []
-   },
    "progress": [
     {
-     "title": "Live landing page captured \u2014 desktop + mobile",
+     "title": "Screenshot \u2014 desktop + mobile",
      "detail": "Headless-Chromium capture of the live landing page: desktop, scrolled desktop, mobile 390px.",
      "url": "https://yeahdogs.github.io/demo/",
      "date": "2026-09-10T23:06:26.367570+00:00",
@@ -991,16 +931,9 @@
    "pages": "https://yeahdogs.github.io/playback/",
    "hub": "projects/playback/",
    "art": "assets/gen/playback/hero.webp",
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-10T14:07:37.223Z",
-    "responseMs": 369,
-    "failing": []
-   },
    "progress": [
     {
-     "title": "Live landing page captured \u2014 desktop + mobile",
+     "title": "Screenshot \u2014 desktop + mobile",
      "detail": "Headless-Chromium capture of the live landing page: desktop, scrolled desktop, mobile 390px.",
      "url": "https://yeahdogs.github.io/playback/",
      "date": "2026-09-10T23:06:26.367570+00:00",
@@ -1126,16 +1059,9 @@
    "pages": "https://yeahdogs.github.io/pay/",
    "hub": "projects/pay/",
    "art": "assets/gen/pay/hero.webp",
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-10T14:07:37.223Z",
-    "responseMs": 275,
-    "failing": []
-   },
    "progress": [
     {
-     "title": "Live landing page captured \u2014 desktop + mobile",
+     "title": "Screenshot \u2014 desktop + mobile",
      "detail": "Headless-Chromium capture of the live landing page: desktop, scrolled desktop, mobile 390px.",
      "url": "https://yeahdogs.github.io/pay/",
      "date": "2026-09-10T23:06:26.367570+00:00",
@@ -1255,7 +1181,6 @@
    "pages": null,
    "hub": "projects/help/",
    "art": "assets/gen/help/hero.webp",
-   "site": null,
    "progress": []
   },
   {
@@ -1279,20 +1204,7 @@
    "pages": "https://yeahdogs.github.io/bakery/",
    "hub": "projects/bakery/",
    "art": "assets/gen/bakery/hero.webp",
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-11T10:25:36.698Z",
-    "responseMs": 309,
-    "failing": []
-   },
    "progress": [
-    {
-     "title": "Watchtower: no live site to screenshot yet",
-     "detail": "No GitHub Pages or custom-domain deployment found for this repo as of 2026-09-10; Watchtower will add a screenshot entry once a live site exists.",
-     "date": "2026-09-10T13:50:04-05:00",
-     "kind": "note"
-    },
     {
      "title": "feat: bake report <run-id> merge mode \u2014 merged markdown from per-agent report files",
      "detail": "local branch, not yet pushed",
@@ -1412,7 +1324,6 @@
    "pages": null,
    "hub": "projects/divorce/",
    "art": "assets/gen/divorce/hero.webp",
-   "site": null,
    "progress": [
     {
      "title": "Demo: $30 test checkout \u2192 printable packet",
@@ -1540,20 +1451,7 @@
    "pages": "https://yeahdogs.github.io/sampler/",
    "hub": "projects/sampler/",
    "art": "assets/gen/sampler/hero.webp",
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-11T10:25:36.698Z",
-    "responseMs": 261,
-    "failing": []
-   },
    "progress": [
-    {
-     "title": "Watchtower: no live site to screenshot yet",
-     "detail": "No GitHub Pages or custom-domain deployment found for this repo as of 2026-09-10; Watchtower will add a screenshot entry once a live site exists.",
-     "date": "2026-09-10T13:50:04-05:00",
-     "kind": "note"
-    },
     {
      "title": "test(sampler): i18n regression suite \u2014 20 zero-dep tests via node:test",
      "detail": "local branch, not yet pushed",
@@ -1673,16 +1571,9 @@
    "pages": "https://yeahdogs.github.io/icecream/",
    "hub": "projects/icecream/",
    "art": "assets/gen/icecream/hero.webp",
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-09T19:39:36.427Z",
-    "responseMs": 272,
-    "failing": []
-   },
    "progress": [
     {
-     "title": "Live landing page captured \u2014 desktop + mobile",
+     "title": "Screenshot \u2014 desktop + mobile",
      "detail": "Headless-Chromium capture of the live landing page: desktop, scrolled desktop, mobile 390px.",
      "url": "https://yeahdogs.github.io/icecream/",
      "date": "2026-09-10T23:06:26.367570+00:00",
@@ -1690,7 +1581,7 @@
      "kind": "screenshot"
     },
     {
-     "title": "Live site screenshot, desktop 1440px",
+     "title": "Screenshot \u2014 desktop + mobile",
      "detail": "Real capture of the live Scoop campaign page with headless Chromium on 2026-09-10; Snoop x Deel x Dr. Bombay application window closes Sep 17.",
      "url": "https://yeahdogs.github.io/icecream/",
      "branch": "jack/tower-pictures-2026-09-10",
@@ -1721,16 +1612,9 @@
    "pages": "https://yeahdogs.github.io/wax/",
    "hub": "projects/wax/",
    "art": "assets/gen/wax/hero.webp",
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-13T09:15:17.301Z",
-    "responseMs": 258,
-    "failing": []
-   },
    "progress": [
     {
-     "title": "Live landing page captured \u2014 desktop + mobile",
+     "title": "Screenshot \u2014 desktop + mobile",
      "detail": "Headless-Chromium capture of the live landing page: desktop, scrolled desktop, mobile 390px.",
      "url": "https://yeahdogs.github.io/wax/",
      "date": "2026-09-10T23:06:26.367570+00:00",
@@ -1870,20 +1754,7 @@
    "pages": "https://yeahdogs.github.io/remote/",
    "hub": "projects/remote/",
    "art": "assets/gen/remote/hero.webp",
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-11T10:25:36.698Z",
-    "responseMs": 265,
-    "failing": []
-   },
    "progress": [
-    {
-     "title": "Watchtower: no live site to screenshot yet",
-     "detail": "No GitHub Pages or custom-domain deployment found for this repo as of 2026-09-10; Watchtower will add a screenshot entry once a live site exists.",
-     "date": "2026-09-10T13:50:04-05:00",
-     "kind": "note"
-    },
     {
      "title": "fix: guard emitter boundary \u2014 isValidTransmit() rejects malformed IR payloads pre-framework; 10/10 suites green",
      "ref": "975b673",
@@ -2003,20 +1874,7 @@
    "pages": "https://yeahdogs.github.io/chains/",
    "hub": "projects/chains/",
    "art": "assets/gen/chains/hero.webp",
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-11T13:21:16.252Z",
-    "responseMs": 254,
-    "failing": []
-   },
    "progress": [
-    {
-     "title": "Watchtower: no live site to screenshot yet",
-     "detail": "No GitHub Pages or custom-domain deployment found for this repo as of 2026-09-10; Watchtower will add a screenshot entry once a live site exists.",
-     "date": "2026-09-10T13:50:04-05:00",
-     "kind": "note"
-    },
     {
      "title": "feat: track PS2 memory cards (*.ps2) + docs/test regression guard",
      "detail": "local branch, not yet pushed",
@@ -2136,16 +1994,9 @@
    "pages": "https://yeahdogs.github.io/tower/",
    "hub": "projects/tower/",
    "art": "assets/gen/tower/hero.webp",
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-09T22:09:18.265Z",
-    "responseMs": 281,
-    "failing": []
-   },
    "progress": [
     {
-     "title": "Live landing page captured \u2014 desktop + mobile",
+     "title": "Screenshot \u2014 desktop + mobile",
      "detail": "Headless-Chromium capture of the live landing page: desktop, scrolled desktop, mobile 390px.",
      "url": "https://yeahdogs.github.io/tower/",
      "date": "2026-09-10T23:06:26.367570+00:00",
@@ -2153,7 +2004,7 @@
      "kind": "screenshot"
     },
     {
-     "title": "Live site screenshot, desktop 1440px",
+     "title": "Screenshot \u2014 desktop + mobile",
      "detail": "Real capture of the live Watchtower dashboard with headless Chromium on 2026-09-10; 27 projects, 3 sites live, 1 down.",
      "url": "https://yeahdogs.github.io/tower/",
      "branch": "jack/tower-pictures-2026-09-10",
@@ -2184,13 +2035,6 @@
    "pages": "https://yeahdogs.github.io/id/",
    "hub": "projects/id/",
    "art": "assets/gen/id/hero.webp",
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-11T10:25:36.698Z",
-    "responseMs": 258,
-    "failing": []
-   },
    "progress": [
     {
      "title": "Watchtower: id.wearedogs.net unreachable",
@@ -2229,16 +2073,9 @@
    "pages": "https://yeahdogs.github.io/paper/",
    "hub": "projects/paper/",
    "art": "assets/gen/paper/hero.webp",
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-13T09:15:17.301Z",
-    "responseMs": 265,
-    "failing": []
-   },
    "progress": [
     {
-     "title": "Live landing page captured \u2014 desktop + mobile",
+     "title": "Screenshot \u2014 desktop + mobile",
      "detail": "Headless-Chromium capture of the live landing page: desktop, scrolled desktop, mobile 390px.",
      "url": "https://yeahdogs.github.io/paper/",
      "date": "2026-09-10T23:06:26.367570+00:00",
@@ -2308,16 +2145,9 @@
    "pages": "https://yeahdogs.github.io/watchtower/",
    "hub": "projects/watchtower/",
    "art": "assets/gen/watchtower/hero.webp",
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-10T09:25:39.369Z",
-    "responseMs": 301,
-    "failing": []
-   },
    "progress": [
     {
-     "title": "Live landing page captured \u2014 desktop + mobile",
+     "title": "Screenshot \u2014 desktop + mobile",
      "detail": "Headless-Chromium capture of the live landing page: desktop, scrolled desktop, mobile 390px.",
      "url": "https://yeahdogs.github.io/watchtower/",
      "date": "2026-09-10T23:06:26.367570+00:00",
@@ -2347,16 +2177,9 @@
    "pages": "https://yeahdogs.github.io/mirror/",
    "hub": "projects/mirror/",
    "art": "assets/gen/mirror/hero.webp",
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-10T14:07:37.223Z",
-    "responseMs": 678,
-    "failing": []
-   },
    "progress": [
     {
-     "title": "Live landing page captured \u2014 desktop + mobile",
+     "title": "Screenshot \u2014 desktop + mobile",
      "detail": "Headless-Chromium capture of the live landing page: desktop, scrolled desktop, mobile 390px.",
      "url": "https://yeahdogs.github.io/mirror/",
      "date": "2026-09-10T23:06:26.367570+00:00",
@@ -2402,20 +2225,7 @@
    "pages": "https://yeahdogs.github.io/castle-os/",
    "hub": null,
    "art": "assets/gen/castle-os/hero.webp",
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-11T13:21:16.252Z",
-    "responseMs": 278,
-    "failing": []
-   },
    "progress": [
-    {
-     "title": "Watchtower: no live site to screenshot yet",
-     "detail": "No GitHub Pages or custom-domain deployment found for this repo as of 2026-09-10; Watchtower will add a screenshot entry once a live site exists.",
-     "date": "2026-09-10T13:50:04-05:00",
-     "kind": "note"
-    },
     {
      "title": "Phase 1: scaffold archiso profile (rescue modes, build+verify, docs)",
      "ref": "0c923de",
@@ -2455,20 +2265,7 @@
    "pages": "https://yeahdogs.github.io/forge/",
    "hub": "projects/forge/",
    "art": "assets/gen/forge/hero.webp",
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-11T10:25:36.698Z",
-    "responseMs": 262,
-    "failing": []
-   },
    "progress": [
-    {
-     "title": "Watchtower: no live site to screenshot yet",
-     "detail": "No GitHub Pages or custom-domain deployment found for this repo as of 2026-09-10; Watchtower will add a screenshot entry once a live site exists.",
-     "date": "2026-09-10T13:50:04-05:00",
-     "kind": "note"
-    },
     {
      "title": "Forge v1: Oklahoma LLC formation wizard (files nothing, worksheet + instructions)",
      "ref": "d5179c2",
@@ -2500,16 +2297,9 @@
    "pages": "https://yeahdogs.github.io/",
    "hub": "projects/yeahdogs.github.io/",
    "art": "assets/gen/yeahdogs.github.io/hero.webp",
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-09T22:09:18.265Z",
-    "responseMs": 241,
-    "failing": []
-   },
    "progress": [
     {
-     "title": "Live landing page captured \u2014 desktop + mobile",
+     "title": "Screenshot \u2014 desktop + mobile",
      "detail": "Headless-Chromium capture of the live landing page: desktop, scrolled desktop, mobile 390px.",
      "url": "https://yeahdogs.github.io/",
      "date": "2026-09-10T23:06:26.367570+00:00",
@@ -2539,20 +2329,7 @@
    "pages": "https://yeahdogs.github.io/printshop/",
    "hub": "projects/printshop/",
    "art": "assets/gen/printshop/hero.webp",
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-11T10:25:36.698Z",
-    "responseMs": 270,
-    "failing": []
-   },
    "progress": [
-    {
-     "title": "Watchtower: no live site to screenshot yet",
-     "detail": "No GitHub Pages or custom-domain deployment found for this repo as of 2026-09-10; Watchtower will add a screenshot entry once a live site exists.",
-     "date": "2026-09-10T13:50:04-05:00",
-     "kind": "note"
-    },
     {
      "title": "Repo scaffolded: landing page, catalog, seat-gap-filler research + parametric OpenSCAD model",
      "detail": "Research verdict: launch the parametric STL first (pure margin), not printed physicals. Open question: does the founder own a 3D printer?",
@@ -2585,21 +2362,7 @@
    "pages": "https://radio.dogs.red/",
    "hub": "projects/radio/",
    "art": "assets/gen/radio/hero.webp",
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-18T09:26:38.166Z",
-    "responseMs": 478,
-    "failing": []
-   },
-   "progress": [
-    {
-     "title": "Watchtower: no live site to screenshot yet",
-     "detail": "No GitHub Pages or custom-domain deployment found for this repo as of 2026-09-10; Watchtower will add a screenshot entry once a live site exists.",
-     "date": "2026-09-10T13:50:04-05:00",
-     "kind": "note"
-    }
-   ]
+   "progress": []
   },
   {
    "name": ".dog",
@@ -2622,21 +2385,7 @@
    "pages": "https://yeahdogs.github.io/.dog/",
    "hub": "projects/.dog/",
    "art": "assets/gen/.dog/hero.webp",
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-12T12:42:21.629Z",
-    "responseMs": 321,
-    "failing": []
-   },
-   "progress": [
-    {
-     "title": "Watchtower: no live site to screenshot yet",
-     "detail": "No GitHub Pages or custom-domain deployment found for this repo as of 2026-09-10; Watchtower will add a screenshot entry once a live site exists.",
-     "date": "2026-09-10T13:50:04-05:00",
-     "kind": "note"
-    }
-   ]
+   "progress": []
   },
   {
    "name": "dogs.red",
@@ -2653,7 +2402,6 @@
    "pages": null,
    "hub": "projects/dogs.red/",
    "art": "assets/gen/dogs.red/hero.webp",
-   "site": null,
    "progress": []
   },
   {
@@ -2677,16 +2425,9 @@
    "pages": "https://yeahdogs.github.io/walkthru/",
    "hub": "projects/walkthru/",
    "art": null,
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-14T05:56:34.189Z",
-    "responseMs": 264,
-    "failing": []
-   },
    "progress": [
     {
-     "title": "Live site captured \u2014 desktop + mobile",
+     "title": "Screenshot \u2014 desktop + mobile",
      "detail": "Headless-Chromium capture of the live site: desktop, scrolled desktop, mobile 390px.",
      "url": "https://yeahdogs.github.io/walkthru/",
      "date": "2026-09-19T19:27:14.956015+00:00",
@@ -2716,16 +2457,9 @@
    "pages": "http://shiftwork.dogs.red/",
    "hub": "projects/shiftwork/",
    "art": null,
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-18T04:28:31.005Z",
-    "responseMs": 321,
-    "failing": []
-   },
    "progress": [
     {
-     "title": "Live site captured \u2014 desktop + mobile",
+     "title": "Screenshot \u2014 desktop + mobile",
      "detail": "Headless-Chromium capture of the live site: desktop, scrolled desktop, mobile 390px.",
      "url": "https://shiftwork.dogs.red/",
      "date": "2026-09-19T19:27:14.956015+00:00",
@@ -2755,16 +2489,9 @@
    "pages": "https://yeahdogs.github.io/firehose/",
    "hub": "projects/firehose/",
    "art": null,
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-17T17:58:56.114Z",
-    "responseMs": 272,
-    "failing": []
-   },
    "progress": [
     {
-     "title": "Live site captured \u2014 desktop + mobile",
+     "title": "Screenshot \u2014 desktop + mobile",
      "detail": "Headless-Chromium capture of the live site: desktop, scrolled desktop, mobile 390px.",
      "url": "https://yeahdogs.github.io/firehose/",
      "date": "2026-09-19T19:27:14.956015+00:00",
@@ -2794,7 +2521,6 @@
    "pages": null,
    "hub": "projects/moneygrid/",
    "art": null,
-   "site": null,
    "progress": []
   },
   {
@@ -2818,16 +2544,9 @@
    "pages": "http://grasshopper.dogs.red/",
    "hub": "projects/grasshopper/",
    "art": null,
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-19T17:02:13.820Z",
-    "responseMs": 537,
-    "failing": []
-   },
    "progress": [
     {
-     "title": "Live site captured \u2014 desktop + mobile",
+     "title": "Screenshot \u2014 desktop + mobile",
      "detail": "Headless-Chromium capture of the live site: desktop, scrolled desktop, mobile 390px.",
      "url": "https://grasshopper.dogs.red/",
      "date": "2026-09-19T19:27:14.956015+00:00",
@@ -2857,13 +2576,6 @@
    "pages": "http://cups.dogs.red/",
    "hub": "projects/cups/",
    "art": null,
-   "site": {
-    "status": "up",
-    "lastCheck": "2026-09-21T16:18:13.698Z",
-    "since": "2026-09-20T21:14:27.671Z",
-    "responseMs": 514,
-    "failing": []
-   },
    "progress": []
   },
   {
@@ -2887,7 +2599,6 @@
    "pages": "https://yeahdogs.github.io/printer/",
    "hub": null,
    "art": null,
-   "site": null,
    "progress": []
   },
   {
@@ -2905,7 +2616,6 @@
    "pages": null,
    "hub": null,
    "art": null,
-   "site": null,
    "progress": []
   }
  ]

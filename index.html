@@ -3,28 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Watchtower — DOGS Project Portfolio</title>
-<meta name="description" content="Watchtower: every DOGS project in one grid. Each tile opens a project hub.">
+<title>Tower — DOGS</title>
+<meta name="description" content="Tower: every DOGS project in the works, in one grid. Each tile opens a project hub.">
 <link rel="canonical" href="https://yeahdogs.github.io/tower/">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="assets/site.webmanifest">
 <meta name="theme-color" content="#0b0e14">
-<meta property="og:title" content="Watchtower — DOGS Project Portfolio">
-<meta property="og:description" content="Every DOGS project in one tile grid, each with live uptime status.">
+<meta property="og:title" content="Tower — DOGS">
+<meta property="og:description" content="Projects in the works at DOGS.">
 <meta property="og:url" content="https://yeahdogs.github.io/tower/">
-<meta property="og:site_name" content="Watchtower">
+<meta property="og:site_name" content="Tower">
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://yeahdogs.github.io/tower/shots/tower.webp">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Watchtower — the DOGS project tile grid">
+<meta property="og:image:alt" content="Tower — the DOGS project tile grid">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Watchtower — DOGS Project Portfolio">
-<meta name="twitter:description" content="Every DOGS project in one tile grid, each with live uptime status.">
+<meta name="twitter:title" content="Tower — DOGS">
+<meta name="twitter:description" content="Projects in the works at DOGS.">
 <meta name="twitter:image" content="https://yeahdogs.github.io/tower/shots/tower.webp">
-<meta name="twitter:image:alt" content="Watchtower — the DOGS project tile grid">
+<meta name="twitter:image:alt" content="Tower — the DOGS project tile grid">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"DOGS","url":"https://yeahdogs.github.io/tower/","sameAs":["https://wearedogs.net"]}
 </script>
@@ -396,8 +396,8 @@
     <a class="head-badge-link" href="https://wearedogs.net" aria-label="This product was made by DOGS">
       <img class="head-badge" src="assets/made-by-dogs.webp" alt="This product was made by DOGS" width="360" height="119" decoding="async">
     </a>
-    <a class="head-brand" href="./" aria-label="Watchtower — back to top">
-      <h1 class="head-name">Watchtower</h1>
+    <a class="head-brand" href="./" aria-label="Tower — back to top">
+      <h1 class="head-name">Tower</h1>
     </a>
   </div>
   <nav class="head-nav" aria-label="Page sections">
@@ -407,7 +407,6 @@
 </header>
 <p class="statusline" id="statusline" aria-live="polite">
   <span id="proj-count">…</span>
-  <span id="site-summary">…</span>
   <span>Updated <span id="updated">…</span></span>
 </p>
 
@@ -430,7 +429,6 @@
       <select id="sort" aria-label="Sort projects">
         <option value="featured">Featured</option>
         <option value="name">Name A–Z</option>
-        <option value="status">Status</option>
         <option value="updated">Recently updated</option>
         <option value="category">Category</option>
       </select>
@@ -441,7 +439,7 @@
   <div class="tiles" id="tiles"></div>
   <div id="err"></div>
   <noscript>
-    <p style="color:#8b93a7;margin-top:20px">Watchtower's project tiles need JavaScript to load live status data. The raw project list is available in <a href="data.json" style="color:#6ea8fe">data.json</a>.</p>
+    <p style="color:#8b93a7;margin-top:20px">Tower's project tiles need JavaScript to load the project list. The raw project list is available in <a href="data.json" style="color:#6ea8fe">data.json</a>.</p>
   </noscript>
 </main>
 
@@ -492,19 +490,6 @@
     return new Date(iso).toISOString().slice(0, 10);
   }
 
-  // Watchtower live-site status. Never a fake green: unknown when the feed
-  // is unavailable or the repo has no monitored site.
-  function siteInfo(r, available) {
-    if (!available) return { cls: "", text: "site status unavailable", rank: 1 };
-    var s = r.site;
-    if (!s) return { cls: "", text: "not monitored", rank: 1 };
-    var ago = "checked " + relTime(s.lastCheck);
-    var ms = (s.responseMs === null || s.responseMs === undefined) ? "" : " · " + s.responseMs + "ms";
-    if (s.status === "up") return { cls: "up", text: "LIVE — " + ago + ms, rank: 0 };
-    if (s.status === "down") return { cls: "down", text: "DOWN — " + ago, rank: 2 };
-    return { cls: "", text: "status unknown", rank: 1 };
-  }
-
   function tileShot(r) {
     var e = null;
     (r.progress || []).forEach(function (p) {
@@ -523,12 +508,14 @@
       d.title = e.title;
     } else {
       d.appendChild(el("span", null, "no screenshot yet"));
-      d.title = "No live site to screenshot — check back soon";
+      d.title = "Screenshots not available";
     }
     return d;
   }
 
-  function tile(r, siteAvail) {
+  // Tile copy: one-line pitch from projects/pitches.json; raw repo
+  // description stays on the object for search filtering only.
+  function tile(r) {
     var a = el("article", "tile" + (FEATURED.indexOf(norm(r.name)) !== -1 ? " wide" : "") +
       " cat-" + (r.category || "Apps").toLowerCase());
     a.setAttribute("aria-label", r.name);
@@ -548,73 +535,17 @@
 
     var top = el("div", "tile-top");
     top.appendChild(el("span", "cat", r.category));
-    // Group tiles (e.g. Castle) collapse member repos into one hub entry.
-    var si = r.isGroup
-      ? { cls: "", text: "project hub — " + r.modules + " modules inside", rank: 1 }
-      : siteInfo(r, siteAvail);
-    var dot = el("span", "dot " + si.cls);
-    dot.title = si.text;
-    top.appendChild(dot);
     body.appendChild(top);
 
-    // Tile copy: TAGLINES override (3-6 words); raw repo description
-    // stays on the object for search filtering only.
-    var blurb = TAGLINES[r.name] || r.description;
+    var blurb = PITCHES[r.slug] || r.description;
     if (blurb) body.appendChild(el("p", "desc", blurb));
-
-    var foot = el("div", "tile-foot");
-    var links = el("div", "tile-links");
-    if (r.pages) {
-      var pa = el("a", null, "Live site");
-      pa.href = r.pages; pa.target = "_blank"; pa.rel = "noopener";
-      links.appendChild(pa);
-    }
-    // GitHub repo links live on the hub page, not on the tile.
-    foot.appendChild(links);
-
-    var st = el("div", "tile-status " + si.cls);
-    st.appendChild(el("span", "sd"));
-    st.appendChild(el("span", null, si.text));
-    foot.appendChild(st);
-    body.appendChild(foot);
 
     a.appendChild(body);
     return a;
   }
 
-  // Tile taglines: name + 3-6 words on every tile, no paragraphs.
-  // Overrides the raw GitHub repo descriptions (kept only for search).
-  var TAGLINES = {
-    "news": "Independent news, no spin.",
-    "40": "Self-deleting social media.",
-    "phoenix": "Fresh start for devices.",
-    "sdm": "Dating for the wild.",
-    "proof": "Facts on world vices.",
-    "playback": "DJ booth in browser.",
-    "pay": "Send money, no middleman.",
-    "help": "Give back, DOGS style.",
-    "bakery": "Parallel swarm manager.",
-    "divorce": "DIY Oklahoma divorce.",
-    "sampler": "AI sample finder.",
-    "icecream": "The global ice cream landscape.",
-    "wax": "Vinyl drop alerts.",
-    "remote": "Universal TV remote.",
-    "chains": "Git for save data.",
-    "id": "Age verification gate.",
-    "paper": "Fake money, real lessons.",
-    "mirror": "Smart mirror dashboard.",
-    "forge": "LLC formation wizard.",
-    "printshop": "Printable 3D assets.",
-    "radio": "24/7 community radio.",
-    ".dog": "Minimal text, maximal expression.",
-    "dogs.red": "The DOGS front door.",
-    "castle": "Your data, your network, your rules.",
-    "demo": "The DOGS portfolio.",
-    "tower": "DOGS mission control.",
-    "watchtower": "Uptime watchdog for DOGS sites.",
-    "castle-os": "Castle live ISO appliance.",
-    "yeahdogs.github.io": "DOGS home on GitHub."
-  };
+  // Project pitches, fetched from projects/pitches.json.
+  var PITCHES = {};
 
   // ---- featured carousel ----
   var CAROUSEL = ["castle", "icecream", "wax", "phoenix"];
@@ -783,7 +714,7 @@
     Array.prototype.forEach.call(els, function (n) { io.observe(n); });
   }
 
-  var state = { q: "", sort: "featured", cat: "All", repos: [], siteAvail: false };
+  var state = { q: "", sort: "featured", cat: "All", repos: [] };
 
   function sorters(mode) {
     return {
@@ -793,10 +724,6 @@
         return new Date(y.pushed_at) - new Date(x.pushed_at);
       },
       name: function (x, y) { return x.name.localeCompare(y.name); },
-      status: function (x, y) {
-        if (x.srank !== y.srank) return x.srank - y.srank;
-        return new Date(y.pushed_at) - new Date(x.pushed_at);
-      },
       updated: function (x, y) { return new Date(y.pushed_at) - new Date(x.pushed_at); },
       category: function (x, y) {
         return x.category.localeCompare(y.category) || x.name.localeCompare(y.name);
@@ -827,7 +754,7 @@
       box.appendChild(e);
     } else {
       list.forEach(function (r, i) {
-        var t = tile(r, state.siteAvail);
+        var t = tile(r);
         t.style.animationDelay = Math.min(i * 45, 700) + "ms";
         box.appendChild(t);
       });
@@ -868,13 +795,16 @@
     }),
     fetch("projects/groups.json", { cache: "no-store" }).then(function (res) {
       return res.ok ? res.json() : { groups: {} };
-    }).catch(function () { return { groups: {} }; })
+    }).catch(function () { return { groups: {} }; }),
+    fetch("projects/pitches.json", { cache: "no-store" }).then(function (res) {
+      return res.ok ? res.json() : {};
+    }).catch(function () { return {}; })
   ])
     .then(function (parts) {
       var data = parts[0];
       var groups = (parts[1] && parts[1].groups) || {};
       if (!data || !Array.isArray(data.repos)) throw new Error("bad data");
-      state.siteAvail = !!(data.site_status && data.site_status.available);
+      PITCHES = parts[2] || {};
       // One tile per group (e.g. Castle); member repos never get their own tiles.
       var entries = [], members = {};
       Object.keys(groups).forEach(function (slug) {
@@ -886,12 +816,12 @@
         var src = null;
         data.repos.forEach(function (r) { if (r.name === slug) src = r; });
         entries.push({
-          isGroup: true, name: g.title, slug: slug,
+          isGroup: true, name: g.title, slug: slug, groupSlug: slug,
           description: g.tagline || g.description || "", // tagline only on tiles: 3-6 words, never a paragraph
           category: g.category || "Infra",
           hub: "projects/" + slug + "/",
           modules: (g.modules || []).length,
-          pages: null, site: null, srank: 1, pushed_at: null,
+          pushed_at: null,
           art: src ? src.art : null,
           progress: src ? (src.progress || []) : []
         });
@@ -899,33 +829,14 @@
       data.repos.forEach(function (r) {
         if (members[r.name]) return;
         if (HIDDEN.indexOf(r.name) !== -1) return;
-        var si = siteInfo(r, state.siteAvail);
         r.category = category(r.name);
-        r.srank = si.rank;
+        r.slug = r.name;
         r.hub = r.hub || r.url; // hub page when one exists, else the repo
         entries.push(r);
       });
       state.repos = entries;
-      var monitored = 0, down = 0;
-      state.repos.forEach(function (r) {
-        if (r.site) { monitored++; if (r.site.status === "down") down++; }
-      });
       document.getElementById("proj-count").textContent =
-        state.repos.length + " projects";
-      var sum = document.getElementById("site-summary");
-      if (state.siteAvail) {
-        sum.innerHTML = "";
-        sum.appendChild(el("span", null, monitored + " sites monitored · "));
-        var live = monitored - down;
-        var l = el("span", live === monitored ? "ok" : "", live + " live");
-        sum.appendChild(l);
-        if (down) {
-          sum.appendChild(el("span", null, " · "));
-          sum.appendChild(el("span", "bad", down + " down"));
-        }
-      } else {
-        sum.textContent = "site status unavailable";
-      }
+        state.repos.length + " projects in the works";
       document.getElementById("updated").textContent =
         relTime(data.generated_at) + " (" +
         new Date(data.generated_at).toISOString().replace("T", " ").slice(0, 16) + " UTC)";
@@ -937,7 +848,7 @@
     .catch(function (e) {
       var d = document.getElementById("err");
       d.className = "error";
-      d.textContent = "Could not load Watchtower data: " + e.message;
+      d.textContent = "Could not load Tower data: " + e.message;
       setupReveals();
     });
 })();

@@ -1,26 +1,27 @@
 #!/usr/bin/env python3
-"""Watchtower hub-page generator.
+"""Tower portfolio hub-page generator.
 
-Reads data.json (+ projects/groups.json, projects/meta.json) and bakes one
-static hub page per project into projects/<slug>/index.html, plus one hub
-per group (projects/<group>/) with linked module sub-pages
-(projects/<group>/<module>/).
+Reads data.json (+ projects/groups.json, projects/meta.json,
+projects/pitches.json) and bakes one static hub page per project into
+projects/<slug>/index.html, plus one hub per group (projects/<group>/) with
+linked module sub-pages (projects/<group>/<module>/).
+
+This is the investor-facing portfolio: every page is status-blind. No
+uptime badges, no live-site links, no repo stats, no commit history —
+nothing that distinguishes an online project from an offline one. One
+pitch line per project, from projects/pitches.json.
 
 Content sources (all honest, never invented):
-  - header/status/links : data.json (Watchtower site status; degrades to
-    "not monitored", never a fake green)
+  - lede                : projects/pitches.json (one pitch line per project;
+    module pages use the blurb from projects/groups.json)
+  - key art             : assets/gen/<slug>/hero.webp, falling back to a pure
+    CSS/SVG title card when no key art exists (never hints at site status)
   - slideshow           : assets/shots/<slug>/*.{png,webp} captured from the live
-    site by capture_shots.py (PNGs re-encoded to webp for weight);
-    repos with no live site get a pure CSS/SVG
-    title card (no external assets)
-  - what's going on      : repo description + latest commit (msg + date)
-    from the local clone's git log (read-only)
-  - timeline            : conception (first commit) -> recent updates, from
-    the local clone's git log (read-only)
-  - ideas               : bullet lists quoted/paraphrased from the repo's own
-    docs (ROADMAP.md, VISION.md, TODO.md, README roadmap sections, ...)
-  - percent complete    : projects/meta.json only; null renders "IN BUILD".
-    A number is never written without a verifiable source.
+    site by capture_shots.py (PNGs re-encoded to webp for weight)
+  - demo videos         : demos/*.mp4 linked from data.json
+
+Status-blind by design: nothing on any page distinguishes an online
+project from an offline one. Deployment state is never rendered.
 
 Local clones (read-only) are resolved from ~/workspace/org-audit/<repo>,
 ~/workspace/icecream-inspect (icecream), and /tmp/hubclones/<repo>
@@ -53,6 +54,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 DATA_JSON = os.path.join(HERE, "data.json")
 GROUPS_JSON = os.path.join(HERE, "projects", "groups.json")
 META_JSON = os.path.join(HERE, "projects", "meta.json")
+PITCHES_JSON = os.path.join(HERE, "projects", "pitches.json")
 PROJECTS_DIR = os.path.join(HERE, "projects")
 SHOTS_DIR = os.path.join(HERE, "assets", "shots")
 GEN_DIR = os.path.join(HERE, "assets", "gen")
@@ -130,6 +132,28 @@ def pii_guard(text, where):
 
 def esc(s):
     return html.escape(s or "", quote=True)
+
+
+def load_pitches():
+    """projects/pitches.json -> {slug: one-line pitch}. Never raises.
+
+    The single source of project copy for the portfolio: dossier ledes and
+    (via index.html) tile taglines. A missing slug falls back to the repo's
+    own description at render time."""
+    try:
+        with open(PITCHES_JSON) as f:
+            data = json.load(f)
+    except (OSError, ValueError) as e:  # noqa: BLE001 - bad file, fall back
+        print("WARN: pitches.json unreadable: %s" % e, file=sys.stderr)
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def pitch_for(pitches, slug, fallback=""):
+    p = pitches.get(slug)
+    if isinstance(p, str) and p.strip():
+        return p.strip()
+    return fallback
 
 
 # ---------------------------------------------------------------- clones
@@ -353,12 +377,12 @@ def mod_thumb(name):
 
 CAPTIONS = {
     "yeahdogs.github.io": [
-        "Forwards to the Watchtower — desktop",
-        "Forwards to the Watchtower — desktop, scrolled",
-        "Forwards to the Watchtower — mobile",
+        "Forwards to Tower — desktop",
+        "Forwards to Tower — desktop, scrolled",
+        "Forwards to Tower — mobile",
     ],
 }
-DEFAULT_CAPTIONS = ["Live site — desktop", "Live site — desktop, scrolled", "Live site — mobile (390px)"]
+DEFAULT_CAPTIONS = ["Desktop", "Desktop, scrolled", "Mobile (390px)"]
 
 
 SITE_BASE = "https://yeahdogs.github.io/tower"
@@ -435,7 +459,7 @@ def social_meta(title, desc, url_path, slug):
         '<meta property="og:title" content="%s">' % esc(title),
         '<meta property="og:description" content="%s">' % esc(desc),
         '<meta property="og:url" content="%s">' % esc(url),
-        '<meta property="og:site_name" content="Watchtower">',
+        '<meta property="og:site_name" content="Tower">',
         '<meta property="og:locale" content="en_US">',
         '<meta name="twitter:card" content="summary_large_image">',
         '<meta name="twitter:title" content="%s">' % esc(title),
@@ -471,7 +495,7 @@ def json_ld(title, desc, url_path):
         "description": desc,
         "isPartOf": {
             "@type": "WebSite",
-            "name": "Watchtower",
+            "name": "Tower",
             "url": SITE_BASE + "/",
         },
     }
@@ -542,13 +566,11 @@ def slideshow(slug, name, rel_prefix="../../", site=None):
                    glob.glob(os.path.join(SHOTS_DIR, slug, "*.webp")))
     caps = CAPTIONS.get(slug, DEFAULT_CAPTIONS)
     if not files:
-        # Honest fallback: a monitored LIVE site is not a "no site yet".
-        if site and site.get("status") == "up":
-            return title_card(name, "Live site — screenshots coming soon")
-        return title_card(name, "No live site yet — title card")
+        # Status-blind fallback: never hint at whether a site exists.
+        return title_card(name, "DOGS")
     slides = []
     for i, f in enumerate(files):
-        cap = caps[i] if i < len(caps) else "Live site"
+        cap = caps[i] if i < len(caps) else "Screenshot"
         rel = "%sassets/shots/%s/%s" % (rel_prefix, slug, os.path.basename(f))
         slides.append(
             '<figure class="slide" data-cap="%s"><img src="%s" alt="%s" loading="lazy" decoding="async"></figure>'
@@ -575,7 +597,7 @@ def slideshow(slug, name, rel_prefix="../../", site=None):
         '<div class="sdots">%s</div>'
         '<div class="scount"><span class="cur">1</span> / %d</div>'
         '<button class="spause" aria-pressed="false" aria-label="Pause slideshow">❚❚</button></div>'
-        '</div>' % (len(slides), "".join(slides), esc(caps[0] if caps else "Live site"), dots, len(slides))
+        '</div>' % (len(slides), "".join(slides), esc(caps[0] if caps else "Screenshot"), dots, len(slides))
     )
 
 
@@ -903,7 +925,7 @@ PAGE = """<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{title} — DOGS Project Dossier</title>
+<title>{title} — DOGS</title>
 <meta name="description" content="{meta_desc}">
 <link rel="icon" type="image/svg+xml" href="{favicon}">
 <link rel="manifest" href="{manifest}">
@@ -915,12 +937,11 @@ PAGE = """<!DOCTYPE html>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<p class="kicker"><a href="{home}">Watchtower</a>{crumb}</p>
+<p class="kicker"><a href="{home}">Tower</a>{crumb}</p>
 <header class="dossier-head">
   <h1>{name}</h1>
   <p class="lede">{lede}</p>
-  <div class="badges">{badge}{pct_pill}</div>
-  <div class="actions">{buttons}</div>
+  {actions_row}
 </header>
 {hero}
 <main id="main">
@@ -959,86 +980,32 @@ def write_page(path, html_text):
 
 # ---------------------------------------------------------------- builders
 
-def repo_hub(repo, meta):
+def actions_row(buttons):
+    """The header actions row, or "" when a page has no buttons.
+
+    Most dossier pages have no outbound links at all now (status-blind):
+    only module pages keep their back-to-hub link."""
+    if not buttons:
+        return ""
+    return '  <div class="actions">%s</div>\n' % buttons
+
+
+def repo_hub(repo, meta, pitches):
+    """Investor-facing project page: status-blind by construction.
+
+    Name, one pitch line, key art, product screenshots, demo videos.
+    No badges, no outbound links, no repo stats, no commit history —
+    nothing that distinguishes an online project from an offline one."""
     name = repo["name"]
-    clone = find_clone(name)
-    lc = latest_commit(clone) if clone else None
-    tl = timeline(clone) if clone else []
-    ideas = collect_ideas(clone) if clone else []
-
-    badge = status_badge(repo.get("site"))
-    pct_meta = (meta.get("repos") or {}).get(name, {})
-    buttons = ""
-    if repo.get("pages"):
-        buttons += '<a class="btn" href="%s">Live site</a>' % esc(repo["pages"])
-    buttons += '<a class="btn ghost" href="%s">GitHub repo</a>' % esc(repo["url"])
-
-    # "What's going on" leads with fresh signal, not the header lede (the
-    # description already shows directly under the title).
-    if lc:
-        going = ('<div class="commit"><p class="ckicker"><span>Latest commit</span>'
-                 '<time>%s</time></p><p class="msg">%s</p></div>'
-                 % (esc(lc["date"]), esc(lc["subject"])))
-    else:
-        pushed = (repo.get("pushed_at") or "")[:10]
-        going = ('<div class="commit"><p class="ckicker"><span>History snapshot</span>'
-                 '<time>%s</time></p><p class="msg">Snapshot not available in this build environment.</p>'
-                 '</div>' % esc(pushed))
-
-    facts = [
-        ("Live status", ("LIVE" if (repo.get("site") or {}).get("status") == "up"
-                         else "DOWN" if (repo.get("site") or {}).get("status") == "down"
-                         else "not monitored"),
-         "ok" if (repo.get("site") or {}).get("status") == "up"
-         else "bad" if (repo.get("site") or {}).get("status") == "down" else ""),
-        ("Language", repo.get("language") or "—", ""),
-        ("Stars", str(repo.get("stars", 0)), ""),
-        ("Open issues", str(repo.get("open_issues", 0)), ""),
-        ("Open PRs", str(repo.get("open_prs", 0)), ""),
-        ("Commits", str(repo.get("commits", "—")), ""),
-        ("Last push", (repo.get("pushed_at") or "—")[:10], ""),
-    ]
-    wf = repo.get("workflow") or {}
-    if wf.get("conclusion"):
-        facts.append(("Last workflow", "%s · %s" % (wf.get("name") or "workflow", wf["conclusion"]), ""))
-    facts_html = '<div class="facts">' + "".join(
-        '<div class="fact"><p class="k">%s</p><p class="v %s">%s</p></div>'
-        % (esc(k), cls, esc(v)) for k, v, cls in facts) + "</div>"
-
-    if ideas:
-        ideas_html = '<ul class="ideas">' + "".join(
-            '<li>%s<span class="src">from %s</span></li>' % (esc(i["text"]), esc(i["source"]))
-            for i in ideas) + "</ul>"
-    else:
-        ideas_html = ('<p class="empty-note">No published roadmap yet — ideas are still '
-                      'in the build log. Nothing here is invented.</p>')
-
-    if tl:
-        items = []
-        for j, e in enumerate(tl):
-            tag = '<span class="tag">Conception</span>' if j == 0 else ""
-            items.append('<li%s><p class="t">%s</p><p class="s">%s%s</p></li>'
-                         % (' class="first"' if j == 0 else "", esc(e["date"]),
-                            esc(e["subject"]), tag))
-        tl_html = '<ol class="timeline">' + "".join(items) + "</ol>"
-    else:
-        tl_html = '<p class="empty-note">Timeline unavailable — no local history in this build environment.</p>'
+    pitch = pitch_for(pitches, name, repo.get("description") or "")
 
     sections = "\n".join(filter(None, [
-        section("Slideshow", slideshow(name, name, site=repo.get("site")))
+        section("Screenshots", slideshow(name, name))
         if shots_exist(name) else None,
         videos_section([repo]),
-        section("What's going on", going),
-        section("Status", facts_html),
-        section("Percent complete", percent_block(pct_meta)),
-        section("Ideas", ideas_html),
-        section("Timeline", tl_html),
     ]))
-    pct = pct_meta.get("percent_complete")
-    pct_pill = ('<span class="badge">%d%%</span>' % pct) if isinstance(pct, (int, float)) \
-        else '<span class="badge">In build</span>'
-    title_full = "%s — DOGS Project Dossier" % name
-    desc = ("DOGS project dossier: %s. %s" % (name, repo.get("description") or ""))[:160]
+    title_full = "%s \u2014 DOGS" % name
+    desc = pitch[:160]
     return PAGE.format(
         title=esc(name), meta_desc=esc(desc),
         social=social_meta(title_full, desc, "projects/%s/" % name, name),
@@ -1047,88 +1014,38 @@ def repo_hub(repo, meta):
         manifest=MANIFEST,
         apple_touch_icon=APPLE_TOUCH_ICON,
         css=CSS, home="../../", crumb=" / " + esc(name), name=esc(name),
-        lede=esc(repo.get("description") or "No description published."),
-        badge=badge, pct_pill=pct_pill, buttons=buttons,
+        lede=esc(pitch),
+        actions_row=actions_row(""),
         hero=project_hero(name, name),
         sections=sections, badge_src=BADGE, js=JS,
     )
 
 
-def group_hub(slug, group, repos_by_name, meta):
-    members = [repos_by_name[m] for m in group.get("members", []) if m in repos_by_name]
-    clones = [(m, find_clone(m)) for m in group.get("members", [])]
-    primary = next((c for _, c in clones if c), None)
-    tl = timeline(primary) if primary else []
-    ideas = []
-    for m, c in clones:
-        if c:
-            for i in collect_ideas(c, max_items=4):
-                ideas.append({"text": i["text"], "source": "%s:%s" % (m, i["source"])})
-    ideas = ideas[:6]
+def group_hub(slug, group, repos_by_name, meta, pitches):
+    """Investor-facing group page (Castle): status-blind like repo_hub.
 
-    lc_parts = []
-    for m, c in clones:
-        lc = latest_commit(c) if c else None
-        if lc:
-            lc_parts.append("<b>%s</b> — %s <span class=\"cdate\">%s</span>"
-                            % (esc(m), esc(lc["subject"]), esc(lc["date"])))
-    # "What's going on" leads with the fresh commits, not the description —
-    # the description already shows under the title (header lede).
-    going = ""
-    if lc_parts:
-        going += ('<div class="commit"><p class="ckicker"><span>Latest commits</span></p>'
-                  + "".join('<p class="msg">%s</p>' % p for p in lc_parts) + "</div>")
-    else:
-        going += '<p class="empty-note">Module history not available in this build environment.</p>'
+    Pitch line, key art, screenshots, demo videos, and the module grid.
+    No badges, no repo buttons, no commit history."""
+    members = [repos_by_name[m] for m in group.get("members", []) if m in repos_by_name]
+    pitch = pitch_for(pitches, slug, group.get("tagline") or "")
 
     mods = []
     for mod in group.get("modules", []):
         mods.append(
             '<a class="mod" href="%s/">%s<span class="mbody"><h3>%s</h3><p>%s</p>'
-            '<span class="go">Open dossier →</span></span></a>'
+            '<span class="go">Open dossier \u2192</span></span></a>'
             % (esc(mod["slug"]), mod_thumb(mod["title"]), esc(mod["title"]),
                esc(mod.get("blurb") or "")))
     mods_html = '<div class="mods">' + "".join(mods) + "</div>"
 
-    if ideas:
-        ideas_html = '<ul class="ideas">' + "".join(
-            '<li>%s<span class="src">from %s</span></li>' % (esc(i["text"]), esc(i["source"]))
-            for i in ideas) + "</ul>"
-    else:
-        ideas_html = '<p class="empty-note">No published roadmap yet.</p>'
-
-    if tl:
-        items = []
-        for j, e in enumerate(tl):
-            tag = '<span class="tag">Conception</span>' if j == 0 else ""
-            items.append('<li%s><p class="t">%s</p><p class="s">%s%s</p></li>'
-                         % (' class="first"' if j == 0 else "", esc(e["date"]),
-                            esc(e["subject"]), tag))
-        tl_html = '<ol class="timeline">' + "".join(items) + "</ol>"
-    else:
-        tl_html = '<p class="empty-note">Timeline unavailable in this build environment.</p>'
-
-    repo_buttons = "".join(
-        '<a class="btn ghost" href="%s">%s on GitHub</a>' % (esc(r["url"]), esc(r["name"]))
-        for r in members)
-    pct_meta = (meta.get("groups") or {}).get(slug, {})
-    pct = pct_meta.get("percent_complete")
-    pct_pill = ('<span class="badge">%d%%</span>' % pct) if isinstance(pct, (int, float)) \
-        else '<span class="badge">In build</span>'
-
     sections = "\n".join(filter(None, [
-        section("Slideshow", slideshow("castle", group["title"]))
+        section("Screenshots", slideshow("castle", group["title"]))
         if shots_exist("castle") else None,
         videos_section(members),
-        section("What's going on", going),
         section("Modules", mods_html),
-        section("Percent complete", percent_block(pct_meta)),
-        section("Ideas", ideas_html),
-        section("Timeline", tl_html),
     ]))
-    title_full = "%s — DOGS Project Dossier" % group["title"]
-    desc = ("DOGS project dossier: %s. %s"
-            % (group["title"], group.get("tagline") or ""))[:160]
+    title_full = "%s \u2014 DOGS" % group["title"]
+    desc = pitch[:160]
     return PAGE.format(
         title=esc(group["title"]),
         meta_desc=esc(desc),
@@ -1139,35 +1056,17 @@ def group_hub(slug, group, repos_by_name, meta):
         manifest=MANIFEST,
         apple_touch_icon=APPLE_TOUCH_ICON,
         name=esc(group["title"]),
-        lede=esc(group.get("tagline") or "") + ("<br>" if group.get("tagline") else "")
-        + esc(group.get("description") or ""),
-        badge='<span class="badge na">○ %d modules</span>' % len(group.get("modules", [])),
-        pct_pill=pct_pill, buttons=repo_buttons,
+        lede=esc(pitch),
+        actions_row=actions_row(""),
         hero=hero_art(slug),
         sections=sections, badge_src=BADGE, js=JS,
     )
 
 
-def module_page(group_slug, group, mod, meta):
-    repo = mod.get("repo")
-    clone = find_clone(repo) if repo else None
+def module_page(group_slug, group, mod, meta, pitches):
+    """Investor-facing module page: status-blind. Blurb, key art,
+    screenshots, demo videos. Keeps only the back-to-hub link."""
     shot_slug = "%s-%s" % (group_slug, mod["slug"])
-
-    going = ""
-    if repo == "castle-os" and clone:
-        # castle-os gets the full treatment from its own repo history
-        # (the module blurb already shows as the header lede above)
-        lc = latest_commit(clone)
-        if lc:
-            going += ('<div class="commit"><p class="ckicker"><span>Latest commit</span>'
-                      '<time>%s</time></p><p class="msg">%s</p></div>'
-                      % (esc(lc["date"]), esc(lc["subject"])))
-        tl = timeline(clone)
-        ideas = collect_ideas(clone)
-    else:
-        tl, ideas = [], []
-        going += ('<p class="empty-note">Tracked with the Castle repo — see the '
-                  '<a href="../">Castle hub</a> for timeline and ideas.</p>')
 
     vids = mod.get("videos") or []
     vids_html = ""
@@ -1175,38 +1074,14 @@ def module_page(group_slug, group, mod, meta):
         vids_html = '<div class="vids">' + "".join(
             '<video controls preload="metadata" src="%s"></video>' % esc(v) for v in vids) + "</div>"
 
-    ideas_html = ('<ul class="ideas">' + "".join(
-        '<li>%s<span class="src">from %s</span></li>' % (esc(i["text"]), esc(i["source"]))
-        for i in ideas) + "</ul>") if ideas else \
-        '<p class="empty-note">Roadmap lives on the <a href="../">Castle hub</a>.</p>'
-    tl_html = ('<ol class="timeline">' + "".join(
-        '<li%s><p class="t">%s</p><p class="s">%s%s</p></li>'
-        % (' class="first"' if j == 0 else "", esc(e["date"]), esc(e["subject"]),
-           '<span class="tag">Conception</span>' if j == 0 else "")
-        for j, e in enumerate(tl)) + "</ol>") if tl else \
-        '<p class="empty-note">Timeline lives on the <a href="../">Castle hub</a>.</p>'
-
-    pct_meta = (meta.get("modules") or {}).get("%s/%s" % (group_slug, mod["slug"]), {})
-    pct = pct_meta.get("percent_complete")
-    pct_pill = ('<span class="badge">%d%%</span>' % pct) if isinstance(pct, (int, float)) \
-        else '<span class="badge">In build</span>'
-
     sections_list = []
     if shots_exist(shot_slug):
-        sections_list.append(section("Pictures", slideshow(shot_slug, mod["title"], "../../../")))
-    sections_list += [
-        section("What's going on", going),
-    ]
+        sections_list.append(section("Screenshots", slideshow(shot_slug, mod["title"], "../../../")))
     if vids_html:
         sections_list.append(section("Videos", vids_html))
-    sections_list += [
-        section("Percent complete", percent_block(pct_meta)),
-        section("Ideas", ideas_html),
-        section("Timeline", tl_html),
-    ]
-    title_full = "%s — DOGS Project Dossier" % mod["title"]
-    desc = ("DOGS project dossier: %s (a Castle module). %s"
-            % (mod["title"], mod.get("blurb") or ""))[:160]
+
+    title_full = "%s \u2014 DOGS" % mod["title"]
+    desc = (mod.get("blurb") or "")[:160]
     share = share_slug_for(shot_slug, mod["slug"], group_slug)
     return PAGE.format(
         title=esc(mod["title"]),
@@ -1222,9 +1097,7 @@ def module_page(group_slug, group, mod, meta):
         crumb=' / <a href="../" style="color:var(--muted)">%s</a> / %s'
               % (esc(group["title"]), esc(mod["title"])),
         name=esc(mod["title"]), lede=esc(mod.get("blurb") or ""),
-        badge='<span class="badge na">○ Castle module</span>',
-        pct_pill=pct_pill,
-        buttons='<a class="btn ghost" href="../">← Castle hub</a>',
+        actions_row=actions_row('<a class="btn ghost" href="../">\u2190 Castle hub</a>'),
         hero=module_hero(mod["slug"], mod["title"]),
         sections="\n".join(sections_list), badge_src="../../../assets/made-by-dogs.webp", js=JS,
     )
@@ -1239,6 +1112,7 @@ def main():
         groups = json.load(f).get("groups", {})
     with open(META_JSON) as f:
         meta = json.load(f)
+    pitches = load_pitches()
 
     repos = data["repos"]
     repos_by_name = {r["name"]: r for r in repos}
@@ -1250,15 +1124,15 @@ def main():
     for r in repos:
         if r["name"] in grouped_members:
             continue
-        write_page(os.path.join(PROJECTS_DIR, r["name"], "index.html"), repo_hub(r, meta))
+        write_page(os.path.join(PROJECTS_DIR, r["name"], "index.html"), repo_hub(r, meta, pitches))
 
     # group hubs + module sub-pages
     for slug, group in groups.items():
         write_page(os.path.join(PROJECTS_DIR, slug, "index.html"),
-                   group_hub(slug, group, repos_by_name, meta))
+                   group_hub(slug, group, repos_by_name, meta, pitches))
         for mod in group.get("modules", []):
             write_page(os.path.join(PROJECTS_DIR, slug, mod["slug"], "index.html"),
-                       module_page(slug, group, mod, meta))
+                       module_page(slug, group, mod, meta, pitches))
 
     print("hub build complete.")
 

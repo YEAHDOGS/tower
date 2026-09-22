@@ -3,7 +3,7 @@
   "entries": [
     {
       "date": "2026-09-09T21:25:36+00:00",
-      "title": "fix: guard emitter boundary \u2014 isValidTransmit() rejects malformed IR payloads pre-framework; 10/10 suites green",
+      "title": "fix: guard emitter boundary — isValidTransmit() rejects malformed IR payloads pre-framework; 10/10 suites green",
       "kind": "commit",
       "ref": "975b673",
       "branch": "jack/remote-emitter-guard",
@@ -11,7 +11,7 @@
     },
     {
       "date": "2026-09-09T20:26:43+00:00",
-      "title": "fix: harden AttemptLog \u2014 sanitize on write and load, cap labels, clamp ts",
+      "title": "fix: harden AttemptLog — sanitize on write and load, cap labels, clamp ts",
       "kind": "commit",
       "ref": "44162d6",
       "branch": "jack/remote-attempt-sanitize",
@@ -59,7 +59,7 @@
     },
     {
       "date": "2026-09-09T19:22:10+00:00",
-      "title": "feat: learned Magic Mode sweep order \u2014 previously-worked variants first",
+      "title": "feat: learned Magic Mode sweep order — previously-worked variants first",
       "kind": "commit",
       "ref": "f6846c1",
       "branch": "detached",
@@ -75,7 +75,7 @@
     },
     {
       "date": "2026-09-09T19:15:20+00:00",
-      "title": "fix: harden IR database read path \u2014 tolerate missing/corrupt JSON, skip bad entries, validate buttons",
+      "title": "fix: harden IR database read path — tolerate missing/corrupt JSON, skip bad entries, validate buttons",
       "kind": "commit",
       "ref": "b5d6767",
       "branch": "detached",
@@ -96,12 +96,6 @@
       "ref": "da663ae",
       "branch": "detached",
       "url": "https://github.com/YEAHDOGS/remote/commit/da663aeacfab9057d8c360b4b0c2e368347213ab"
-    },
-    {
-      "date": "2026-09-10T13:50:04-05:00",
-      "title": "Watchtower: no live site to screenshot yet",
-      "kind": "note",
-      "detail": "No GitHub Pages or custom-domain deployment found for this repo as of 2026-09-10; Watchtower will add a screenshot entry once a live site exists."
     }
   ]
 }

@@ -96,12 +96,6 @@
       "ref": "c3b5423",
       "branch": "jack/chains-psx-mcr",
       "url": "https://github.com/YEAHDOGS/chains/commit/c3b5423af9420abf273b5709b7f850718f27cf72"
-    },
-    {
-      "date": "2026-09-10T13:50:04-05:00",
-      "title": "Watchtower: no live site to screenshot yet",
-      "kind": "note",
-      "detail": "No GitHub Pages or custom-domain deployment found for this repo as of 2026-09-10; Watchtower will add a screenshot entry once a live site exists."
     }
   ]
 }

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Watchtower dashboard builder.
+"""Tower portfolio data builder.
 
 Fetches public repo metadata for the YEAHDOGS org and bakes it into data.json.
 Only safe fields are kept (see SAFE_FIELDS below) — no owners, no emails,
@@ -106,11 +106,6 @@ def load_progress():
         out[repo] = clean[:PROGRESS_MAX]
     return out
 
-
-# Public Watchtower feed: per-site up/down status, baked into data.json so the
-# dashboard cards show live site status. Fetched without auth; a failed fetch
-# means "unknown", never a fake green.
-WATCHTOWER_STATUS_URL = "https://yeahdogs.github.io/watchtower/status.json"
 
 # Allowlist: the ONLY repo-level fields that may appear in data.json.
 SAFE_FIELDS = {
@@ -243,41 +238,6 @@ def build_repo(raw):
     }
 
 
-def fetch_site_status():
-    """Watchtower status.json -> (by_repo dict, generated_at) or (None, None).
-
-    by_repo maps repo name to {status, lastCheck, since, responseMs, failing}.
-    Any failure returns (None, None): the dashboard renders "unavailable",
-    never a green it didn't earn.
-    """
-    try:
-        req = urllib.request.Request(
-            WATCHTOWER_STATUS_URL,
-            headers={
-                "Accept": "application/json",
-                "User-Agent": "dogs-dashboard-builder",
-            },
-        )
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            data = json.load(resp)
-    except Exception as e:  # noqa: BLE001 - the status feed is optional
-        print("WARN: watchtower status.json unavailable: %s" % e, file=sys.stderr)
-        return None, None
-    by_repo = {}
-    for s in data.get("sites", []) or []:
-        repo = s.get("repo")
-        if not repo:
-            continue
-        by_repo[repo] = {
-            "status": s.get("status"),
-            "lastCheck": s.get("lastCheck"),
-            "since": s.get("since"),
-            "responseMs": s.get("responseMs"),
-            "failing": s.get("failing") or [],
-        }
-    return by_repo, data.get("generatedAt")
-
-
 def pii_guard(payload):
     # Anonymity guard: the founder's personal name must never appear on the
     # public site. The blocklist is stored as SHA-256 digests so the
@@ -311,7 +271,6 @@ def main():
     if not repos:
         sys.exit("No repos returned; aborting.")
 
-    site_by_repo, site_generated = fetch_site_status()
     progress_by_repo = load_progress()
 
     out = []
@@ -325,9 +284,6 @@ def main():
             continue
         try:
             repo = build_repo(raw)
-            # Watchtower site status keyed by repo name; None when the feed is
-            # unavailable or the repo has no monitored site.
-            repo["site"] = site_by_repo.get(repo["name"]) if site_by_repo else None
             # Dated progress timeline from progress/<repo>.json (may be empty).
             # Follows ASSET_SLUG renames so a renamed repo keeps its timeline.
             repo["progress"] = progress_by_repo.get(
@@ -340,11 +296,6 @@ def main():
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "org": ORG,
-        "site_status": {
-            "available": site_by_repo is not None,
-            "generated_at": site_generated,
-            "url": WATCHTOWER_STATUS_URL,
-        },
         "repos": out,
     }
     pii_guard(payload)

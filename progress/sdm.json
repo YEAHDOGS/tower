@@ -3,7 +3,7 @@
   "entries": [
     {
       "date": "2026-09-09T21:24:56+00:00",
-      "title": "docs: add BRAND-VOICE.md \u2014 jungle voice guide with 21 sample lines; mark TASKS P0#2 done",
+      "title": "docs: add BRAND-VOICE.md — jungle voice guide with 21 sample lines; mark TASKS P0#2 done",
       "kind": "commit",
       "ref": "4468981",
       "branch": "jack/sdm-voice-guide",
@@ -11,7 +11,7 @@
     },
     {
       "date": "2026-09-09T20:26:17+00:00",
-      "title": "docs: TASKS hygiene states the real production rule \u2014 main merges only via PR + owner approval; jack/* branches are the free-push staging l",
+      "title": "docs: TASKS hygiene states the real production rule — main merges only via PR + owner approval; jack/* branches are the free-push staging l",
       "kind": "commit",
       "ref": "ce4ccce",
       "branch": "jack/sdm-pr-conventions",
@@ -19,7 +19,7 @@
     },
     {
       "date": "2026-09-09T20:12:29+00:00",
-      "title": "docs: lock the public pitch in jungle voice \u2014 PITCH.md (paragraph + index-card + taglines); ROADMAP Phase 0 pitch item done",
+      "title": "docs: lock the public pitch in jungle voice — PITCH.md (paragraph + index-card + taglines); ROADMAP Phase 0 pitch item done",
       "kind": "commit",
       "ref": "3c54027",
       "branch": "jack/sdm-brand-voice",
@@ -43,7 +43,7 @@
     },
     {
       "date": "2026-09-09T19:22:14+00:00",
-      "title": "docs: add BRAND-VOICE.md \u2014 jungle voice guide with 20 sample lines (TASKS P0#2)",
+      "title": "docs: add BRAND-VOICE.md — jungle voice guide with 20 sample lines (TASKS P0#2)",
       "kind": "commit",
       "ref": "c012aac",
       "branch": "detached",
@@ -91,17 +91,11 @@
     },
     {
       "date": "2026-09-09T18:15:34+00:00",
-      "title": "feat(abuse): referral fraud guards \u2014 rate limiting + self-referral rejection on /api/waitlist (+17 tests)",
+      "title": "feat(abuse): referral fraud guards — rate limiting + self-referral rejection on /api/waitlist (+17 tests)",
       "kind": "commit",
       "ref": "ea07c8f",
       "branch": "jack/sdm-referral-loop",
       "detail": "local branch, not yet pushed"
-    },
-    {
-      "date": "2026-09-10T13:50:04-05:00",
-      "title": "Watchtower: no live site to screenshot yet",
-      "kind": "note",
-      "detail": "No GitHub Pages or custom-domain deployment found for this repo as of 2026-09-10; Watchtower will add a screenshot entry once a live site exists."
     }
   ]
 }
