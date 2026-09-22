@@ -772,6 +772,9 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
 .mod:hover{border-color:var(--text);transform:translateY(-3px)}
 .mod .mthumb{display:block}
 .mod .mthumb svg{display:block;width:100%;height:auto}
+/* real-image card thumbs: screenshot or key art, cropped to the same
+   16:9 card language as the abstract title cards so rows stay uniform */
+.mod .mthumb img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
 .mod .mbody{display:block;padding:18px}
 .mod h3{font-family:var(--display);letter-spacing:.06em;text-transform:uppercase;font-size:1.15rem;margin-bottom:8px}
 .mod p{color:var(--muted);font-size:.88rem;line-height:1.5}
@@ -1006,7 +1009,58 @@ def actions_row(buttons):
     return '  <div class="actions">%s</div>\n' % buttons
 
 
-def repo_hub(repo, meta, pitches):
+def card_thumb(slug, title, rel_prefix="../../"):
+    """Best-available image for a cross-project card (2 levels deep).
+
+    Prefers a real screenshot, then generated key art, then the abstract
+    title-card SVG — the same visual ladder the hub tiles use, so strip
+    cards are never blank and never repeat."""
+    shots = sorted(glob.glob(os.path.join(SHOTS_DIR, slug, "*.png")) +
+                   glob.glob(os.path.join(SHOTS_DIR, slug, "*.webp")))
+    if shots:
+        rel = "%sassets/shots/%s/%s" % (rel_prefix, slug, os.path.basename(shots[0]))
+        return ('<span class="mthumb" aria-hidden="true">'
+                '<img src="%s" alt="" loading="lazy" decoding="async"></span>' % esc(rel))
+    hits = sorted(glob.glob(os.path.join(GEN_DIR, slug, "hero.*")))
+    if hits:
+        rel = "%sassets/gen/%s/%s" % (rel_prefix, slug, os.path.basename(hits[0]))
+        return ('<span class="mthumb" aria-hidden="true">'
+                '<img src="%s" alt="" loading="lazy" decoding="async"></span>' % esc(rel))
+    return mod_thumb(title)
+
+
+def more_from_dogs(current, repos, pitches):
+    """A 'More from DOGS' strip for dossier pages with no body content.
+
+    Dead-end repo pages (no screenshots, no videos) get three sibling
+    dossier cards in the hub's .mod card language so the page has a body
+    instead of ending at the hero. Deterministic: candidates with real
+    visuals first, then by name; excludes the current project. Status-blind:
+    cards carry only the project pitch line — no repo stats, no outbound
+    links, no fabricated numbers."""
+    def visual(r):
+        slug = r["name"]
+        has_shots = bool(glob.glob(os.path.join(SHOTS_DIR, slug, "*.png")) +
+                         glob.glob(os.path.join(SHOTS_DIR, slug, "*.webp")))
+        has_art = bool(glob.glob(os.path.join(GEN_DIR, slug, "hero.*")))
+        return has_shots or has_art
+
+    cands = sorted(
+        (r for r in repos if r["name"] != current),
+        key=lambda r: (not visual(r), r["name"]),
+    )[:3]
+    cards = []
+    for r in cands:
+        slug = r["name"]
+        cards.append(
+            '<a class="mod" href="../%s/">%s<span class="mbody"><h3>%s</h3><p>%s</p>'
+            '<span class="go">Open dossier \u2192</span></span></a>'
+            % (esc(slug), card_thumb(slug, slug),
+               esc(slug), esc(pitch_for(pitches, slug, r.get("description") or ""))))
+    return section("More from DOGS", '<div class="mods">' + "".join(cards) + "</div>")
+
+
+def repo_hub(repo, meta, pitches, repos):
     """Investor-facing project page: status-blind by construction.
 
     Name, one pitch line, key art, product screenshots, demo videos.
@@ -1020,6 +1074,10 @@ def repo_hub(repo, meta, pitches):
         if shots_exist(name) else None,
         videos_section([repo]),
     ]))
+    if not sections:
+        # Dead end: no screenshots and no videos, so the page would end at
+        # the hero. A "More from DOGS" strip gives it a body instead.
+        sections = more_from_dogs(name, repos, pitches)
     title_full = "%s \u2014 DOGS" % name
     desc = pitch[:160]
     return PAGE.format(
@@ -1154,7 +1212,7 @@ def main():
     for r in repos:
         if r["name"] in grouped_members:
             continue
-        write_page(os.path.join(PROJECTS_DIR, r["name"], "index.html"), repo_hub(r, meta, pitches))
+        write_page(os.path.join(PROJECTS_DIR, r["name"], "index.html"), repo_hub(r, meta, pitches, repos))
 
     # group hubs + module sub-pages
     for slug, group in groups.items():

@@ -158,6 +158,9 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
 .mod:hover{border-color:var(--text);transform:translateY(-3px)}
 .mod .mthumb{display:block}
 .mod .mthumb svg{display:block;width:100%;height:auto}
+/* real-image card thumbs: screenshot or key art, cropped to the same
+   16:9 card language as the abstract title cards so rows stay uniform */
+.mod .mthumb img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
 .mod .mbody{display:block;padding:18px}
 .mod h3{font-family:var(--display);letter-spacing:.06em;text-transform:uppercase;font-size:1.15rem;margin-bottom:8px}
 .mod p{color:var(--muted);font-size:.88rem;line-height:1.5}
