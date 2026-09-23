@@ -1108,8 +1108,8 @@ def group_hub(slug, group, repos_by_name, meta, pitches):
         mods.append(
             '<a class="mod" href="%s/">%s<span class="mbody"><h3>%s</h3><p>%s</p>'
             '<span class="go">Open dossier \u2192</span></span></a>'
-            % (esc(mod["slug"]), mod_thumb(mod["title"]), esc(mod["title"]),
-               esc(mod.get("blurb") or "")))
+            % (esc(mod["slug"]), card_thumb(mod["slug"], mod["title"]),
+               esc(mod["title"]), esc(mod.get("blurb") or "")))
     mods_html = '<div class="mods">' + "".join(mods) + "</div>"
 
     sections = "\n".join(filter(None, [
@@ -1156,8 +1156,8 @@ def module_page(group_slug, group, mod, meta, pitches):
         sibs_html = '<div class="mods">' + "".join(
             '<a class="mod" href="../%s/">%s<span class="mbody"><h3>%s</h3><p>%s</p>'
             '<span class="go">Open dossier \u2192</span></span></a>'
-            % (esc(m["slug"]), mod_thumb(m["title"]), esc(m["title"]),
-               esc(m.get("blurb") or ""))
+            % (esc(m["slug"]), card_thumb(m["slug"], m["title"], "../../../"),
+               esc(m["title"]), esc(m.get("blurb") or ""))
             for m in sibs) + "</div>"
 
     sections_list = []
