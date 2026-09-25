@@ -662,6 +662,8 @@ a{color:inherit}
 .dossier-head h1{font-family:var(--display);font-size:clamp(2.6rem,9vw,5rem);
   text-transform:uppercase;letter-spacing:.02em;line-height:.95;margin-bottom:12px;
   overflow-wrap:break-word}/* long dot-names (yeahdogs.github.io) must wrap, not stretch 390px */
+/* long space-less names shrink to one line instead of breaking mid-word at 390px */
+.dossier-head h1.long{font-size:clamp(1.3rem,5.6vw,3.2rem)}
 .lede{color:var(--muted);font-size:1.02rem;line-height:1.55;max-width:62ch;margin-bottom:16px}
 .badges{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:18px}
 .badge{font-family:var(--display);font-size:.82rem;letter-spacing:.14em;
@@ -962,7 +964,7 @@ PAGE = """<!DOCTYPE html>
 <a class="skip" href="#main">Skip to content</a>
 <p class="kicker"><a href="{home}">Tower</a>{crumb}</p>
 <header class="dossier-head">
-  <h1>{name}</h1>
+  <h1{long_cls}>{name}</h1>
   <p class="lede">{lede}</p>
   {actions_row}
 </header>
@@ -1033,6 +1035,15 @@ def card_thumb(slug, title, rel_prefix="../../"):
     return mod_thumb(title)
 
 
+def h1_long_cls(text):
+    """Shrink-to-fit class for long space-less dossier titles.
+
+    'yeahdogs.github.io' (17 chars, no spaces) would otherwise break
+    mid-word across two lines at 390px. The .long rule keeps it one line.
+    """
+    return ' class="long"' if len(text) > 12 and ' ' not in text else ''
+
+
 def more_from_dogs(current, repos, pitches):
     """A 'More from DOGS' strip for dossier pages with no body content.
 
@@ -1092,7 +1103,7 @@ def repo_hub(repo, meta, pitches, repos):
         manifest=MANIFEST,
         apple_touch_icon=APPLE_TOUCH_ICON,
         css=CSS, home="../../", crumb=" / " + esc(name), name=esc(name),
-        lede=esc(pitch),
+        long_cls=h1_long_cls(name), lede=esc(pitch),
         actions_row=actions_row(""),
         hero=project_hero(name, name),
         sections=sections, badge_src=BADGE, js=JS,
@@ -1134,6 +1145,7 @@ def group_hub(slug, group, repos_by_name, meta, pitches):
         manifest=MANIFEST,
         apple_touch_icon=APPLE_TOUCH_ICON,
         name=esc(group["title"]),
+        long_cls=h1_long_cls(group["title"]),
         lede=esc(pitch),
         actions_row=actions_row(""),
         hero=hero_art(slug),
@@ -1188,7 +1200,8 @@ def module_page(group_slug, group, mod, meta, pitches):
         apple_touch_icon=APPLE_TOUCH_ICON,
         crumb=' / <a href="../" style="color:var(--muted)">%s</a> / %s'
               % (esc(group["title"]), esc(mod["title"])),
-        name=esc(mod["title"]), lede=esc(mod.get("blurb") or ""),
+        name=esc(mod["title"]), long_cls=h1_long_cls(mod["title"]),
+        lede=esc(mod.get("blurb") or ""),
         actions_row=actions_row('<a class="btn ghost" href="../">\u2190 Castle hub</a>'),
         hero=module_hero(mod["slug"], mod["title"]),
         sections="\n".join(sections_list), badge_src="../../../assets/made-by-dogs.webp", js=JS,

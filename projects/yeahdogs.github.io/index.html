@@ -48,6 +48,8 @@ a{color:inherit}
 .dossier-head h1{font-family:var(--display);font-size:clamp(2.6rem,9vw,5rem);
   text-transform:uppercase;letter-spacing:.02em;line-height:.95;margin-bottom:12px;
   overflow-wrap:break-word}/* long dot-names (yeahdogs.github.io) must wrap, not stretch 390px */
+/* long space-less names shrink to one line instead of breaking mid-word at 390px */
+.dossier-head h1.long{font-size:clamp(1.3rem,5.6vw,3.2rem)}
 .lede{color:var(--muted);font-size:1.02rem;line-height:1.55;max-width:62ch;margin-bottom:16px}
 .badges{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:18px}
 .badge{font-family:var(--display);font-size:.82rem;letter-spacing:.14em;
@@ -245,7 +247,7 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
 <a class="skip" href="#main">Skip to content</a>
 <p class="kicker"><a href="../../">Tower</a> / yeahdogs.github.io</p>
 <header class="dossier-head">
-  <h1>yeahdogs.github.io</h1>
+  <h1 class="long">yeahdogs.github.io</h1>
   <p class="lede">DOGS home on GitHub.</p>
   
 </header>
