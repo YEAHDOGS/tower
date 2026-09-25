@@ -700,18 +700,20 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
   .snav{opacity:.55;transition:opacity .2s ease}
   .snav:hover,.snav:active,.snav:focus-visible{opacity:1}
 }
-/* slideshow footer: one row — caption left, dots + count right
-   (audit: was a stacked caption bar plus a separate dots bar, 69px of chrome) */
-.sfoot{display:flex;align-items:center;gap:8px 14px;flex-wrap:wrap;padding:10px 14px;border-top:1px solid var(--line)}
-.scap{font-size:.78rem;color:var(--muted);flex:1 1 140px;min-width:0}
-.sdots{display:flex;gap:2px;margin-left:auto}
+/* slideshow footer: one row — caption left, dots + count + pause right.
+   No wrap: the caption shrinks with an ellipsis so the controls never drop
+   to a second line when the pause button joins the row (audit: pause was
+   landing alone on row 2 at 390px) */
+.sfoot{display:flex;align-items:center;gap:8px 12px;padding:10px 14px;border-top:1px solid var(--line)}
+.scap{font-size:.78rem;color:var(--muted);flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sdots{display:flex;gap:2px;flex:none;margin-left:auto}
 .sdot{position:relative;width:30px;height:30px;border:0;background:transparent;cursor:pointer;padding:0}/* 30px tap target, 10px visual dot */
 .sdot::after{content:"";position:absolute;inset:10px;border-radius:50%;border:1px solid var(--dim)}
 .sdot[aria-current="true"]::after{background:var(--text);border-color:var(--text)}
-.scount{font-size:.75rem;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.scount{font-size:.75rem;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap;flex:none}
 /* slideshow autoplay pause/play affordance: hidden until JS confirms autoplay
    is actually running (.slides.live) — no-JS and reduced-motion never show it */
-.spause{display:none;width:30px;height:30px;border:1px solid var(--line);border-radius:50%;
+.spause{display:none;width:30px;height:30px;flex:none;border:1px solid var(--line);border-radius:50%;
   background:transparent;color:var(--muted);font-size:.6rem;cursor:pointer;line-height:1;
   transition:border-color .15s ease,color .15s ease}
 .slides.live .spause{display:inline-flex;align-items:center;justify-content:center}
