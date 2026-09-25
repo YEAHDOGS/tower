@@ -221,7 +221,9 @@ main>*{min-width:0}/* grid items must shrink: slideshow track's 3x intrinsic wid
   .hero-art{margin-bottom:14px}/* 390px: hero gets breathing room above the slideshow panel */
   .hero-art img,.hero-art svg{aspect-ratio:16/10}/* 390px: 21/9 reads as a thin sliver — 16/10 keeps the key art visible */
   .hero-art.fallback svg{aspect-ratio:21/9}/* 390px: fallback stays a low banner, not a dominant box */
-  .slide img{aspect-ratio:4/5;object-position:top}
+  .slide img{aspect-ratio:4/5;object-position:left top}/* 390px: tall crop anchors
+     top-LEFT, not top-center — dashboard/product screenshots read from their
+     nav + main column instead of being sliced mid-word on both edges */
   .snav{width:36px;height:36px;font-size:1.2rem}
   .snav.prev{left:6px}.snav.next{right:6px}
   .sdot{width:26px;height:26px}
