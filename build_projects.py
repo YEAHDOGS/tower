@@ -615,11 +615,25 @@ def slideshow(slug, name, rel_prefix="../../", site=None):
     )
 
 
+def poster_for(repo_root_url):
+    """'demos/01-foo.mp4' -> 'demos/posters/01-foo.jpg' when that file
+    exists under the repo root, else ''. Repo-root-relative in/out."""
+    if not repo_root_url.endswith(".mp4"):
+        return ""
+    head, _, name = repo_root_url[:-4].rpartition("/")
+    if not head:
+        return ""
+    rel = "%s/posters/%s.jpg" % (head, name)
+    return rel if os.path.isfile(os.path.join(HERE, rel)) else ""
+
+
 def videos_section(repos):
     """'Videos' section from kind=='video' progress entries (repo-root-relative mp4s).
 
     Detail pages live two levels under the repo root (projects/<slug>/),
     so urls like 'demos/01-foo.mp4' become '../../demos/01-foo.mp4'.
+    Each player gets a poster frame (demos/posters/<name>.jpg) so the
+    box shows the demo's first screen instead of a black rectangle.
     Returns '' when no repo has a demo video.
     """
     vids = []
@@ -630,15 +644,17 @@ def videos_section(repos):
                     and not url.startswith(("http://", "https://", "/")):
                 vids.append((
                     "../../" + url,
+                    "../../" + poster_for(url),
                     e.get("title") or "Demo",
                     e.get("detail") or "",
                 ))
     if not vids:
         return ""
     items = "".join(
-        '<figure><video controls preload="metadata" src="%s"></video>'
+        '<figure><video controls preload="metadata" src="%s"%s></video>'
         '<figcaption><strong>%s</strong><span>%s</span></figcaption></figure>'
-        % (esc(src), esc(title), esc(detail)) for src, title, detail in vids)
+        % (esc(src), (' poster="%s"' % esc(poster)) if poster else "",
+           esc(title), esc(detail)) for src, poster, title, detail in vids)
     return section("Videos", '<div class="vids%s">%s</div>'
                    % (" two" if len(vids) > 1 else "", items))
 
@@ -1164,7 +1180,10 @@ def module_page(group_slug, group, mod, meta, pitches):
     vids_html = ""
     if vids:
         vids_html = '<div class="vids">' + "".join(
-            '<video controls preload="metadata" src="%s"></video>' % esc(v) for v in vids) + "</div>"
+            '<video controls preload="metadata" src="%s"%s></video>'
+            % (esc(v), (' poster="%s"' % esc(poster_for(v)))
+               if poster_for(v) else "")
+            for v in vids) + "</div>"
 
     sibs = [m for m in group.get("modules", []) if m["slug"] != mod["slug"]]
     sibs_html = ""
