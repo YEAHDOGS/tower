@@ -558,12 +558,14 @@
   };
 
   function slideImg(r) {
+    // Prefer generated key art for carousel slides: clean product imagery
+    // with no embedded UI text, so the overlay name/tagline is the slide's
+    // only headline (hub screenshots carry their own headlines and buttons).
+    if (r.art) return { url: r.art, title: r.name + " key art" };
     var e = null;
     (r.progress || []).forEach(function (p) {
       if (!e && p.kind === "screenshot" && (p.thumb || p.url)) e = p;
     });
-    // Same fallback as tiles: generated key art so a slide is never blank.
-    if (!e && r.art) e = { url: r.art, title: r.name + " key art" };
     return e;
   }
 
