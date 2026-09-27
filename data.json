@@ -2520,7 +2520,7 @@
    },
    "pages": null,
    "hub": "projects/moneygrid/",
-   "art": null,
+   "art": "assets/gen/moneygrid/hero.webp",
    "progress": []
   },
   {
@@ -2575,7 +2575,7 @@
    },
    "pages": "http://cups.dogs.red/",
    "hub": "projects/cups/",
-   "art": null,
+   "art": "assets/gen/cups/hero.webp",
    "progress": []
   },
   {
@@ -2598,7 +2598,7 @@
    },
    "pages": "https://yeahdogs.github.io/printer/",
    "hub": null,
-   "art": null,
+   "art": "assets/gen/printer/hero.webp",
    "progress": []
   },
   {
@@ -2615,7 +2615,7 @@
    "workflow": null,
    "pages": null,
    "hub": null,
-   "art": null,
+   "art": "assets/gen/tv/hero.webp",
    "progress": []
   }
  ]
