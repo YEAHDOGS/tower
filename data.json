@@ -2643,7 +2643,7 @@
     "updated_at": "2026-09-22T19:58:19Z"
    },
    "pages": "http://toolbox.dogs.red/",
-   "hub": null,
+   "hub": "projects/toolbox/",
    "art": "assets/gen/toolbox/hero.webp",
    "progress": []
   },
@@ -2666,7 +2666,7 @@
     "updated_at": "2026-09-23T00:30:32Z"
    },
    "pages": "https://yeahdogs.github.io/calculator/",
-   "hub": null,
+   "hub": "projects/calculator/",
    "art": "assets/gen/calculator/hero.webp",
    "progress": []
   },
@@ -2689,7 +2689,7 @@
     "updated_at": "2026-09-27T14:32:36Z"
    },
    "pages": null,
-   "hub": null,
+   "hub": "projects/janitor/",
    "art": "assets/gen/janitor/hero.webp",
    "progress": []
   },
@@ -2706,7 +2706,7 @@
    "branch": "master",
    "workflow": null,
    "pages": null,
-   "hub": null,
+   "hub": "projects/ticker-cubes/",
    "art": "assets/gen/ticker-cubes/hero.webp",
    "progress": []
   },
@@ -2729,7 +2729,7 @@
     "updated_at": "2026-09-25T07:46:31Z"
    },
    "pages": "https://yeahdogs.github.io/scrub/",
-   "hub": null,
+   "hub": "projects/scrub/",
    "art": "assets/gen/scrub/hero.webp",
    "progress": []
   }
