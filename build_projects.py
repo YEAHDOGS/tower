@@ -386,7 +386,6 @@ DEFAULT_CAPTIONS = ["Desktop", "Desktop, scrolled", "Mobile (390px)"]
 
 
 SITE_BASE = "https://yeahdogs.github.io/tower"
-FAVICON = SITE_BASE + "/assets/favicon.svg"
 MANIFEST = SITE_BASE + "/assets/site.webmanifest"
 APPLE_TOUCH_ICON = SITE_BASE + "/assets/apple-touch-icon.png"
 
@@ -968,7 +967,7 @@ PAGE = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title} — DOGS</title>
 <meta name="description" content="{meta_desc}">
-<link rel="icon" type="image/svg+xml" href="{favicon}">
+<link rel="icon" type="image/svg+xml" href="{home}assets/favicon.svg">
 <link rel="manifest" href="{manifest}">
 <link rel="apple-touch-icon" href="{apple_touch_icon}">
 <meta name="theme-color" content="#0b0e14">
@@ -1115,7 +1114,6 @@ def repo_hub(repo, meta, pitches, repos):
         title=esc(name), meta_desc=esc(desc),
         social=social_meta(title_full, desc, "projects/%s/" % name, name),
         jsonld=json_ld(title_full, desc, "projects/%s/" % name),
-        favicon=FAVICON,
         manifest=MANIFEST,
         apple_touch_icon=APPLE_TOUCH_ICON,
         css=CSS, home="../../", crumb=" / " + esc(name), name=esc(name),
@@ -1157,7 +1155,6 @@ def group_hub(slug, group, repos_by_name, meta, pitches):
         social=social_meta(title_full, desc, "projects/%s/" % slug, slug),
         jsonld=json_ld(title_full, desc, "projects/%s/" % slug),
         css=CSS, home="../../", crumb=" / " + esc(group["title"]),
-        favicon=FAVICON,
         manifest=MANIFEST,
         apple_touch_icon=APPLE_TOUCH_ICON,
         name=esc(group["title"]),
@@ -1214,7 +1211,6 @@ def module_page(group_slug, group, mod, meta, pitches):
         jsonld=json_ld(title_full, desc,
                        "projects/%s/%s/" % (group_slug, mod["slug"])),
         css=CSS, home="../../../",
-        favicon=FAVICON,
         manifest=MANIFEST,
         apple_touch_icon=APPLE_TOUCH_ICON,
         crumb=' / <a href="../" style="color:var(--muted)">%s</a> / %s'
