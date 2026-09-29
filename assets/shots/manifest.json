@@ -179,6 +179,15 @@
     ],
     "url": "https://yeahdogs.github.io/playback/"
   },
+  "printer": {
+    "captured_at": "2026-09-29T07:47:17+00:00",
+    "files": [
+      "shot-1-desktop.webp",
+      "shot-2-desktop.webp",
+      "shot-3-mobile.webp"
+    ],
+    "url": "https://printer.dogs.red/"
+  },
   "printshop": {
     "captured_at": "2026-09-14T04:07:23+00:00",
     "files": [
@@ -259,6 +268,15 @@
       "shot-3-mobile.webp"
     ],
     "url": "https://yeahdogs.github.io/tower/"
+  },
+  "tv": {
+    "captured_at": "2026-09-29T07:47:17+00:00",
+    "files": [
+      "shot-1-desktop.webp",
+      "shot-2-desktop.webp",
+      "shot-3-mobile.webp"
+    ],
+    "url": "https://tv.dogs.red/"
   },
   "walkthru": {
     "captured_at": "2026-09-19T19:24:40+00:00",
