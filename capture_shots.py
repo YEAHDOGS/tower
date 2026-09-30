@@ -2,10 +2,13 @@
 """Capture live-site screenshots for Watchtower slideshows — the capture-refresh loop.
 
 Uses Playwright driving the system Chromium at /opt/meta-chromium/chrome.
-Network in this sandbox only egresses through the IPv6 egress proxy, so a small
-TCP forwarder must be listening on 127.0.0.1:3129 -> hatch-egress-proxy:3128 first:
+Network in this sandbox only egresses through the egress proxy, so a small
+TCP forwarder must be listening on 127.0.0.1:3129 -> 127.0.0.1:3130 first:
 
-    python3 /tmp/fwd3129.py &
+    python3 -u ~/workspace/tools/egress-auth-proxy.py &   # listens 127.0.0.1:3130, injects proxy auth
+    socat TCP-LISTEN:3129,bind=127.0.0.1,fork,reuseaddr TCP:127.0.0.1:3130 &
+
+(playwright-core resolvable via /tmp/qarun/node_modules -> ~/workspace/chat-now/web/node_modules)
 
 Playwright (NOT `chrome --screenshot`) is the working path here — headless
 chrome flags refused to write screenshots in this sandbox, but the Playwright
@@ -18,6 +21,10 @@ Usage (run with a python that has playwright + PIL):
     python3 capture_shots.py                 # refresh stale only (>14 days) or missing
     python3 capture_shots.py --all           # force re-capture every target
     python3 capture_shots.py --only wax      # force re-capture one repo
+    python3 capture_shots.py --only printer --url https://printer.dogs.red/
+        # force re-capture one repo from an override URL (e.g. a custom domain)
+        # instead of the data.json pages URL; works even for repos with no
+        # live pages URL at all
     python3 capture_shots.py --dry-run       # list what would be captured, do nothing
 
 Writes assets/shots/<repo>/shot-{1,2}-desktop.webp (1440x900) and
@@ -117,6 +124,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--all", action="store_true", help="force re-capture every target")
     ap.add_argument("--only", metavar="NAME", help="force re-capture one repo")
+    ap.add_argument(
+        "--url", metavar="URL", help="with --only: capture this URL instead of the data.json pages URL"
+    )
     ap.add_argument("--dry-run", action="store_true", help="list what would run, do nothing")
     args = ap.parse_args()
 
@@ -124,10 +134,13 @@ def main():
     todo_all = targets()
 
     if args.only:
-        todo = [t for t in todo_all if t[0] == args.only]
-        if not todo:
-            sys.exit("capture_shots: no target named %r" % args.only)
-        reasons = {args.only: "forced (--only)"}
+        if args.url:
+            todo = [(args.only, args.url)]
+        else:
+            todo = [t for t in todo_all if t[0] == args.only]
+            if not todo:
+                sys.exit("capture_shots: no target named %r" % args.only)
+        reasons = {args.only: "forced (--only%s)" % (" --url" if args.url else "")}
     else:
         todo, reasons = [], {}
         for name, url in todo_all:
