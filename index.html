@@ -447,7 +447,14 @@
 (function () {
   "use strict";
 
-  var FEATURED = ["castle"];
+  // His rank order (2026-10-02): best product ideas first. Everything after
+  // "paper" falls back to most-recently-pushed.
+  var FEATURED = ["castle", "phoenix", "id", "playback", "shiftwork", "40",
+                  "tv", "printer", "walkthru", "sdm", "grasshopper",
+                  "chains", ".dog", "news", "pay", "paper"];
+  // Only the top FEATURED_WIDE get double-width tiles; the rest are
+  // ordered but normal-sized.
+  var FEATURED_WIDE = 4;
   // Slugs in FEATURED/CAROUSEL are lowercase; repo names come back from
   // the API lowercase too, but group tiles use the group's display title
   // ("Castle"). norm() keeps the featured matching case-proof.
@@ -516,7 +523,8 @@
   // Tile copy: one-line pitch from projects/pitches.json; raw repo
   // description stays on the object for search filtering only.
   function tile(r) {
-    var a = el("article", "tile" + (FEATURED.indexOf(norm(r.name)) !== -1 ? " wide" : "") +
+    var fi = FEATURED.indexOf(norm(r.name));
+    var a = el("article", "tile" + (fi !== -1 && fi < FEATURED_WIDE ? " wide" : "") +
       " cat-" + (r.category || "Apps").toLowerCase());
     a.setAttribute("aria-label", r.name);
 
@@ -548,13 +556,14 @@
   var PITCHES = {};
 
   // ---- featured carousel ----
-  var CAROUSEL = ["castle", "icecream", "wax", "phoenix"];
+  // Mirrors the top of FEATURED: his best product ideas, in his order.
+  var CAROUSEL = ["castle", "phoenix", "id", "playback"];
   // Short taglines only: name + 3-6 words on every slide, no paragraphs.
   var CAROUSEL_TAGS = {
     "castle": "Your data, your rules.",
-    "icecream": "The global ice cream landscape.",
-    "wax": "Vinyl drop alerts.",
-    "phoenix": "A fresh start for devices."
+    "phoenix": "A fresh start for devices.",
+    "id": "One age gate for DOGS.",
+    "playback": "A DJ booth in the browser."
   };
 
   function slideImg(r) {
@@ -721,9 +730,11 @@
   function sorters(mode) {
     return {
       featured: function (x, y) {
-        var fx = FEATURED.indexOf(x.name), fy = FEATURED.indexOf(y.name);
-        if ((fx !== -1) !== (fy !== -1)) return fx === -1 ? 1 : -1;
-        return new Date(y.pushed_at) - new Date(x.pushed_at);
+        var fx = FEATURED.indexOf(norm(x.name)), fy = FEATURED.indexOf(norm(y.name));
+        if (fx === -1 && fy === -1) return new Date(y.pushed_at) - new Date(x.pushed_at);
+        if (fx === -1) return 1;
+        if (fy === -1) return -1;
+        return fx - fy;
       },
       name: function (x, y) { return x.name.localeCompare(y.name); },
       updated: function (x, y) { return new Date(y.pushed_at) - new Date(x.pushed_at); },
