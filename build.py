@@ -31,6 +31,9 @@ API = "https://api.github.com"
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "data.json")
 
+# Never on Tower, per his explicit order (2026-10-02).
+SKIP_REPOS = {"cornell7"}
+
 # SHA-256 digests of blocklisted personal-name tokens. The plaintext tokens
 # are NEVER stored in source or in any repo — they live only in the
 # operator's PII_BLOCKLIST env var. Do not attempt to reverse these.
@@ -278,6 +281,9 @@ def main():
         # Public site: never list private repos. The org keeps most work
         # private; only publishable repos appear here.
         if raw.get("private"):
+            continue
+        # Never on Tower, per his explicit order (2026-10-02).
+        if raw.get("name") in SKIP_REPOS:
             continue
         # Guard clause: only keep allowlisted fields from the raw payload.
         if not all(k in raw for k in ("name", "html_url")):
