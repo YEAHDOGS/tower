@@ -2772,6 +2772,23 @@
    "hub": null,
    "art": null,
    "progress": []
+  },
+  {
+   "name": "doomscroll",
+   "description": "Put a light on it. A floating bubble that tracks your active scrolling in the social apps \u2014 time, content, summaries \u2014 searchable history, weekly reckoning. Android & iOS.",
+   "language": "HTML",
+   "stars": 0,
+   "pushed_at": "2026-10-16T23:38:09Z",
+   "open_issues": 0,
+   "open_prs": 0,
+   "commits": 1,
+   "url": "https://github.com/YEAHDOGS/doomscroll",
+   "branch": "master",
+   "workflow": null,
+   "pages": "https://yeahdogs.github.io/doomscroll/",
+   "hub": "projects/doomscroll/",
+   "art": null,
+   "progress": []
   }
  ]
 }
