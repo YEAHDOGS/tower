@@ -2789,6 +2789,40 @@
    "hub": "projects/doomscroll/",
    "art": null,
    "progress": []
+  },
+  {
+   "name": "gun",
+   "description": "Always listening. A 24/7 pocket audio recorder \u2014 every conversation captured and on the record.",
+   "language": "HTML",
+   "stars": 0,
+   "pushed_at": "2026-10-17T23:38:02Z",
+   "open_issues": 0,
+   "open_prs": 0,
+   "commits": 1,
+   "url": "https://github.com/YEAHDOGS/gun",
+   "branch": "master",
+   "workflow": null,
+   "pages": "https://yeahdogs.github.io/gun/",
+   "hub": "projects/gun/",
+   "art": null,
+   "progress": []
+  },
+  {
+   "name": "rock",
+   "description": "Set in stone. A USB drive with a removable write-lock switch. Ships loaded, SHA-512 verified, encrypted.",
+   "language": "HTML",
+   "stars": 0,
+   "pushed_at": "2026-10-17T23:38:02Z",
+   "open_issues": 0,
+   "open_prs": 0,
+   "commits": 1,
+   "url": "https://github.com/YEAHDOGS/rock",
+   "branch": "master",
+   "workflow": null,
+   "pages": "https://yeahdogs.github.io/rock/",
+   "hub": "projects/rock/",
+   "art": null,
+   "progress": []
   }
  ]
 }
