@@ -2823,6 +2823,23 @@
    "hub": "projects/rock/",
    "art": null,
    "progress": []
+  },
+  {
+   "name": "fetch",
+   "description": "Talk to AI. Make songs in Ableton. A VST3 plugin with a chat panel \u2014 type a prompt, it generates MIDI straight into your track. Local models or cloud, no login.",
+   "language": "C++",
+   "stars": 0,
+   "pushed_at": "2026-10-19T16:09:48Z",
+   "open_issues": 0,
+   "open_prs": 0,
+   "commits": 1,
+   "url": "https://github.com/YEAHDOGS/fetch",
+   "branch": "master",
+   "workflow": null,
+   "pages": null,
+   "hub": "projects/fetch/",
+   "art": null,
+   "progress": []
   }
  ]
 }

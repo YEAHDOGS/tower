@@ -112,6 +112,10 @@
   "rock": {
    "percent_complete": null,
    "source": "founder concept 2026-10-17; landing page shipped, hardware in concept"
+  },
+  "fetch": {
+   "percent_complete": null,
+   "source": "founder concept 2026-10-19; repo skeleton shipped, plugin in concept"
   }
  },
  "groups": {
